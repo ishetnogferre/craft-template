@@ -2,18 +2,18 @@
 /**
  * SiteModule AssetBundle
  *
- * @link      https://nystudio107.com
- * @copyright Copyright (c) 2017 nystudio107
+ * @link      https://www.marbles.be
+ * @copyright Copyright (c) 2017 marbles
  */
 
-namespace modules\nystudio107\sitemodule\assetbundles\sitemodule;
+namespace modules\marbles\sitemodule\assetbundles\sitemodule;
 
 use craft\redactor\assets\redactor\RedactorAsset;
 use craft\web\AssetBundle;
 use craft\web\assets\cp\CpAsset;
 
 /**
- * @author    nystudio107
+ * @author    marbles
  * @package   SiteModule
  * @since     1.0.0
  * @inheritdoc

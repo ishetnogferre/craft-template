@@ -2,13 +2,13 @@
 /**
  * SiteModule
  *
- * @link      https://nystudio107.com
- * @copyright Copyright (c) 2017 nystudio107
+ * @link      https://www.marbles.be
+ * @copyright Copyright (c) 2017 marbles
  */
 
-namespace modules\nystudio107\sitemodule;
+namespace modules\marbles\sitemodule;
 
-use modules\nystudio107\sitemodule\assetbundles\sitemodule\SiteModuleAsset;
+use modules\marbles\sitemodule\assetbundles\sitemodule\SiteModuleAsset;
 
 use Craft;
 use craft\events\TemplateEvent;
@@ -19,7 +19,7 @@ use yii\base\InvalidConfigException;
 use yii\base\Module;
 
 /**
- * @author    nystudio107
+ * @author    marbles
  * @package   SiteModule
  * @since     1.0.0
  * @inheritdoc
