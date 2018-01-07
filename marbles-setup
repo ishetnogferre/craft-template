@@ -18,6 +18,9 @@ const INSTALL_PLUGINS = [
     'image-optimize',
     'minify',
     'typogrify',
+    'mix',
+    'position-fieldtype',
+    'schema',
 ];
 
 const CRAFT_SCRIPTS_SETUP = [
