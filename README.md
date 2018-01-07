@@ -39,11 +39,11 @@ Obviously you're free to remove whatever components you don't need/want to use.
 
 This project package works exactly the way Pixel & Tonic's [craftcms/craft](https://github.com/craftcms/craft) package works; you create a new project by first creating & installing the project:
 
-    composer create-project marbles/craft PATH -s RC
+    composer create-project marbles/craft PATH
 
 Make sure that `PATH` is the path to your project, including the name you want for the project, e.g.:
 
-    composer create-project marbles/craft craft3 -s RC
+    composer create-project marbles/craft craft3
 
 Then `cd` to your new project directory, and run Craft's `setup` console command to create your `.env` environments and optionally install:
 
