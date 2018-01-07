@@ -213,7 +213,7 @@ function welcomeNysCraft()
     $script = './craft setup';
     outputString(PHP_EOL.'    '.$script, Console::FG_GREEN);
     outputString(PHP_EOL.'Then to set up Craft 3 Multi-Environment & Craft-Scripts, run:', Console::FG_YELLOW);
-    $script = './nys-setup';
+    $script = './marbles-setup';
     outputString(PHP_EOL.'    '.$script, Console::FG_GREEN);
     outputString(PHP_EOL.'Your setup is not complete until you run these two commands.', Console::FG_YELLOW);
 }
@@ -224,7 +224,7 @@ function welcomeNysCraft()
 function updateNysCraft()
 {
     // Say hello
-    outputString(PHP_EOL.'Updating nys-setup', Console::FG_YELLOW);
+    outputString(PHP_EOL.'Updating marbles-setup', Console::FG_YELLOW);
     // Set up Craft-Scripts
     setupCraftScripts();
     // Say goodbye
@@ -237,7 +237,7 @@ function updateNysCraft()
 function setupNysCraft()
 {
     // Say hello
-    outputString(PHP_EOL.'Welcome to nys-setup', Console::FG_YELLOW);
+    outputString(PHP_EOL.'Welcome to marbles-setup', Console::FG_YELLOW);
     // Set up Craft-Scripts
     setupCraftScripts();
     // Setup Craft 3 Multi-Environment
