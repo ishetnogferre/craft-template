@@ -1,8 +1,11 @@
-<p align="center"><a href="https://craftcms.com/" target="_blank"><img width="300" height="300" src="https://nystudio107.com/img/site/nystudio107_submark.svg" alt="nystudio107"></a></p>
+<p align="center">
+<a href="https://www.marbles.be/" target="_blank"><img width="100" height="100" src="http://imgur.com/S5hGxX3.jpg" alt="Marbles"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://craftcms.com/" target="_blank"><img width="312" height="90" src="https://craftcms.com/craftcms.svg" alt="Craft CMS"></a>
+</p>
 
-## About nystudio107/craft
+## About marbles/craft
 
-This is an alternate scaffolding package for Craft 3 CMS projects to Pixel & Tonic's canonical [craftcms/craft](https://github.com/craftcms/craft) package.
+This is an alternate scaffolding package for Craft 3 CMS projects to Pixel & Tonic's canonical [craftcms/craft](https://github.com/craftcms/craft) package based on [nystudio107/craft](https://github.com/nystudio107/craft).
 
 In addition to setting up a new Craft 3 CMS project, this project sets up:
  
@@ -12,22 +15,19 @@ In addition to setting up a new Craft 3 CMS project, this project sets up:
 ...and sets up some other base scaffolding as described to the following articles:
 
 * [A Better package.json for the Frontend](https://nystudio107.com/blog/a-better-package-json-for-the-frontend)
-* [A Gulp Workflow for Frontend Development Automation](https://nystudio107.com/blog/a-gulp-workflow-for-frontend-development-automation)
+* Frontend Development Automation using Laravel Mix
 * [Implementing Critical CSS on your website](https://nystudio107.com/blog/implementing-critical-css)
-* [Simple Static Asset Versioning in Craft CMS](https://nystudio107.com/blog/simple-static-asset-versioning)
 * [Enhancing a Craft CMS 3 Website with a Custom Module](https://nystudio107.com/blog/simple-static-asset-versioning)
 
-It also installs a few base plugins that I use on every project. You can read more about it in the [Setting up a New Craft 3 CMS Project](https://nystudio107.com/blog/enhancing-a-craft-cms-3-website-with-a-custom-module) article.
+It also installs a few base plugins that we use on every project.
 
 ## Assumptions Made
 
-Since this is boilerplate that nystudio107 uses for projects, it is by definition opinionated, and has a number of assumptions:
+Since this is boilerplate that Marbles uses for projects, it is by definition opinionated, and has a number of assumptions:
 
-* Gulp is used as a the frontend workflow automation tool
-* [Vue](https://github.com/vuejs/vue) is used as the frontend JavaScript framework, with [Axois](https://github.com/axios/axios) providing the http client
+* Laravel Mix is used as a the frontend workflow automation tool
+* [Vue](https://github.com/vuejs/vue) is used as the frontend JavaScript framework, with [Axios](https://github.com/axios/axios) providing the http client
 * [Tailwind CSS](https://tailwindcss.com/docs/what-is-tailwind) is used as the utility-first CSS framework
-* Nginx with `ssi on;` is used as the web server
-* Redis is used as the PHP Session and Craft data caching method
 * Critical CSS is used site-wide
 * FontFaceObserver is used for font loading
 * Craft-Scripts are used for db/asset synching
@@ -35,30 +35,30 @@ Since this is boilerplate that nystudio107 uses for projects, it is by definitio
 
 Obviously you're free to remove whatever components you don't need/want to use.
 
-## Using nystudio107/craft
+## Using marbles/craft
 
 This project package works exactly the way Pixel & Tonic's [craftcms/craft](https://github.com/craftcms/craft) package works; you create a new project by first creating & installing the project:
 
-    composer create-project nystudio107/craft PATH -s RC
+    composer create-project marbles/craft PATH -s RC
 
 Make sure that `PATH` is the path to your project, including the name you want for the project, e.g.:
 
-    composer create-project nystudio107/craft craft3 -s RC
+    composer create-project marbles/craft craft3 -s RC
 
 Then `cd` to your new project directory, and run Craft's `setup` console command to create your `.env` environments and optionally install:
 
     cd PATH
     ./craft setup
 
-Finally, run the `nys-setup` command to configure Craft-Scripts & Craft 3 Multi-Environment based on your newly created `.env` settings:
+Finally, run the `marbles-setup` command to configure Craft-Scripts & Craft 3 Multi-Environment based on your newly created `.env` settings:
 
-    ./nys-setup
+    ./marbles-setup
 
 That's it, enjoy!
 
 If you ever delete the `vendor` folder or such, just re-run:
 
-    ./nys-setup
+    ./marbles-setup
 
 ...and it will re-create the symlink to your `.env.sh`; don't worry, it won't stomp on any changes you've made.
 
