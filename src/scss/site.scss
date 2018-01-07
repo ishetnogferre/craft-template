@@ -30,9 +30,7 @@
  */
 
 /* -- CSS variables */
-:root {
-    --outlineColor: #5db7a5,
-}
+$outlineColor: #5db7a5;
 
 /* -- For screen readers */
 .sr-only {
@@ -48,7 +46,7 @@
 
 /* -- A subtle focus style for keyboard-input elements */
 .text-input:focus {
-    outline: 1px solid var(--outlineColor); /* Adjust to suit your tastes */
+    outline: 1px solid $outlineColor; /* Adjust to suit your tastes */
 }
 
 /* -- No outline for non-keyboard-inputs elements */
@@ -58,7 +56,7 @@ select:focus {
 }
 
 html.user-is-tabbing *:focus {
-    outline: 2px solid var(--outlineColor) !important; /* for non-webkit browsers */
+    outline: 2px solid $outlineColor !important; /* for non-webkit browsers */
     outline: 5px auto -webkit-focus-ring-color !important;
 }
 
