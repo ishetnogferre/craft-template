@@ -1,7 +1,7 @@
 {
-  "name": "nystudio107/craft",
-  "description": "nystudio107 Craft 3 CMS scaffolding project",
-  "version": "1.0.9",
+  "name": "marbles/craft",
+  "description": "Marbles Craft 3 CMS scaffolding project",
+  "version": "1.0.0",
   "keywords": [
     "craft",
     "cms",
@@ -12,10 +12,10 @@
   "homepage": "https://craftcms.com/",
   "type": "project",
   "support": {
-    "email": "info@nystudio107.com",
-    "issues": "https://github.com/nystudio107/craft/issues",
-    "source": "https://github.com/nystudio107/craft",
-    "docs": "https://github.com/nystudio107/craft"
+    "email": "hallo@marbles.be",
+    "issues": "https://github.com/marbles/craft/issues",
+    "source": "https://github.com/marbles/craft",
+    "docs": "https://github.com/marbles/craft"
   },
   "minimum-stability": "RC",
   "require": {
@@ -45,10 +45,10 @@
     ],
     "post-create-project-cmd": [
       "@php craft setup/welcome",
-      "@php nys-setup welcome"
+      "@php marbles-setup welcome"
     ],
     "post-update-cmd": [
-      "@php nys-setup update"
+      "@php marbles-setup update"
     ]
   }
 }
