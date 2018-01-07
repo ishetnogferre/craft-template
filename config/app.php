@@ -18,7 +18,7 @@ return [
     // All environments
     '*' => [
         'modules' => [
-            'site-module' => \modules\nystudio107\sitemodule\SiteModule::class,
+            'site-module' => \modules\marbles\sitemodule\SiteModule::class,
         ],
         'bootstrap' => ['site-module'],
     ],
@@ -42,7 +42,7 @@ return [
                     'database' => 1,
                 ],
             ],
-            'session' => function() {
+            'session' => function () {
                 $stateKeyPrefix = md5('Craft.'.craft\web\Session::class.'.'.Craft::$app->id);
                 /** @var yii\redis\Session $session */
                 $session = Craft::createObject([
@@ -76,7 +76,7 @@ return [
                     'database' => 2,
                 ],
             ],
-            'session' => function() {
+            'session' => function () {
                 $stateKeyPrefix = md5('Craft.'.craft\web\Session::class.'.'.Craft::$app->id);
                 /** @var yii\redis\Session $session */
                 $session = Craft::createObject([
