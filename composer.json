@@ -31,8 +31,8 @@
     "nystudio107/craft3-minify": "^1.2.5",
     "nystudio107/craft3-typogrify": "^1.1.1",
     "misterbk/mix": "^1.4",
-    "rias/craft3-position-fieldtype": "^1.0",
-    "rias/craft3-schema": "^1.0"
+    "rias/craft-position-fieldtype": "^1.0",
+    "rias/craft-schema": "^1.0"
   },
   "autoload": {
     "psr-4": {
