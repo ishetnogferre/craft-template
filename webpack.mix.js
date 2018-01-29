@@ -68,7 +68,7 @@ if (mix.inProduction()) {
     ]);
 
     pkg.globs.critical.forEach(function (element) {
-        const criticalSrc = pkg.urls.critical + element.url;
+        const criticalSrc = pkg.url + element.url;
         const criticalDest = pkg.paths.templates + element.template + '_critical.min.css';
 
         webpackPlugins = webpackPlugins.concat([

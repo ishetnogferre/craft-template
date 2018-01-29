@@ -1,48 +1,98 @@
 <?php
 /**
+ * Craft 3 Multi-Environment
+ * Efficient and flexible multi-environment config for Craft 3 CMS
+ *
+ * $_ENV constants are loaded by craft3-multi-environment from .env.php via
+ * ./web/index.php for web requests, and ./craft for console requests
+ *
+ * @author    nystudio107
+ * @copyright Copyright (c) 2017 nystudio107
+ * @link      https://nystudio107.com/
+ * @package   craft3-multi-environment
+ * @since     1.0.5
+ * @license   MIT
+ */
+
+/**
  * General Configuration
  *
- * All of your system's general configuration settings go in here. You can see a
- * list of the available settings in vendor/craftcms/cms/src/config/GeneralConfig.php.
+ * All of your system's general configuration settings go in here.
+ * You can see a list of the default settings in src/config/GeneralConfig.php
  */
 
 return [
-    // Global settings
+
+    // All environments
     '*' => [
-        // Default Week Start Day (0 = Sunday, 1 = Monday...)
-        'defaultWeekStartDay' => 0,
-
-        // Enable CSRF Protection (recommended, will be enabled by default in Craft 3)
+        // Craft defined config settings
+        'defaultSearchTermOptions' => [
+            'subLeft' => true,
+            'subRight' => true,
+        ],
         'enableCsrfProtection' => true,
-
-        // Whether "index.php" should be visible in URLs
+        'generateTransformsBeforePageLoad' => true,
         'omitScriptNameInUrls' => true,
-
-        // Control Panel trigger word
-        'cpTrigger' => 'admin',
-
-        // The secure key Craft will use for hashing and encrypting data
         'securityKey' => getenv('SECURITY_KEY'),
+        'useEmailAsUsername' => true,
+        'usePathInfo' => true,
+
+        // Aliases parsed in sites’ settings, volumes’ settings, and Local volumes’ settings
+        'aliases' => [
+            '@basePath' => getenv('BASE_PATH'),
+            '@baseUrl' => getenv('BASE_URL'),
+        ],
+        // Custom site-specific config settings
+        'custom' => [
+            'craftEnv' => CRAFT_ENVIRONMENT,
+        ]
     ],
 
-    // Dev environment settings
-    'dev' => [
-        // Base site URL
-        'siteUrl' => null,
-
-        // Dev Mode (see https://craftcms.com/support/dev-mode)
-        'devMode' => true,
+    // Live (production) environment
+    'live' => [
+        // Craft defined config settings
+        'allowUpdates' => false,
+        'backupOnUpdate' => false,
+        'devMode' => false,
+        'enableTemplateCaching' => true,
+        'isSystemOn' => true,
+        // Aliases parsed in sites’ settings, volumes’ settings, and Local volumes’ settings
+        'aliases' => [
+        ],
+        // Custom site-specific config settings
+        'custom' => [
+        ]
     ],
 
-    // Staging environment settings
+    // Staging (pre-production) environment
     'staging' => [
-        // Base site URL
-        'siteUrl' => null,
+        // Craft defined config settings
+        'allowUpdates' => false,
+        'backupOnUpdate' => false,
+        'devMode' => false,
+        'enableTemplateCaching' => true,
+        'isSystemOn' => false,
+        // Aliases parsed in sites’ settings, volumes’ settings, and Local volumes’ settings
+        'aliases' => [
+        ],
+        // Custom site-specific config settings
+        'custom' => [
+        ]
     ],
 
-    // Production environment settings
-    'production' => [
-        // Base site URL
-        'siteUrl' => null,
+    // Local (development) environment
+    'local' => [
+        // Craft defined config settings
+        'allowUpdates' => true,
+        'backupOnUpdate' => true,
+        'devMode' => true,
+        'enableTemplateCaching' => false,
+        'isSystemOn' => true,
+        // Aliases parsed in sites’ settings, volumes’ settings, and Local volumes’ settings
+        'aliases' => [
+        ],
+        // Custom site-specific config settings
+        'custom' => [
+        ]
     ],
 ];

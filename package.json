@@ -1,90 +1,41 @@
 {
   "name": "marbles",
   "version": "1.0.0",
-  "description": "Website for marbles.be",
+  "description": "Website by Marbles",
   "main": "webpack.mix.js",
   "author": "Marbles <rias@marbles.be>",
   "copyright": "marbles",
-  "license": "UNLICENSED",
   "private": true,
   "paths": {
     "src": {
       "base": "./src/",
-      "fonts": "./src/fonts/",
-      "img": "./src/img/",
-      "json": "./src/json/",
       "js": "./src/js/",
       "scss": "./src/scss/"
     },
     "dist": {
       "base": "./web/dist/",
       "scss": "./web/dist/css/",
-      "js": "./web/dist/js/",
-      "fonts": "./web/dist/fonts/",
-      "img": "./web/dist/img/"
+      "js": "./web/dist/js/"
     },
-    "scss": {
-      "src": "./src/scss/site.scss",
-      "dest": "./web/css/"
-    },
-    "craftConfig": "./config/",
     "templates": "./templates/"
   },
-  "urls": {
-    "live": "https://www.marbles.be/",
-    "local": "http://www.marbles.wip/",
-    "critical": "https://www.marbles.be/"
-  },
+  "url": "https://www.marbles.be/",
   "vars": {
     "scssName": "site.scss",
     "cssName": "site.css",
     "jsName": "site.js"
   },
   "globs": {
-    "distCss": [
-      "./build/css/*.css"
-    ],
-    "img": [
-      "./web/img/"
-    ],
-    "components": [],
-    "fonts": [
-      "./build/fonts/fontello/font/*.{eot,ttf,woff,woff2}",
-      "./src/fonts/*.{eot,ttf,woff,woff2}"
-    ],
     "purgecss": [
       "./templates/**/*.{html,twig}"
     ],
-    "purgecssWhitelist": [],
     "critical": [
       {
         "url": "",
         "template": "index"
-      },
-      {
-        "url": "offline",
-        "template": "offline"
-      },
-      {
-        "url": "error",
-        "template": "error"
-      },
-      {
-        "url": "503",
-        "template": "503"
-      },
-      {
-        "url": "404",
-        "template": "404"
       }
     ],
-    "criticalWhitelist": [],
-    "download": [
-      {
-        "url": "https://www.google-analytics.com/analytics.js",
-        "dest": "./web/js/"
-      }
-    ],
+    "download": [],
     "inlineJs": [
       "./node_modules/fg-loadcss/src/loadCSS.js",
       "./node_modules/fg-loadcss/src/cssrelpreload.js",
@@ -146,7 +97,6 @@
     "dev": "npm run development",
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch-poll": "npm run watch -- --watch-poll",
     "prod": "npm run production",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },

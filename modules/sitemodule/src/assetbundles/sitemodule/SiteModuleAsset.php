@@ -6,7 +6,7 @@
  * @copyright Copyright (c) 2017 marbles
  */
 
-namespace modules\marbles\sitemodule\assetbundles\sitemodule;
+namespace modules\sitemodule\assetbundles\sitemodule;
 
 use craft\redactor\assets\redactor\RedactorAsset;
 use craft\web\AssetBundle;
