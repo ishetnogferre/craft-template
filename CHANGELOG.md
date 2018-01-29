@@ -1,5 +1,22 @@
 # nystudio107/craft Change Log
 
+## 1.0.13 - 2018.01.26
+### Changed
+* Tell Composer to install PHP 7.0-compatible dependencies
+* Fixed `sitemodule` namespacing
+
+## 1.0.12 - 2018.01.25
+### Changed
+* Switched from `craft.app.config.general.custom.baseUrl` to `alias('@baseUrl')`
+
+## 1.0.11 - 2018.01.23
+### Added
+* Added `post-install-cmd` to `composer.json`
+
+## 1.0.10 - 2018.01.18
+### Changed
+* Synced the `modules/site` with `site-module` and pluginfactory.io generated modules
+
 ## 1.0.9 - 2018.01.06
 ### Added
 * Added a static asset filename-based cache busting `LocalValetDriver.php` for Laravel Valet
