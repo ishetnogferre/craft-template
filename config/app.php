@@ -17,8 +17,10 @@ return [
 
     // All environments
     '*' => [
-        'modules' => [
-            'site-module' => \modules\marbles\sitemodule\SiteModule::class,
+        'modules'   => [
+            'site-module' => [
+                'class' => \modules\marbles\sitemodule\SiteModule::class,
+            ],
         ],
         'bootstrap' => ['site-module'],
     ],
