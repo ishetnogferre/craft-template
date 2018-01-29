@@ -17,11 +17,11 @@
       "scss": "./src/scss/"
     },
     "dist": {
-      "base": "./web/",
-      "scss": "./web/css/",
-      "js": "./web/js/",
-      "fonts": "./web/fonts/",
-      "img": "./web/img/"
+      "base": "./web/dist/",
+      "scss": "./web/dist/css/",
+      "js": "./web/dist/js/",
+      "fonts": "./web/dist/fonts/",
+      "img": "./web/dist/img/"
     },
     "scss": {
       "src": "./src/scss/site.scss",
@@ -88,12 +88,8 @@
     "inlineJs": [
       "./node_modules/fg-loadcss/src/loadCSS.js",
       "./node_modules/fg-loadcss/src/cssrelpreload.js",
-      "./node_modules/fontfaceobserver/fontfaceobserver.js",
-      "./node_modules/loadjs/dist/loadjs.min.js",
       "./node_modules/tiny-cookie/dist/tiny-cookie.min.js",
-      "./src/js/inline/tab-handler.js",
-      "./src/js/inline/register-service-worker.js",
-      "./src/js/inline/asyncload-site-fonts.js"
+      "./src/js/inline/tab-handler.js"
     ]
   },
   "dependencies": {
@@ -107,10 +103,8 @@
     "@fortawesome/vue-fontawesome": "^0.0.22",
     "axios": "^0.17.1",
     "fg-loadcss": "^2.0.1",
-    "fontfaceobserver": "^2.0.13",
     "jquery": "^3.2.1",
     "lazysizes": "^2.0.6",
-    "loadjs": "^3.5.1",
     "picturefill": "^3.0.2",
     "tiny-cookie": "^2.1.1",
     "vue": "^2.5.9"
