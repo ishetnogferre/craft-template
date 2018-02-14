@@ -1,7 +1,6 @@
 {# @var craft \craft\web\twig\variables\CraftVariable #}
 {%- minify -%}
 {% set baseUrl = alias('@baseUrl') ~ '/' %}
-{% set staticAssetsVersion = craft.app.config.general.custom.staticAssetsVersion %}
 {% header "Link: <#{baseUrl}>; rel=dns-prefetch;,<#{baseUrl}>; rel=preconnect; crossorigin;" %}
 <!DOCTYPE html>
 {%- endminify -%}
@@ -12,20 +11,19 @@
         <link rel="preconnect" href="{{ baseUrl }}" crossorigin>
     
         {# -- Any <link> tags that should be included in the header #}
-        {% block _head_links %}
-        {% endblock %}
-        
-        {% import "_partials/_macros.twig" as macro %}
-        {% include "_partials/_global_header.twig" %}
+        {% block head_links %}{% endblock %}
+
+        {% include "_layouts/_global_header.twig" %}
     
         <script>
             {{ source("_inlinejs/tiny-cookie.min.js") }}
-            {{ source("_inlinejs/tab-handler.js") }}
         </script>
 {%- endminify -%}
 
         {# -- Inline CSS block used by templates for Critical CSS #}
-        {% set inline_css = block("_inline_css") %}
+        {% set inline_css = block("inline_css") %}
+
+        {# -- Only use Critical CSS & LoadCSS when we have it available to prevent flashing #}
         {% if inline_css is not empty %}
             <link rel="preload" href="{{ mix('/css/site.css') }}" as="style" onload="this.rel='stylesheet'">
             <noscript><link rel="stylesheet" href="{{ mix('/css/site.css') }}"></noscript>
@@ -44,7 +42,7 @@
                             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
                         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                    })(window,document,'script','dataLayer','GTM-N24LW9M');</script>
+                    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
                 <!-- End Google Tag Manager -->
             {% endif %}
         
@@ -62,36 +60,27 @@
             </script>
 
         {# -- </head> JS -- #}
-        {% block _head_js %}
-        {% endblock %}
-        
+        {% block head_js %}{% endblock %}
     </head>
     
     {# -- HTML Body -- #}
     <body>
         <div id="page-container">
 
-            {# -- Info header, including _navbar.twig -- #}
-            {% include "_partials/_info_header.twig" %}
+            {# -- Header, including navbar.twig -- #}
+            {% include "_partials/_header.twig" %}
     
-            <div id="content-container" class="container mx-auto">
-                <main>
-                    {# -- Primary content block -- #}
-                    {% block content %}
-                    {% endblock %}
-                </main>
-            </div>
-            
-            {# -- Content that appears below the primary content block -- #}
-            {% block subcontent %}
-            {% endblock %}
-            
+            <main>
+                {# -- Primary content block -- #}
+                {% block content %}
+                {% endblock %}
+            </main>
+
             {# -- Info footer -- #}
             {% include "_partials/_info_footer.twig" %}
-            
-            {# -- HTML Footer -- #}
-            {% include "_partials/_global_footer.twig" %}
 
+            {# -- HTML Footer -- #}
+            {% include "_layouts/_global_footer.twig" %}
         </div>
 
         <script src="{{ mix('/js/manifest.js') }}"></script>
@@ -99,7 +88,7 @@
         <script src="{{ mix('/js/site.js') }}"></script>
 
         {# -- Inline JS -- #}
-        {% block _inline_js %}
+        {% block inline_js %}
         {% endblock %}
         
         {%- endminify -%}

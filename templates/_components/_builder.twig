@@ -1,0 +1,92 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+ # Pagebuilder include template
+ # -----------------------------
+ #
+ # This template is used to output HTML for the main content Matrix field.
+ #
+ # An `entry` variable is expected to be defined.
+-#}
+
+{% set prevType = null %}
+{% set prevPosition = null %}
+{% set nextType = null %}
+{% set nextPosition = null %}
+{% set closedLastRow = true %}
+
+{# TODO: Make sure to set the correct eager loaded properties #}
+{% set blocks = entry.builder.with([
+
+]).all %}
+
+{% macro getPosition(block) %}
+    {%- spaceless %}
+        {% set positionedTypes = ['text', 'image', 'callToAction', 'gallery', 'embed'] %}
+        {{ block.type.handle in positionedTypes and block.position ? block.position : 'center' }}
+    {% endspaceless -%}
+{% endmacro %}
+
+{% from _self import getPosition %}
+
+{% for i, block in blocks %}
+
+    {# If there's no next type, we're on the first type #}
+    {% set type = (nextType ?: block.type) %}
+
+    {# Get the position for this block (left, center, right, full) #}
+    {% set position = (nextPosition ?: getPosition(block)~'') %}
+
+    {# Get the next blockType #}
+    {% set nextType = (not loop.last ? blocks[i+1].type.handle) %}
+
+    {# Get the next position #}
+    {% set nextPosition = (not loop.last ? getPosition(blocks[i+1])~'') %}
+
+    {# Is this block floated to the left or right? #}
+    {% set isFloat = position in ['left', 'right'] %}
+
+    {# Is this a breakout block (a sole floated block before a centered block)? #}
+    {% set isBreakout = (
+        isFloat and type in ['text', 'image'] and
+        (position == 'left' or prevPosition != 'left') and
+        nextPosition == 'center'
+        ) %}
+
+    {# Are we starting a new row? #}
+    {% if position == 'full' %}
+        <div class="md:flex">
+    {% elseif closedLastRow %}
+        <div class="container mx-auto">
+        <div class="md:flex">
+        {%- if (type == 'image' and position == 'center') %}<div class="mx-auto">{% endif -%}
+    {% endif %}
+
+    {# If the element is floated, create a column of 6, otherwise 12 #}
+    <div class="w-{{ isFloat ? '1/2' ? 'full' }}
+        {%- if isBreakout %} breakout{% endif -%}
+        {%- if position == 'right' and prevPosition != 'left' %} ml-auto {% endif -%}
+        ">
+
+        {# Load our component #}
+        {% include '_partials/blocks/' ~ type %}
+
+        {# Close the column #}
+    </div>
+
+    {# Are we closing this row? #}
+    {% if not ((position == 'left' and nextPosition == 'right') or isBreakout) %}
+        {# Do we need to close a column? #}
+        {% if position != 'full' %}
+            </div>
+        {% endif %}
+
+        {# Close the row #}
+        </div>
+        {% set closedLastRow = true %}
+    {% else %}
+        {% set closedLastRow = false %}
+    {% endif %}
+
+    {% set prevType = type %}
+    {% set prevPosition = position %}
+{% endfor %}
