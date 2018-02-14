@@ -14,8 +14,8 @@
     },
     "dist": {
       "base": "./web/dist/",
-      "scss": "./web/dist/css/",
-      "js": "./web/dist/js/"
+      "js": "./web/dist/js/",
+      "scss": "./web/dist/css/"
     },
     "templates": "./templates/"
   },
@@ -39,8 +39,7 @@
     "inlineJs": [
       "./node_modules/fg-loadcss/src/loadCSS.js",
       "./node_modules/fg-loadcss/src/cssrelpreload.js",
-      "./node_modules/tiny-cookie/dist/tiny-cookie.min.js",
-      "./src/js/inline/tab-handler.js"
+      "./node_modules/tiny-cookie/dist/tiny-cookie.min.js"
     ]
   },
   "dependencies": {
