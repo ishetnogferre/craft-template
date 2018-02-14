@@ -29,7 +29,7 @@ class SiteModuleAsset extends AssetBundle
     public function init()
     {
         // Set the path to our AssetBundle source
-        $this->sourcePath = '@site-module/assetbundles/sitemodule/dist';
+        $this->sourcePath = '@modules/sitemodule/assetbundles/sitemodule/dist';
         // Declare AssetBundles that must be loaded first
         $this->depends = [
             CpAsset::class,
