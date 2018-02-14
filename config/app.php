@@ -19,7 +19,7 @@ return [
     '*' => [
         'modules'   => [
             'site-module' => [
-                'class' => \modules\marbles\sitemodule\SiteModule::class,
+                'class' => \modules\sitemodule\SiteModule::class,
             ],
         ],
         'bootstrap' => ['site-module'],
