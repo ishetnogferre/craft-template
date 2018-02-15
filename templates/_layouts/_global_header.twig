@@ -4,6 +4,8 @@
 {# -- Misc header tags -- #}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="csrf-token-name" content="{{ craft.config.csrfTokenName }}">
+<meta name="csrf-token" content="{{ craft.app.request.csrfToken() }}">
 
 {#-- Favicon --#}
 <link rel="apple-touch-icon" sizes="57x57" href="{{ baseUrl }}img/site/apple-touch-icon-57x57.png">

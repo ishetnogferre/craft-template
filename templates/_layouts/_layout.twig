@@ -45,19 +45,6 @@
                     })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
                 <!-- End Google Tag Manager -->
             {% endif %}
-        
-            {# -- PictureFill polyfill -- #}
-            <script>
-                var testImg = document.createElement("img");
-                if (!("srcset" in testImg) || !("sizes" in testImg)) {
-                    document.createElement("picture");
-                    var s = document.createElement("script");
-                    s.setAttribute("src", "{{ baseUrl }}js/picturefill.min.js");
-                    if ("async" in s)
-                        s.setAttribute("async", true);
-                    document.head.appendChild(s);
-                }
-            </script>
 
         {# -- </head> JS -- #}
         {% block head_js %}{% endblock %}

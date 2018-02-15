@@ -1,10 +1,7 @@
-window._ = require('lodash');
 require('picturefill');
 
 try {
     window.$ = window.jQuery = require('jquery');
-    window.lazySizes = require('lazysizes');
-    window.lazySizes.init();
 } catch (e) {
     // Do nothing
     console.log(e);
@@ -26,10 +23,11 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  * a simple convenience so we don't have to attach every token manually.
  */
 
+const tokenName = document.head.querySelector('meta[name="csrf-token-name"]');
 const token = document.head.querySelector('meta[name="csrf-token"]');
 
-if (token) {
-    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+if (token && tokenName) {
+    window.axios.defaults.headers.common[tokenName.content] = token.content;
 } else {
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
