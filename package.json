@@ -54,6 +54,7 @@
     "axios": "^0.17.1",
     "fg-loadcss": "^2.0.1",
     "jquery": "^3.2.1",
+    "object-fit-images": "^3.2.3",
     "picturefill": "^3.0.2",
     "tiny-cookie": "^2.1.1",
     "vue": "^2.5.9"
