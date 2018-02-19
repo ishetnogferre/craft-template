@@ -25,9 +25,6 @@ $(function () {
 const Vue = require('vue');
 window.Vue = Vue;
 
-
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
 new Vue({
-    el: '#app',
+    el: '#site',
 });
