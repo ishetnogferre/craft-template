@@ -19,7 +19,6 @@
   },
   "minimum-stability": "RC",
   "require": {
-    "php": ">=7.0.0",
     "craftcms/cms": "^3.0.0-RC7",
     "craftcms/contact-form": "2.1.1",
     "craftcms/redactor": "1.0.1",
