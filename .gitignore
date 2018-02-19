@@ -12,6 +12,9 @@
 # ASSETS
 /web/assets/*
 
+# SCRIPTS
+scripts
+
 # BUILD FILES
 /bower_components/*
 /node_modules/*
