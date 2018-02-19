@@ -34,7 +34,6 @@ return [
         'generateTransformsBeforePageLoad' => true,
         'omitScriptNameInUrls' => true,
         'securityKey' => getenv('SECURITY_KEY'),
-        'useEmailAsUsername' => true,
         'usePathInfo' => true,
 
         // Aliases parsed in sites’ settings, volumes’ settings, and Local volumes’ settings
