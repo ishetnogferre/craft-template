@@ -25,10 +25,8 @@ const INSTALL_PLUGINS = [
     'schema',
     'expanded-singles',
     'redactor',
-    'nsm-fields',
     'typedlinkfield',
     'contact-form',
-    'architect',
     'async-queue',
 ];
 
@@ -171,6 +169,8 @@ function setupNysCraft()
     initializeGit();
     // Run Webpack for the first time
     runLaravelMix();
+    // Symlink assets folder
+    symlinkAssetsFolder();
     // Say goodbye
     outputString(PHP_EOL.'Setup complete. Have a nice day!', Console::FG_YELLOW);
 }
@@ -193,6 +193,18 @@ function runLaravelMix()
 {
     outputString(PHP_EOL.'Running Laravel Mix', Console::FG_YELLOW);
     executeShellCommand('yarn run dev');
+}
+
+/**
+ * Symlink the assets folder to storage
+ */
+function symlinkAssetsFolder()
+{
+    outputString(PHP_EOL.'Symlinking Assets Folder', Console::FG_YELLOW);
+    // Make sure the storage/assets folder exists
+    executeShellCommand('mkdir -p storage/assets');
+    // Create the symlink
+    createSymLink('storage/assets', 'web/assets');
 }
 
 /**

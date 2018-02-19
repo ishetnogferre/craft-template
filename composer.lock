@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8b98b8cabb87d9f362c7a1147cc5f401",
+    "content-hash": "f33b1a1518e4c8087f5e5585a5359ae6",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -2458,16 +2458,16 @@
         },
         {
             "name": "ostark/craft-async-queue",
-            "version": "1.1.5",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ostark/craft-async-queue.git",
-                "reference": "c61cac7d6aa85ecfabc5aa434bfac86044cb1e99"
+                "reference": "4faf8f59481681e2de3246fff0c28185109077c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ostark/craft-async-queue/zipball/c61cac7d6aa85ecfabc5aa434bfac86044cb1e99",
-                "reference": "c61cac7d6aa85ecfabc5aa434bfac86044cb1e99",
+                "url": "https://api.github.com/repos/ostark/craft-async-queue/zipball/4faf8f59481681e2de3246fff0c28185109077c4",
+                "reference": "4faf8f59481681e2de3246fff0c28185109077c4",
                 "shasum": ""
             },
             "require": {
@@ -2486,7 +2486,6 @@
                     "ostark\\AsyncQueue\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2498,13 +2497,17 @@
             ],
             "description": "A queue handler that moves queue execution to a non-blocking background process",
             "keywords": [
-                "Craft",
                 "cms",
+                "craft",
                 "craft-plugin",
                 "craftcms",
                 "queue"
             ],
-            "time": "2017-12-05T18:46:11+00:00"
+            "support": {
+                "docs": "https://github.com/ostark/craft-async-queue/blob/master/README.md",
+                "issues": "https://github.com/ostark/craft-async-queue/issues"
+            },
+            "time": "2018-02-19T20:51:44+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -2553,62 +2556,6 @@
                 "random"
             ],
             "time": "2017-09-27T21:40:39+00:00"
-        },
-        {
-            "name": "pennebaker/craft-architect",
-            "version": "2.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Pennebaker/craft-architect.git",
-                "reference": "8c7e4329d6d4d2bd245afba253a3d3a4d4b984e6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Pennebaker/craft-architect/zipball/8c7e4329d6d4d2bd245afba253a3d3a4d4b984e6",
-                "reference": "8c7e4329d6d4d2bd245afba253a3d3a4d4b984e6",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^3.0.0-RC1"
-            },
-            "type": "craft-plugin",
-            "extra": {
-                "name": "Architect",
-                "handle": "architect",
-                "schemaVersion": "2.0.0",
-                "developer": "Pennebaker",
-                "hasCpSettings": false,
-                "hasCpSection": true,
-                "changelogUrl": "https://raw.githubusercontent.com/Pennebaker/craft-architect/master/CHANGELOG.md",
-                "components": {
-                    "architectService": "pennebaker\\architect\\services\\ArchitectService"
-                },
-                "class": "pennebaker\\architect\\Architect"
-            },
-            "autoload": {
-                "psr-4": {
-                    "pennebaker\\architect\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Pennebaker",
-                    "homepage": "https://pennebaker.com"
-                }
-            ],
-            "description": "CraftCMS plugin to generate content models from JSON data.",
-            "keywords": [
-                "Architect",
-                "Craft",
-                "cms",
-                "craft-plugin",
-                "craftcms"
-            ],
-            "time": "2018-02-19T02:49:28+00:00"
         },
         {
             "name": "pimple/pimple",
@@ -3810,20 +3757,20 @@
         },
         {
             "name": "verbb/expanded-singles",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/verbb/expanded-singles.git",
-                "reference": "1c466ceeaba921bb50912a04f27ec316bb9e517e"
+                "reference": "9f36226c02a94ed90634fa6a8c128452f9e8bc36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/expanded-singles/zipball/1c466ceeaba921bb50912a04f27ec316bb9e517e",
-                "reference": "1c466ceeaba921bb50912a04f27ec316bb9e517e",
+                "url": "https://api.github.com/repos/verbb/expanded-singles/zipball/9f36226c02a94ed90634fa6a8c128452f9e8bc36",
+                "reference": "9f36226c02a94ed90634fa6a8c128452f9e8bc36",
                 "shasum": ""
             },
             "require": {
-                "craftcms/cms": "~3.0.0-beta.23"
+                "craftcms/cms": "^3.0.0-RC1"
             },
             "type": "craft-plugin",
             "extra": {
@@ -3833,7 +3780,8 @@
                 "schemaVersion": "1.0.0",
                 "hasCpSettings": true,
                 "hasCpSection": false,
-                "changelogUrl": "https://raw.githubusercontent.com/verbb/expanded-singles/master/CHANGELOG.md",
+                "documentationUrl": "https://github.com/verbb/expanded-singles",
+                "changelogUrl": "https://raw.githubusercontent.com/verbb/expanded-singles/craft-3/CHANGELOG.md",
                 "class": "verbb\\expandedsingles\\ExpandedSingles"
             },
             "autoload": {
@@ -3841,7 +3789,6 @@
                     "verbb\\expandedsingles\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3853,13 +3800,20 @@
             ],
             "description": "A simple plugin for Craft CMS that alters the Entries Index sidebar to list all Singles, rather than grouping them under a 'Singles' link.",
             "keywords": [
-                "Craft",
                 "cms",
+                "craft",
                 "craft-plugin",
                 "craftcms",
                 "expanded singles"
             ],
-            "time": "2017-12-06T22:40:26+00:00"
+            "support": {
+                "email": "support@verbb.io",
+                "issues": "https://github.com/verbb/expanded-singles/issues?state=open",
+                "source": "https://github.com/verbb/expanded-singles",
+                "docs": "https://github.com/verbb/expanded-singles",
+                "rss": "https://github.com/verbb/expanded-singles/commits/v2.atom"
+            },
+            "time": "2018-02-12T11:31:05+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

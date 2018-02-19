@@ -10,7 +10,7 @@
 !/storage/.gitkeep
 
 # ASSETS
-/web/assets/*
+/web/assets
 
 # SCRIPTS
 scripts

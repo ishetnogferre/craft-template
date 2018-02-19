@@ -9,9 +9,6 @@
     <head>
         <link rel="dns-prefetch" href="{{ baseUrl }}">
         <link rel="preconnect" href="{{ baseUrl }}" crossorigin>
-    
-        {# -- Any <link> tags that should be included in the header #}
-        {% block head_links %}{% endblock %}
 
         {% include "_layouts/_global_header.twig" %}
     
@@ -24,7 +21,8 @@
         {% set inline_css = block("inline_css") %}
 
         {# -- Only use Critical CSS & LoadCSS when we have it available to prevent flashing #}
-        {% if inline_css is not empty %}
+        {% if inline_css|trim is not empty %}
+            <style>{{ inline_css | raw }}</style>
             <link rel="preload" href="{{ mix('/css/site.css') }}" as="style" onload="this.rel='stylesheet'">
             <noscript><link rel="stylesheet" href="{{ mix('/css/site.css') }}"></noscript>
             <script>
@@ -51,8 +49,8 @@
     </head>
     
     {# -- HTML Body -- #}
-    <body>
-        <div id="page-container">
+    <body class="leading-normal font-sans tracking-normal text-base text-black">
+        <div id="site">
 
             {# -- Header, including navbar.twig -- #}
             {% include "_partials/_header.twig" %}
@@ -63,8 +61,8 @@
                 {% endblock %}
             </main>
 
-            {# -- Info footer -- #}
-            {% include "_partials/_info_footer.twig" %}
+            {# -- Footer -- #}
+            {% include "_partials/_footer.twig" %}
 
             {# -- HTML Footer -- #}
             {% include "_layouts/_global_footer.twig" %}

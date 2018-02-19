@@ -28,14 +28,13 @@
     "nystudio107/craft-minify": "^1.2.5",
     "nystudio107/craft-scripts": "^1.2.4",
     "nystudio107/craft-typogrify": "^1.1.1",
-    "ostark/craft-async-queue": "^1.1",
-    "pennebaker/craft-architect": "^2.0",
+    "ostark/craft-async-queue": "1.2.0",
     "rias/craft-colour-swatches": "^1.0",
     "rias/craft-position-fieldtype": "^1.0",
     "rias/craft-schema": "^1.0",
     "rias/craft-width-fieldtype": "^1.0",
     "sebastianlenz/linkfield": "1.0.3",
-    "verbb/expanded-singles": "1.0.1",
+    "verbb/expanded-singles": "1.0.2",
     "vlucas/phpdotenv": "^2.4.0"
   },
   "autoload": {

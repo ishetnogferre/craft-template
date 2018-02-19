@@ -2,16 +2,12 @@
 {% extends "_layouts/_layout.twig" %}
 
 {% block inline_css %}
-    <style>
-        {{ source ("index_critical.min.css", ignore_missing = true) }}
-    </style>
+        {{ source (entry.type.handle ~ "_critical.min.css", ignore_missing = true) }}
 {% endblock %}
 
 {% block content %}
 
-    {% if entry.builder %}
-        {% include "_components/_builder.twig" %}
-    {% endif %}
+    {% include "_layouts/pages/" ~ entry.type.handle %}
 
 {% endblock %}
 
