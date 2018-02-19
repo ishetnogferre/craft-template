@@ -23,7 +23,6 @@
     "craftcms/contact-form": "2.1.1",
     "craftcms/redactor": "1.0.1",
     "misterbk/mix": "^1.4",
-    "newism/craft3-fields": "0.0.7",
     "nystudio107/craft-eagerbeaver": "^1.0.0",
     "nystudio107/craft-imageoptimize": "^1.3.2",
     "nystudio107/craft-minify": "^1.2.5",
@@ -35,11 +34,9 @@
     "rias/craft-position-fieldtype": "^1.0",
     "rias/craft-schema": "^1.0",
     "rias/craft-width-fieldtype": "^1.0",
-    "roave/security-advisories": "dev-master",
     "sebastianlenz/linkfield": "1.0.3",
     "verbb/expanded-singles": "1.0.1",
-    "vlucas/phpdotenv": "^2.4.0",
-    "yiisoft/yii2-redis": "^2.0.6"
+    "vlucas/phpdotenv": "^2.4.0"
   },
   "autoload": {
     "psr-4": {
