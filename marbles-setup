@@ -172,7 +172,7 @@ function setupNysCraft()
     // Symlink assets folder
     symlinkAssetsFolder();
     // Say goodbye
-    outputString(PHP_EOL.'Setup complete. Have a nice day!', Console::FG_YELLOW);
+    outputString(PHP_EOL.'Setup complete. Don‘t forget to import the database!', Console::FG_YELLOW);
 }
 
 /**
