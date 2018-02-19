@@ -29,6 +29,7 @@ const INSTALL_PLUGINS = [
     'typedlinkfield',
     'contact-form',
     'architect',
+    'async-queue',
 ];
 
 const CRAFT_SCRIPTS_SETUP = [

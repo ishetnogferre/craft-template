@@ -30,6 +30,7 @@
     "nystudio107/craft-minify": "^1.2.5",
     "nystudio107/craft-scripts": "^1.2.4",
     "nystudio107/craft-typogrify": "^1.1.1",
+    "ostark/craft-async-queue": "^1.1",
     "pennebaker/craft-architect": "^2.0",
     "rias/craft-colour-swatches": "^1.0",
     "rias/craft-position-fieldtype": "^1.0",
