@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.19)
 # Database: craft
-# Generation Time: 2018-02-19 22:02:34 +0000
+# Generation Time: 2018-02-24 22:12:33 +0000
 # ************************************************************
 
 
@@ -534,7 +534,7 @@ CREATE TABLE `entrytypes` (
   `hasTitleField` tinyint(1) NOT NULL DEFAULT '1',
   `titleLabel` varchar(255) DEFAULT 'Title',
   `titleFormat` varchar(255) DEFAULT NULL,
-  `sortOrder` smallint(6) unsigned DEFAULT NULL,
+  `sortOrder` tinyint(3) unsigned DEFAULT NULL,
   `dateCreated` datetime NOT NULL,
   `dateUpdated` datetime NOT NULL,
   `uid` char(36) NOT NULL DEFAULT '0',
@@ -645,7 +645,7 @@ CREATE TABLE `fieldlayoutfields` (
   `tabId` int(11) NOT NULL,
   `fieldId` int(11) NOT NULL,
   `required` tinyint(1) NOT NULL DEFAULT '0',
-  `sortOrder` smallint(6) unsigned DEFAULT NULL,
+  `sortOrder` tinyint(3) unsigned DEFAULT NULL,
   `dateCreated` datetime NOT NULL,
   `dateUpdated` datetime NOT NULL,
   `uid` char(36) NOT NULL DEFAULT '0',
@@ -744,7 +744,7 @@ CREATE TABLE `fieldlayouttabs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `layoutId` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `sortOrder` smallint(6) unsigned DEFAULT NULL,
+  `sortOrder` tinyint(3) unsigned DEFAULT NULL,
   `dateCreated` datetime NOT NULL,
   `dateUpdated` datetime NOT NULL,
   `uid` char(36) NOT NULL DEFAULT '0',
@@ -868,7 +868,7 @@ CREATE TABLE `info` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `version` varchar(50) NOT NULL,
   `schemaVersion` varchar(15) NOT NULL,
-  `edition` smallint(6) unsigned NOT NULL,
+  `edition` tinyint(3) unsigned NOT NULL,
   `timezone` varchar(30) DEFAULT NULL,
   `name` varchar(255) NOT NULL,
   `on` tinyint(1) NOT NULL DEFAULT '0',
@@ -885,7 +885,7 @@ LOCK TABLES `info` WRITE;
 
 INSERT INTO `info` (`id`, `version`, `schemaVersion`, `edition`, `timezone`, `name`, `on`, `maintenance`, `fieldVersion`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(1,'3.0.0-RC10.1','3.0.82',0,'America/Los_Angeles','craft',1,0,'rBERJqPmh8G7','2018-02-19 20:35:16','2018-02-19 21:42:15','15a1bfa3-0de9-405e-9aca-6190f554c2fb');
+	(1,'3.0.0-RC12','3.0.83',0,'America/Los_Angeles','craft',1,0,'rBERJqPmh8G7','2018-02-19 20:35:16','2018-02-24 22:12:23','15a1bfa3-0de9-405e-9aca-6190f554c2fb');
 
 /*!40000 ALTER TABLE `info` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -902,7 +902,7 @@ CREATE TABLE `matrixblocks` (
   `ownerSiteId` int(11) DEFAULT NULL,
   `fieldId` int(11) NOT NULL,
   `typeId` int(11) NOT NULL,
-  `sortOrder` smallint(6) unsigned DEFAULT NULL,
+  `sortOrder` tinyint(3) unsigned DEFAULT NULL,
   `dateCreated` datetime NOT NULL,
   `dateUpdated` datetime NOT NULL,
   `uid` char(36) NOT NULL DEFAULT '0',
@@ -947,7 +947,7 @@ CREATE TABLE `matrixblocktypes` (
   `fieldLayoutId` int(11) DEFAULT NULL,
   `name` varchar(255) NOT NULL,
   `handle` varchar(255) NOT NULL,
-  `sortOrder` smallint(6) unsigned DEFAULT NULL,
+  `sortOrder` tinyint(3) unsigned DEFAULT NULL,
   `dateCreated` datetime NOT NULL,
   `dateUpdated` datetime NOT NULL,
   `uid` char(36) NOT NULL DEFAULT '0',
@@ -1135,7 +1135,8 @@ VALUES
 	(87,NULL,'app','m180124_230459_fix_propagate_entries_values','2018-02-19 20:35:16','2018-02-19 20:35:16','2018-02-19 20:35:16','04673290-8425-4a9c-9a2e-2fa3e49cb119'),
 	(88,NULL,'app','m180128_235202_set_tag_slugs','2018-02-19 20:35:16','2018-02-19 20:35:16','2018-02-19 20:35:16','2a519969-3b26-491c-b011-41ff2b4d0d5c'),
 	(89,NULL,'app','m180202_185551_fix_focal_points','2018-02-19 20:35:16','2018-02-19 20:35:16','2018-02-19 20:35:16','73ba617a-a1e7-484f-b0a4-b5ab6fc648b1'),
-	(90,12,'plugin','Install','2018-02-19 20:37:36','2018-02-19 20:37:36','2018-02-19 20:37:36','e1bd0e85-3ed1-4026-941b-389b1e43686d');
+	(90,12,'plugin','Install','2018-02-19 20:37:36','2018-02-19 20:37:36','2018-02-19 20:37:36','e1bd0e85-3ed1-4026-941b-389b1e43686d'),
+	(91,NULL,'app','m180217_172123_tiny_ints','2018-02-24 22:12:23','2018-02-24 22:12:23','2018-02-24 22:12:23','3f0fe266-72fa-4da5-b1b6-f40b243b9415');
 
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1170,20 +1171,20 @@ LOCK TABLES `plugins` WRITE;
 INSERT INTO `plugins` (`id`, `handle`, `version`, `schemaVersion`, `licenseKey`, `licenseKeyStatus`, `enabled`, `settings`, `installDate`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
 	(1,'architect','2.2.0','2.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:24','2018-02-19 20:37:24','2018-02-19 20:56:20','cc986a1c-784e-4266-bfbf-0404c36c9eff'),
-	(2,'eager-beaver','1.0.2','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-02-19 20:56:20','ef50d02e-3d06-4011-aaaf-53e30babb328'),
-	(3,'image-optimize','1.4.18','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-02-19 20:56:20','11105c08-a900-48d8-93c1-b309e1b33c3a'),
-	(4,'minify','1.2.7','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-02-19 20:56:20','5316ced6-9a20-4ebb-b5c2-f4bfb0041f26'),
-	(5,'typogrify','1.1.7','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-02-19 20:56:20','55bdd6c3-ea0b-4ed1-b667-0ad91ea590e6'),
-	(6,'mix','1.4.2','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-02-19 20:56:20','bc4c8648-1d03-4fcb-9118-877d82bf15e4'),
-	(7,'position-fieldtype','1.0.10','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-02-19 20:56:20','2ba89699-c08b-486d-9d1d-01e9d640fa2b'),
-	(8,'width-fieldtype','1.0.2','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:36','2018-02-19 20:37:36','2018-02-19 20:56:20','f48ef051-1b90-418b-99cd-6938241d1e14'),
-	(9,'colour-swatches','1.0.6','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:36','2018-02-19 20:37:36','2018-02-19 20:56:20','ef0a812f-4889-4a78-a653-0dd331467365'),
-	(10,'schema','1.0.3','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:36','2018-02-19 20:37:36','2018-02-19 20:56:20','763da45c-fca2-44a8-9acd-809f7ab5a693'),
-	(11,'expanded-singles','1.0.2','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:36','2018-02-19 20:37:36','2018-02-19 20:56:20','793b39fd-2f59-4ad1-9c83-f06d900fd117'),
-	(12,'redactor','1.0.1','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:36','2018-02-19 20:37:36','2018-02-19 20:56:20','7a44b5b9-bab7-4c87-b6e2-18ef7ab7a694'),
-	(13,'typedlinkfield','1.0.3','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:37','2018-02-19 20:37:37','2018-02-19 20:56:20','eb26f007-f8d1-4f00-b0ae-8bca0ea0daa2'),
-	(14,'contact-form','2.1.1','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:37','2018-02-19 20:37:37','2018-02-19 20:56:20','da563b78-01f1-40e5-9934-c8c1e4685878'),
-	(15,'async-queue','1.2.0','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:37','2018-02-19 20:37:37','2018-02-19 20:56:20','177bf137-4ba9-42d1-b69c-61f9a7988f2c');
+	(2,'eager-beaver','1.0.2','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-02-24 22:12:29','ef50d02e-3d06-4011-aaaf-53e30babb328'),
+	(3,'image-optimize','1.4.19','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-02-24 22:12:29','11105c08-a900-48d8-93c1-b309e1b33c3a'),
+	(4,'minify','1.2.7','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-02-24 22:12:29','5316ced6-9a20-4ebb-b5c2-f4bfb0041f26'),
+	(5,'typogrify','1.1.7','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-02-24 22:12:29','55bdd6c3-ea0b-4ed1-b667-0ad91ea590e6'),
+	(6,'mix','1.4.2','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-02-24 22:12:29','bc4c8648-1d03-4fcb-9118-877d82bf15e4'),
+	(7,'position-fieldtype','1.0.10','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-02-24 22:12:29','2ba89699-c08b-486d-9d1d-01e9d640fa2b'),
+	(8,'width-fieldtype','1.0.2','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:36','2018-02-19 20:37:36','2018-02-24 22:12:29','f48ef051-1b90-418b-99cd-6938241d1e14'),
+	(9,'colour-swatches','1.0.6','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:36','2018-02-19 20:37:36','2018-02-24 22:12:29','ef0a812f-4889-4a78-a653-0dd331467365'),
+	(10,'schema','1.0.3','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:36','2018-02-19 20:37:36','2018-02-24 22:12:29','763da45c-fca2-44a8-9acd-809f7ab5a693'),
+	(11,'expanded-singles','1.0.3','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:36','2018-02-19 20:37:36','2018-02-24 22:12:29','793b39fd-2f59-4ad1-9c83-f06d900fd117'),
+	(12,'redactor','1.0.1','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:36','2018-02-19 20:37:36','2018-02-24 22:12:29','7a44b5b9-bab7-4c87-b6e2-18ef7ab7a694'),
+	(13,'typedlinkfield','1.0.4','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:37','2018-02-19 20:37:37','2018-02-24 22:12:29','eb26f007-f8d1-4f00-b0ae-8bca0ea0daa2'),
+	(14,'contact-form','2.1.1','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:37','2018-02-19 20:37:37','2018-02-24 22:12:29','da563b78-01f1-40e5-9934-c8c1e4685878'),
+	(15,'async-queue','1.3.0','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:37','2018-02-19 20:37:37','2018-02-24 22:12:29','177bf137-4ba9-42d1-b69c-61f9a7988f2c');
 
 /*!40000 ALTER TABLE `plugins` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1227,7 +1228,7 @@ CREATE TABLE `relations` (
   `sourceId` int(11) NOT NULL,
   `sourceSiteId` int(11) DEFAULT NULL,
   `targetId` int(11) NOT NULL,
-  `sortOrder` smallint(6) unsigned DEFAULT NULL,
+  `sortOrder` tinyint(3) unsigned DEFAULT NULL,
   `dateCreated` datetime NOT NULL,
   `dateUpdated` datetime NOT NULL,
   `uid` char(36) NOT NULL DEFAULT '0',
@@ -1272,7 +1273,7 @@ CREATE TABLE `routes` (
   `uriParts` varchar(255) NOT NULL,
   `uriPattern` varchar(255) NOT NULL,
   `template` varchar(500) NOT NULL,
-  `sortOrder` smallint(6) unsigned DEFAULT NULL,
+  `sortOrder` tinyint(3) unsigned DEFAULT NULL,
   `dateCreated` datetime NOT NULL,
   `dateUpdated` datetime NOT NULL,
   `uid` char(36) NOT NULL DEFAULT '0',
@@ -1491,7 +1492,8 @@ LOCK TABLES `sessions` WRITE;
 
 INSERT INTO `sessions` (`id`, `userId`, `token`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(1,1,'VYyXUvELxDH3aqsdcF66btzJ0f3rB8CxbOzGl7BqCNqGSbnFOVVhALlgbaW6Fxu_A1nqDS5haOGygPQPo3YcFmcUlypXpf7kewVL','2018-02-19 20:35:34','2018-02-19 22:01:36','95d6fd51-ac67-4f93-b9fd-e2f815d47dff');
+	(2,1,'XhBGXsDu0yGydTraBPqM_QHj2K2kfDINftnqoqrnGbVrhomSGuxWNWaoEHkGiAkvfcFhLo3-mr2ifY_Tsq0thhljOLwowEjXfHB1','2018-02-20 10:32:42','2018-02-20 10:40:19','1069a7e1-1eb3-4fd5-a48e-689762983f59'),
+	(3,1,'C3YxbKfCu7F5qDMt64VjHBsXglocvcfVMWLmUh4aYqcD2ePii9YOh7bOnkrmuGtlggkHSdExOm57ESKVU6IoiqW6_GYpAZDATfjW','2018-02-24 22:11:09','2018-02-24 22:12:26','8dac15c0-8280-4234-86ea-d8651cfeadee');
 
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1557,7 +1559,7 @@ CREATE TABLE `sites` (
   `language` varchar(12) NOT NULL,
   `hasUrls` tinyint(1) NOT NULL DEFAULT '0',
   `baseUrl` varchar(255) DEFAULT NULL,
-  `sortOrder` smallint(6) unsigned DEFAULT NULL,
+  `sortOrder` tinyint(3) unsigned DEFAULT NULL,
   `dateCreated` datetime NOT NULL,
   `dateUpdated` datetime NOT NULL,
   `uid` char(36) NOT NULL DEFAULT '0',
@@ -1799,8 +1801,8 @@ CREATE TABLE `tokens` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `token` char(32) NOT NULL,
   `route` text,
-  `usageLimit` smallint(6) unsigned DEFAULT NULL,
-  `usageCount` smallint(6) unsigned DEFAULT NULL,
+  `usageLimit` tinyint(3) unsigned DEFAULT NULL,
+  `usageCount` tinyint(3) unsigned DEFAULT NULL,
   `expiryDate` datetime NOT NULL,
   `dateCreated` datetime NOT NULL,
   `dateUpdated` datetime NOT NULL,
@@ -1946,7 +1948,7 @@ CREATE TABLE `users` (
   `lastLoginDate` datetime DEFAULT NULL,
   `lastLoginAttemptIp` varchar(45) DEFAULT NULL,
   `invalidLoginWindowStart` datetime DEFAULT NULL,
-  `invalidLoginCount` smallint(6) unsigned DEFAULT NULL,
+  `invalidLoginCount` tinyint(3) unsigned DEFAULT NULL,
   `lastInvalidLoginDate` datetime DEFAULT NULL,
   `lockoutDate` datetime DEFAULT NULL,
   `verificationCode` varchar(255) DEFAULT NULL,
@@ -1972,7 +1974,7 @@ LOCK TABLES `users` WRITE;
 
 INSERT INTO `users` (`id`, `username`, `photoId`, `firstName`, `lastName`, `email`, `password`, `admin`, `client`, `locked`, `suspended`, `pending`, `lastLoginDate`, `lastLoginAttemptIp`, `invalidLoginWindowStart`, `invalidLoginCount`, `lastInvalidLoginDate`, `lockoutDate`, `verificationCode`, `verificationCodeIssuedDate`, `unverifiedEmail`, `passwordResetRequired`, `lastPasswordChangeDate`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(1,'admin',NULL,NULL,NULL,'rias@marbles.be','$2y$13$52sWHiSYS486.cu2JhwGGue18.ja879mz4UO5LoMi2GE.RUT.2UP.',1,0,0,0,0,'2018-02-19 20:35:34','127.0.0.1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,'2018-02-19 20:35:16','2018-02-19 20:35:16','2018-02-19 20:35:34','6aebbe27-3535-4912-a70d-5c180c8337db');
+	(1,'admin',NULL,NULL,NULL,'rias@marbles.be','$2y$13$52sWHiSYS486.cu2JhwGGue18.ja879mz4UO5LoMi2GE.RUT.2UP.',1,0,0,0,0,'2018-02-24 22:11:09','127.0.0.1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,'2018-02-19 20:35:16','2018-02-19 20:35:16','2018-02-24 22:11:09','6aebbe27-3535-4912-a70d-5c180c8337db');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -2027,7 +2029,7 @@ CREATE TABLE `volumes` (
   `hasUrls` tinyint(1) NOT NULL DEFAULT '1',
   `url` varchar(255) DEFAULT NULL,
   `settings` text,
-  `sortOrder` smallint(6) unsigned DEFAULT NULL,
+  `sortOrder` tinyint(3) unsigned DEFAULT NULL,
   `dateCreated` datetime NOT NULL,
   `dateUpdated` datetime NOT NULL,
   `uid` char(36) NOT NULL DEFAULT '0',
@@ -2058,7 +2060,7 @@ CREATE TABLE `widgets` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userId` int(11) NOT NULL,
   `type` varchar(255) NOT NULL,
-  `sortOrder` smallint(6) unsigned DEFAULT NULL,
+  `sortOrder` tinyint(3) unsigned DEFAULT NULL,
   `colspan` tinyint(1) NOT NULL DEFAULT '0',
   `settings` text,
   `enabled` tinyint(1) NOT NULL DEFAULT '1',
