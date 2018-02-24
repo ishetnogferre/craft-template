@@ -1,10 +1,16 @@
 // Set the mix variable
+/* global path */
 const mix = require('laravel-mix');
+require('laravel-mix-purgecss');
 
-// Load all plugins into $
-const $ = require('webpack-load-plugins')({
-    pattern: ['*'],
-});
+/**
+ * Packages used for build
+ */
+const webpack = require('webpack');
+const moment = require('moment');
+const gitRevSync = require('git-rev-sync');
+const htmlCritical = require('html-critical-webpack-plugin');
+const copy = require('copy');
 
 // package vars
 const pkg = require('./package.json');
@@ -13,11 +19,11 @@ const pkg = require('./package.json');
 const banner = (function () {
     return [
         '/**',
-        ' * @project        ' + pkg.name,
-        ' * @author         ' + pkg.author,
-        ' * @build          ' + $.moment().format('llll') + ' GMT+1',
-        ' * @release        ' + $.gitRevSync.long() + ' [' + $.gitRevSync.branch() + ']',
-        ' * @copyright      Copyright (c) ' + $.moment().format('YYYY') + ', ' + pkg.copyright,
+        ' * @project        Marbles Website',
+        ' * @author         Marbles',
+        ' * @build          ' + moment().format('llll') + ' GMT+1',
+        ' * @release        ' + gitRevSync.long() + ' [' + gitRevSync.branch() + ']',
+        ' * @copyright      Copyright (c) ' + moment().format('YYYY') + ', Marbles',
         ' *',
         ' */',
         '',
@@ -25,23 +31,10 @@ const banner = (function () {
 })();
 
 /**
- * Vendor packages to extract into a separate vendor file
- */
-const vendorPackages = Object.keys(pkg.dependencies);
-
-/**
- * PostCSS Plugins
- */
-const postCSSPlugins = [
-    require('postcss-object-fit-images'),
-    require('tailwindcss')('./tailwind.js'),
-];
-
-/**
  * Webpack plugins
  */
 let webpackPlugins = [
-    new $.webpack.BannerPlugin({
+    new webpack.BannerPlugin({
         banner: banner,
         raw: true,
     }),
@@ -51,38 +44,26 @@ let webpackPlugins = [
  * Webpack plugins that only need to be run in production
  */
 if (mix.inProduction()) {
-    webpackPlugins = webpackPlugins.concat([
-        new $.purgecss({
-            paths: $.globAll.sync(pkg.globs.purgecss),
-            extractors: [
-                {
-                    extractor: class {
-                        static extract(content) {
-                            return content.match(/[A-z0-9-:/]+/g);
-                        }
-                    },
-                    extensions: ['html', 'js', 'php', 'vue', 'twig', 'scss', 'css'],
-                },
-            ],
-        }),
-    ]);
+    const criticalUrls = [
+        { url: '', template: 'index' },
+    ];
 
-    pkg.globs.critical.forEach(function (element) {
-        const criticalSrc = pkg.url + element.url;
-        const criticalDest = pkg.paths.templates + element.template + '_critical.min.css';
+    criticalUrls.forEach(function (element) {
+        const criticalSrc = process.env.BASE_URL + element.url;
+        const criticalDest = './templates/' + element.template + '_critical.min.css';
 
         webpackPlugins = webpackPlugins.concat([
-            new $.htmlCritical({
+            new htmlCritical({
                 src: criticalSrc,
                 dest: criticalDest,
                 penthouse: {
                     blockJSRequests: false,
-                    forceInclude: pkg.globs.criticalWhitelist,
+                    forceInclude: [],
                 },
                 inline: false,
                 ignore: [],
                 css: [
-                    pkg.paths.dist.scss + pkg.vars.cssName,
+                    './web/dist/css/site.css',
                 ],
                 minify: true,
                 width: 1200,
@@ -92,71 +73,62 @@ if (mix.inProduction()) {
     });
 }
 
-// Process data in an array synchronously, moving onto the n+1 item only after the nth item callback
-function doSynchronousLoop(data, processData, done) {
-    if (data.length > 0) {
-        const loop = (data, i, processData, done) => {
-            processData(data[i], i, () => {
-                if (++i < data.length) {
-                    loop(data, i, processData, done);
-                } else {
-                    done();
-                }
-            });
-        };
-        loop(data, 0, processData, done);
-    } else {
-        done();
-    }
-}
-
-// Process the downloads one at a time
-function processDownload(element, i, callback) {
-    const downloadSrc = element.url;
-    const downloadDest = element.dest;
-
-    $.fancyLog('-> Downloading URL: ' + $.chalk.cyan(downloadSrc) + ' -> ' + $.chalk.magenta(downloadDest));
-    $.download(downloadSrc, downloadDest);
-    callback();
-}
-
 /**
  * Start the Mix function
  */
 mix
     .options({
         processCssUrls: false, // Process/optimize relative stylesheet url()'s. Set to false, if you don't want them touched.
-        postCss: postCSSPlugins,
+        postCss: [
+            require('postcss-object-fit-images'),
+            require('tailwindcss')('./tailwind.js'),
+        ],
     })
     .webpackConfig({
         plugins: webpackPlugins,
+        module: {
+            rules: [
+                {
+                    test: /\.js$/,
+                    exclude: /node_modules/,
+                    loader: 'eslint-loader',
+                    options: {
+                        cache: true,
+                    },
+                },
+            ],
+        },
     })
-    .setPublicPath(
-        pkg.paths.dist.base
-    )
-    .js(
-        pkg.paths.src.js + pkg.vars.jsName, // ./src/js/site.js
-        pkg.paths.dist.js // ./web/js/{site|vendor|manifest}.js
-    )
-    .extract(
-        vendorPackages
-    )
-    .sass(
-        pkg.paths.src.scss + pkg.vars.scssName, // ./src/scss/site.scss
-        pkg.paths.dist.scss // ./web/css/site.css
-    )
+    .babelConfig({
+        'presets': ['env'],
+        'compact': true,
+    })
+    .setPublicPath('./web/dist')
+    .js('./src/js/site.js', './web/dist/js/')
+    .extract(Object.keys(pkg.dependencies))
+    .sass('./src/scss/site.scss', './web/dist/css')
+    .purgeCss({
+        globs: [
+            path.join(__dirname, '/templates/**/*.{html,twig}'),
+            path.join(__dirname, '/src/scss/*.scss'),
+        ],
+        extensions: ['html', 'js', 'php', 'vue', 'twig', 'scss', 'css'],
+    })
     .version()
     .then(function () {
-        if (mix.inProduction()) {
-            doSynchronousLoop(pkg.globs.download, processDownload, () => {
-                $.fancyLog('Downloads complete');
-            });
-        }
-
         // Copy inline js files
-        $.copy.each(pkg.globs.inlineJs, pkg.paths.templates + '_inlinejs', {
-            flatten: true,
-        }, (e) => {
-            if (e) $.fancyLog($.chalk.magenta(e));
-        });
+        const inlineFiles = [
+            './node_modules/fg-loadcss/src/loadCSS.js',
+            './node_modules/fg-loadcss/src/cssrelpreload.js',
+            './node_modules/tiny-cookie/dist/tiny-cookie.min.js',
+        ];
+
+        copy.each(
+            inlineFiles,
+            './templates/_inlinejs', { flatten: true },
+            (err) => {
+                // eslint-disable-next-line no-console
+                if (err) console.log(err);
+            }
+        );
     });

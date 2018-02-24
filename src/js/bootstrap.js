@@ -3,7 +3,7 @@ require('picturefill');
 try {
     window.$ = window.jQuery = require('jquery');
 } catch (e) {
-    // Do nothing
+    // eslint-disable-next-line no-console
     console.log(e);
 }
 
@@ -29,5 +29,6 @@ const token = document.head.querySelector('meta[name="csrf-token"]');
 if (token && tokenName) {
     window.axios.defaults.headers.common[tokenName.content] = token.content;
 } else {
+    // eslint-disable-next-line no-console
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }

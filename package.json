@@ -1,47 +1,4 @@
 {
-  "name": "marbles",
-  "version": "1.0.0",
-  "description": "Website by Marbles",
-  "main": "webpack.mix.js",
-  "author": "Marbles <rias@marbles.be>",
-  "copyright": "marbles",
-  "private": true,
-  "paths": {
-    "src": {
-      "base": "./src/",
-      "js": "./src/js/",
-      "scss": "./src/scss/"
-    },
-    "dist": {
-      "base": "./web/dist/",
-      "js": "./web/dist/js/",
-      "scss": "./web/dist/css/"
-    },
-    "templates": "./templates/"
-  },
-  "url": "https://www.marbles.be/",
-  "vars": {
-    "scssName": "site.scss",
-    "cssName": "site.css",
-    "jsName": "site.js"
-  },
-  "globs": {
-    "purgecss": [
-      "./templates/**/*.{html,twig}"
-    ],
-    "critical": [
-      {
-        "url": "",
-        "template": "index"
-      }
-    ],
-    "download": [],
-    "inlineJs": [
-      "./node_modules/fg-loadcss/src/loadCSS.js",
-      "./node_modules/fg-loadcss/src/cssrelpreload.js",
-      "./node_modules/tiny-cookie/dist/tiny-cookie.min.js"
-    ]
-  },
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.0",
     "@fortawesome/fontawesome-free-brands": "^5.0.2",
@@ -51,55 +8,42 @@
     "@fortawesome/fontawesome-pro-regular": "^5.0.2",
     "@fortawesome/fontawesome-pro-solid": "^5.0.2",
     "@fortawesome/vue-fontawesome": "^0.0.22",
-    "axios": "^0.17.1",
+    "axios": "^0.18.0",
     "fg-loadcss": "^2.0.1",
     "jquery": "^3.2.1",
     "object-fit-images": "^3.2.3",
     "picturefill": "^3.0.2",
-    "tiny-cookie": "^2.1.1",
     "vue": "^2.5.9"
   },
   "devDependencies": {
-    "babel-plugin-transform-runtime": "^6.15.0",
-    "babel-preset-es2015": "^6.16.0",
-    "chalk": "^1.1.3",
+    "babel-preset-env": "^1.6.1",
     "copy": "^0.3.1",
     "critical": "^1.1.0",
     "cross-env": "^5.1.3",
-    "download": "^6.2.5",
     "eslint": "^4.15.0",
     "eslint-config-spatie": "^2.0.3",
-    "fancy-log": "^1.2.0",
-    "fs": "^0.0.1-security",
+    "eslint-loader": "^1.9.0",
     "git-rev-sync": "^1.7.1",
-    "glob-all": "^3.1.0",
     "html-critical-webpack-plugin": "^1.0.1",
-    "laravel-mix": "^1.7.2",
+    "laravel-mix": "^2.0.0",
+    "laravel-mix-purgecss": "^1.0.5",
     "moment": "^2.14.1",
-    "pa11y": "^4.11.0",
     "postcss-object-fit-images": "^1.1.2",
-    "purgecss-webpack-plugin": "^0.18.0",
-    "stylelint": "^8.4.0",
-    "stylelint-config-standard": "^18.0.0",
-    "tailwindcss": "^0.3.0",
+    "purgecss-webpack-plugin": "^0.20.0",
+    "tailwindcss": "^0.4.1",
+    "tiny-cookie": "^2.1.1",
     "webpack": "^3.10.0",
     "webpack-load-plugins": "^0.1.2"
   },
   "eslintConfig": {
-    "extends": "spatie",
-    "rules": {
-      "no-console": "off"
-    }
+    "extends": "spatie"
   },
   "scripts": {
-    "js-lint": "eslint ./src/js --ext .js,.vue --fix && exit 0",
     "dev": "npm run development",
-    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "development": "cross-env NODE_ENV=development webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development webpack --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
-  },
-  "bugs": {
-    "email": "hallo@marbles.be"
+    "production": "cross-env NODE_ENV=production webpack --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   }
 }
