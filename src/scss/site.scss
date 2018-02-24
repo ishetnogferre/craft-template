@@ -32,16 +32,10 @@
 /* -- CSS variables */
 $outlineColor: #5db7a5;
 
-/* -- For screen readers */
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 /* -- A subtle focus style for keyboard-input elements */
@@ -87,3 +81,14 @@ html.user-is-tabbing *:focus {
  * @import "utilities/skew-transforms";
  */
 
+/* -- For screen readers */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

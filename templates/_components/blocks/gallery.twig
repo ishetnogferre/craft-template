@@ -1,0 +1,13 @@
+<div class="my-4">
+    <div class="container mx-auto h-full w-full relative">
+        <div id="slider__nav" class="absolute z-top w-full h-full flex items-center pointer-events-none"></div>
+    </div>
+    <div class="w-full flex">
+          {% for index,image in block.assets %}
+              {% set optimizedImages = image.optimizedImages %}
+              <a class="mx-1" href="{{ image.url }}" rel="fluidbox">
+                  <img src="{{ optimizedImages.src() }}" srcset="{{ optimizedImages.srcset() }}" class="w-full h-full rounded" alt="{{ image.title }}" sizes="100vw" />
+              </a>
+        {% endfor %}
+    </div>
+</div>

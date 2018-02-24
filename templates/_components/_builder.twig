@@ -1,0 +1,87 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+ # Pagebuilder include template
+ # -----------------------------
+ #
+ # This template is used to output HTML for the main content Matrix field.
+ #
+ # An `entry` variable is expected to be defined.
+-#}
+
+{% set prevType = null %}
+{% set prevPosition = null %}
+{% set nextType = null %}
+{% set nextPosition = null %}
+{% set closedLastRow = true %}
+{% set blocks = entry.builder.with([
+    'image:asset',
+    'gallery:assets',
+]).all %}
+
+{% macro getPosition(block) %}
+    {%- spaceless %}
+        {% set positionedTypes = ['text', 'image', 'gallery'] %}
+        {{ block.type.handle in positionedTypes and block.position ? block.position : 'center' }}
+    {% endspaceless -%}
+{% endmacro %}
+
+{% from _self import getPosition %}
+
+{% for i, block in blocks %}
+
+    {# If there's no next type, we're on the first type #}
+    {% set type = (nextType ?: block.type) %}
+
+    {# Get the position for this block (left, center, right, full) #}
+    {% set position = (nextPosition ?: getPosition(block)~'') %}
+
+    {# Get the next blockType #}
+    {% set nextType = (not loop.last ? blocks[i+1].type.handle) %}
+
+    {# Get the next position #}
+    {% set nextPosition = (not loop.last ? getPosition(blocks[i+1])~'') %}
+
+    {# Is this block floated to the left or right? #}
+    {% set isFloat = position in ['left', 'right'] %}
+
+    {# Is this a breakout block (a sole floated block before a centered block)? #}
+    {% set isBreakout = (
+        isFloat and type in ['text', 'image'] and
+        (position == 'left' or prevPosition != 'left') and
+        nextPosition == 'center'
+    ) %}
+
+    {# Are we starting a new row? #}
+    {% if position == 'full' %}
+        <div class="md:flex -mx-4">
+    {% elseif closedLastRow %}
+        <div class="container mx-auto">
+        <div class="md:flex -mx-4">
+    {% endif %}
+
+    {# Open our block #}
+    <div class="md:w-{{ block.width }} mx-4 w-full">
+
+    {# Load our component #}
+    {% include '_components/blocks/' ~ type %}
+
+    {# Close the column #}
+    </div>
+
+    {# Are we closing this row? #}
+    {% if not (
+        (position == 'left' and nextPosition == 'right') or
+        isBreakout
+    ) %}
+        {% if position != 'full' %}
+            </div>
+        {% endif %}
+        </div>
+        {% set closedLastRow = true %}
+    {% else %}
+        {% set closedLastRow = false %}
+    {% endif %}
+
+    {% set prevType = type %}
+    {% set prevPosition = position %}
+{% endfor %}

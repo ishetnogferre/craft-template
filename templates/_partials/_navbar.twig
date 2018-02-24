@@ -1,8 +1,25 @@
 {# @var craft \craft\web\twig\variables\CraftVariable #}
-<nav>
-    <div>
-        <p>
-            Navbar
-        </p>
-    </div>
+<nav class="container mx-auto">
+    {% set links = craft.entries({
+        section: 'navigation',
+        with: ['linkEntry', 'linkCategory', 'linkAsset'],
+    }).all %}
+
+    {% nav link in links %}
+        {% switch link.type.handle %}
+            {% case 'entry' %}
+                {% set url = link.linkEntry[0].url %}
+            {% case 'category' %}
+                {% set url = link.linkCategory[0].url %}
+            {% case 'asset' %}
+                {% set url = link.linkAsset[0].url %}
+            {% case 'custom' %}
+                {% set url = link.linkUrl %}
+        {% endswitch %}
+
+        <a class="hover:underline {% if url(craft.app.request.pathInfo) == url %}underline{% else %}no-underline{% endif %}" href="{{ url }}" {% if link.newWindow %}target="_blank"{% endif %}>
+            {{ link.title }}
+        </a>
+
+    {% endnav %}
 </nav>
