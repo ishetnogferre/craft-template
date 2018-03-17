@@ -4,18 +4,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-/* global $ */
 require('./bootstrap');
-
-/*
- * Object-fit polyfill
- */
-const objectFitImages = require('object-fit-images');
-window.objectFitImages = objectFitImages;
-
-$(function () {
-    objectFitImages();
-});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

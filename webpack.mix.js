@@ -1,66 +1,25 @@
 // Set the mix variable
 /* global path */
 const mix = require('laravel-mix');
+
+/* Mix Plugins */
 require('laravel-mix-purgecss');
 require('laravel-mix-tailwind');
 require('laravel-mix-banner');
 require('laravel-mix-eslint');
-
-/**
- * Packages used for build
- */
-const moment = require('moment');
-const gitRevSync = require('git-rev-sync');
-const htmlCritical = require('html-critical-webpack-plugin');
-const copy = require('copy');
-
-// package vars
-const pkg = require('./package.json');
-
-/**
- * Webpack plugins
- */
-let webpackPlugins = [];
-
-/**
- * Webpack plugins that only need to be run in production
- */
-if (mix.inProduction()) {
-    const criticalUrls = [
-        { url: '', template: 'index' },
-    ];
-
-    criticalUrls.forEach(function (element) {
-        const criticalSrc = process.env.BASE_URL + element.url;
-        const criticalDest = './templates/' + element.template + '_critical.min.css';
-
-        webpackPlugins = webpackPlugins.concat([
-            new htmlCritical({
-                src: criticalSrc,
-                dest: criticalDest,
-                penthouse: {
-                    blockJSRequests: false,
-                    forceInclude: [],
-                },
-                inline: false,
-                ignore: [],
-                css: [
-                    './web/dist/css/site.css',
-                ],
-                minify: true,
-                width: 1200,
-                height: 1200,
-            }),
-        ]);
-    });
-}
+require('laravel-mix-critical');
 
 /**
  * Start the Mix function
  */
 mix
+    .setPublicPath('./web/dist')
+    .babelConfig({ 'presets': ['env'] })
     .banner({
         banner: (function () {
+            const moment = require('moment');
+            const gitRevSync = require('git-rev-sync');
+
             return [
                 '/**',
                 ' * @project        Marbles Website',
@@ -74,25 +33,20 @@ mix
             ].join('\n');
         })(),
         raw: true,
+        entryOnly: true,
     })
-    .options({
-        postCss: [
-            require('postcss-object-fit-images'),
-        ],
-    })
-    .webpackConfig({
-        plugins: webpackPlugins,
-    })
-    .babelConfig({
-        'presets': ['env'],
-        'compact': true,
-    })
-    .setPublicPath('./web/dist')
-    .js('./src/js/site.js', './web/dist/js/').eslint({
-        cache: true,
-    })
-    .extract(Object.keys(pkg.dependencies))
+    .js('./src/js/site.js', './web/dist/js/').eslint({ cache: true })
     .sass('./src/scss/site.scss', './web/dist/css').tailwind()
+    .critical({
+        urls: [
+            { src: process.env.BASE_URL + '/', dest: './templates/index_critical.min.css' },
+        ],
+        options: {
+            minify: true,
+            width: 1200,
+            height: 1200,
+        },
+    })
     .purgeCss({
         enabled: true,
         globs: [
@@ -103,7 +57,7 @@ mix
     })
     .version()
     .then(function () {
-        // Copy inline js files
+        const copy = require('copy');
         const inlineFiles = [
             './node_modules/fg-loadcss/src/loadCSS.js',
             './node_modules/fg-loadcss/src/cssrelpreload.js',
