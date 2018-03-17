@@ -1,0 +1,19 @@
+<div class="container mx-auto">
+    {% if entry.builder %}
+        {% include "_components/_builder.twig" %}
+    {% endif %}
+
+    {% paginate craft.entries({
+        sectionId: entry.sectionIndex,
+        with: ['teaserImage'],
+        limit: 10,
+    }).all as pageInfo, teasers %}
+
+    {% for teaser in entries %}
+        {# This is where the magic happens #}
+    {% endfor %}
+
+    {% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}">Vorige</a>{% endif %}
+    {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}">Volgende</a>{% endif %}
+</div>
+

@@ -22,7 +22,9 @@ return [
 
     // SECTIONS
     'Pages' => 'Pagina‘s',
+    'Section' => 'Sectie',
     'Content Page' => 'Inhoudspagina',
+    'Overview Page' => 'Overzichtspagina',
     'Generic Error' => 'Algemene Fout',
     'Teaser' => 'Teaser',
     'Navigation' => 'Navigatie',
