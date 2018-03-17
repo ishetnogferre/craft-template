@@ -28,6 +28,8 @@ const INSTALL_PLUGINS = [
     'typedlinkfield',
     'contact-form',
     'async-queue',
+    'seomatic',
+    'section-field',
 ];
 
 const CRAFT_SCRIPTS_SETUP = [
