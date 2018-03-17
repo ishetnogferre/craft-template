@@ -4,6 +4,7 @@ const mix = require('laravel-mix');
 require('laravel-mix-purgecss');
 require('laravel-mix-tailwind');
 require('laravel-mix-banner');
+require('laravel-mix-eslint');
 
 /**
  * Packages used for build
@@ -81,28 +82,17 @@ mix
     })
     .webpackConfig({
         plugins: webpackPlugins,
-        module: {
-            rules: [
-                {
-                    test: /\.js$/,
-                    exclude: /node_modules/,
-                    loader: 'eslint-loader',
-                    options: {
-                        cache: true,
-                    },
-                },
-            ],
-        },
     })
     .babelConfig({
         'presets': ['env'],
         'compact': true,
     })
     .setPublicPath('./web/dist')
-    .js('./src/js/site.js', './web/dist/js/')
+    .js('./src/js/site.js', './web/dist/js/').eslint({
+        cache: true,
+    })
     .extract(Object.keys(pkg.dependencies))
-    .sass('./src/scss/site.scss', './web/dist/css')
-    .tailwind()
+    .sass('./src/scss/site.scss', './web/dist/css').tailwind()
     .purgeCss({
         enabled: true,
         globs: [
