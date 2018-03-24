@@ -28,7 +28,7 @@
     "laravel-mix-banner": "^0.1.0",
     "laravel-mix-critical": "^0.1.0",
     "laravel-mix-eslint": "^0.1.0",
-    "laravel-mix-purgecss": "^1.0.5",
+    "laravel-mix-purgecss": "github:spatie/laravel-mix-purgecss#master",
     "laravel-mix-tailwind": "^0.1.0",
     "moment": "^2.14.1",
     "postcss-object-fit-images": "^1.1.2",
