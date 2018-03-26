@@ -48,7 +48,7 @@ mix
         },
     })
     .purgeCss({
-        enabled: true,
+        enabled: mix.inProduction(),
         globs: [
             path.join(__dirname, '/templates/**/*.{html,twig}'),
             path.join(__dirname, '/src/scss/*.scss'),
