@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e26e28c5600e4065a761c6f82dd3cd73",
+    "content-hash": "be6ff531446fb0b1b2403cf3b16fef00",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -3472,11 +3472,11 @@
         },
         {
             "name": "rias/craft-width-fieldtype",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Rias500/craft-width-fieldtype/zipball/58342fcc93b8b7f8fdf994a3fce43e12f9c8b4ff",
-                "reference": "58342fcc93b8b7f8fdf994a3fce43e12f9c8b4ff",
+                "url": "https://api.github.com/repos/Rias500/craft-width-fieldtype/zipball/0564949f0ae54f6be7dc7de5495932607f341ef0",
+                "reference": "0564949f0ae54f6be7dc7de5495932607f341ef0",
                 "shasum": ""
             },
             "require": {
@@ -3518,7 +3518,7 @@
                 "docs": "https://github.com/Rias500/craft-width-fieldtype/blob/master/README.md",
                 "issues": "https://github.com/Rias500/craft-width-fieldtype/issues"
             },
-            "time": "2018-03-08T15:29:17+00:00"
+            "time": "2018-04-23T08:00:36+00:00"
         },
         {
             "name": "rize/uri-template",
