@@ -207,7 +207,9 @@ function symlinkAssetsFolder()
     // Make sure the storage/assets folder exists
     executeShellCommand('mkdir -p storage/assets');
     // Create the symlink
-    createSymLink('storage/assets', 'web/assets');
+    executeShellCommand('cd web');
+    createSymLink('../storage/assets', 'assets');
+    executeShellCommand('cd ..');
 }
 
 /**
