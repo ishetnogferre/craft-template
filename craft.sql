@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.19)
 # Database: craft
-# Generation Time: 2018-04-23 07:31:52 +0000
+# Generation Time: 2018-04-23 07:41:32 +0000
 # ************************************************************
 
 
@@ -343,7 +343,7 @@ LOCK TABLES `elementindexsettings` WRITE;
 
 INSERT INTO `elementindexsettings` (`id`, `type`, `settings`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(1,'craft\\elements\\Entry','{\"sources\":{\"section:1\":{\"tableAttributes\":{\"1\":\"type\",\"2\":\"slug\",\"3\":\"postDate\",\"4\":\"link\"}},\"*\":{\"tableAttributes\":{\"1\":\"section\",\"2\":\"postDate\",\"3\":\"expiryDate\",\"4\":\"link\"}},\"single:4\":{\"tableAttributes\":{\"1\":\"postDate\",\"2\":\"expiryDate\",\"3\":\"link\"}},\"section:5\":{\"tableAttributes\":{\"1\":\"type\",\"2\":\"field:21\",\"3\":\"field:20\",\"4\":\"field:22\",\"5\":\"field:19\",\"6\":\"field:18\"}}},\"sourceOrder\":[[\"key\",\"*\"],[\"key\",\"section:1\"],[\"heading\",\"Foutpagina‘s\"],[\"key\",\"single:4\"],[\"key\",\"single:2\"],[\"key\",\"single:3\"],[\"heading\",\"System\"],[\"key\",\"section:5\"]]}','2018-02-19 21:45:46','2018-02-19 21:45:46','7bfae9ba-e7aa-4b00-b794-99633227efc3');
+	(1,'craft\\elements\\Entry','{\"sources\":{\"section:1\":{\"tableAttributes\":{\"1\":\"type\",\"2\":\"slug\",\"3\":\"postDate\",\"4\":\"link\"}},\"*\":{\"tableAttributes\":{\"1\":\"section\",\"2\":\"postDate\",\"3\":\"expiryDate\",\"4\":\"link\"}},\"section:5\":{\"tableAttributes\":{\"1\":\"type\",\"2\":\"field:21\",\"3\":\"field:20\",\"4\":\"field:22\",\"5\":\"field:19\",\"6\":\"field:18\"}}},\"sourceOrder\":[[\"key\",\"*\"],[\"key\",\"section:1\"],[\"key\",\"section:6\"],[\"heading\",\"Foutpagina‘s\"],[\"key\",\"single:2\"],[\"key\",\"single:3\"],[\"heading\",\"System\"],[\"key\",\"section:5\"]]}','2018-04-23 07:41:10','2018-04-23 07:41:10','198d8b9b-60ce-43ff-863a-3e8fc857a5f3');
 
 /*!40000 ALTER TABLE `elementindexsettings` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1159,7 +1159,12 @@ VALUES
 	(96,NULL,'app','m180404_182320_edition_changes','2018-04-23 07:31:29','2018-04-23 07:31:29','2018-04-23 07:31:29','3c0b481f-c767-4c02-825a-f21c56c571aa'),
 	(97,NULL,'app','m180411_102218_fix_db_routes','2018-04-23 07:31:29','2018-04-23 07:31:29','2018-04-23 07:31:29','757f44b8-5035-49b8-94f5-eff5369ee70b'),
 	(98,NULL,'app','m180416_205628_resourcepaths_table','2018-04-23 07:31:29','2018-04-23 07:31:29','2018-04-23 07:31:29','fc68133e-a0d1-43a8-876c-233216842820'),
-	(99,16,'plugin','m180403_002756_field_type','2018-04-23 07:31:29','2018-04-23 07:31:29','2018-04-23 07:31:29','62703fee-98c3-4ad8-92a9-10e2279a8163');
+	(99,16,'plugin','m180403_002756_field_type','2018-04-23 07:31:29','2018-04-23 07:31:29','2018-04-23 07:31:29','62703fee-98c3-4ad8-92a9-10e2279a8163'),
+	(100,18,'plugin','Install','2018-04-23 07:34:02','2018-04-23 07:34:02','2018-04-23 07:34:02','140b1085-432a-4bfd-a6fe-f280202e2c83'),
+	(101,18,'plugin','m180210_000000_migrate_content_tables','2018-04-23 07:34:02','2018-04-23 07:34:02','2018-04-23 07:34:02','51857bdc-bbf8-4701-aeff-dcb69480063f'),
+	(102,18,'plugin','m180211_000000_type_columns','2018-04-23 07:34:02','2018-04-23 07:34:02','2018-04-23 07:34:02','fa08963a-9092-48bc-9a95-88359ce8b396'),
+	(103,18,'plugin','m180219_000000_sites','2018-04-23 07:34:02','2018-04-23 07:34:02','2018-04-23 07:34:02','0816e0a0-cffa-47db-84c3-bfad79285705'),
+	(104,18,'plugin','m180220_000000_fix_context','2018-04-23 07:34:02','2018-04-23 07:34:02','2018-04-23 07:34:02','6439bef4-01a8-4610-8213-f7345fb69675');
 
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1194,21 +1199,23 @@ LOCK TABLES `plugins` WRITE;
 INSERT INTO `plugins` (`id`, `handle`, `version`, `schemaVersion`, `licenseKey`, `licenseKeyStatus`, `enabled`, `settings`, `installDate`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
 	(1,'architect','2.2.0','2.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:24','2018-02-19 20:37:24','2018-02-19 20:56:20','cc986a1c-784e-4266-bfbf-0404c36c9eff'),
-	(2,'eager-beaver','1.0.3','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-04-23 07:31:35','ef50d02e-3d06-4011-aaaf-53e30babb328'),
-	(3,'image-optimize','1.4.31','1.0.0',NULL,'invalid',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-04-23 07:31:35','11105c08-a900-48d8-93c1-b309e1b33c3a'),
-	(4,'minify','1.2.8','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-04-23 07:31:35','5316ced6-9a20-4ebb-b5c2-f4bfb0041f26'),
-	(5,'typogrify','1.1.9','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-04-23 07:31:35','55bdd6c3-ea0b-4ed1-b667-0ad91ea590e6'),
-	(6,'mix','1.4.3','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-04-23 07:31:35','bc4c8648-1d03-4fcb-9118-877d82bf15e4'),
-	(7,'position-fieldtype','1.0.10','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-04-23 07:31:35','2ba89699-c08b-486d-9d1d-01e9d640fa2b'),
-	(8,'width-fieldtype','1.0.3','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:36','2018-02-19 20:37:36','2018-04-23 07:31:35','f48ef051-1b90-418b-99cd-6938241d1e14'),
-	(9,'colour-swatches','1.1.0','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:36','2018-02-19 20:37:36','2018-04-23 07:31:35','ef0a812f-4889-4a78-a653-0dd331467365'),
-	(11,'expanded-singles','1.0.3','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:36','2018-02-19 20:37:36','2018-04-23 07:31:35','793b39fd-2f59-4ad1-9c83-f06d900fd117'),
-	(12,'redactor','1.1.0','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:36','2018-02-19 20:37:36','2018-04-23 07:31:35','7a44b5b9-bab7-4c87-b6e2-18ef7ab7a694'),
-	(13,'typedlinkfield','1.0.7','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:37','2018-02-19 20:37:37','2018-04-23 07:31:35','eb26f007-f8d1-4f00-b0ae-8bca0ea0daa2'),
-	(14,'contact-form','2.1.1','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:37','2018-02-19 20:37:37','2018-04-23 07:31:35','da563b78-01f1-40e5-9934-c8c1e4685878'),
-	(15,'async-queue','1.3.2','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:37','2018-02-19 20:37:37','2018-04-23 07:31:35','177bf137-4ba9-42d1-b69c-61f9a7988f2c'),
-	(16,'seomatic','3.0.1','3.0.4',NULL,'invalid',1,'{\"pluginName\":\"SEO\",\"renderEnabled\":\"1\",\"environment\":\"local\",\"displayPreviewSidebar\":\"1\",\"displayAnalysisSidebar\":\"1\",\"devModeTitlePrefix\":\"[devMode] \",\"separatorChar\":\"|\",\"maxTitleLength\":\"120\",\"maxDescriptionLength\":\"300\"}','2018-03-17 15:29:27','2018-03-17 15:29:27','2018-04-23 07:31:35','d46b237c-55bd-4437-b8de-0c526188c34c'),
-	(17,'section-field','1.0.1','0.0.1',NULL,'unknown',1,NULL,'2018-03-17 15:29:49','2018-03-17 15:29:49','2018-04-23 07:31:35','70045d65-5b24-43af-9ff2-c8bede6b46dd');
+	(2,'eager-beaver','1.0.3','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-04-23 07:38:27','ef50d02e-3d06-4011-aaaf-53e30babb328'),
+	(4,'minify','1.2.8','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-04-23 07:38:27','5316ced6-9a20-4ebb-b5c2-f4bfb0041f26'),
+	(5,'typogrify','1.1.9','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-04-23 07:38:27','55bdd6c3-ea0b-4ed1-b667-0ad91ea590e6'),
+	(6,'mix','1.4.3','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-04-23 07:38:27','bc4c8648-1d03-4fcb-9118-877d82bf15e4'),
+	(7,'position-fieldtype','1.0.10','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-04-23 07:38:27','2ba89699-c08b-486d-9d1d-01e9d640fa2b'),
+	(8,'width-fieldtype','1.0.3','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:36','2018-02-19 20:37:36','2018-04-23 07:38:27','f48ef051-1b90-418b-99cd-6938241d1e14'),
+	(9,'colour-swatches','1.1.0','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:36','2018-02-19 20:37:36','2018-04-23 07:38:27','ef0a812f-4889-4a78-a653-0dd331467365'),
+	(11,'expanded-singles','1.0.3','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:36','2018-02-19 20:37:36','2018-04-23 07:38:27','793b39fd-2f59-4ad1-9c83-f06d900fd117'),
+	(12,'redactor','1.1.0','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:36','2018-02-19 20:37:36','2018-04-23 07:38:27','7a44b5b9-bab7-4c87-b6e2-18ef7ab7a694'),
+	(13,'typedlinkfield','1.0.7','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:37','2018-02-19 20:37:37','2018-04-23 07:38:27','eb26f007-f8d1-4f00-b0ae-8bca0ea0daa2'),
+	(14,'contact-form','2.1.1','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:37','2018-02-19 20:37:37','2018-04-23 07:38:27','da563b78-01f1-40e5-9934-c8c1e4685878'),
+	(15,'async-queue','1.3.2','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:37','2018-02-19 20:37:37','2018-04-23 07:38:27','177bf137-4ba9-42d1-b69c-61f9a7988f2c'),
+	(16,'seomatic','3.0.1','3.0.4',NULL,'invalid',1,'{\"pluginName\":\"SEO\",\"renderEnabled\":\"1\",\"environment\":\"local\",\"displayPreviewSidebar\":\"1\",\"displayAnalysisSidebar\":\"1\",\"devModeTitlePrefix\":\"[devMode] \",\"separatorChar\":\"|\",\"maxTitleLength\":\"120\",\"maxDescriptionLength\":\"300\"}','2018-03-17 15:29:27','2018-03-17 15:29:27','2018-04-23 07:38:27','d46b237c-55bd-4437-b8de-0c526188c34c'),
+	(17,'section-field','1.0.1','0.0.1',NULL,'unknown',1,NULL,'2018-03-17 15:29:49','2018-03-17 15:29:49','2018-04-23 07:38:27','70045d65-5b24-43af-9ff2-c8bede6b46dd'),
+	(18,'super-table','2.0.5','2.0.4',NULL,'unknown',1,NULL,'2018-04-23 07:34:02','2018-04-23 07:34:02','2018-04-23 07:38:27','83bbd3c0-94c1-4242-b429-d5e63950c681'),
+	(19,'imager','v2.0.0','2.0.0',NULL,'unknown',1,NULL,'2018-04-23 07:36:24','2018-04-23 07:36:24','2018-04-23 07:38:27','1fd6043a-2f9b-4d68-99ac-4569135a9a08'),
+	(20,'password-policy','1.0.2','1.0.0',NULL,'unknown',1,NULL,'2018-04-23 07:38:05','2018-04-23 07:38:05','2018-04-23 07:38:27','928fecbc-e098-47aa-866b-5f1baa763d76');
 
 /*!40000 ALTER TABLE `plugins` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1303,25 +1310,43 @@ LOCK TABLES `resourcepaths` WRITE;
 
 INSERT INTO `resourcepaths` (`hash`, `path`)
 VALUES
+	('12b0b571','@craft/web/assets/plugins/dist'),
 	('15c7c2c8','@lib/datepicker-i18n'),
+	('1d2efbd1','@rias/widthfieldtype/assetbundles/widthfieldtype/dist'),
 	('40f249ae','@lib/fileupload'),
+	('4322dba8','@vendor/craftcms/redactor/lib/redactor-plugins/fullscreen'),
 	('49d486b9','@craft/web/assets/deprecationerrors/dist'),
 	('4f863713','@craft/web/assets/updates/dist'),
 	('56bf6801','@lib/d3'),
+	('56f1aa45','@craft/web/assets/editentry/dist'),
 	('581a4850','@lib/picturefill'),
+	('5d387e1b','@lib/prismjs'),
 	('5fbe7492','@lib/jquery-touch-events'),
 	('608215e','@lib/xregexp'),
 	('65027f87','@lib/garnishjs'),
+	('6d506b36','@craft/web/assets/edituser/dist'),
 	('7044abb9','@lib/fabric'),
+	('7477214e','@vendor/craftcms/redactor/lib/redactor-plugins/video'),
+	('83a8fb58','@craft/redactor/assets/field/dist'),
+	('84a86c2f','@craft/web/assets/pluginstore/dist'),
 	('8b96180f','@lib/jquery-ui'),
 	('8dd35c52','@craft/web/assets/cp/dist'),
+	('a0d481f2','@craft/web/assets/updater/dist'),
+	('a3f91bc6','@rias/passwordpolicy/assetbundles/passwordpolicy/dist'),
 	('c2ad8982','@modules/sitemodule/assetbundles/sitemodule/dist'),
 	('c53f83aa','@lib/velocity'),
 	('c6465d4','@lib/selectize'),
+	('d16f444b','@nystudio107/seomatic/assetbundles/seomatic/dist'),
 	('d4b074d7','@bower/jquery/dist'),
+	('d619144e','@rias/widthfieldtype/assetbundles/widthfieldtype/dist/img'),
 	('d7216498','@craft/web/assets/utilities/dist'),
 	('d9182c42','@lib/jquery.payment'),
-	('fb20df22','@lib/element-resize-detector');
+	('dffab0e1','@craft/web/assets/matrix/dist'),
+	('e08b0925','@vendor/craftcms/redactor/lib/redactor-plugins/source'),
+	('e83291','@rias/positionfieldtype/assetbundles/positionfieldtype/dist'),
+	('ec9ab52f','@lib'),
+	('fb20df22','@lib/element-resize-detector'),
+	('fef266d8','@vendor/craftcms/redactor/lib/redactor');
 
 /*!40000 ALTER TABLE `resourcepaths` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1612,7 +1637,7 @@ VALUES
 	(3,1,'C3YxbKfCu7F5qDMt64VjHBsXglocvcfVMWLmUh4aYqcD2ePii9YOh7bOnkrmuGtlggkHSdExOm57ESKVU6IoiqW6_GYpAZDATfjW','2018-02-24 22:11:09','2018-02-24 22:16:31','8dac15c0-8280-4234-86ea-d8651cfeadee'),
 	(4,1,'5-sOlLKvFtFQt0ldVtzczF8UlRbtiWaUtx_irGTizuuxeNguWsGuh6H9YvwPopu00lxxG_k2ybOlJV_I2zPB2OAfoxGvGrgw0GaQ','2018-03-06 19:23:52','2018-03-06 19:31:08','2e5ecd50-ef84-48be-8929-c8c0fde75760'),
 	(5,1,'ITuzTsIPU9-81QifFRPF1cmUWYvZnC1yGOjC7FdSlott4zGMze8jJriaWqtlVMnLjQYpHaEXNHamUgFtDaW-Ca1NwtRz5QKeHc7Z','2018-03-17 15:28:17','2018-03-17 16:33:42','13e6c62b-e060-4d1a-a8cb-7ac2a660bb1c'),
-	(6,1,'Uqtf9ZC5FCUif_z1D82Ra9sKMS13TKIE8B-e5RqBiMt8c0Tdnyorw7cNTwUdcAPsyZLlvF9QSdRv6vJbKcWIz60WwdLqUPz_RYCw','2018-04-23 07:30:35','2018-04-23 07:31:38','bfc3ba66-f248-486a-bc03-7bd718f9b94a');
+	(6,1,'Uqtf9ZC5FCUif_z1D82Ra9sKMS13TKIE8B-e5RqBiMt8c0Tdnyorw7cNTwUdcAPsyZLlvF9QSdRv6vJbKcWIz60WwdLqUPz_RYCw','2018-04-23 07:30:35','2018-04-23 07:41:13','bfc3ba66-f248-486a-bc03-7bd718f9b94a');
 
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1766,6 +1791,56 @@ VALUES
 
 /*!40000 ALTER TABLE `structures` ENABLE KEYS */;
 UNLOCK TABLES;
+
+
+# Dump of table supertableblocks
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `supertableblocks`;
+
+CREATE TABLE `supertableblocks` (
+  `id` int(11) NOT NULL,
+  `ownerId` int(11) NOT NULL,
+  `ownerSiteId` int(11) DEFAULT NULL,
+  `fieldId` int(11) NOT NULL,
+  `typeId` int(11) NOT NULL,
+  `sortOrder` smallint(6) unsigned DEFAULT NULL,
+  `dateCreated` datetime NOT NULL,
+  `dateUpdated` datetime NOT NULL,
+  `uid` char(36) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `supertableblocks_ownerId_idx` (`ownerId`),
+  KEY `supertableblocks_fieldId_idx` (`fieldId`),
+  KEY `supertableblocks_typeId_idx` (`typeId`),
+  KEY `supertableblocks_ownerSiteId_idx` (`ownerSiteId`),
+  CONSTRAINT `supertableblocks_fieldId_fk` FOREIGN KEY (`fieldId`) REFERENCES `fields` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `supertableblocks_id_fk` FOREIGN KEY (`id`) REFERENCES `elements` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `supertableblocks_ownerId_fk` FOREIGN KEY (`ownerId`) REFERENCES `elements` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `supertableblocks_ownerSiteId_fk` FOREIGN KEY (`ownerSiteId`) REFERENCES `sites` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `supertableblocks_typeId_fk` FOREIGN KEY (`typeId`) REFERENCES `supertableblocktypes` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table supertableblocktypes
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `supertableblocktypes`;
+
+CREATE TABLE `supertableblocktypes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fieldId` int(11) NOT NULL,
+  `fieldLayoutId` int(11) DEFAULT NULL,
+  `dateCreated` datetime NOT NULL,
+  `dateUpdated` datetime NOT NULL,
+  `uid` char(36) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `supertableblocktypes_fieldId_idx` (`fieldId`),
+  KEY `supertableblocktypes_fieldLayoutId_idx` (`fieldLayoutId`),
+  CONSTRAINT `supertableblocktypes_fieldId_fk` FOREIGN KEY (`fieldId`) REFERENCES `fields` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `supertableblocktypes_fieldLayoutId_fk` FOREIGN KEY (`fieldLayoutId`) REFERENCES `fieldlayouts` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 
 # Dump of table systemmessages
