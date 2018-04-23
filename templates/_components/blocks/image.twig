@@ -2,17 +2,20 @@
 
 {% if image %}
     {% set fullUrl = image.getUrl() %}
-    {% set optimizedImages = image.optimizedImages %}
     {% set sizes = position == "full" ? "100vw" : "50vw" %}
+    {% set transformedImages = craft.imager.transformImage(image, [
+        { width: 1440 },
+        { width: 320 },
+    ], { position: image.focalPoint }, { fillTransforms: true }) %}
 
     <figure class="my-4 {{ position }}">
         {% if block.lightbox %}
             <a href="{{ fullUrl }}" rel="fluidbox">
-                <img src="{{ optimizedImages.src() }}" srcset="{{ optimizedImages.srcset() }}" class="w-full h-auto" alt="{{ image.title }}" sizes="{{ sizes }}" />
+                <img src="{{ transformedImages[0].url }}" srcset="{{ craft.imager.srcset(transformedImages) }}" class="w-full h-auto" alt="{{ image.title }}" sizes="{{ sizes }}" />
             </a>
         {% else %}
             <picture>
-                <img src="{{ optimizedImages.src() }}" srcset="{{ optimizedImages.srcset() }}" class="w-full h-auto" alt="{{ image.title }}" sizes="{{ sizes }}" />
+                <img src="{{ transformedImages[0].url }}" srcset="{{ craft.imager.srcset(transformedImages) }}" class="w-full h-auto" alt="{{ image.title }}" sizes="{{ sizes }}" />
             </picture>
         {% endif %}
         {% if block.caption and position != 'full' %}

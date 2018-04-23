@@ -4,9 +4,13 @@
     </div>
     <div class="w-full flex">
           {% for index,image in block.assets %}
-              {% set optimizedImages = image.optimizedImages %}
+              {% set transformedImages = craft.imager.transformImage(image, [
+                  { width: 1440 },
+                  { width: 320 },
+              ], { position: image.focalPoint }, { fillTransforms: true }) %}
+
               <a class="mx-1" href="{{ image.url }}" rel="fluidbox">
-                  <img src="{{ optimizedImages.src() }}" srcset="{{ optimizedImages.srcset() }}" class="w-full h-full rounded" alt="{{ image.title }}" sizes="100vw" />
+                  <img src="{{ transformedImages[0].url }}" srcset="{{ craft.imager.srcset(transformedImages) }}" class="w-full h-full rounded" alt="{{ image.title }}" sizes="100vw" />
               </a>
         {% endfor %}
     </div>
