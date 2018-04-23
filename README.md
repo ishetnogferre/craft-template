@@ -37,6 +37,10 @@ Obviously you're free to remove whatever components you don't need/want to use.
 
 ## Using marbles/craft
 
+Requirements:
+	
+	node, homebrew, valet, MySQL, composer
+
 This project package works exactly the way Pixel & Tonic's [craftcms/craft](https://github.com/craftcms/craft) package works; you create a new project by first creating & installing the project:
 
     composer create-project marbles/craft PATH
@@ -53,6 +57,11 @@ Then `cd` to your new project directory, and run Craft's `setup` console command
 Finally, run the `marbles-setup` command to configure Craft-Scripts & Craft 3 Multi-Environment based on your newly created `.env` settings:
 
     ./marbles-setup
+
+And last but not least:
+ 								
+	Import the databank found in your project folder (craft.sql)	
+	
 
 That's it, enjoy!
 
