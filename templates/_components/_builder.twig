@@ -21,7 +21,8 @@
 {% macro getPosition(block) %}
     {%- spaceless %}
         {% set positionedTypes = ['text', 'image', 'gallery'] %}
-        {{ block.type.handle in positionedTypes and block.position ? block.position : 'center' }}
+        {% set fullTypes = [ ] %}
+        {{ (block.type.handle in positionedTypes and block.position ? block.position : (block.type.handle in fullTypes ? 'full' : 'center') ) }}
     {% endspaceless -%}
 {% endmacro %}
 
@@ -53,14 +54,18 @@
 
     {# Are we starting a new row? #}
     {% if position == 'full' %}
-        <div class="md:flex -mx-4">
+        <div class="md:flex">
     {% elseif closedLastRow %}
-        <div class="container mx-auto">
+        <div class="container mx-auto px-4">
         <div class="md:flex -mx-4">
+            {%- if (type == 'image' and position == 'center') -%}<div class="mx-auto">{%- endif -%}
     {% endif %}
 
     {# Open our block #}
-    <div class="md:w-{{ block.width }} mx-4 w-full">
+    <div class="{%- if block.width and block.width != 'full' %} md:w-{{ block.width }} {%- endif -%} 
+    {%- if position == 'right' and prevPosition != 'left' %} ml-auto {%- endif -%}
+    {%- if position == 'center' %} mx-auto {% else %} mx-4 {% endif -%} w-full
+    ">
 
     {# Load our component #}
     {% include '_components/blocks/' ~ type %}

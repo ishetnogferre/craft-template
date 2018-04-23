@@ -1,8 +1,8 @@
-<div class="container mx-auto">
-    {% if entry.builder %}
-        {% include "_components/_builder.twig" %}
-    {% endif %}
+{% if entry.builder %}
+    {% include "_components/_builder.twig" %}
+{% endif %}
 
+<div class="container mx-auto">
     {% paginate craft.entries({
         sectionId: entry.sectionIndex,
         with: ['teaserImage'],
