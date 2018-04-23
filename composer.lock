@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "be6ff531446fb0b1b2403cf3b16fef00",
+    "content-hash": "9163129605f5fb3728e4d46d90ba1c56",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -3425,11 +3425,11 @@
         },
         {
             "name": "rias/craft-position-fieldtype",
-            "version": "1.0.10",
+            "version": "1.0.11",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Rias500/craft3-position-fieldtype/zipball/e874843ac70e87c01c9e92be4d3c2de54f963da2",
-                "reference": "e874843ac70e87c01c9e92be4d3c2de54f963da2",
+                "url": "https://api.github.com/repos/Rias500/craft-position-fieldtype/zipball/e4e1c8a32fef332718383a960b7f757e63b8a138",
+                "reference": "e4e1c8a32fef332718383a960b7f757e63b8a138",
                 "shasum": ""
             },
             "require": {
@@ -3450,7 +3450,6 @@
                     "rias\\positionfieldtype\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3462,13 +3461,17 @@
             ],
             "description": "Brings back the Position fieldtype from Craft 2",
             "keywords": [
-                "Craft",
                 "cms",
+                "craft",
                 "craft-plugin",
                 "craftcms",
                 "position fieldtype"
             ],
-            "time": "2018-02-15T15:54:22+00:00"
+            "support": {
+                "docs": "https://github.com/Rias500/position-fieldtype/blob/master/README.md",
+                "issues": "https://github.com/Rias500/position-fieldtype/issues"
+            },
+            "time": "2018-04-23T08:19:58+00:00"
         },
         {
             "name": "rias/craft-width-fieldtype",
