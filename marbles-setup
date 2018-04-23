@@ -15,14 +15,12 @@ use mikehaertl\shellcommand\Command as ShellCommand;
 
 const INSTALL_PLUGINS = [
     'eager-beaver',
-    'image-optimize',
     'minify',
     'typogrify',
     'mix',
     'position-fieldtype',
     'width-fieldtype',
     'colour-swatches',
-    'schema',
     'expanded-singles',
     'redactor',
     'typedlinkfield',
@@ -30,6 +28,9 @@ const INSTALL_PLUGINS = [
     'async-queue',
     'seomatic',
     'section-field',
+    'super-table',
+    'imager',
+    'password-policy',
 ];
 
 const CRAFT_SCRIPTS_SETUP = [
