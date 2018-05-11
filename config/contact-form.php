@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'toEmail'             => !Craft::$app->request->isConsoleRequest ? Craft::$app->request->getValidatedBodyParam('toEmail') : '',
+    'toEmail'             => 'rias@marbles.be',
     'prependSubject'      => '',
     'prependSender'       => '',
     'allowAttachments'    => false,
-    'successFlashMessage' => !Craft::$app->request->isConsoleRequest ? Craft::$app->request->getValidatedBodyParam('notice') : '',
+    'successFlashMessage' => '',
 ];

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9163129605f5fb3728e4d46d90ba1c56",
+    "content-hash": "50beaa5c2924e622166c882190a973ea",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -458,19 +458,15 @@
         },
         {
             "name": "composer/spdx-licenses",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/7e111c50db92fa2ced140f5ba23b4e261bc77a30",
-                "reference": "7e111c50db92fa2ced140f5ba23b4e261bc77a30",
+                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/cb17687e9f936acd7e7245ad3890f953770dec1b",
+                "reference": "cb17687e9f936acd7e7245ad3890f953770dec1b",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.3.2 || ^7.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.5",
-                "phpunit/phpunit-mock-objects": "2.3.0 || ^3.0"
             },
             "type": "library",
             "extra": {
@@ -483,7 +479,6 @@
                     "Composer\\Spdx\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -510,7 +505,7 @@
                 "spdx",
                 "validator"
             ],
-            "time": "2018-01-31T13:17:27+00:00"
+            "time": "2018-04-30T10:33:04+00:00"
         },
         {
             "name": "container-interop/container-interop",
@@ -540,11 +535,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.0.3.1",
+            "version": "3.0.7",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/6855a5f1c83205f1506aeb5a610964c58e67ca87",
-                "reference": "6855a5f1c83205f1506aeb5a610964c58e67ca87",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/4b041728306579aec5badab7df7d4bf42440305b",
+                "reference": "4b041728306579aec5badab7df7d4bf42440305b",
                 "shasum": ""
             },
             "require": {
@@ -614,7 +609,7 @@
                 "docs": "https://github.com/craftcms/docs",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2018-04-18T13:58:37+00:00"
+            "time": "2018-05-10T18:26:07+00:00"
         },
         {
             "name": "craftcms/contact-form",
@@ -745,11 +740,11 @@
         },
         {
             "name": "craftcms/redactor",
-            "version": "1.1.0",
+            "version": "2.0.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/redactor/zipball/3e106505ce19d6e17e3941161026113d2c9d4a20",
-                "reference": "3e106505ce19d6e17e3941161026113d2c9d4a20",
+                "url": "https://api.github.com/repos/craftcms/redactor/zipball/4d83ac07bf91236db163a46a92fede6ecf1503e4",
+                "reference": "4d83ac07bf91236db163a46a92fede6ecf1503e4",
                 "shasum": ""
             },
             "require": {
@@ -791,7 +786,7 @@
                 "docs": "https://github.com/craftcms/redactor",
                 "rss": "https://github.com/craftcms/redactor/commits/master.atom"
             },
-            "time": "2018-04-04T03:19:48+00:00"
+            "time": "2018-05-07T17:50:01+00:00"
         },
         {
             "name": "craftcms/server-check",
@@ -1953,11 +1948,11 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.44",
+            "version": "1.0.45",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/168dbe519737221dc87d17385cde33073881fd02",
-                "reference": "168dbe519737221dc87d17385cde33073881fd02",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/a99f94e63b512d75f851b181afcdf0ee9ebef7e6",
+                "reference": "a99f94e63b512d75f851b181afcdf0ee9ebef7e6",
                 "shasum": ""
             },
             "require": {
@@ -2022,7 +2017,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2018-04-06T09:58:14+00:00"
+            "time": "2018-05-07T08:44:23+00:00"
         },
         {
             "name": "league/oauth2-client",
@@ -2547,11 +2542,11 @@
         },
         {
             "name": "mundschenk-at/php-typography",
-            "version": "v6.1.4",
+            "version": "v6.1.5",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mundschenk-at/php-typography/zipball/fe5c440cae168e5d7fb6ca2140eadf7a04dd8f03",
-                "reference": "fe5c440cae168e5d7fb6ca2140eadf7a04dd8f03",
+                "url": "https://api.github.com/repos/mundschenk-at/php-typography/zipball/8f2be6c39e4ae53515bbf802aeaec88bee3818b5",
+                "reference": "8f2be6c39e4ae53515bbf802aeaec88bee3818b5",
                 "shasum": ""
             },
             "require": {
@@ -2588,7 +2583,7 @@
                 }
             ],
             "description": "A PHP library for improving your web typography",
-            "time": "2018-04-08T06:55:47+00:00"
+            "time": "2018-05-10T10:36:45+00:00"
         },
         {
             "name": "nystudio107/craft-eagerbeaver",
@@ -2742,11 +2737,11 @@
         },
         {
             "name": "nystudio107/craft-seomatic",
-            "version": "3.0.1",
+            "version": "3.0.12",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/635c769c53dbc75131eac43f53ee8095d09c911e",
-                "reference": "635c769c53dbc75131eac43f53ee8095d09c911e",
+                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/94ab842f7d92113ed622b762e0a63ee7c9a5ce02",
+                "reference": "94ab842f7d92113ed622b762e0a63ee7c9a5ce02",
                 "shasum": ""
             },
             "require": {
@@ -2804,15 +2799,15 @@
                 "docs": "https://github.com/nystudio107/craft-seomatic/blob/v3/README.md",
                 "issues": "https://github.com/nystudio107/craft-seomatic/issues"
             },
-            "time": "2018-04-20T16:02:46+00:00"
+            "time": "2018-05-10T16:34:48+00:00"
         },
         {
             "name": "nystudio107/craft-typogrify",
-            "version": "1.1.9",
+            "version": "1.1.10",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-typogrify/zipball/26ade78f72a67dcff0d65493545bbbd85999926b",
-                "reference": "26ade78f72a67dcff0d65493545bbbd85999926b",
+                "url": "https://api.github.com/repos/nystudio107/craft-typogrify/zipball/ac69b6b2db40958ce2679f2154be12438b746117",
+                "reference": "ac69b6b2db40958ce2679f2154be12438b746117",
                 "shasum": ""
             },
             "require": {
@@ -2859,7 +2854,7 @@
                 "docs": "https://github.com/nystudio107/craft-typogrify/blob/v1/README.md",
                 "issues": "https://github.com/nystudio107/craft-typogrify/issues"
             },
-            "time": "2018-03-20T23:05:07+00:00"
+            "time": "2018-04-25T19:29:06+00:00"
         },
         {
             "name": "ostark/craft-async-queue",
@@ -3372,6 +3367,60 @@
             "time": "2018-04-05T21:39:00+00:00"
         },
         {
+            "name": "rias/craft-contact-form-extensions",
+            "version": "1.0.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Rias500/craft-contact-form-extensions/zipball/9e5e32a5144f6bbb72d5de083c70bd645ab5c7cd",
+                "reference": "9e5e32a5144f6bbb72d5de083c70bd645ab5c7cd",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0-RC1",
+                "craftcms/contact-form": "^2.1"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Contact Form Extensions",
+                "handle": "contact-form-extensions",
+                "schemaVersion": "1.0.0",
+                "hasCpSettings": true,
+                "hasCpSection": true,
+                "changelogUrl": "https://raw.githubusercontent.com/Rias500/craft-contact-form-extensions/master/CHANGELOG.md",
+                "components": {
+                    "contactFormExtensionsService": "rias\\contactformextensions\\services\\ContactFormExtensionsService"
+                },
+                "class": "rias\\contactformextensions\\ContactFormExtensions"
+            },
+            "autoload": {
+                "psr-4": {
+                    "rias\\contactformextensions\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rias",
+                    "homepage": "https://rias.be"
+                }
+            ],
+            "description": "Adds extensions to the Craft CMS contact form plugin.",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft contact form extensions",
+                "craft-plugin",
+                "craftcms"
+            ],
+            "support": {
+                "docs": "https://github.com/Rias500/craft-contact-form-extensions/blob/master/README.md",
+                "issues": "https://github.com/Rias500/craft-contact-form-extensions/issues"
+            },
+            "time": "2018-05-10T19:09:35+00:00"
+        },
+        {
             "name": "rias/craft-password-policy",
             "version": "1.0.2",
             "dist": {
@@ -3560,11 +3609,11 @@
         },
         {
             "name": "sebastianlenz/linkfield",
-            "version": "1.0.7",
+            "version": "1.0.8",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastian-lenz/craft-linkfield/zipball/34df031757a36214bfc6298cb02e601ddc31b6eb",
-                "reference": "34df031757a36214bfc6298cb02e601ddc31b6eb",
+                "url": "https://api.github.com/repos/sebastian-lenz/craft-linkfield/zipball/280091a00ffad04d3da8e4540c346f9c2003df14",
+                "reference": "280091a00ffad04d3da8e4540c346f9c2003df14",
                 "shasum": ""
             },
             "require": {
@@ -3587,7 +3636,7 @@
                 "MIT"
             ],
             "description": "A Craft field type for selecting links",
-            "time": "2018-03-26T11:44:55+00:00"
+            "time": "2018-05-02T12:29:00+00:00"
         },
         {
             "name": "seld/cli-prompt",
@@ -3856,11 +3905,11 @@
         },
         {
             "name": "symfony/console",
-            "version": "v4.0.8",
+            "version": "v4.0.9",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/aad9a6fe47319f22748fd764f52d3a7ca6fa6b64",
-                "reference": "aad9a6fe47319f22748fd764f52d3a7ca6fa6b64",
+                "url": "https://api.github.com/repos/symfony/console/zipball/3e820bc2c520a87ca209ad8fa961c97f42e0b4ae",
+                "reference": "3e820bc2c520a87ca209ad8fa961c97f42e0b4ae",
                 "shasum": ""
             },
             "require": {
@@ -3872,7 +3921,7 @@
                 "symfony/process": "<3.3"
             },
             "suggest": {
-                "psr/log": "For using the console logger",
+                "psr/log-implementation": "For using the console logger",
                 "symfony/event-dispatcher": "",
                 "symfony/lock": "",
                 "symfony/process": ""
@@ -3906,11 +3955,11 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2018-04-03T05:24:00+00:00"
+            "time": "2018-04-30T01:23:47+00:00"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v4.0.8",
+            "version": "v4.0.9",
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/filesystem/zipball/5d2d655b2c72fc4d9bf7e9bf14f72a447b940f21",
@@ -3953,7 +4002,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v4.0.8",
+            "version": "v4.0.9",
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/finder/zipball/ca27c02b7a3fef4828c998c2ff9ba7aae1641c49",
@@ -3996,11 +4045,11 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.7.0",
+            "version": "v1.8.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/78be803ce01e55d3491c1397cf1c64beb9c1b63b",
-                "reference": "78be803ce01e55d3491c1397cf1c64beb9c1b63b",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/3296adf6a6454a050679cde90f95350ad604b171",
+                "reference": "3296adf6a6454a050679cde90f95350ad604b171",
                 "shasum": ""
             },
             "require": {
@@ -4012,7 +4061,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.7-dev"
+                    "dev-master": "1.8-dev"
                 }
             },
             "autoload": {
@@ -4023,7 +4072,6 @@
                     "bootstrap.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -4046,11 +4094,11 @@
                 "portable",
                 "shim"
             ],
-            "time": "2018-01-30T19:27:44+00:00"
+            "time": "2018-04-26T10:06:28+00:00"
         },
         {
             "name": "symfony/process",
-            "version": "v4.0.8",
+            "version": "v4.0.9",
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/process/zipball/d7dc1ee5dfe9f732cb1bba7310f5b99f2b7a6d25",
@@ -4297,11 +4345,11 @@
         },
         {
             "name": "verbb/super-table",
-            "version": "2.0.5",
+            "version": "2.0.7",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/super-table/zipball/6986afeaa3d065143fdf31d8ee243b59bb39eb08",
-                "reference": "6986afeaa3d065143fdf31d8ee243b59bb39eb08",
+                "url": "https://api.github.com/repos/verbb/super-table/zipball/7dc680810b65c6d60c25c8cc3263ad65cb6c7771",
+                "reference": "7dc680810b65c6d60c25c8cc3263ad65cb6c7771",
                 "shasum": ""
             },
             "require": {
@@ -4348,7 +4396,7 @@
                 "docs": "https://github.com/verbb/super-table",
                 "rss": "https://github.com/verbb/super-table/commits/v2.atom"
             },
-            "time": "2018-04-05T02:23:54+00:00"
+            "time": "2018-05-08T08:32:51+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -4708,11 +4756,11 @@
         },
         {
             "name": "yiisoft/yii2-swiftmailer",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-swiftmailer/zipball/563570c9aa19ca47c1b22e3032983229378e9274",
-                "reference": "563570c9aa19ca47c1b22e3032983229378e9274",
+                "url": "https://api.github.com/repos/yiisoft/yii2-swiftmailer/zipball/fd917fbe63b7ea796c52902143b83b98e65bfb73",
+                "reference": "fd917fbe63b7ea796c52902143b83b98e65bfb73",
                 "shasum": ""
             },
             "require": {
@@ -4722,15 +4770,14 @@
             "type": "yii2-extension",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "2.1.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "yii\\swiftmailer\\": ""
+                    "yii\\swiftmailer\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -4749,29 +4796,25 @@
                 "swiftmailer",
                 "yii2"
             ],
-            "time": "2017-08-04T10:48:17+00:00"
+            "time": "2018-04-24T23:17:42+00:00"
         },
         {
             "name": "zendframework/zend-escaper",
-            "version": "2.5.2",
+            "version": "2.6.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-escaper/zipball/2dcd14b61a72d8b8e27d579c6344e12c26141d4e",
-                "reference": "2dcd14b61a72d8b8e27d579c6344e12c26141d4e",
+                "url": "https://api.github.com/repos/zendframework/zend-escaper/zipball/31d8aafae982f9568287cb4dce987e6aff8fd074",
+                "reference": "31d8aafae982f9568287cb4dce987e6aff8fd074",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5"
-            },
-            "require-dev": {
-                "fabpot/php-cs-fixer": "1.7.*",
-                "phpunit/phpunit": "~4.0"
+                "php": "^5.6 || ^7.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5-dev",
-                    "dev-develop": "2.6-dev"
+                    "dev-master": "2.6.x-dev",
+                    "dev-develop": "2.7.x-dev"
                 }
             },
             "autoload": {
@@ -4779,16 +4822,16 @@
                     "Zend\\Escaper\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
-            "homepage": "https://github.com/zendframework/zend-escaper",
+            "description": "Securely and safely escape HTML, HTML attributes, JavaScript, CSS, and URLs",
             "keywords": [
+                "ZendFramework",
                 "escaper",
-                "zf2"
+                "zf"
             ],
-            "time": "2016-06-30T19:48:38+00:00"
+            "time": "2018-04-25T15:48:53+00:00"
         },
         {
             "name": "zendframework/zend-feed",
@@ -4848,11 +4891,11 @@
         },
         {
             "name": "zendframework/zend-stdlib",
-            "version": "3.1.1",
+            "version": "3.2.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-stdlib/zipball/10ef03144902d1955f935fff5346ed52f7d99bcc",
-                "reference": "10ef03144902d1955f935fff5346ed52f7d99bcc",
+                "url": "https://api.github.com/repos/zendframework/zend-stdlib/zipball/cd164b4a18b5d1aeb69be2c26db035b5ed6925ae",
+                "reference": "cd164b4a18b5d1aeb69be2c26db035b5ed6925ae",
                 "shasum": ""
             },
             "require": {
@@ -4861,8 +4904,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.1-dev",
-                    "dev-develop": "3.2-dev"
+                    "dev-master": "3.2.x-dev",
+                    "dev-develop": "3.3.x-dev"
                 }
             },
             "autoload": {
@@ -4873,12 +4916,13 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "homepage": "https://github.com/zendframework/zend-stdlib",
+            "description": "SPL extensions, array utilities, error handlers, and more",
             "keywords": [
+                "ZendFramework",
                 "stdlib",
-                "zf2"
+                "zf"
             ],
-            "time": "2018-04-12T16:05:42+00:00"
+            "time": "2018-04-30T13:50:40+00:00"
         }
     ],
     "packages-dev": [],
