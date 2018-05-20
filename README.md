@@ -17,7 +17,7 @@ In addition to setting up a new Craft 3 CMS project, this project sets up:
 * [A Better package.json for the Frontend](https://nystudio107.com/blog/a-better-package-json-for-the-frontend)
 * Frontend Development Automation using Laravel Mix
 * [Implementing Critical CSS on your website](https://nystudio107.com/blog/implementing-critical-css)
-* [Enhancing a Craft CMS 3 Website with a Custom Module](https://nystudio107.com/blog/simple-static-asset-versioning)
+* [Enhancing a Craft CMS 3 Website with a Custom Module](https://nystudio107.com/blog/enhancing-a-craft-cms-3-website-with-a-custom-module)
 
 It also installs a few base plugins that we use on every project.
 
