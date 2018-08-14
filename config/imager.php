@@ -45,7 +45,7 @@ return [
     'fillInterval' => '200',
     'clearKey' => '',
 
-    'useForNativeTransforms' => false,
+    'useForNativeTransforms' => true,
     'useForCpThumbs' => false,
 
     'imgixProfile' => 'default',

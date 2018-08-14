@@ -1,16 +1,20 @@
 {
     "buttons": [
+        "html",
         "formatting",
         "bold",
         "italic",
         "unorderedlist",
         "orderedlist",
-        "link"
+        "link",
+        "file"
     ],
     "plugins": [
         "fullscreen",
         "video",
         "widget"
     ],
-    "toolbarFixed": false
+    "toolbarFixed": false,
+    "source": true,
+    "linkNewTab": true
 }

@@ -8,85 +8,57 @@
  # An `entry` variable is expected to be defined.
 -#}
 
-{% set prevType = null %}
-{% set prevPosition = null %}
-{% set nextType = null %}
-{% set nextPosition = null %}
 {% set closedLastRow = true %}
+{% set totalWidth = 0 %}
+
+{# Load all our blocks with eager loading #}
 {% set blocks = entry.builder.with([
-    'image:asset',
-    'gallery:assets',
+    'image:image',
+    'banner:bannerBackground',
+    'activities:activities',
+    'projects:projects',
 ]).all %}
 
-{% macro getPosition(block) %}
-    {%- spaceless %}
-        {% set positionedTypes = ['text', 'image', 'gallery'] %}
-        {% set fullTypes = [ ] %}
-        {{ (block.type.handle in positionedTypes and block.position ? block.position : (block.type.handle in fullTypes ? 'full' : 'center') ) }}
-    {% endspaceless -%}
-{% endmacro %}
-
-{% from _self import getPosition %}
-
 {% for i, block in blocks %}
-
-    {# If there's no next type, we're on the first type #}
-    {% set type = (nextType ?: block.type) %}
-
-    {# Get the position for this block (left, center, right, full) #}
-    {% set position = (nextPosition ?: getPosition(block)~'') %}
-
-    {# Get the next blockType #}
-    {% set nextType = (not loop.last ? blocks[i+1].type.handle) %}
-
-    {# Get the next position #}
-    {% set nextPosition = (not loop.last ? getPosition(blocks[i+1])~'') %}
-
-    {# Is this block floated to the left or right? #}
-    {% set isFloat = position in ['left', 'right'] %}
-
-    {# Is this a breakout block (a sole floated block before a centered block)? #}
-    {% set isBreakout = (
-        isFloat and type in ['text', 'image'] and
-        (position == 'left' or prevPosition != 'left') and
-        nextPosition == 'center'
-    ) %}
-
-    {# Are we starting a new row? #}
-    {% if position == 'full' %}
-        <div class="md:flex">
-    {% elseif closedLastRow %}
-        <div class="container mx-auto px-4">
-        <div class="md:flex -mx-4">
-            {%- if (type == 'image' and position == 'center') -%}<div class="mx-auto">{%- endif -%}
+    {# Calculate this block's width percentage #}
+    {% if block.width and block.width != 'full' %}
+        {% set widthPercentage = (block.width|split('/')|first|number / block.width|split('/')|last|number) * 100 %}
+    {% else %}
+        {% set widthPercentage = 100 %}
     {% endif %}
 
-    {# Open our block #}
-    <div class="{%- if block.width and block.width != 'full' %} md:w-{{ block.width }} {%- endif -%} 
-    {%- if position == 'right' and prevPosition != 'left' %} ml-auto {%- endif -%}
-    {%- if position == 'center' %} mx-auto {% else %} mx-4 {% endif -%} w-full
-    ">
+    {# Are we starting a new row? #}
+    {% if closedLastRow %}
+        {# Should this block be inside the container? #}
+        <div class="overflow-hidden
+            {% if blocks[i-1] is defined and blocks[i-1].type.handle in ['text', 'image'] %}mt-5{% else %}mt-5 sm:mt-10{% endif %}
+            {% if blocks[i+1] is defined and blocks[i+1].type.handle in ['text', 'image'] %}mb-5{% else %}mb-5 sm:mb-10{% endif %}
+            {% if block.positionType != 'container' and block.type.handle in ['text', 'image'] -%}container mx-auto px-4{%- endif -%}
+        ">
+        {# Extra div for gutters #}
+        <div class="flex flex-wrap -mx-4">
+    {% endif %}
 
-    {# Load our component #}
-    {% include '_components/blocks/' ~ type %}
-
-    {# Close the column #}
+    {# md:w-1/2 md:w-1/3 md:w-2/3 md:w-1/4 md:w-3/4 md:w-1/5 md:w-2/5 md:w-3/5 md:w-4/5 md:w-1/6 md:w-5/6 md:w-full #}
+    <div class="block-{{ block.type.handle }} mx-auto px-4 w-full md:w-{{ block.width }}">
+        {# Load our component #}
+        {% include '_components/blocks/' ~ block.type.handle %}
     </div>
 
+    {# If we closed the last row, totalWidth = this width, otherwise add to it #}
+    {% if closedLastRow %}
+        {% set totalWidth = widthPercentage %}
+    {% else %}
+        {% set totalWidth = totalWidth + widthPercentage %}
+    {% endif %}
+
     {# Are we closing this row? #}
-    {% if not (
-        (position == 'left' and nextPosition == 'right') or
-        isBreakout
-    ) %}
-        {% if position != 'full' %}
-            </div>
-        {% endif %}
+    {% set nextIsFull = blocks[i+1].positionType is defined and blocks[i+1].positionType == 'column' ? false : true %}
+    {% if nextIsFull or totalWidth >= 100 %}
+        </div>
         </div>
         {% set closedLastRow = true %}
     {% else %}
         {% set closedLastRow = false %}
     {% endif %}
-
-    {% set prevType = type %}
-    {% set prevPosition = position %}
 {% endfor %}

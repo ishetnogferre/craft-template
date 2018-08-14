@@ -55,21 +55,4 @@ mix
         ],
         extensions: ['html', 'js', 'php', 'vue', 'twig', 'scss', 'css'],
     })
-    .version()
-    .then(function () {
-        const copy = require('copy');
-        const inlineFiles = [
-            './node_modules/fg-loadcss/src/loadCSS.js',
-            './node_modules/fg-loadcss/src/cssrelpreload.js',
-            './node_modules/tiny-cookie/dist/tiny-cookie.min.js',
-        ];
-
-        copy.each(
-            inlineFiles,
-            './templates/_inlinejs', { flatten: true },
-            (err) => {
-                // eslint-disable-next-line no-console
-                if (err) console.log(err);
-            }
-        );
-    });
+    .version();

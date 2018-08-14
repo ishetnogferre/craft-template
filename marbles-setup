@@ -14,7 +14,6 @@ use yii\helpers\Console;
 use mikehaertl\shellcommand\Command as ShellCommand;
 
 const INSTALL_PLUGINS = [
-    'eager-beaver',
     'minify',
     'typogrify',
     'mix',
@@ -32,6 +31,9 @@ const INSTALL_PLUGINS = [
     'imager',
     'password-policy',
     'contact-form-extensions',
+    'craftremote',
+    'navigation',
+    'blitz',
 ];
 
 const CRAFT_SCRIPTS_SETUP = [

@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "50beaa5c2924e622166c882190a973ea",
+    "content-hash": "444dcb2730ef9d5977f37de86dd9c561",
     "packages": [
         {
             "name": "aelvan/imager",
-            "version": "v2.0.0",
+            "version": "v2.1.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aelvan/Imager-Craft/zipball/a260b58d1da0cb188b565d5a5cac72572a6a4b61",
-                "reference": "a260b58d1da0cb188b565d5a5cac72572a6a4b61",
+                "url": "https://api.github.com/repos/aelvan/Imager-Craft/zipball/cd22264e52c926dbc535e83ff0cc760c62ce184a",
+                "reference": "cd22264e52c926dbc535e83ff0cc760c62ce184a",
                 "shasum": ""
             },
             "require": {
@@ -20,11 +20,12 @@
                 "craftcms/cms": "^3.0.0-RC10",
                 "google/cloud": "~0.20",
                 "imageoptim/imageoptim": "^1.3",
-                "imgix/imgix-php": "^1.1.0",
+                "imgix/imgix-php": "^2.1.0",
                 "kraken-io/kraken-php": "^1.2",
                 "ksubileau/color-thief-php": "^1.3.1",
                 "mikehaertl/php-shellcommand": "^1.2",
-                "tinify/tinify": "^1.5.2"
+                "ssnepenthe/color-utils": "~0.4",
+                "tinify/tinify": ">=1.1.1"
             },
             "type": "craft-plugin",
             "extra": {
@@ -33,7 +34,7 @@
                 "schemaVersion": "2.0.0",
                 "hasCpSettings": false,
                 "hasCpSection": false,
-                "changelogUrl": "https://raw.githubusercontent.com/aelvan/imager/craft3/CHANGELOG.md",
+                "changelogUrl": "https://raw.githubusercontent.com/aelvan/Imager-Craft/craft3/CHANGELOG.md",
                 "components": [],
                 "class": "aelvan\\imager\\Imager"
             },
@@ -64,18 +65,67 @@
                 "transform"
             ],
             "support": {
-                "docs": "https://github.com/aelvan/imager/blob/craft3/README.md",
-                "issues": "https://github.com/aelvan/imager/issues"
+                "docs": "https://github.com/aelvan/Imager-Craft/blob/craft3/README.md",
+                "issues": "https://github.com/aelvan/Imager-Craft/issues"
             },
-            "time": "2018-03-30T11:43:54+00:00"
+            "time": "2018-07-28T17:40:15+00:00"
+        },
+        {
+            "name": "albertcht/invisible-recaptcha",
+            "version": "v1.8.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/albertcht/invisible-recaptcha/zipball/6a34a1ce6cd4ae8216d07ee5ef8fb2a201774de6",
+                "reference": "6a34a1ce6cd4ae8216d07ee5ef8fb2a201774de6",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.2",
+                "illuminate/support": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*|5.5.*|5.6.*",
+                "php": "^5.6.4 || ^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "AlbertCht\\InvisibleReCaptcha\\InvisibleReCaptchaServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "AlbertCht\\InvisibleReCaptcha\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Albert Chen",
+                    "homepage": "https://www.albert-chen.com"
+                }
+            ],
+            "description": "Invisible reCAPTCHA For Laravel.",
+            "keywords": [
+                "captcha",
+                "invisible",
+                "invisible-recaptcha",
+                "laravel",
+                "laravel5",
+                "no-captcha",
+                "php",
+                "recaptcha"
+            ],
+            "time": "2018-05-15T01:31:25+00:00"
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.54.6",
+            "version": "3.64.10",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ea86c808c9c8a1cd39dab2baa1b9dd38e03323ec",
-                "reference": "ea86c808c9c8a1cd39dab2baa1b9dd38e03323ec",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/4aa66872c4428d0db08c861a34559b0923eaae23",
+                "reference": "4aa66872c4428d0db08c861a34559b0923eaae23",
                 "shasum": ""
             },
             "require": {
@@ -130,7 +180,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-04-20T18:14:14+00:00"
+            "time": "2018-08-10T21:49:00+00:00"
         },
         {
             "name": "cebe/markdown",
@@ -189,11 +239,11 @@
         },
         {
             "name": "charliedev/section-field",
-            "version": "1.0.1",
+            "version": "1.1.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/charliedevelopment/craft3-section-field/zipball/001cbdac5c7bbed50c4f80827b2099538452e27a",
-                "reference": "001cbdac5c7bbed50c4f80827b2099538452e27a",
+                "url": "https://api.github.com/repos/charliedevelopment/craft3-section-field/zipball/a7fb2aab0bd56b8bde10d25e4ccc5e46b529a362",
+                "reference": "a7fb2aab0bd56b8bde10d25e4ccc5e46b529a362",
                 "shasum": ""
             },
             "require": {
@@ -238,7 +288,7 @@
                 "source": "https://github.com/charliedevelopment/craft3-section-field",
                 "email": "support@charliedev.com"
             },
-            "time": "2018-01-31T20:00:29+00:00"
+            "time": "2018-08-02T16:03:54+00:00"
         },
         {
             "name": "cloudinary/cloudinary_php",
@@ -289,11 +339,11 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/d2c0a83b7533d6912e8d516756ebd34f893e9169",
-                "reference": "d2c0a83b7533d6912e8d516756ebd34f893e9169",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/46afded9720f40b9dc63542af4e3e43a1177acb0",
+                "reference": "46afded9720f40b9dc63542af4e3e43a1177acb0",
                 "shasum": ""
             },
             "require": {
@@ -330,7 +380,7 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2018-03-29T19:57:20+00:00"
+            "time": "2018-08-08T08:57:40+00:00"
         },
         {
             "name": "composer/composer",
@@ -535,11 +585,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.0.7",
+            "version": "3.0.19",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/4b041728306579aec5badab7df7d4bf42440305b",
-                "reference": "4b041728306579aec5badab7df7d4bf42440305b",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/24ce69a3150fcbed51cd71e13db754fe169423c2",
+                "reference": "24ce69a3150fcbed51cd71e13db754fe169423c2",
                 "shasum": ""
             },
             "require": {
@@ -548,9 +598,9 @@
                 "craftcms/plugin-installer": "~1.5.0",
                 "craftcms/server-check": "~1.1.0",
                 "creocoder/yii2-nested-sets": "~0.9.0",
-                "danielstjules/stringy": "~3.1.0",
+                "danielstjules/stringy": "^3.1.0",
                 "elvanto/litemoji": "^1.3.1",
-                "enshrined/svg-sanitize": "~0.8.2",
+                "enshrined/svg-sanitize": "~0.9.0",
                 "ext-curl": "*",
                 "ext-dom": "*",
                 "ext-json": "*",
@@ -559,19 +609,20 @@
                 "ext-pcre": "*",
                 "ext-pdo": "*",
                 "ext-zip": "*",
-                "guzzlehttp/guzzle": "~6.3.0",
-                "league/flysystem": "~1.0.35",
-                "league/oauth2-client": "~2.2.1",
-                "mikehaertl/php-shellcommand": "~1.2.5",
+                "guzzlehttp/guzzle": "^6.3.0",
+                "league/flysystem": "^1.0.35",
+                "league/oauth2-client": "^2.2.1",
+                "mikehaertl/php-shellcommand": "^1.2.5",
                 "php": ">=7.0.0",
                 "pixelandtonic/imagine": "~0.7.1.2",
-                "seld/cli-prompt": "~1.0.3",
-                "twig/twig": "~2.4.4",
+                "seld/cli-prompt": "^1.0.3",
+                "true/punycode": "^2.1.0",
+                "twig/twig": "^2.5.0",
                 "yiisoft/yii2": "~2.0.15.1",
-                "yiisoft/yii2-debug": "~2.0.10",
-                "yiisoft/yii2-queue": "~2.0.1",
-                "yiisoft/yii2-swiftmailer": "~2.1.0",
-                "zendframework/zend-feed": "~2.8.0"
+                "yiisoft/yii2-debug": "^2.0.10",
+                "yiisoft/yii2-queue": "^2.0.1",
+                "yiisoft/yii2-swiftmailer": "^2.1.0",
+                "zendframework/zend-feed": "^2.8.0"
             },
             "provide": {
                 "bower-asset/bootstrap": "3.3.* | 3.2.* | 3.1.*",
@@ -609,19 +660,19 @@
                 "docs": "https://github.com/craftcms/docs",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2018-05-10T18:26:07+00:00"
+            "time": "2018-08-07T18:08:50+00:00"
         },
         {
             "name": "craftcms/contact-form",
-            "version": "2.1.1",
+            "version": "2.2.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/contact-form/zipball/84a76265f1258e9b9450ae4df5c80db970c16e39",
-                "reference": "84a76265f1258e9b9450ae4df5c80db970c16e39",
+                "url": "https://api.github.com/repos/craftcms/contact-form/zipball/8e6d41d68736b955a324e7dc34790bbc7f419a55",
+                "reference": "8e6d41d68736b955a324e7dc34790bbc7f419a55",
                 "shasum": ""
             },
             "require": {
-                "craftcms/cms": "^3.0.0-beta.27"
+                "craftcms/cms": "^3.0.0-RC11"
             },
             "type": "craft-plugin",
             "extra": {
@@ -638,7 +689,6 @@
                     "craft\\contactform\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -651,10 +701,19 @@
             "description": "Add a simple contact form to your Craft CMS site",
             "keywords": [
                 "cms",
+                "contact",
                 "craftcms",
+                "form",
                 "yii2"
             ],
-            "time": "2017-12-05T00:33:27+00:00"
+            "support": {
+                "email": "support@craftcms.com",
+                "issues": "https://github.com/craftcms/contact-form/issues?state=open",
+                "source": "https://github.com/craftcms/contact-form",
+                "docs": "https://github.com/craftcms/contact-form",
+                "rss": "https://github.com/craftcms/contact-form/commits/v2.atom"
+            },
+            "time": "2018-07-19T18:09:16+00:00"
         },
         {
             "name": "craftcms/oauth2-craftid",
@@ -740,11 +799,11 @@
         },
         {
             "name": "craftcms/redactor",
-            "version": "2.0.1",
+            "version": "2.1.5",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/redactor/zipball/4d83ac07bf91236db163a46a92fede6ecf1503e4",
-                "reference": "4d83ac07bf91236db163a46a92fede6ecf1503e4",
+                "url": "https://api.github.com/repos/craftcms/redactor/zipball/6a508a603c07b55720f17132e2524420525c285a",
+                "reference": "6a508a603c07b55720f17132e2524420525c285a",
                 "shasum": ""
             },
             "require": {
@@ -786,15 +845,15 @@
                 "docs": "https://github.com/craftcms/redactor",
                 "rss": "https://github.com/craftcms/redactor/commits/master.atom"
             },
-            "time": "2018-05-07T17:50:01+00:00"
+            "time": "2018-07-30T13:40:33+00:00"
         },
         {
             "name": "craftcms/server-check",
-            "version": "1.1.1",
+            "version": "1.1.4",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/server-check/zipball/a39dea7f05c66751532a0ad09d51cae46da3f9cf",
-                "reference": "a39dea7f05c66751532a0ad09d51cae46da3f9cf",
+                "url": "https://api.github.com/repos/craftcms/server-check/zipball/5d6a2c6033db666fd775c301b6c92b9a86487ace",
+                "reference": "5d6a2c6033db666fd775c301b6c92b9a86487ace",
                 "shasum": ""
             },
             "type": "library",
@@ -803,7 +862,6 @@
                     "server/requirements"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -815,7 +873,7 @@
                 "requirements",
                 "yii2"
             ],
-            "time": "2017-12-15T16:00:57+00:00"
+            "time": "2018-07-25T19:16:43+00:00"
         },
         {
             "name": "craftcms/vue-asset",
@@ -853,6 +911,58 @@
                 "yii2"
             ],
             "time": "2017-07-20T15:14:12+00:00"
+        },
+        {
+            "name": "craftremote/plugin",
+            "version": "1.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CraftRemote/plugin/zipball/28163e6a2b8e2db83297ebb4ff8584a0ecb4e0dd",
+                "reference": "28163e6a2b8e2db83297ebb4ff8584a0ecb4e0dd",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0-RC1"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "craftremote",
+                "handle": "craftremote",
+                "hasCpSettings": true,
+                "hasCpSection": false,
+                "changelogUrl": "https://raw.githubusercontent.com/craftremote/plugin/master/CHANGELOG.md",
+                "components": {
+                    "craftremoteService": "craftremote\\plugin\\services\\CraftremoteService"
+                },
+                "class": "craftremote\\plugin\\Craftremote"
+            },
+            "autoload": {
+                "psr-4": {
+                    "craftremote\\plugin\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rias",
+                    "homepage": "https://rias.be"
+                }
+            ],
+            "description": "Remotely manage your Craft CMS installs.",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "craftremote"
+            ],
+            "support": {
+                "docs": "https://github.com/craftremote/plugin/blob/master/README.md",
+                "issues": "https://github.com/craftremote/plugin/issues"
+            },
+            "time": "2018-07-08T18:16:01+00:00"
         },
         {
             "name": "creocoder/yii2-nested-sets",
@@ -983,6 +1093,64 @@
             "time": "2015-04-22T14:55:55+00:00"
         },
         {
+            "name": "doctrine/inflector",
+            "version": "v1.3.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/5527a48b7313d15261292c149e55e26eae771b0a",
+                "reference": "5527a48b7313d15261292c149e55e26eae771b0a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Common\\Inflector\\": "lib/Doctrine/Common/Inflector"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Common String Manipulations with regard to casing and singular/plural rules.",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "inflection",
+                "pluralize",
+                "singularize",
+                "string"
+            ],
+            "time": "2018-01-09T20:05:19+00:00"
+        },
+        {
             "name": "doctrine/lexer",
             "version": "v1.0.1",
             "dist": {
@@ -1079,19 +1247,15 @@
         },
         {
             "name": "elvanto/litemoji",
-            "version": "1.3.1",
+            "version": "1.4.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elvanto/litemoji/zipball/fc1d2b8b3d174ee9425ac506430377dc3b50cdfb",
-                "reference": "fc1d2b8b3d174ee9425ac506430377dc3b50cdfb",
+                "url": "https://api.github.com/repos/elvanto/litemoji/zipball/af94de6becfbc2f4d9c52e1142183146fd087f36",
+                "reference": "af94de6becfbc2f4d9c52e1142183146fd087f36",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4"
-            },
-            "require-dev": {
-                "milesj/emojibase": "*",
-                "phpunit/phpunit": "^5.0"
             },
             "type": "library",
             "autoload": {
@@ -1099,7 +1263,6 @@
                     "LitEmoji\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1108,20 +1271,16 @@
                 "emoji",
                 "php-emoji"
             ],
-            "time": "2017-10-09T01:54:36+00:00"
+            "time": "2018-08-02T03:48:08+00:00"
         },
         {
             "name": "enshrined/svg-sanitize",
-            "version": "0.8.2",
+            "version": "0.9.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/darylldoyle/svg-sanitizer/zipball/432fc4fc7e95b8a866790ba27e35076b9dd96ebe",
-                "reference": "432fc4fc7e95b8a866790ba27e35076b9dd96ebe",
+                "url": "https://api.github.com/repos/darylldoyle/svg-sanitizer/zipball/509455b32ddfcb6db993ed3564f0670166c6c4c7",
+                "reference": "509455b32ddfcb6db993ed3564f0670166c6c4c7",
                 "shasum": ""
-            },
-            "require-dev": {
-                "codeclimate/php-test-reporter": "^0.1.2",
-                "phpunit/phpunit": "^4.7"
             },
             "type": "library",
             "autoload": {
@@ -1129,7 +1288,6 @@
                     "enshrined\\svgSanitize\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0+"
             ],
@@ -1140,7 +1298,7 @@
                 }
             ],
             "description": "An SVG sanitizer for PHP",
-            "time": "2017-12-06T15:31:26+00:00"
+            "time": "2018-07-19T17:21:27+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -1219,11 +1377,11 @@
         },
         {
             "name": "google/auth",
-            "version": "v1.3.0",
+            "version": "v1.3.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/google-auth-library-php/zipball/8f7c96146b2c62d3f4c6bbc4b5bb8a8e396b0b71",
-                "reference": "8f7c96146b2c62d3f4c6bbc4b5bb8a8e396b0b71",
+                "url": "https://api.github.com/repos/google/google-auth-library-php/zipball/436007a77fd2037f933d3a5c8e4c7e0c9b88a7b0",
+                "reference": "436007a77fd2037f933d3a5c8e4c7e0c9b88a7b0",
                 "shasum": ""
             },
             "require": {
@@ -1250,20 +1408,19 @@
                 "google",
                 "oauth2"
             ],
-            "time": "2018-04-06T19:26:30+00:00"
+            "time": "2018-07-23T21:44:38+00:00"
         },
         {
             "name": "google/cloud",
-            "version": "v0.61.0",
+            "version": "v0.73.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GoogleCloudPlatform/google-cloud-php/zipball/6834308b2316fa6cb755118a4e75909880393ac8",
-                "reference": "6834308b2316fa6cb755118a4e75909880393ac8",
+                "url": "https://api.github.com/repos/GoogleCloudPlatform/google-cloud-php/zipball/7d306c2a0e62ee292650cef40edbf6f9608423d6",
+                "reference": "7d306c2a0e62ee292650cef40edbf6f9608423d6",
                 "shasum": ""
             },
             "require": {
-                "google/gax": "^0.31.1",
-                "google/proto-client": "^0.37",
+                "google/gax": "^0.36",
                 "guzzlehttp/guzzle": "^5.3|^6.0",
                 "guzzlehttp/psr7": "^1.2",
                 "monolog/monolog": "~1",
@@ -1273,31 +1430,35 @@
                 "rize/uri-template": "~0.3"
             },
             "replace": {
-                "google/cloud-bigquery": "1.2.0",
-                "google/cloud-bigquerydatatransfer": "0.4.0",
-                "google/cloud-bigtable": "0.3.3",
-                "google/cloud-container": "0.3.3",
-                "google/cloud-core": "1.19.2",
-                "google/cloud-dataproc": "0.3.3",
-                "google/cloud-datastore": "1.4.2",
-                "google/cloud-debugger": "0.7.0",
-                "google/cloud-dialogflow": "0.1.0",
-                "google/cloud-dlp": "0.8.0",
-                "google/cloud-error-reporting": "0.9.4",
-                "google/cloud-firestore": "0.8.1",
-                "google/cloud-iot": "0.1.2",
-                "google/cloud-language": "0.13.3",
-                "google/cloud-logging": "1.10.3",
-                "google/cloud-monitoring": "0.9.3",
-                "google/cloud-oslogin": "0.3.3",
-                "google/cloud-pubsub": "1.1.3",
-                "google/cloud-spanner": "1.3.3",
-                "google/cloud-speech": "0.12.3",
-                "google/cloud-storage": "1.4.0",
-                "google/cloud-trace": "0.7.3",
-                "google/cloud-translate": "1.2.0",
-                "google/cloud-videointelligence": "0.10.3",
-                "google/cloud-vision": "0.11.3"
+                "google/cloud-bigquery": "1.4.1",
+                "google/cloud-bigquerydatatransfer": "0.7.0",
+                "google/cloud-bigtable": "0.5.3",
+                "google/cloud-container": "0.5.2",
+                "google/cloud-core": "1.22.0",
+                "google/cloud-dataproc": "0.5.3",
+                "google/cloud-datastore": "1.5.5",
+                "google/cloud-debugger": "0.12.3",
+                "google/cloud-dialogflow": "0.3.2",
+                "google/cloud-dlp": "0.11.2",
+                "google/cloud-error-reporting": "0.11.3",
+                "google/cloud-firestore": "0.12.1",
+                "google/cloud-iot": "0.3.2",
+                "google/cloud-kms": "0.2.0",
+                "google/cloud-language": "0.15.3",
+                "google/cloud-logging": "1.12.6",
+                "google/cloud-monitoring": "0.11.2",
+                "google/cloud-oslogin": "0.6.1",
+                "google/cloud-pubsub": "1.4.2",
+                "google/cloud-redis": "0.3.3",
+                "google/cloud-spanner": "1.6.3",
+                "google/cloud-speech": "0.16.0",
+                "google/cloud-storage": "1.7.0",
+                "google/cloud-tasks": "0.2.0",
+                "google/cloud-text-to-speech": "0.1.2",
+                "google/cloud-trace": "0.10.3",
+                "google/cloud-translate": "1.2.4",
+                "google/cloud-videointelligence": "1.0.4",
+                "google/cloud-vision": "0.15.2"
             },
             "suggest": {
                 "opis/closure": "May be used to serialize closures to process jobs in the batch daemon. Please require version ^3.",
@@ -1335,18 +1496,46 @@
                     "Google\\Cloud\\ErrorReporting\\": "ErrorReporting/src",
                     "Google\\Cloud\\Firestore\\": "Firestore/src",
                     "Google\\Cloud\\Iot\\": "Iot/src",
+                    "Google\\Cloud\\Kms\\": "Kms/src",
                     "Google\\Cloud\\Language\\": "Language/src",
                     "Google\\Cloud\\Logging\\": "Logging/src",
                     "Google\\Cloud\\Monitoring\\": "Monitoring/src",
                     "Google\\Cloud\\OsLogin\\": "OsLogin/src",
                     "Google\\Cloud\\PubSub\\": "PubSub/src",
+                    "Google\\Cloud\\Redis\\": "Redis/src",
                     "Google\\Cloud\\Spanner\\": "Spanner/src",
                     "Google\\Cloud\\Speech\\": "Speech/src",
                     "Google\\Cloud\\Storage\\": "Storage/src",
+                    "Google\\Cloud\\Tasks\\": "Tasks/src",
+                    "Google\\Cloud\\TextToSpeech\\": "TextToSpeech/src",
                     "Google\\Cloud\\Trace\\": "Trace/src",
                     "Google\\Cloud\\Translate\\": "Translate/src",
                     "Google\\Cloud\\VideoIntelligence\\": "VideoIntelligence/src",
-                    "Google\\Cloud\\Vision\\": "Vision/src"
+                    "Google\\Cloud\\Vision\\": "Vision/src",
+                    "GPBMetadata\\Google\\Bigtable\\": "Bigtable/metadata",
+                    "GPBMetadata\\Google\\Container\\": "Container/metadata",
+                    "GPBMetadata\\Google\\Cloud\\Bigquery\\Datatransfer\\": "BigQueryDataTransfer/metadata",
+                    "GPBMetadata\\Google\\Cloud\\Dataproc\\": "Dataproc/metadata",
+                    "GPBMetadata\\Google\\Cloud\\Dialogflow\\": "Dialogflow/metadata",
+                    "GPBMetadata\\Google\\Cloud\\Iot\\": "Iot/metadata",
+                    "GPBMetadata\\Google\\Cloud\\Kms\\": "Kms/metadata",
+                    "GPBMetadata\\Google\\Cloud\\Language\\": "Language/metadata",
+                    "GPBMetadata\\Google\\Cloud\\Oslogin\\": "OsLogin/metadata",
+                    "GPBMetadata\\Google\\Cloud\\Redis\\": "Redis/metadata",
+                    "GPBMetadata\\Google\\Cloud\\Speech\\": "Speech/metadata",
+                    "GPBMetadata\\Google\\Cloud\\Tasks\\": "Tasks/metadata",
+                    "GPBMetadata\\Google\\Cloud\\Texttospeech\\": "TextToSpeech/metadata",
+                    "GPBMetadata\\Google\\Cloud\\Videointelligence\\": "VideoIntelligence/metadata",
+                    "GPBMetadata\\Google\\Cloud\\Vision\\": "Vision/metadata",
+                    "GPBMetadata\\Google\\Devtools\\Clouddebugger\\": "Debugger/metadata",
+                    "GPBMetadata\\Google\\Devtools\\Clouderrorreporting\\": "ErrorReporting/metadata",
+                    "GPBMetadata\\Google\\Devtools\\Cloudtrace\\": "Trace/metadata",
+                    "GPBMetadata\\Google\\Firestore\\": "Firestore/metadata",
+                    "GPBMetadata\\Google\\Logging\\": "Logging/metadata",
+                    "GPBMetadata\\Google\\Monitoring\\": "Monitoring/metadata",
+                    "GPBMetadata\\Google\\Privacy\\Dlp\\": "Dlp/metadata",
+                    "GPBMetadata\\Google\\Pubsub\\": "PubSub/metadata",
+                    "GPBMetadata\\Google\\Spanner\\": "Spanner/metadata"
                 }
             },
             "license": [
@@ -1365,6 +1554,7 @@
             "description": "Google Cloud Client Library",
             "homepage": "http://github.com/GoogleCloudPlatform/google-cloud-php",
             "keywords": [
+                "Tasks",
                 "big query",
                 "bigquery",
                 "bigtable",
@@ -1378,6 +1568,7 @@
                 "google apis client",
                 "google cloud",
                 "google cloud platform",
+                "kms",
                 "language",
                 "natural language",
                 "pub sub",
@@ -1390,15 +1581,15 @@
                 "translation",
                 "vision"
             ],
-            "time": "2018-04-16T18:09:56+00:00"
+            "time": "2018-08-08T15:42:37+00:00"
         },
         {
             "name": "google/gax",
-            "version": "0.31.3",
+            "version": "0.36.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/gax-php/zipball/cae100c34c518e150db4adb6a1cfa6d5335d63f9",
-                "reference": "cae100c34c518e150db4adb6a1cfa6d5335d63f9",
+                "url": "https://api.github.com/repos/googleapis/gax-php/zipball/9dd3911738aaf61bafd861917820317402cba798",
+                "reference": "9dd3911738aaf61bafd861917820317402cba798",
                 "shasum": ""
             },
             "require": {
@@ -1431,45 +1622,15 @@
             "keywords": [
                 "google"
             ],
-            "time": "2018-04-17T15:26:29+00:00"
-        },
-        {
-            "name": "google/proto-client",
-            "version": "0.37.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/proto-client-php/zipball/fa092b339351fc38d204e39ea2e8bf9d4084bf86",
-                "reference": "fa092b339351fc38d204e39ea2e8bf9d4084bf86",
-                "shasum": ""
-            },
-            "require": {
-                "google/protobuf": "^3.4",
-                "php": ">=5.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Google\\": "src/Google/",
-                    "GPBMetadata\\": "src/GPBMetadata/"
-                }
-            },
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "description": "Generated proto and gRPC classes for Google Cloud Platform in PHP",
-            "homepage": "https://github.com/googleapis/proto-client-php",
-            "keywords": [
-                "google"
-            ],
-            "time": "2018-04-13T18:48:01+00:00"
+            "time": "2018-07-18T21:57:44+00:00"
         },
         {
             "name": "google/protobuf",
-            "version": "v3.5.2",
+            "version": "v3.6.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/protobuf/zipball/b5fbb742af122b565925987e65c08957739976a7",
-                "reference": "b5fbb742af122b565925987e65c08957739976a7",
+                "url": "https://api.github.com/repos/google/protobuf/zipball/48cb18e5c419ddd23d9badcfe4e9df7bde1979b2",
+                "reference": "48cb18e5c419ddd23d9badcfe4e9df7bde1979b2",
                 "shasum": ""
             },
             "require": {
@@ -1493,15 +1654,15 @@
             "keywords": [
                 "proto"
             ],
-            "time": "2018-03-06T03:54:18+00:00"
+            "time": "2018-07-27T20:30:28+00:00"
         },
         {
             "name": "grpc/grpc",
-            "version": "1.10.0",
+            "version": "1.13.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/grpc/grpc-php/zipball/741f59bac86c7b5e45818c8f2eec6980921bce23",
-                "reference": "741f59bac86c7b5e45818c8f2eec6980921bce23",
+                "url": "https://api.github.com/repos/grpc/grpc-php/zipball/8ff8ed6a99803b4e2396ce63b289cad4b4c40d39",
+                "reference": "8ff8ed6a99803b4e2396ce63b289cad4b4c40d39",
                 "shasum": ""
             },
             "require": {
@@ -1525,7 +1686,7 @@
             "keywords": [
                 "rpc"
             ],
-            "time": "2018-03-28T22:54:08+00:00"
+            "time": "2018-06-28T22:47:39+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -1688,6 +1849,96 @@
             "time": "2017-03-20T17:10:46+00:00"
         },
         {
+            "name": "illuminate/contracts",
+            "version": "v5.6.33",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/2c029101285f6066f45e3ae5910b1b5f900fdcb4",
+                "reference": "2c029101285f6066f45e3ae5910b1b5f900fdcb4",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "psr/container": "~1.0",
+                "psr/simple-cache": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Contracts\\": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "The Illuminate Contracts package.",
+            "homepage": "https://laravel.com",
+            "time": "2018-07-31T12:49:53+00:00"
+        },
+        {
+            "name": "illuminate/support",
+            "version": "v5.6.33",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/0561e4e48797fbaeafeec0054b14605b08722a5a",
+                "reference": "0561e4e48797fbaeafeec0054b14605b08722a5a",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/inflector": "~1.1",
+                "ext-mbstring": "*",
+                "illuminate/contracts": "5.6.*",
+                "nesbot/carbon": "^1.24.1",
+                "php": "^7.1.3"
+            },
+            "conflict": {
+                "tightenco/collect": "<5.5.33"
+            },
+            "suggest": {
+                "illuminate/filesystem": "Required to use the composer class (5.6.*).",
+                "ramsey/uuid": "Required to use Str::uuid() (^3.7).",
+                "symfony/process": "Required to use the composer class (~4.0).",
+                "symfony/var-dumper": "Required to use the dd function (~4.0)."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Illuminate\\Support\\": ""
+                },
+                "files": [
+                    "helpers.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "The Illuminate Support package.",
+            "homepage": "https://laravel.com",
+            "time": "2018-08-06T19:58:11+00:00"
+        },
+        {
             "name": "imageoptim/imageoptim",
             "version": "1.3.1",
             "dist": {
@@ -1731,18 +1982,15 @@
         },
         {
             "name": "imgix/imgix-php",
-            "version": "1.2.1",
+            "version": "2.1.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/imgix/imgix-php/zipball/caa168910f99f9413a28147885ec37e91a16b786",
-                "reference": "caa168910f99f9413a28147885ec37e91a16b786",
+                "url": "https://api.github.com/repos/imgix/imgix-php/zipball/48135b04ec02f504904d69a3af1435414f60750c",
+                "reference": "48135b04ec02f504904d69a3af1435414f60750c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "*"
             },
             "type": "library",
             "autoload": {
@@ -1750,12 +1998,11 @@
                     "Imgix\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "description": "A PHP client library for generating URLs with imgix.",
             "keywords": [
                 "imgix"
             ],
-            "time": "2018-02-02T17:34:06+00:00"
+            "time": "2018-03-13T17:09:56+00:00"
         },
         {
             "name": "intervention/httpauth",
@@ -2021,24 +2268,17 @@
         },
         {
             "name": "league/oauth2-client",
-            "version": "2.2.1",
+            "version": "2.3.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/oauth2-client/zipball/313250eab923e673a5c0c8f463f443ee79f4383f",
-                "reference": "313250eab923e673a5c0c8f463f443ee79f4383f",
+                "url": "https://api.github.com/repos/thephpleague/oauth2-client/zipball/aa2e3df188f0bfd87f7880cc880e906e99923580",
+                "reference": "aa2e3df188f0bfd87f7880cc880e906e99923580",
                 "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "^6.0",
                 "paragonie/random_compat": "^1|^2",
-                "php": ">=5.6.0"
-            },
-            "require-dev": {
-                "eloquent/liberator": "^2.0",
-                "eloquent/phony": "^0.14.1",
-                "jakub-onderka/php-parallel-lint": "~0.9",
-                "phpunit/phpunit": "^5.0",
-                "squizlabs/php_codesniffer": "^2.0"
+                "php": "^5.6|^7.0"
             },
             "type": "library",
             "extra": {
@@ -2051,7 +2291,6 @@
                     "League\\OAuth2\\Client\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2079,7 +2318,7 @@
                 "oauth2",
                 "single sign on"
             ],
-            "time": "2017-04-25T14:43:14+00:00"
+            "time": "2018-01-13T05:27:58+00:00"
         },
         {
             "name": "masterminds/html5",
@@ -2188,12 +2427,15 @@
         },
         {
             "name": "mikehaertl/php-shellcommand",
-            "version": "1.2.5",
+            "version": "1.4.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mikehaertl/php-shellcommand/zipball/35a81f344bd771b0b1c1ae3f4dc986dddfd234b9",
-                "reference": "35a81f344bd771b0b1c1ae3f4dc986dddfd234b9",
+                "url": "https://api.github.com/repos/mikehaertl/php-shellcommand/zipball/903ee95d3ee8f65ebbe4c6e17705d1d91760521a",
+                "reference": "903ee95d3ee8f65ebbe4c6e17705d1d91760521a",
                 "shasum": ""
+            },
+            "require": {
+                "php": ">= 5.4.0"
             },
             "type": "library",
             "autoload": {
@@ -2201,7 +2443,6 @@
                     "mikehaertl\\shellcommand\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2215,15 +2456,15 @@
             "keywords": [
                 "shell"
             ],
-            "time": "2017-06-30T06:21:01+00:00"
+            "time": "2018-07-07T07:35:36+00:00"
         },
         {
             "name": "misterbk/mix",
-            "version": "1.4.3",
+            "version": "1.5.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mister-bk/craft-plugin-mix/zipball/0e134e1f9b5461e3030e948f576511417c5523cc",
-                "reference": "0e134e1f9b5461e3030e948f576511417c5523cc",
+                "url": "https://api.github.com/repos/mister-bk/craft-plugin-mix/zipball/c30704f07f84d81f018fbbc4c617eb8652ee2d48",
+                "reference": "c30704f07f84d81f018fbbc4c617eb8652ee2d48",
                 "shasum": ""
             },
             "require": {
@@ -2237,6 +2478,7 @@
                 "developerEmail": "dev@mister-bk.de",
                 "documentationUrl": "https://github.com/mister-bk/craft-plugin-mix/blob/master/README.md",
                 "changelogUrl": "https://raw.githubusercontent.com/mister-bk/craft-plugin-mix/master/CHANGELOG.md",
+                "downloadUrl": "https://github.com/mister-bk/craft-plugin-mix/archive/master.zip",
                 "hasCpSettings": true,
                 "hasCpSection": false,
                 "components": {
@@ -2268,7 +2510,7 @@
                 "laravel-mix",
                 "mix"
             ],
-            "time": "2018-03-14T20:46:30+00:00"
+            "time": "2018-07-20T14:32:06+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2586,33 +2828,29 @@
             "time": "2018-05-10T10:36:45+00:00"
         },
         {
-            "name": "nystudio107/craft-eagerbeaver",
-            "version": "1.0.3",
+            "name": "nesbot/carbon",
+            "version": "1.33.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-eagerbeaver/zipball/6178b4fc1feb5e5d4bc12ea1f0cf2a312dabb436",
-                "reference": "6178b4fc1feb5e5d4bc12ea1f0cf2a312dabb436",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/55667c1007a99e82030874b1bb14d24d07108413",
+                "reference": "55667c1007a99e82030874b1bb14d24d07108413",
                 "shasum": ""
             },
             "require": {
-                "craftcms/cms": "^3.0.0-RC1"
+                "php": ">=5.3.9",
+                "symfony/translation": "~2.6 || ~3.0 || ~4.0"
             },
-            "type": "craft-plugin",
+            "type": "library",
             "extra": {
-                "name": "Eager Beaver",
-                "handle": "eager-beaver",
-                "schemaVersion": "1.0.0",
-                "hasCpSettings": false,
-                "hasCpSection": false,
-                "changelogUrl": "https://raw.githubusercontent.com/nystudio107/craft-eagerbeaver/v1/CHANGELOG.md",
-                "components": {
-                    "eagerBeaverService": "nystudio107\\eagerbeaver\\services\\EagerBeaverService"
-                },
-                "class": "nystudio107\\eagerbeaver\\EagerBeaver"
+                "laravel": {
+                    "providers": [
+                        "Carbon\\Laravel\\ServiceProvider"
+                    ]
+                }
             },
             "autoload": {
                 "psr-4": {
-                    "nystudio107\\eagerbeaver\\": "src/"
+                    "": "src/"
                 }
             },
             "license": [
@@ -2620,34 +2858,27 @@
             ],
             "authors": [
                 {
-                    "name": "nystudio107",
-                    "homepage": "https://nystudio107.com"
+                    "name": "Brian Nesbitt",
+                    "email": "brian@nesbot.com",
+                    "homepage": "http://nesbot.com"
                 }
             ],
-            "description": "Allows you to eager load elements from auto-injected Entry elements on demand from your templates.",
+            "description": "A simple API extension for DateTime.",
+            "homepage": "http://carbon.nesbot.com",
             "keywords": [
-                "cms",
-                "craft",
-                "craft-plugin",
-                "craftcms",
-                "eager",
-                "eager beaver",
-                "eager loeading",
-                "loading"
+                "date",
+                "datetime",
+                "time"
             ],
-            "support": {
-                "docs": "https://github.com/nystudio107/craft-eagerbeaver/blob/v1/README.md",
-                "issues": "https://github.com/nystudio107/craft-eagerbeaver/issues"
-            },
-            "time": "2018-03-02T15:46:15+00:00"
+            "time": "2018-08-07T08:39:47+00:00"
         },
         {
             "name": "nystudio107/craft-minify",
-            "version": "1.2.8",
+            "version": "1.2.9",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-minify/zipball/754012efc4c75aaff81282447573a2b28f01a246",
-                "reference": "754012efc4c75aaff81282447573a2b28f01a246",
+                "url": "https://api.github.com/repos/nystudio107/craft-minify/zipball/3bb2a6f160658bcfeeab9fa390cf28fba38fbd26",
+                "reference": "3bb2a6f160658bcfeeab9fa390cf28fba38fbd26",
                 "shasum": ""
             },
             "require": {
@@ -2693,7 +2924,7 @@
                 "docs": "https://github.com/nystudio107/craft-minify/blob/v1/README.md",
                 "issues": "https://github.com/nystudio107/craft-minify/issues"
             },
-            "time": "2018-03-02T15:33:06+00:00"
+            "time": "2018-07-21T15:09:55+00:00"
         },
         {
             "name": "nystudio107/craft-scripts",
@@ -2737,11 +2968,11 @@
         },
         {
             "name": "nystudio107/craft-seomatic",
-            "version": "3.0.12",
+            "version": "3.1.13.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/94ab842f7d92113ed622b762e0a63ee7c9a5ce02",
-                "reference": "94ab842f7d92113ed622b762e0a63ee7c9a5ce02",
+                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/9a0af099e84271b94424c17f87f17b3987b3018a",
+                "reference": "9a0af099e84271b94424c17f87f17b3987b3018a",
                 "shasum": ""
             },
             "require": {
@@ -2793,25 +3024,32 @@
                 "craft",
                 "craft-plugin",
                 "craftcms",
-                "seomatic"
+                "facebook",
+                "json-ld",
+                "meta",
+                "seo",
+                "seomatic",
+                "sitemap",
+                "tags",
+                "twitter"
             ],
             "support": {
                 "docs": "https://github.com/nystudio107/craft-seomatic/blob/v3/README.md",
                 "issues": "https://github.com/nystudio107/craft-seomatic/issues"
             },
-            "time": "2018-05-10T16:34:48+00:00"
+            "time": "2018-08-07T18:54:26+00:00"
         },
         {
             "name": "nystudio107/craft-typogrify",
-            "version": "1.1.10",
+            "version": "1.1.11",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-typogrify/zipball/ac69b6b2db40958ce2679f2154be12438b746117",
-                "reference": "ac69b6b2db40958ce2679f2154be12438b746117",
+                "url": "https://api.github.com/repos/nystudio107/craft-typogrify/zipball/2a59863e4c797212300e69a7c184f20c8771ca35",
+                "reference": "2a59863e4c797212300e69a7c184f20c8771ca35",
                 "shasum": ""
             },
             "require": {
-                "craftcms/cms": "^3.0.0-RC1",
+                "craftcms/cms": "^3.0.0",
                 "michelf/php-smartypants": "^1.8",
                 "mundschenk-at/php-typography": "^6.0"
             },
@@ -2854,15 +3092,15 @@
                 "docs": "https://github.com/nystudio107/craft-typogrify/blob/v1/README.md",
                 "issues": "https://github.com/nystudio107/craft-typogrify/issues"
             },
-            "time": "2018-04-25T19:29:06+00:00"
+            "time": "2018-06-13T03:03:12+00:00"
         },
         {
             "name": "ostark/craft-async-queue",
-            "version": "1.3.2",
+            "version": "1.3.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ostark/craft-async-queue/zipball/f99fbe737b9dc3c5fbe92e682c1371c6352b3c49",
-                "reference": "f99fbe737b9dc3c5fbe92e682c1371c6352b3c49",
+                "url": "https://api.github.com/repos/ostark/craft-async-queue/zipball/00aa46c61aa244ca2d70b6492f86b77974d00605",
+                "reference": "00aa46c61aa244ca2d70b6492f86b77974d00605",
                 "shasum": ""
             },
             "require": {
@@ -2902,15 +3140,15 @@
                 "docs": "https://github.com/ostark/craft-async-queue/blob/master/README.md",
                 "issues": "https://github.com/ostark/craft-async-queue/issues"
             },
-            "time": "2018-04-06T09:14:42+00:00"
+            "time": "2018-06-15T15:12:31+00:00"
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v2.0.12",
+            "version": "v2.0.17",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/258c89a6b97de7dfaf5b8c7607d0478e236b04fb",
-                "reference": "258c89a6b97de7dfaf5b8c7607d0478e236b04fb",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/29af24f25bab834fcbb38ad2a69fa93b867e070d",
+                "reference": "29af24f25bab834fcbb38ad2a69fa93b867e070d",
                 "shasum": ""
             },
             "require": {
@@ -2938,10 +3176,11 @@
             "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
             "keywords": [
                 "csprng",
+                "polyfill",
                 "pseudorandom",
                 "random"
             ],
-            "time": "2018-04-04T21:24:14+00:00"
+            "time": "2018-07-04T16:31:37+00:00"
         },
         {
             "name": "php-science/textrank",
@@ -3255,22 +3494,116 @@
             "time": "2016-10-10T12:19:37+00:00"
         },
         {
-            "name": "ramsey/uuid",
-            "version": "3.7.3",
+            "name": "psr/simple-cache",
+            "version": "1.0.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/44abcdad877d9a46685a3a4d221e3b2c4b87cb76",
-                "reference": "44abcdad877d9a46685a3a4d221e3b2c4b87cb76",
+                "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
+                "reference": "408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
                 "shasum": ""
             },
             "require": {
-                "paragonie/random_compat": "^1.0|^2.0",
-                "php": "^5.4 || ^7.0"
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\SimpleCache\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interfaces for simple caching",
+            "keywords": [
+                "cache",
+                "caching",
+                "psr",
+                "psr-16",
+                "simple-cache"
+            ],
+            "time": "2017-10-23T01:57:42+00:00"
+        },
+        {
+            "name": "putyourlightson/craft-blitz",
+            "version": "1.5.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/putyourlightson/craft-blitz/zipball/672456e35d359368964cd92828596ce19de3e2a6",
+                "reference": "672456e35d359368964cd92828596ce19de3e2a6",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Blitz",
+                "handle": "blitz",
+                "developer": "PutYourLightsOn",
+                "developerUrl": "https://www.putyourlightson.net/",
+                "changelogUrl": "https://raw.githubusercontent.com/putyourlightson/craft-blitz/v1/CHANGELOG.md",
+                "class": "putyourlightson\\blitz\\Blitz",
+                "schemaVersion": "1.4.0",
+                "hasCpSettings": true
+            },
+            "autoload": {
+                "psr-4": {
+                    "putyourlightson\\blitz\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Intelligent static file caching for creating lightning-fast sites.",
+            "homepage": "https://github.com/putyourlightson/craft-blitz",
+            "keywords": [
+                "cache",
+                "caching",
+                "cms",
+                "craft",
+                "craftcms",
+                "performance",
+                "plugin",
+                "speed"
+            ],
+            "support": {
+                "docs": "https://github.com/putyourlightson/craft-blitz",
+                "source": "https://github.com/putyourlightson/craft-blitz",
+                "issues": "https://github.com/putyourlightson/craft-blitz/issues"
+            },
+            "time": "2018-07-25T08:40:23+00:00"
+        },
+        {
+            "name": "ramsey/uuid",
+            "version": "3.8.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/d09ea80159c1929d75b3f9c60504d613aeb4a1e3",
+                "reference": "d09ea80159c1929d75b3f9c60504d613aeb4a1e3",
+                "shasum": ""
+            },
+            "require": {
+                "paragonie/random_compat": "^1.0|^2.0|9.99.99",
+                "php": "^5.4 || ^7.0",
+                "symfony/polyfill-ctype": "^1.8"
             },
             "replace": {
                 "rhumsaa/uuid": "self.version"
             },
             "suggest": {
+                "ext-ctype": "Provides support for PHP Ctype functions",
                 "ext-libsodium": "Provides the PECL libsodium extension for use with the SodiumRandomGenerator",
                 "ext-uuid": "Provides the PECL UUID extension for use with the PeclUuidTimeGenerator and PeclUuidRandomGenerator",
                 "ircmaxell/random-lib": "Provides RandomLib for use with the RandomLibAdapter",
@@ -3314,15 +3647,15 @@
                 "identifier",
                 "uuid"
             ],
-            "time": "2018-01-20T00:28:24+00:00"
+            "time": "2018-07-19T23:38:55+00:00"
         },
         {
             "name": "rias/craft-colour-swatches",
-            "version": "1.1.0",
+            "version": "1.1.4",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Rias500/craft-colour-swatches/zipball/d7ba022d3955cfcf9bec1912561051f3fb00ab8f",
-                "reference": "d7ba022d3955cfcf9bec1912561051f3fb00ab8f",
+                "url": "https://api.github.com/repos/Rias500/craft-colour-swatches/zipball/61e4b516acdb92f003e25ab769cd8b07de4e6b6c",
+                "reference": "61e4b516acdb92f003e25ab769cd8b07de4e6b6c",
                 "shasum": ""
             },
             "require": {
@@ -3364,18 +3697,19 @@
                 "docs": "https://github.com/Rias500/craft-colour-swatches/blob/master/README.md",
                 "issues": "https://github.com/Rias500/craft-colour-swatches/issues"
             },
-            "time": "2018-04-05T21:39:00+00:00"
+            "time": "2018-07-30T14:39:18+00:00"
         },
         {
             "name": "rias/craft-contact-form-extensions",
-            "version": "1.0.2",
+            "version": "1.0.9",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Rias500/craft-contact-form-extensions/zipball/9e5e32a5144f6bbb72d5de083c70bd645ab5c7cd",
-                "reference": "9e5e32a5144f6bbb72d5de083c70bd645ab5c7cd",
+                "url": "https://api.github.com/repos/Rias500/craft-contact-form-extensions/zipball/7bacbbf0a114bdd9edc2672ffd3a4396e5fb9275",
+                "reference": "7bacbbf0a114bdd9edc2672ffd3a4396e5fb9275",
                 "shasum": ""
             },
             "require": {
+                "albertcht/invisible-recaptcha": "^1.8",
                 "craftcms/cms": "^3.0.0-RC1",
                 "craftcms/contact-form": "^2.1"
             },
@@ -3418,15 +3752,15 @@
                 "docs": "https://github.com/Rias500/craft-contact-form-extensions/blob/master/README.md",
                 "issues": "https://github.com/Rias500/craft-contact-form-extensions/issues"
             },
-            "time": "2018-05-10T19:09:35+00:00"
+            "time": "2018-08-03T08:05:13+00:00"
         },
         {
             "name": "rias/craft-password-policy",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Rias500/craft-password-policy/zipball/849b9c183769569842f2eba466a4cda079b2d071",
-                "reference": "849b9c183769569842f2eba466a4cda079b2d071",
+                "url": "https://api.github.com/repos/Rias500/craft-password-policy/zipball/a85c2cec1e8ddd290e7a0120484c370107e9a910",
+                "reference": "a85c2cec1e8ddd290e7a0120484c370107e9a910",
                 "shasum": ""
             },
             "require": {
@@ -3470,15 +3804,15 @@
                 "docs": "https://github.com/Rias500/craft-password-policy/blob/master/README.md",
                 "issues": "https://github.com/Rias500/craft-password-policy/issues"
             },
-            "time": "2018-04-11T07:49:58+00:00"
+            "time": "2018-06-21T08:37:56+00:00"
         },
         {
             "name": "rias/craft-position-fieldtype",
-            "version": "1.0.11",
+            "version": "1.0.13",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Rias500/craft-position-fieldtype/zipball/e4e1c8a32fef332718383a960b7f757e63b8a138",
-                "reference": "e4e1c8a32fef332718383a960b7f757e63b8a138",
+                "url": "https://api.github.com/repos/Rias500/craft-position-fieldtype/zipball/92d74abf65f1723fec7852bc607c9e903717fcfc",
+                "reference": "92d74abf65f1723fec7852bc607c9e903717fcfc",
                 "shasum": ""
             },
             "require": {
@@ -3491,7 +3825,7 @@
                 "schemaVersion": "1.0.0",
                 "hasCpSettings": false,
                 "hasCpSection": false,
-                "changelogUrl": "https://raw.githubusercontent.com/Rias500/position-fieldtype/master/CHANGELOG.md",
+                "changelogUrl": "https://raw.githubusercontent.com/Rias500/craft-position-fieldtype/master/CHANGELOG.md",
                 "class": "rias\\positionfieldtype\\PositionFieldtype"
             },
             "autoload": {
@@ -3517,18 +3851,18 @@
                 "position fieldtype"
             ],
             "support": {
-                "docs": "https://github.com/Rias500/position-fieldtype/blob/master/README.md",
-                "issues": "https://github.com/Rias500/position-fieldtype/issues"
+                "docs": "https://github.com/Rias500/craft-position-fieldtype/blob/master/README.md",
+                "issues": "https://github.com/Rias500/craft-position-fieldtype/issues"
             },
-            "time": "2018-04-23T08:19:58+00:00"
+            "time": "2018-05-21T09:41:49+00:00"
         },
         {
             "name": "rias/craft-width-fieldtype",
-            "version": "1.0.4",
+            "version": "1.0.6",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Rias500/craft-width-fieldtype/zipball/0564949f0ae54f6be7dc7de5495932607f341ef0",
-                "reference": "0564949f0ae54f6be7dc7de5495932607f341ef0",
+                "url": "https://api.github.com/repos/Rias500/craft-width-fieldtype/zipball/4e391c251a6e27d5ddbc00a0a92543cb8b35988b",
+                "reference": "4e391c251a6e27d5ddbc00a0a92543cb8b35988b",
                 "shasum": ""
             },
             "require": {
@@ -3570,7 +3904,7 @@
                 "docs": "https://github.com/Rias500/craft-width-fieldtype/blob/master/README.md",
                 "issues": "https://github.com/Rias500/craft-width-fieldtype/issues"
             },
-            "time": "2018-04-23T08:00:36+00:00"
+            "time": "2018-07-30T15:29:25+00:00"
         },
         {
             "name": "rize/uri-template",
@@ -3609,11 +3943,11 @@
         },
         {
             "name": "sebastianlenz/linkfield",
-            "version": "1.0.8",
+            "version": "1.0.11",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastian-lenz/craft-linkfield/zipball/280091a00ffad04d3da8e4540c346f9c2003df14",
-                "reference": "280091a00ffad04d3da8e4540c346f9c2003df14",
+                "url": "https://api.github.com/repos/sebastian-lenz/craft-linkfield/zipball/db54a48fbc685f306a7610ca76d8e6e19f483b84",
+                "reference": "db54a48fbc685f306a7610ca76d8e6e19f483b84",
                 "shasum": ""
             },
             "require": {
@@ -3636,7 +3970,7 @@
                 "MIT"
             ],
             "description": "A Craft field type for selecting links",
-            "time": "2018-05-02T12:29:00+00:00"
+            "time": "2018-07-29T11:17:20+00:00"
         },
         {
             "name": "seld/cli-prompt",
@@ -3812,6 +4146,60 @@
             "time": "2017-12-11T08:54:18+00:00"
         },
         {
+            "name": "ssnepenthe/color-utils",
+            "version": "0.4.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ssnepenthe/color-utils/zipball/a68562f81fd603be0c45d102b4e8064c76ddf863",
+                "reference": "a68562f81fd603be0c45d102b4e8064c76ddf863",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "inc/colors.php",
+                    "inc/helpers.php",
+                    "inc/transformations.php"
+                ],
+                "psr-4": {
+                    "SSNepenthe\\ColorUtils\\": "src/"
+                }
+            },
+            "license": [
+                "GPL-2.0"
+            ],
+            "description": "A PHP library for performing SASS-like color manipulations.",
+            "homepage": "https://github.com/ssnepenthe/color-utils",
+            "keywords": [
+                "Brightness",
+                "alpha",
+                "blue",
+                "color",
+                "conversion",
+                "convert",
+                "green",
+                "hex",
+                "hexadecimal",
+                "hsl",
+                "hsla",
+                "hue",
+                "lightness",
+                "luminance",
+                "manipulation",
+                "red",
+                "rgb",
+                "rgba",
+                "sass",
+                "saturation",
+                "scss",
+                "transformation"
+            ],
+            "time": "2017-06-19T16:48:17+00:00"
+        },
+        {
             "name": "sunra/php-simple-html-dom-parser",
             "version": "v1.5.2",
             "dist": {
@@ -3855,25 +4243,25 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v6.0.2",
+            "version": "v6.1.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/412333372fb6c8ffb65496a2bbd7321af75733fc",
-                "reference": "412333372fb6c8ffb65496a2bbd7321af75733fc",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/7d760881d266d63c5e7a1155cbcf2ac656a31ca8",
+                "reference": "7d760881d266d63c5e7a1155cbcf2ac656a31ca8",
                 "shasum": ""
             },
             "require": {
                 "egulias/email-validator": "~2.0",
                 "php": ">=7.0.0"
             },
-            "require-dev": {
-                "mockery/mockery": "~0.9.1",
-                "symfony/phpunit-bridge": "~3.3@dev"
+            "suggest": {
+                "ext-intl": "Needed to support internationalized email addresses",
+                "true/punycode": "Needed to support internationalized email addresses, if ext-intl is not installed"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.0-dev"
+                    "dev-master": "6.1-dev"
                 }
             },
             "autoload": {
@@ -3881,7 +4269,6 @@
                     "lib/swift_required.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3895,21 +4282,21 @@
                 }
             ],
             "description": "Swiftmailer, free feature-rich PHP mailer",
-            "homepage": "http://swiftmailer.symfony.com",
+            "homepage": "https://swiftmailer.symfony.com",
             "keywords": [
                 "email",
                 "mail",
                 "mailer"
             ],
-            "time": "2017-09-30T22:39:41+00:00"
+            "time": "2018-07-13T07:04:35+00:00"
         },
         {
             "name": "symfony/console",
-            "version": "v4.0.9",
+            "version": "v4.1.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/3e820bc2c520a87ca209ad8fa961c97f42e0b4ae",
-                "reference": "3e820bc2c520a87ca209ad8fa961c97f42e0b4ae",
+                "url": "https://api.github.com/repos/symfony/console/zipball/ca80b8ced97cf07390078b29773dc384c39eee1f",
+                "reference": "ca80b8ced97cf07390078b29773dc384c39eee1f",
                 "shasum": ""
             },
             "require": {
@@ -3929,7 +4316,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0-dev"
+                    "dev-master": "4.1-dev"
                 }
             },
             "autoload": {
@@ -3955,24 +4342,25 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2018-04-30T01:23:47+00:00"
+            "time": "2018-07-26T11:24:31+00:00"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v4.0.9",
+            "version": "v4.1.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/5d2d655b2c72fc4d9bf7e9bf14f72a447b940f21",
-                "reference": "5d2d655b2c72fc4d9bf7e9bf14f72a447b940f21",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/2e30335e0aafeaa86645555959572fe7cea22b43",
+                "reference": "2e30335e0aafeaa86645555959572fe7cea22b43",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3"
+                "php": "^7.1.3",
+                "symfony/polyfill-ctype": "~1.8"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0-dev"
+                    "dev-master": "4.1-dev"
                 }
             },
             "autoload": {
@@ -3998,15 +4386,15 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2018-02-22T10:50:29+00:00"
+            "time": "2018-07-26T11:24:31+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v4.0.9",
+            "version": "v4.1.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/ca27c02b7a3fef4828c998c2ff9ba7aae1641c49",
-                "reference": "ca27c02b7a3fef4828c998c2ff9ba7aae1641c49",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/e162f1df3102d0b7472805a5a9d5db9fcf0a8068",
+                "reference": "e162f1df3102d0b7472805a5a9d5db9fcf0a8068",
                 "shasum": ""
             },
             "require": {
@@ -4015,7 +4403,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0-dev"
+                    "dev-master": "4.1-dev"
                 }
             },
             "autoload": {
@@ -4041,15 +4429,67 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2018-04-04T05:10:37+00:00"
+            "time": "2018-07-26T11:24:31+00:00"
+        },
+        {
+            "name": "symfony/polyfill-ctype",
+            "version": "v1.9.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/e3d826245268269cd66f8326bd8bc066687b4a19",
+                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "ext-ctype": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Ctype\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                },
+                {
+                    "name": "Gert de Pagter",
+                    "email": "BackEndTea@gmail.com"
+                }
+            ],
+            "description": "Symfony polyfill for ctype functions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "ctype",
+                "polyfill",
+                "portable"
+            ],
+            "time": "2018-08-06T14:22:27+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.8.0",
+            "version": "v1.9.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/3296adf6a6454a050679cde90f95350ad604b171",
-                "reference": "3296adf6a6454a050679cde90f95350ad604b171",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/d0cd638f4634c16d8df4508e847f14e9e43168b8",
+                "reference": "d0cd638f4634c16d8df4508e847f14e9e43168b8",
                 "shasum": ""
             },
             "require": {
@@ -4061,7 +4501,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.8-dev"
+                    "dev-master": "1.9-dev"
                 }
             },
             "autoload": {
@@ -4094,15 +4534,15 @@
                 "portable",
                 "shim"
             ],
-            "time": "2018-04-26T10:06:28+00:00"
+            "time": "2018-08-06T14:22:27+00:00"
         },
         {
             "name": "symfony/process",
-            "version": "v4.0.9",
+            "version": "v4.1.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/d7dc1ee5dfe9f732cb1bba7310f5b99f2b7a6d25",
-                "reference": "d7dc1ee5dfe9f732cb1bba7310f5b99f2b7a6d25",
+                "url": "https://api.github.com/repos/symfony/process/zipball/f01fc7a4493572f7f506c49dcb50ad01fb3a2f56",
+                "reference": "f01fc7a4493572f7f506c49dcb50ad01fb3a2f56",
                 "shasum": ""
             },
             "require": {
@@ -4111,7 +4551,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0-dev"
+                    "dev-master": "4.1-dev"
                 }
             },
             "autoload": {
@@ -4137,7 +4577,61 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2018-04-03T05:24:00+00:00"
+            "time": "2018-07-26T11:24:31+00:00"
+        },
+        {
+            "name": "symfony/translation",
+            "version": "v4.1.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/6fcd1bd44fd6d7181e6ea57a6f4e08a09b29ef65",
+                "reference": "6fcd1bd44fd6d7181e6ea57a6f4e08a09b29ef65",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "conflict": {
+                "symfony/config": "<3.4",
+                "symfony/dependency-injection": "<3.4",
+                "symfony/yaml": "<3.4"
+            },
+            "suggest": {
+                "psr/log-implementation": "To use logging capability in translator",
+                "symfony/config": "",
+                "symfony/yaml": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Translation\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Translation Component",
+            "homepage": "https://symfony.com",
+            "time": "2018-07-26T11:24:31+00:00"
         },
         {
             "name": "tinify/tinify",
@@ -4184,6 +4678,42 @@
                 "tinypng"
             ],
             "time": "2017-07-19T12:26:04+00:00"
+        },
+        {
+            "name": "true/punycode",
+            "version": "v2.1.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/true/php-punycode/zipball/a4d0c11a36dd7f4e7cd7096076cab6d3378a071e",
+                "reference": "a4d0c11a36dd7f4e7cd7096076cab6d3378a071e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "symfony/polyfill-mbstring": "^1.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "TrueBV\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Renan Gonçalves",
+                    "email": "renan.saddam@gmail.com"
+                }
+            ],
+            "description": "A Bootstring encoding of Unicode for Internationalized Domain Names in Applications (IDNA)",
+            "homepage": "https://github.com/true/php-punycode",
+            "keywords": [
+                "idna",
+                "punycode"
+            ],
+            "time": "2016-11-16T10:37:54+00:00"
         },
         {
             "name": "tubalmartin/cssmin",
@@ -4235,21 +4765,22 @@
         },
         {
             "name": "twig/twig",
-            "version": "v2.4.8",
+            "version": "v2.5.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/7b604c89da162034bdf4bb66310f358d313dd16d",
-                "reference": "7b604c89da162034bdf4bb66310f358d313dd16d",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/6a5f676b77a90823c2d4eaf76137b771adf31323",
+                "reference": "6a5f676b77a90823c2d4eaf76137b771adf31323",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.0",
+                "symfony/polyfill-ctype": "^1.8",
                 "symfony/polyfill-mbstring": "~1.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.4-dev"
+                    "dev-master": "2.5-dev"
                 }
             },
             "autoload": {
@@ -4277,24 +4808,24 @@
                 },
                 {
                     "name": "Twig Team",
-                    "homepage": "http://twig.sensiolabs.org/contributors",
+                    "homepage": "https://twig.symfony.com/contributors",
                     "role": "Contributors"
                 }
             ],
             "description": "Twig, the flexible, fast, and secure template language for PHP",
-            "homepage": "http://twig.sensiolabs.org",
+            "homepage": "https://twig.symfony.com",
             "keywords": [
                 "templating"
             ],
-            "time": "2018-04-02T09:24:19+00:00"
+            "time": "2018-07-13T07:18:09+00:00"
         },
         {
             "name": "verbb/expanded-singles",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/expanded-singles/zipball/699d66d3ce1c7ce4244bd2173b1c21913d6df0c1",
-                "reference": "699d66d3ce1c7ce4244bd2173b1c21913d6df0c1",
+                "url": "https://api.github.com/repos/verbb/expanded-singles/zipball/0d5d80ff5fec1f2a8a70c0f981efa4650211a479",
+                "reference": "0d5d80ff5fec1f2a8a70c0f981efa4650211a479",
                 "shasum": ""
             },
             "require": {
@@ -4341,7 +4872,61 @@
                 "docs": "https://github.com/verbb/expanded-singles",
                 "rss": "https://github.com/verbb/expanded-singles/commits/v2.atom"
             },
-            "time": "2018-02-20T10:35:41+00:00"
+            "time": "2018-07-04T22:06:04+00:00"
+        },
+        {
+            "name": "verbb/navigation",
+            "version": "1.0.4",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/verbb/navigation/zipball/c3133f0b71a77d593bb87fc821ead10d9ba8aa9b",
+                "reference": "c3133f0b71a77d593bb87fc821ead10d9ba8aa9b",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Navigation",
+                "handle": "navigation",
+                "schemaVersion": "1.0.0",
+                "hasCpSettings": true,
+                "hasCpSection": true,
+                "changelogUrl": "https://raw.githubusercontent.com/verbb/navigation/master/CHANGELOG.md",
+                "class": "verbb\\navigation\\Navigation"
+            },
+            "autoload": {
+                "psr-4": {
+                    "verbb\\navigation\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Verbb",
+                    "homepage": "https://verbb.io"
+                }
+            ],
+            "description": "A Craft CMS plugin to create navigation menus for your site.",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "menu",
+                "navigation"
+            ],
+            "support": {
+                "email": "support@verbb.io",
+                "issues": "https://github.com/verbb/navigation/issues?state=open",
+                "source": "https://github.com/verbb/navigation",
+                "docs": "https://github.com/verbb/navigation",
+                "rss": "https://github.com/verbb/navigation/commits/v2.atom"
+            },
+            "time": "2018-08-05T22:13:55+00:00"
         },
         {
             "name": "verbb/super-table",
@@ -4594,11 +5179,11 @@
         },
         {
             "name": "yiisoft/yii2-composer",
-            "version": "2.0.6",
+            "version": "2.0.7",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/163419f1f197e02f015713b0d4f85598d8f8aa80",
-                "reference": "163419f1f197e02f015713b0d4f85598d8f8aa80",
+                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/1439e78be1218c492e6cde251ed87d3f128b9534",
+                "reference": "1439e78be1218c492e6cde251ed87d3f128b9534",
                 "shasum": ""
             },
             "require": {
@@ -4635,7 +5220,7 @@
                 "extension installer",
                 "yii2"
             ],
-            "time": "2018-03-21T16:15:55+00:00"
+            "time": "2018-07-05T15:44:47+00:00"
         },
         {
             "name": "yiisoft/yii2-debug",
@@ -4681,29 +5266,20 @@
         },
         {
             "name": "yiisoft/yii2-queue",
-            "version": "2.0.2",
+            "version": "2.1.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-queue/zipball/8c2b337f7d9ea934c2affdfc21c9fb387d0a0773",
-                "reference": "8c2b337f7d9ea934c2affdfc21c9fb387d0a0773",
+                "url": "https://api.github.com/repos/yiisoft/yii2-queue/zipball/d04b4b3c932081200876a351cc6c3502e89e11b8",
+                "reference": "d04b4b3c932081200876a351cc6c3502e89e11b8",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.5.0",
                 "symfony/process": "*",
-                "yiisoft/yii2": "~2.0.13"
-            },
-            "require-dev": {
-                "enqueue/amqp-lib": "^0.8",
-                "jeremeamia/superclosure": "*",
-                "pda/pheanstalk": "*",
-                "php-amqplib/php-amqplib": "*",
-                "phpunit/phpunit": "~4.4",
-                "yiisoft/yii2-debug": "*",
-                "yiisoft/yii2-gii": "*",
-                "yiisoft/yii2-redis": "*"
+                "yiisoft/yii2": "~2.0.14"
             },
             "suggest": {
+                "aws/aws-sdk-php": "Need for aws SQS.",
                 "enqueue/amqp-lib": "Need for AMQP interop queue.",
                 "ext-gearman": "Need for Gearman queue.",
                 "ext-pcntl": "Need for process signals.",
@@ -4727,10 +5303,10 @@
                     "yii\\queue\\file\\": "src/drivers/file",
                     "yii\\queue\\gearman\\": "src/drivers/gearman",
                     "yii\\queue\\redis\\": "src/drivers/redis",
-                    "yii\\queue\\sync\\": "src/drivers/sync"
+                    "yii\\queue\\sync\\": "src/drivers/sync",
+                    "yii\\queue\\sqs\\": "src/drivers/sqs"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -4740,7 +5316,7 @@
                     "email": "zhuravljov@gmail.com"
                 }
             ],
-            "description": "Yii2 Queue Extension which supported DB, Redis, RabbitMQ, Beanstalk and Gearman",
+            "description": "Yii2 Queue Extension which supported DB, Redis, RabbitMQ, Beanstalk, SQS and Gearman",
             "keywords": [
                 "async",
                 "beanstalk",
@@ -4750,9 +5326,10 @@
                 "queue",
                 "rabbitmq",
                 "redis",
+                "sqs",
                 "yii"
             ],
-            "time": "2017-12-26T17:16:14+00:00"
+            "time": "2018-05-23T21:04:57+00:00"
         },
         {
             "name": "yiisoft/yii2-swiftmailer",
@@ -4835,41 +5412,31 @@
         },
         {
             "name": "zendframework/zend-feed",
-            "version": "2.8.0",
+            "version": "2.10.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-feed/zipball/94579e805dd108683209fe14b3b5d4276de3de6e",
-                "reference": "94579e805dd108683209fe14b3b5d4276de3de6e",
+                "url": "https://api.github.com/repos/zendframework/zend-feed/zipball/6641f4cf3f4586c63f83fd70b6d19966025c8888",
+                "reference": "6641f4cf3f4586c63f83fd70b6d19966025c8888",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.6 || ^7.0",
-                "zendframework/zend-escaper": "^2.5",
-                "zendframework/zend-stdlib": "^2.7 || ^3.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^6.0.8 || ^5.7.15",
-                "psr/http-message": "^1.0",
-                "zendframework/zend-cache": "^2.6",
-                "zendframework/zend-coding-standard": "~1.0.0",
-                "zendframework/zend-db": "^2.7",
-                "zendframework/zend-http": "^2.5.4",
-                "zendframework/zend-servicemanager": "^2.7.5 || ^3.0.3",
-                "zendframework/zend-validator": "^2.6"
+                "zendframework/zend-escaper": "^2.5.2",
+                "zendframework/zend-stdlib": "^2.7.7 || ^3.1"
             },
             "suggest": {
-                "psr/http-message": "PSR-7 ^1.0, if you wish to use Zend\\Feed\\Reader\\Http\\Psr7ResponseDecorator",
+                "psr/http-message": "PSR-7 ^1.0.1, if you wish to use Zend\\Feed\\Reader\\Http\\Psr7ResponseDecorator",
                 "zendframework/zend-cache": "Zend\\Cache component, for optionally caching feeds between requests",
                 "zendframework/zend-db": "Zend\\Db component, for use with PubSubHubbub",
                 "zendframework/zend-http": "Zend\\Http for PubSubHubbub, and optionally for use with Zend\\Feed\\Reader",
                 "zendframework/zend-servicemanager": "Zend\\ServiceManager component, for easily extending ExtensionManager implementations",
-                "zendframework/zend-validator": "Zend\\Validator component, for validating email addresses used in Atom feeds and entries ehen using the Writer subcomponent"
+                "zendframework/zend-validator": "Zend\\Validator component, for validating email addresses used in Atom feeds and entries when using the Writer subcomponent"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev",
-                    "dev-develop": "2.9-dev"
+                    "dev-master": "2.10.x-dev",
+                    "dev-develop": "2.11.x-dev"
                 }
             },
             "autoload": {
@@ -4877,17 +5444,16 @@
                     "Zend\\Feed\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
             "description": "provides functionality for consuming RSS and Atom feeds",
-            "homepage": "https://github.com/zendframework/zend-feed",
             "keywords": [
+                "ZendFramework",
                 "feed",
-                "zf2"
+                "zf"
             ],
-            "time": "2017-04-01T15:03:14+00:00"
+            "time": "2018-08-01T13:53:20+00:00"
         },
         {
             "name": "zendframework/zend-stdlib",

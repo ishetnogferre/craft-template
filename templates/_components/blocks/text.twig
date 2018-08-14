@@ -1,3 +1,5 @@
-<div class="">
-    {{ block.body|typogrify|smartypants }}
+<div class="
+    body h-full text-base px-5 md:px-8 lg:px-10
+">
+    {{ block.body|typogrify|smartypants|raw }}
 </div>
