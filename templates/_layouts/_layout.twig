@@ -39,8 +39,13 @@
     
     {# -- HTML Body -- #}
     <body class="leading-normal font-sans tracking-normal text-base text-black">
-        <div id="site">
+        {% if not craft.app.config.general.devMode %}
+            <!-- Google Tag Manager (noscript) -->
+            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+            <!-- End Google Tag Manager (noscript) -->
+        {% endif %}
 
+        <div id="site">
             {# -- Header, including navbar.twig -- #}
             {% include "_partials/_header.twig" %}
     
