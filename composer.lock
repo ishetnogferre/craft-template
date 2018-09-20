@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "570d8319062d0f8c2e876b6ee2caf188",
+    "content-hash": "e7cff9aecc69e7b507cc87dc13303774",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -585,11 +585,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.0.24",
+            "version": "3.0.25",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/c107ad908a987faba50f72831df4bdc9df775f2e",
-                "reference": "c107ad908a987faba50f72831df4bdc9df775f2e",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/30b95277d526af7aeff4a10c23b583fde0adb383",
+                "reference": "30b95277d526af7aeff4a10c23b583fde0adb383",
                 "shasum": ""
             },
             "require": {
@@ -660,7 +660,7 @@
                 "docs": "https://github.com/craftcms/docs",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2018-09-11T17:17:27+00:00"
+            "time": "2018-09-18T16:57:29+00:00"
         },
         {
             "name": "craftcms/contact-form",
@@ -2967,11 +2967,11 @@
         },
         {
             "name": "nystudio107/craft-seomatic",
-            "version": "3.1.20",
+            "version": "3.1.21",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/ed20075a5dac4410e734c96dbde3a1c153e846c8",
-                "reference": "ed20075a5dac4410e734c96dbde3a1c153e846c8",
+                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/37052e99485e85911a693b7035a27c924646da26",
+                "reference": "37052e99485e85911a693b7035a27c924646da26",
                 "shasum": ""
             },
             "require": {
@@ -2996,7 +2996,6 @@
                     "link": "nystudio107\\seomatic\\services\\Link",
                     "metaBundles": "nystudio107\\seomatic\\services\\MetaBundles",
                     "metaContainers": "nystudio107\\seomatic\\services\\MetaContainers",
-                    "redirects": "nystudio107\\seomatic\\services\\Redirects",
                     "script": "nystudio107\\seomatic\\services\\Script",
                     "sitemaps": "nystudio107\\seomatic\\services\\Sitemaps",
                     "tag": "nystudio107\\seomatic\\services\\Tag",
@@ -3036,7 +3035,7 @@
                 "docs": "https://github.com/nystudio107/craft-seomatic/blob/v3/README.md",
                 "issues": "https://github.com/nystudio107/craft-seomatic/issues"
             },
-            "time": "2018-09-12T17:23:59+00:00"
+            "time": "2018-09-18T17:56:09+00:00"
         },
         {
             "name": "nystudio107/craft-typogrify",
@@ -3538,11 +3537,11 @@
         },
         {
             "name": "putyourlightson/craft-blitz",
-            "version": "1.5.1",
+            "version": "1.5.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-blitz/zipball/94eddbb7fe2ae4ca1a5f6945854e17c4f2efacef",
-                "reference": "94eddbb7fe2ae4ca1a5f6945854e17c4f2efacef",
+                "url": "https://api.github.com/repos/putyourlightson/craft-blitz/zipball/e6a44788801f8a57a9742bfdaf97924cc4d6c73a",
+                "reference": "e6a44788801f8a57a9742bfdaf97924cc4d6c73a",
                 "shasum": ""
             },
             "require": {
@@ -3584,7 +3583,7 @@
                 "source": "https://github.com/putyourlightson/craft-blitz",
                 "issues": "https://github.com/putyourlightson/craft-blitz/issues"
             },
-            "time": "2018-08-17T15:15:42+00:00"
+            "time": "2018-09-17T12:50:22+00:00"
         },
         {
             "name": "ramsey/uuid",
@@ -3944,11 +3943,11 @@
         },
         {
             "name": "sebastianlenz/linkfield",
-            "version": "1.0.12",
+            "version": "1.0.13",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastian-lenz/craft-linkfield/zipball/bd506bdf9716edb8e837bc85cdeb75dd61c3c812",
-                "reference": "bd506bdf9716edb8e837bc85cdeb75dd61c3c812",
+                "url": "https://api.github.com/repos/sebastian-lenz/craft-linkfield/zipball/33792bcedb205d53d705953ee17747d7a49abec4",
+                "reference": "33792bcedb205d53d705953ee17747d7a49abec4",
                 "shasum": ""
             },
             "require": {
@@ -3971,7 +3970,7 @@
                 "MIT"
             ],
             "description": "A Craft field type for selecting links",
-            "time": "2018-08-24T10:25:15+00:00"
+            "time": "2018-09-17T14:45:05+00:00"
         },
         {
             "name": "seld/cli-prompt",
@@ -4877,11 +4876,11 @@
         },
         {
             "name": "verbb/navigation",
-            "version": "1.0.9",
+            "version": "1.0.10",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/navigation/zipball/2b211f17a1b907f815a534df469439a60f190664",
-                "reference": "2b211f17a1b907f815a534df469439a60f190664",
+                "url": "https://api.github.com/repos/verbb/navigation/zipball/9883bb46c7c69f9ab0fc34e216306dfab35a83c1",
+                "reference": "9883bb46c7c69f9ab0fc34e216306dfab35a83c1",
                 "shasum": ""
             },
             "require": {
@@ -4927,7 +4926,7 @@
                 "docs": "https://github.com/verbb/navigation",
                 "rss": "https://github.com/verbb/navigation/commits/v2.atom"
             },
-            "time": "2018-08-28T03:31:58+00:00"
+            "time": "2018-09-18T01:41:22+00:00"
         },
         {
             "name": "verbb/super-table",
