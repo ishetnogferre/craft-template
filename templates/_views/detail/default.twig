@@ -1,0 +1,26 @@
+{% import '_macros/image' as imageMacro %}
+
+{% block detail_main %}
+    <article>
+        <header>
+            {% block detail_header_content %}
+                <div class="container flex">
+                    <div class="">
+                        <h1>{{ entry.headerTitle ?? entry.title }}</h1>
+                        <div>{{ entry.headerDescription|typogrify|raw }}</div>
+                    </div>
+                </div>
+            {% endblock %}
+        </header>
+
+        {% block detail_body %}
+            <main class="overflow-hidden">
+                {% block detail_body_content %}
+                    {% include '_components/builder' %}
+                {% endblock %}
+            </main>
+        {% endblock %}
+
+        {% block detail_body_after %}{% endblock %}
+    </article>
+{% endblock %}

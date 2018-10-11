@@ -1,5 +1,7 @@
 <div class="
-    body h-full text-base px-5 md:px-8 lg:px-10
+    body h-full text-base px-5 md:px-8 lg:px-10 {{ largerPadding ? 'pb-20' : '' }}
 ">
     {{ block.body|typogrify|smartypants|raw }}
+
+    {% include "_resolvers/teaser" with {entry: entry} %}
 </div>

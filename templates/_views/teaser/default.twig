@@ -1,0 +1,15 @@
+{% import '_macros/image' as imageMacro %}
+
+{% block teaser_main %}
+    <p>
+        {% block teaser_content %}
+            {% set image = entry.teaserImage[0] ?? null %}
+            <a rel="permalink" href="{{ entry.url }}">
+                {% if image %}
+                    {{ imageMacro.responsive(image, 3/2, '20vw', 'w-full') }}
+                {% endif %}
+                {{ entry.title }}
+            </a>
+        {% endblock %}
+    </p>
+{% endblock %}

@@ -1,0 +1,6 @@
+{%- include [
+    '_views/detail/' ~ entry.section.handle ~ '/' ~ entry.type,
+    '_views/detail/' ~ entry.section.handle ~ '/default',
+    '_views/detail/' ~ entry.section.handle,
+    '_views/detail/default',
+] -%}

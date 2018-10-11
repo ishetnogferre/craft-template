@@ -1,18 +1,11 @@
-{% set image = block.image[0] %}
-
+{% import '_macros/image' as imageMacro %}
+{% set image = block.asset[0] %}
 {% if image %}
-    {% set fullUrl = image.getUrl() %}
     {% set sizes = block.width == "full" ? "100vw" : "50vw" %}
-    {% set transformedImages = craft.imager.transformImage(image, [
-        { width: 2560 },
-        { width: 320 },
-    ], { position: image.focalPoint }, { fillTransforms: true }) %}
 
-    <div class="{{ block.positionType != 'container' ? 'px-5 md:px-8 lg:px-10' : '' }}">
+    <div class="{{ block.positionType != 'container' ? 'px-5 md:px-8 lg:px-10' : '' }} {{ largerPadding ? 'pb-20' : '' }}">
         <figure class="my-4">
-            <!--<a href="{{ fullUrl }}" rel="fluidbox">-->
-                <img data-src="{{ transformedImages[0].url }}" data-srcset="{{ craft.imager.srcset(transformedImages) }}" class="lazyload w-full h-auto" alt="{{ image.title }}" sizes="{{ sizes }}" />
-            <!--</a>-->
+            {{ imageMacro.responsive(image, null, sizes, 'w-full h-auto') }}
             {% if block.caption %}
                 <figcaption class="text-grey text-sm mt-1">{{ block.caption }}</figcaption>
             {% endif %}

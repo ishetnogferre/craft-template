@@ -46,17 +46,31 @@
         {% endif %}
 
         <div id="site">
-            {# -- Header, including navbar.twig -- #}
-            {% include "_partials/_header.twig" %}
+            <header>
+                <div>
+                    <p>
+                        Header
+                    </p>
+                </div>
+
+                {% include "_components/navbar.twig" %}
+
+            </header>
     
             <main>
                 {# -- Primary content block -- #}
-                {% block content %}
+                {% block page_main %}
                 {% endblock %}
             </main>
 
             {# -- Footer -- #}
-            {% include "_partials/_footer.twig" %}
+            <footer>
+                <div>
+                    <p>
+                        Footer
+                    </p>
+                </div>
+            </footer>
         </div>
 
         {#-- Browser fixes --#}

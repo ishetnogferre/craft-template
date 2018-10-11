@@ -1,0 +1,9 @@
+{% extends '_layouts/page' %}
+
+{% block inline_css %}
+    {{ source(entry.type.handle ~ "_critical.min.css", ignore_missing = true) }}
+{% endblock %}
+
+{% block page_main %}
+    {% include '_resolvers/detail' with { entry: entry } %}
+{% endblock %}

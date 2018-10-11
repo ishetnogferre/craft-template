@@ -1,0 +1,22 @@
+{% macro responsive(image, ratio, sizes, classes) %}
+    <picture class="{{ classes }}">
+        {% if image.extension == 'svg' %}
+            {{ svg(image) }}
+        {% else %}
+            {% set transformedImages = craft.imager.transformImage(image, [
+                { width: 2560 },
+                { width: 320 },
+            ], { ratio: ratio, position: image.focalPoint }, { fillTransforms: true }) %}
+            {% if craft.imager.serverSupportsWebp %}
+                {% set transformedImagesWebp = craft.imager.transformImage(image, [
+                    { width: 2560 },
+                    { width: 320 },
+                ], { ratio: ratio, position: image.focalPoint, format: 'webp' }, { fillTransforms: true }) %}
+            {% endif %}
+            {% if craft.imager.serverSupportsWebp() %}
+                <source sizes="{{ sizes }}" srcset="{{ craft.imager.srcset(transformedImagesWebp) }}" type="image/webp">
+            {% endif %}
+            <img class="lazyload" src="{{ craft.imager.base64Pixel() }}" data-src="{{ transformedImages[0].url }}" data-srcset="{{ craft.imager.srcset(transformedImages) }}" sizes="{{ sizes }}" alt="{{ image.title }}">
+        {% endif %}
+    </picture>
+{% endmacro %}

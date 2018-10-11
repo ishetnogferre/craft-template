@@ -34,6 +34,10 @@ return [
             'path' => '@basePath/storage/assets/images/',
             'url' => '@baseUrl/assets/images/',
         ],
+        'documents' => [
+            'path' => '@basePath/storage/assets/documents/',
+            'url' => '@baseUrl/assets/documents/',
+        ],
     ],
 
     // Live (production) environment
