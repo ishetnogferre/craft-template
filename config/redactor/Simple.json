@@ -6,6 +6,7 @@
   ],
   "air": true,
   "markup": "span",
+  "breakline": true,
   "pastePlainText": true,
   "linkNewTab": true
 }

@@ -23,6 +23,7 @@
         "video",
         "widget"
     ],
+    "pastePlainText": true,
     "toolbarFixed": false,
     "source": true,
     "linkNewTab": true
