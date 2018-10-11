@@ -2,6 +2,9 @@
 .env.sh
 .env
 
+# License
+config/license.key
+
 # COMPOSER
 /vendor
 
