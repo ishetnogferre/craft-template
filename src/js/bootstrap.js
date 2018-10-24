@@ -1,10 +1,10 @@
-require('picturefill');
+require("picturefill");
 
 try {
-    window.$ = window.jQuery = require('jquery');
+  window.$ = window.jQuery = require("jquery");
 } catch (e) {
-    // eslint-disable-next-line no-console
-    console.log(e);
+  // eslint-disable-next-line no-console
+  console.log(e);
 }
 
 /**
@@ -13,9 +13,9 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = require('axios');
+window.axios = require("axios");
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
 /**
  * Next we will register the CSRF Token as a common header with Axios so that
@@ -27,8 +27,10 @@ const tokenName = document.head.querySelector('meta[name="csrf-token-name"]');
 const token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token && tokenName) {
-    window.axios.defaults.headers.common[tokenName.content] = token.content;
+  window.axios.defaults.headers.common[tokenName.content] = token.content;
 } else {
-    // eslint-disable-next-line no-console
-    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+  // eslint-disable-next-line no-console
+  console.error(
+    "CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token"
+  );
 }
