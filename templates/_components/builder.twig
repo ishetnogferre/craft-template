@@ -14,13 +14,6 @@
 {# Load all our blocks with eager loading #}
 {% set blocks = entry.builder.with([
     'image:asset',
-    'banner:blockAsset',
-    'callToAction:blockAsset',
-    'index:blockCategory',
-    'teasers:blockCategory',
-    'teasers:blockLinks',
-    'textImage:blockAsset',
-    'usps:blockUsps.icon',
 ]).all %}
 
 {% for i, block in blocks %}

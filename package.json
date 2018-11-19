@@ -1,11 +1,12 @@
 {
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.6",
     "@fortawesome/fontawesome-free": "^5.4.1",
     "@fortawesome/fontawesome-pro": "^5.4.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.6",
     "@fortawesome/vue-fontawesome": "^0.1.1",
     "axios": "^0.18.0",
     "jquery": "^3.2.1",
+    "lazysizes": "^4.1.4",
     "npm": "^6.4.1",
     "picturefill": "^3.0.2",
     "tailwindcss": "^0.6.5",

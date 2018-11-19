@@ -63,6 +63,8 @@ mix
       path.join(__dirname, "/templates/**/*.{html,twig}"),
       path.join(__dirname, "/src/scss/*.scss")
     ],
-    extensions: ["html", "js", "php", "vue", "twig", "scss", "css"]
+    extensions: ["html", "js", "php", "vue", "twig", "scss", "css"],
+    whitelistPatterns: [/ls-blur-up-img/],
+    whitelistPatternsChildren: [/body/, /ls-blur-up-img/]
   })
   .version();

@@ -1,11 +1,15 @@
-{% import '_macros/image' as imageMacro %}
 {% set image = block.asset[0] %}
 {% if image %}
     {% set sizes = block.width == "full" ? "100vw" : "50vw" %}
 
-    <div class="{{ block.positionType != 'container' ? 'px-5 md:px-8 lg:px-10' : '' }} {{ largerPadding ? 'pb-20' : '' }}">
-        <figure class="my-4">
-            {{ imageMacro.responsive(image, null, sizes, 'w-full h-auto') }}
+    <div>
+        <figure class="relative my-2">
+            {% include '_components/image' with {
+                asset: image,
+                transform: 'base',
+                sizes: sizes,
+                classes: 'w-full h-auto',
+            } %}
             {% if block.caption %}
                 <figcaption class="text-grey text-sm mt-1">{{ block.caption }}</figcaption>
             {% endif %}

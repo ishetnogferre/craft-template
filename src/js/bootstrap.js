@@ -1,4 +1,6 @@
 require("picturefill");
+require("lazysizes");
+require("./vendor/ls.blur-up.min.js");
 
 try {
   window.$ = window.jQuery = require("jquery");

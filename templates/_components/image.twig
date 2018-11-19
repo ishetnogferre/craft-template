@@ -1,0 +1,64 @@
+{% set transforms = {
+    'base': {
+        mode: 'crop',
+        ratio: asset.width / asset.height,
+        position: asset.focalPoint,
+    },
+    'square': {
+        mode: 'crop',
+        ratio: 1,
+        position: asset.focalPoint,
+    },
+    'landscape-16/9': {
+        mode: 'crop',
+        ratio: 16/9,
+        position: asset.focalPoint,
+    },
+    'landscape-3/2': {
+        mode: 'crop',
+        ratio: 16/9,
+        position: asset.focalPoint,
+    },
+    'portrait': {
+        mode: 'crop',
+        ratio: 4/5,
+        position: asset.focalPoint,
+    }
+} %}
+{% set widths = [
+    { width: 2560 },
+    { width: 160 },
+] %}
+{% set placeholder = {
+    width: 32,
+    quality: 25,
+} %}
+
+{% if pretransform is defined %}
+    {% for transform in transforms %}
+        {% do craft.imager.transformImage(asset, placeholder, transforms.base|merge({effects: {blur: 1}})) %}
+        {% do craft.imager.transformImage(asset, widths, transform, { fillTransforms: true }) %}
+        {% if craft.imager.serverSupportsWebp %}
+            {% set transform = transform|merge({format: 'webp'}) %}
+            {% do craft.imager.transformImage(asset, widths, transform, { fillTransforms: true }) %}
+        {% endif %}
+    {% endfor %}
+{% else %}
+    {% set transform = attribute(transforms, transform) %}
+    <picture class="absolute {{ classes }}">
+        {% if asset.extension == 'svg' %}
+            {{ svg(asset) }}
+        {% else %}
+            {% set placeholder = craft.imager.transformImage(image, placeholder, transforms.base|merge({effects: {blur: 1}})) %}
+            {% set transformedImages = craft.imager.transformImage(asset, widths, transform, { fillTransforms: true }) %}
+            {% if craft.imager.serverSupportsWebp %}
+                {% set transform = transform|merge({format: 'webp'}) %}
+                {% set transformedImagesWebp = craft.imager.transformImage(asset, widths, transform, { fillTransforms: true }) %}
+            {% endif %}
+            {% if craft.imager.serverSupportsWebp() %}
+                <source sizes="{{ sizes }}" srcset="{{ craft.imager.srcset(transformedImagesWebp) }}" type="image/webp">
+            {% endif %}
+            <img class="lazyload w-full h-full" src="{{ craft.imager.base64pixel }}" data-lowsrc="{{ placeholder.url }}" data-src="{{ transformedImages[0].url }}" data-srcset="{{ craft.imager.srcset(transformedImages) }}" sizes="{{ sizes }}" alt="{{ asset.title }}">
+        {% endif %}
+    </picture>
+{% endif %}
