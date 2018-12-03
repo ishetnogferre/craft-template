@@ -13,7 +13,6 @@ require("laravel-mix-critical");
  */
 mix
   .setPublicPath("./web/dist")
-  .babelConfig({ presets: ["env"] })
   .banner({
     banner: (function() {
       const moment = require("moment");

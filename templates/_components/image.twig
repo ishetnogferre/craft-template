@@ -49,7 +49,7 @@
         {% if asset.extension == 'svg' %}
             {{ svg(asset) }}
         {% else %}
-            {% set placeholder = craft.imager.transformImage(image, placeholder, transforms.base|merge({effects: {blur: 1}})) %}
+            {% set placeholder = craft.imager.transformImage(asset, placeholder, transforms.base|merge({effects: {blur: 1}})) %}
             {% set transformedImages = craft.imager.transformImage(asset, widths, transform, { fillTransforms: true }) %}
             {% if craft.imager.serverSupportsWebp %}
                 {% set transform = transform|merge({format: 'webp'}) %}

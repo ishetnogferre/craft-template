@@ -1,13 +1,13 @@
 # ************************************************************
 # Sequel Pro SQL dump
-# Version 4541
+# Version 5425
 #
-# http://www.sequelpro.com/
+# https://www.sequelpro.com/
 # https://github.com/sequelpro/sequelpro
 #
 # Host: 127.0.0.1 (MySQL 5.7.19)
 # Database: craft
-# Generation Time: 2018-11-19 14:28:05 +0000
+# Generation Time: 2018-12-03 09:10:48 +0000
 # ************************************************************
 
 
@@ -15,6 +15,7 @@
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
+SET NAMES utf8mb4;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
@@ -66,9 +67,9 @@ CREATE TABLE `assets` (
   `dateUpdated` datetime NOT NULL,
   `uid` char(36) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `assets_filename_folderId_unq_idx` (`filename`,`folderId`),
   KEY `assets_folderId_idx` (`folderId`),
   KEY `assets_volumeId_idx` (`volumeId`),
+  KEY `assets_filename_folderId_idx` (`filename`,`folderId`),
   CONSTRAINT `assets_folderId_fk` FOREIGN KEY (`folderId`) REFERENCES `volumefolders` (`id`) ON DELETE CASCADE,
   CONSTRAINT `assets_id_fk` FOREIGN KEY (`id`) REFERENCES `elements` (`id`) ON DELETE CASCADE,
   CONSTRAINT `assets_volumeId_fk` FOREIGN KEY (`volumeId`) REFERENCES `volumes` (`id`) ON DELETE CASCADE
@@ -135,13 +136,16 @@ DROP TABLE IF EXISTS `categories`;
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
   `groupId` int(11) NOT NULL,
+  `parentId` int(11) DEFAULT NULL,
   `dateCreated` datetime NOT NULL,
   `dateUpdated` datetime NOT NULL,
   `uid` char(36) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `categories_groupId_idx` (`groupId`),
+  KEY `categories_parentId_fk` (`parentId`),
   CONSTRAINT `categories_groupId_fk` FOREIGN KEY (`groupId`) REFERENCES `categorygroups` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `categories_id_fk` FOREIGN KEY (`id`) REFERENCES `elements` (`id`) ON DELETE CASCADE
+  CONSTRAINT `categories_id_fk` FOREIGN KEY (`id`) REFERENCES `elements` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `categories_parentId_fk` FOREIGN KEY (`parentId`) REFERENCES `categories` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -317,28 +321,30 @@ CREATE TABLE `elements` (
   `archived` tinyint(1) NOT NULL DEFAULT '0',
   `dateCreated` datetime NOT NULL,
   `dateUpdated` datetime NOT NULL,
+  `dateDeleted` datetime DEFAULT NULL,
   `uid` char(36) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `elements_fieldLayoutId_idx` (`fieldLayoutId`),
   KEY `elements_type_idx` (`type`),
   KEY `elements_enabled_idx` (`enabled`),
   KEY `elements_archived_dateCreated_idx` (`archived`,`dateCreated`),
+  KEY `elements_dateDeleted_idx` (`dateDeleted`),
   CONSTRAINT `elements_fieldLayoutId_fk` FOREIGN KEY (`fieldLayoutId`) REFERENCES `fieldlayouts` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `elements` WRITE;
 /*!40000 ALTER TABLE `elements` DISABLE KEYS */;
 
-INSERT INTO `elements` (`id`, `fieldLayoutId`, `type`, `enabled`, `archived`, `dateCreated`, `dateUpdated`, `uid`)
+INSERT INTO `elements` (`id`, `fieldLayoutId`, `type`, `enabled`, `archived`, `dateCreated`, `dateUpdated`, `dateDeleted`, `uid`)
 VALUES
-	(1,NULL,'craft\\elements\\User',1,0,'2018-02-19 20:35:16','2018-11-19 12:11:07','bff80ccc-ca57-412a-b2a4-492b80338d3b'),
-	(2,1,'craft\\elements\\Entry',1,0,'2018-02-19 20:39:37','2018-11-19 14:13:53','46759b9e-d091-4feb-a904-2ef5997ebbcb'),
-	(3,7,'craft\\elements\\Entry',1,0,'2018-02-19 21:05:21','2018-10-09 10:58:36','91f89820-046b-436b-ab41-77ff769c95f4'),
-	(4,8,'craft\\elements\\Entry',1,0,'2018-02-19 21:06:26','2018-10-09 10:58:29','3d3688cf-1c26-4a58-a0e2-f81cd4017771'),
-	(92,32,'craft\\elements\\MatrixBlock',1,0,'2018-10-10 11:49:02','2018-10-10 11:50:37','6fae74be-e22c-41f5-9794-610470eaed9d'),
-	(94,NULL,'verbb\\navigation\\elements\\Node',1,0,'2018-10-11 12:21:38','2018-11-19 14:13:53','678ff459-97f1-4cfd-a7f0-a5a07da39eae'),
-	(95,3,'craft\\elements\\MatrixBlock',1,0,'2018-10-11 12:27:55','2018-11-19 14:13:53','767848c0-cb44-42b4-9219-a0ffa91f2660'),
-	(96,3,'craft\\elements\\MatrixBlock',1,0,'2018-10-11 12:27:55','2018-11-19 14:13:53','d9cfd60d-74b9-4a95-83d9-c57375ba7361');
+	(1,NULL,'craft\\elements\\User',1,0,'2018-02-19 20:35:16','2018-11-19 12:11:07',NULL,'bff80ccc-ca57-412a-b2a4-492b80338d3b'),
+	(2,1,'craft\\elements\\Entry',1,0,'2018-02-19 20:39:37','2018-11-19 14:13:53',NULL,'46759b9e-d091-4feb-a904-2ef5997ebbcb'),
+	(3,7,'craft\\elements\\Entry',1,0,'2018-02-19 21:05:21','2018-10-09 10:58:36',NULL,'91f89820-046b-436b-ab41-77ff769c95f4'),
+	(4,8,'craft\\elements\\Entry',1,0,'2018-02-19 21:06:26','2018-10-09 10:58:29',NULL,'3d3688cf-1c26-4a58-a0e2-f81cd4017771'),
+	(92,32,'craft\\elements\\MatrixBlock',1,0,'2018-10-10 11:49:02','2018-10-10 11:50:37',NULL,'6fae74be-e22c-41f5-9794-610470eaed9d'),
+	(94,NULL,'verbb\\navigation\\elements\\Node',1,0,'2018-10-11 12:21:38','2018-11-19 14:13:53',NULL,'678ff459-97f1-4cfd-a7f0-a5a07da39eae'),
+	(95,3,'craft\\elements\\MatrixBlock',1,0,'2018-10-11 12:27:55','2018-11-19 14:13:53',NULL,'767848c0-cb44-42b4-9219-a0ffa91f2660'),
+	(96,3,'craft\\elements\\MatrixBlock',1,0,'2018-10-11 12:27:55','2018-11-19 14:13:53',NULL,'d9cfd60d-74b9-4a95-83d9-c57375ba7361');
 
 /*!40000 ALTER TABLE `elements` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -395,6 +401,7 @@ DROP TABLE IF EXISTS `entries`;
 CREATE TABLE `entries` (
   `id` int(11) NOT NULL,
   `sectionId` int(11) NOT NULL,
+  `parentId` int(11) DEFAULT NULL,
   `typeId` int(11) NOT NULL,
   `authorId` int(11) DEFAULT NULL,
   `postDate` datetime DEFAULT NULL,
@@ -408,8 +415,10 @@ CREATE TABLE `entries` (
   KEY `entries_authorId_idx` (`authorId`),
   KEY `entries_sectionId_idx` (`sectionId`),
   KEY `entries_typeId_idx` (`typeId`),
+  KEY `entries_parentId_fk` (`parentId`),
   CONSTRAINT `entries_authorId_fk` FOREIGN KEY (`authorId`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   CONSTRAINT `entries_id_fk` FOREIGN KEY (`id`) REFERENCES `elements` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `entries_parentId_fk` FOREIGN KEY (`parentId`) REFERENCES `entries` (`id`) ON DELETE SET NULL,
   CONSTRAINT `entries_sectionId_fk` FOREIGN KEY (`sectionId`) REFERENCES `sections` (`id`) ON DELETE CASCADE,
   CONSTRAINT `entries_typeId_fk` FOREIGN KEY (`typeId`) REFERENCES `entrytypes` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -417,11 +426,11 @@ CREATE TABLE `entries` (
 LOCK TABLES `entries` WRITE;
 /*!40000 ALTER TABLE `entries` DISABLE KEYS */;
 
-INSERT INTO `entries` (`id`, `sectionId`, `typeId`, `authorId`, `postDate`, `expiryDate`, `dateCreated`, `dateUpdated`, `uid`)
+INSERT INTO `entries` (`id`, `sectionId`, `parentId`, `typeId`, `authorId`, `postDate`, `expiryDate`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(2,1,1,1,'2018-02-19 20:39:00',NULL,'2018-02-19 20:39:37','2018-11-19 14:13:53','5b49caf1-7db2-4a48-a5e8-667ed9336cde'),
-	(3,2,2,NULL,'2018-02-19 21:05:21',NULL,'2018-02-19 21:05:21','2018-10-09 10:58:36','2535114a-8af4-4c5e-a749-7aeab8f4c83d'),
-	(4,3,3,NULL,'2018-02-19 21:06:26',NULL,'2018-02-19 21:06:26','2018-10-09 10:58:29','c94211a9-2c8e-451d-aa43-affd63ee8d59');
+	(2,1,NULL,1,1,'2018-02-19 20:39:00',NULL,'2018-02-19 20:39:37','2018-11-19 14:13:53','5b49caf1-7db2-4a48-a5e8-667ed9336cde'),
+	(3,2,NULL,2,NULL,'2018-02-19 21:05:21',NULL,'2018-02-19 21:05:21','2018-10-09 10:58:36','2535114a-8af4-4c5e-a749-7aeab8f4c83d'),
+	(4,3,NULL,3,NULL,'2018-02-19 21:06:26',NULL,'2018-02-19 21:06:26','2018-10-09 10:58:29','c94211a9-2c8e-451d-aa43-affd63ee8d59');
 
 /*!40000 ALTER TABLE `entries` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -665,32 +674,34 @@ CREATE TABLE `fieldlayouts` (
   `type` varchar(255) NOT NULL,
   `dateCreated` datetime NOT NULL,
   `dateUpdated` datetime NOT NULL,
+  `dateDeleted` datetime DEFAULT NULL,
   `uid` char(36) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `fieldlayouts_type_idx` (`type`)
+  KEY `fieldlayouts_type_idx` (`type`),
+  KEY `fieldlayouts_dateDeleted_idx` (`dateDeleted`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `fieldlayouts` WRITE;
 /*!40000 ALTER TABLE `fieldlayouts` DISABLE KEYS */;
 
-INSERT INTO `fieldlayouts` (`id`, `type`, `dateCreated`, `dateUpdated`, `uid`)
+INSERT INTO `fieldlayouts` (`id`, `type`, `dateCreated`, `dateUpdated`, `dateDeleted`, `uid`)
 VALUES
-	(1,'craft\\elements\\Entry','2018-02-19 20:39:21','2018-10-10 10:57:47','287b486d-5e0f-4da3-ad71-b0e6e4f5bb6e'),
-	(2,'craft\\elements\\Asset','2018-02-19 20:47:40','2018-02-19 20:49:20','d5ea0bab-9c7b-456b-8561-204055d0f005'),
-	(3,'craft\\elements\\MatrixBlock','2018-02-19 20:49:31','2018-10-11 12:27:19','b4e95136-129b-44b0-806f-4179e32cca7d'),
-	(4,'craft\\elements\\MatrixBlock','2018-02-19 20:49:31','2018-10-11 12:27:20','11f56c1a-4166-4b03-915e-bae305a5d987'),
-	(7,'craft\\elements\\Entry','2018-02-19 21:05:21','2018-10-09 10:58:35','e1017557-2915-4a3b-b582-a890f41e20da'),
-	(8,'craft\\elements\\Entry','2018-02-19 21:06:26','2018-10-09 10:58:28','9bae5357-2666-46d6-8b1f-c6b0c89683ea'),
-	(18,'craft\\elements\\MatrixBlock','2018-10-09 12:10:14','2018-10-11 12:27:20','0c8a6d95-e864-42cb-87f9-3827e2e30a29'),
-	(23,'Spoon_BlockType','2018-10-10 08:47:07','2018-10-10 08:47:07','f84ae73e-8a68-401d-bfe2-39fe0e6ee952'),
-	(24,'Spoon_BlockType','2018-10-10 08:47:26','2018-10-10 08:47:26','be40ce10-92bb-4f20-ba86-fefe0cf89f1f'),
-	(27,'Spoon_BlockType','2018-10-10 08:51:00','2018-10-10 08:51:00','85842781-984a-40a4-ab8b-d55e7d6f2438'),
-	(29,'Spoon_BlockType','2018-10-10 08:54:25','2018-10-10 08:54:25','461aad0b-8b6f-486c-967c-6bbad447befb'),
-	(31,'Spoon_BlockType','2018-10-10 08:58:52','2018-10-10 08:58:52','0c3ba5f2-a598-4e6b-a468-dcacf5dad2bc'),
-	(32,'craft\\elements\\MatrixBlock','2018-10-10 09:04:47','2018-10-11 12:27:20','2d40e1f6-b0da-494b-882e-8b06be9395e4'),
-	(37,'Spoon_BlockType','2018-10-10 11:08:32','2018-10-10 11:08:32','d82b2e3e-8e1b-45f8-8f4f-139aca2b71f8'),
-	(43,'Spoon_BlockType','2018-10-10 11:49:56','2018-10-10 11:49:56','32cc3b0c-525c-4656-ba63-884416e0578c'),
-	(44,'craft\\elements\\Asset','2018-10-11 12:24:13','2018-10-11 12:24:13','526fa96f-ffc0-4a87-b71b-e8b7ef97322a');
+	(1,'craft\\elements\\Entry','2018-02-19 20:39:21','2018-10-10 10:57:47',NULL,'287b486d-5e0f-4da3-ad71-b0e6e4f5bb6e'),
+	(2,'craft\\elements\\Asset','2018-02-19 20:47:40','2018-02-19 20:49:20',NULL,'d5ea0bab-9c7b-456b-8561-204055d0f005'),
+	(3,'craft\\elements\\MatrixBlock','2018-02-19 20:49:31','2018-10-11 12:27:19',NULL,'b4e95136-129b-44b0-806f-4179e32cca7d'),
+	(4,'craft\\elements\\MatrixBlock','2018-02-19 20:49:31','2018-10-11 12:27:20',NULL,'11f56c1a-4166-4b03-915e-bae305a5d987'),
+	(7,'craft\\elements\\Entry','2018-02-19 21:05:21','2018-10-09 10:58:35',NULL,'e1017557-2915-4a3b-b582-a890f41e20da'),
+	(8,'craft\\elements\\Entry','2018-02-19 21:06:26','2018-10-09 10:58:28',NULL,'9bae5357-2666-46d6-8b1f-c6b0c89683ea'),
+	(18,'craft\\elements\\MatrixBlock','2018-10-09 12:10:14','2018-10-11 12:27:20',NULL,'0c8a6d95-e864-42cb-87f9-3827e2e30a29'),
+	(23,'Spoon_BlockType','2018-10-10 08:47:07','2018-10-10 08:47:07',NULL,'f84ae73e-8a68-401d-bfe2-39fe0e6ee952'),
+	(24,'Spoon_BlockType','2018-10-10 08:47:26','2018-10-10 08:47:26',NULL,'be40ce10-92bb-4f20-ba86-fefe0cf89f1f'),
+	(27,'Spoon_BlockType','2018-10-10 08:51:00','2018-10-10 08:51:00',NULL,'85842781-984a-40a4-ab8b-d55e7d6f2438'),
+	(29,'Spoon_BlockType','2018-10-10 08:54:25','2018-10-10 08:54:25',NULL,'461aad0b-8b6f-486c-967c-6bbad447befb'),
+	(31,'Spoon_BlockType','2018-10-10 08:58:52','2018-10-10 08:58:52',NULL,'0c3ba5f2-a598-4e6b-a468-dcacf5dad2bc'),
+	(32,'craft\\elements\\MatrixBlock','2018-10-10 09:04:47','2018-10-11 12:27:20',NULL,'2d40e1f6-b0da-494b-882e-8b06be9395e4'),
+	(37,'Spoon_BlockType','2018-10-10 11:08:32','2018-10-10 11:08:32',NULL,'d82b2e3e-8e1b-45f8-8f4f-139aca2b71f8'),
+	(43,'Spoon_BlockType','2018-10-10 11:49:56','2018-10-10 11:49:56',NULL,'32cc3b0c-525c-4656-ba63-884416e0578c'),
+	(44,'craft\\elements\\Asset','2018-10-11 12:24:13','2018-10-11 12:24:13',NULL,'526fa96f-ffc0-4a87-b71b-e8b7ef97322a');
 
 /*!40000 ALTER TABLE `fieldlayouts` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -761,6 +772,7 @@ CREATE TABLE `fields` (
   `handle` varchar(64) NOT NULL,
   `context` varchar(255) NOT NULL DEFAULT 'global',
   `instructions` text,
+  `searchable` tinyint(1) NOT NULL DEFAULT '1',
   `translationMethod` varchar(255) NOT NULL DEFAULT 'none',
   `translationKeyFormat` text,
   `type` varchar(255) NOT NULL,
@@ -778,27 +790,27 @@ CREATE TABLE `fields` (
 LOCK TABLES `fields` WRITE;
 /*!40000 ALTER TABLE `fields` DISABLE KEYS */;
 
-INSERT INTO `fields` (`id`, `groupId`, `name`, `handle`, `context`, `instructions`, `translationMethod`, `translationKeyFormat`, `type`, `settings`, `dateCreated`, `dateUpdated`, `uid`)
+INSERT INTO `fields` (`id`, `groupId`, `name`, `handle`, `context`, `instructions`, `searchable`, `translationMethod`, `translationKeyFormat`, `type`, `settings`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(2,2,'Builder','builder','global','','site',NULL,'craft\\fields\\Matrix','{\"minBlocks\":\"\",\"maxBlocks\":\"\",\"contentTable\":\"{{%matrixcontent_builder}}\",\"localizeBlocks\":false}','2018-02-19 20:49:31','2018-10-11 12:27:19','b494bf2c-eafd-4194-99a9-559a9549d81e'),
-	(3,NULL,'Body','body','matrixBlockType:1','','none',NULL,'craft\\redactor\\Field','{\"redactorConfig\":\"Standard.json\",\"purifierConfig\":\"\",\"cleanupHtml\":\"1\",\"purifyHtml\":\"1\",\"columnType\":\"text\",\"availableVolumes\":\"*\",\"availableTransforms\":\"*\"}','2018-02-19 20:49:31','2018-10-11 12:27:19','0edea4a0-2b09-4a26-a09e-7487817ecc20'),
-	(5,NULL,'Width','width','matrixBlockType:1','','none',NULL,'rias\\widthfieldtype\\fields\\Width','{\"options\":{\"1/6\":\"1\",\"1/5\":\"1\",\"1/4\":\"1\",\"1/3\":\"1\",\"2/5\":\"1\",\"1/2\":\"1\",\"3/5\":\"1\",\"2/3\":\"1\",\"3/4\":\"1\",\"4/5\":\"1\",\"5/6\":\"1\",\"full\":\"1\"},\"default\":\"full\"}','2018-02-19 20:49:31','2018-10-11 12:27:19','89e35dd6-b38e-45e6-8eaa-6c06f01563ca'),
-	(6,NULL,'Asset','asset','matrixBlockType:2','','site',NULL,'craft\\fields\\Assets','{\"useSingleFolder\":\"\",\"defaultUploadLocationSource\":\"folder:3\",\"defaultUploadLocationSubpath\":\"\",\"singleUploadLocationSource\":\"folder:3\",\"singleUploadLocationSubpath\":\"\",\"restrictFiles\":\"1\",\"allowedKinds\":[\"image\"],\"sources\":[\"folder:3\"],\"source\":null,\"targetSiteId\":null,\"viewMode\":\"large\",\"limit\":\"1\",\"selectionLabel\":\"\",\"localizeRelations\":false}','2018-02-19 20:49:31','2018-10-11 12:27:20','04e62582-3faa-426a-8f14-1b623ee9c767'),
-	(7,NULL,'Caption','caption','matrixBlockType:2','','none',NULL,'craft\\fields\\PlainText','{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"}','2018-02-19 20:55:37','2018-10-11 12:27:20','2e68dbcd-def6-4d07-afb6-ed54ed934083'),
-	(9,NULL,'Type blok','positionType','matrixBlockType:2','Is dit blok een kolom, een alleenstaand blok of een blok dat buiten de container valt.','none',NULL,'craft\\fields\\RadioButtons','{\"options\":[{\"label\":\"Kolom\",\"value\":\"column\",\"default\":\"1\"},{\"label\":\"Aleenstaand\",\"value\":\"single\",\"default\":\"\"},{\"label\":\"Buiten container\",\"value\":\"container\",\"default\":\"\"}]}','2018-02-19 20:55:37','2018-10-11 12:27:20','e3f47e81-e327-4ce4-a456-5943ba3df7a6'),
-	(10,NULL,'Width','width','matrixBlockType:2','','none',NULL,'rias\\widthfieldtype\\fields\\Width','{\"options\":{\"1/6\":\"1\",\"1/5\":\"1\",\"1/4\":\"1\",\"1/3\":\"1\",\"2/5\":\"1\",\"1/2\":\"1\",\"3/5\":\"1\",\"2/3\":\"1\",\"3/4\":\"1\",\"4/5\":\"1\",\"5/6\":\"1\",\"full\":\"1\"},\"default\":\"full\"}','2018-02-19 20:55:37','2018-10-11 12:27:20','46d41182-8de5-4fe6-b1f8-ac9b37040f31'),
-	(16,4,'Teaser Beschrijving','teaserDescription','global','','none',NULL,'craft\\redactor\\Field','{\"redactorConfig\":\"Simple.json\",\"purifierConfig\":\"\",\"cleanupHtml\":\"1\",\"purifyHtml\":\"1\",\"columnType\":\"text\",\"availableVolumes\":\"\",\"availableTransforms\":\"*\"}','2018-02-19 20:57:32','2018-11-19 13:54:51','98cb59e0-b890-4c98-a5cc-a740202371ac'),
-	(17,4,'Teaser Afbeelding','teaserImage','global','','site',NULL,'craft\\fields\\Assets','{\"useSingleFolder\":\"\",\"defaultUploadLocationSource\":\"folder:3\",\"defaultUploadLocationSubpath\":\"\",\"singleUploadLocationSource\":\"folder:3\",\"singleUploadLocationSubpath\":\"\",\"restrictFiles\":\"1\",\"allowedKinds\":[\"image\"],\"sources\":[\"folder:3\"],\"source\":null,\"targetSiteId\":null,\"viewMode\":\"large\",\"limit\":\"1\",\"selectionLabel\":\"\",\"localizeRelations\":false}','2018-02-19 20:57:52','2018-11-19 13:54:59','012cc720-8595-4594-828d-06e3e4b4d6da'),
-	(24,NULL,'Type blok','positionType','matrixBlockType:1','Is dit blok een kolom, een alleenstaand blok of een blok dat buiten de container valt.','none',NULL,'craft\\fields\\RadioButtons','{\"options\":[{\"label\":\"Kolom\",\"value\":\"column\",\"default\":\"1\"},{\"label\":\"Aleenstaand\",\"value\":\"single\",\"default\":\"\"},{\"label\":\"Buiten container\",\"value\":\"container\",\"default\":\"\"}]}','2018-08-14 09:03:03','2018-10-11 12:27:19','3423b3bd-9504-4533-b534-a0d8b1a67c66'),
-	(25,5,'Header Beschrijving','headerDescription','global','','none',NULL,'craft\\redactor\\Field','{\"redactorConfig\":\"Simple.json\",\"purifierConfig\":\"\",\"cleanupHtml\":\"1\",\"purifyHtml\":\"1\",\"columnType\":\"text\",\"availableVolumes\":\"*\",\"availableTransforms\":\"*\"}','2018-10-09 11:45:08','2018-11-19 13:55:07','4d0e15b6-48b2-4e0a-aa88-3bfeb5fbade6'),
-	(32,5,'Header Titel','headerTitle','global','','none',NULL,'craft\\redactor\\Field','{\"redactorConfig\":\"Simple.json\",\"purifierConfig\":\"\",\"cleanupHtml\":\"1\",\"purifyHtml\":\"1\",\"columnType\":\"text\",\"availableVolumes\":\"*\",\"availableTransforms\":\"*\"}','2018-10-09 11:52:02','2018-10-09 11:52:02','b917a8a3-28d7-40a4-9602-748d6325f75c'),
-	(33,NULL,'Titel','blockTitle','matrixBlockType:4','','none',NULL,'craft\\redactor\\Field','{\"redactorConfig\":\"Simple.json\",\"purifierConfig\":\"\",\"cleanupHtml\":\"1\",\"purifyHtml\":\"1\",\"columnType\":\"text\",\"availableVolumes\":\"*\",\"availableTransforms\":\"*\"}','2018-10-09 12:10:14','2018-10-11 12:27:20','30577327-3276-4d9b-bdfa-8e9404e5b536'),
-	(34,NULL,'Introductie','blockDescription','matrixBlockType:4','','none',NULL,'craft\\redactor\\Field','{\"redactorConfig\":\"Simple.json\",\"purifierConfig\":\"\",\"cleanupHtml\":\"1\",\"purifyHtml\":\"1\",\"columnType\":\"text\",\"availableVolumes\":\"*\",\"availableTransforms\":\"*\"}','2018-10-09 12:10:14','2018-10-11 12:27:20','a6b44536-88f8-4d64-ad09-c50f3420c227'),
-	(39,NULL,'Sectie','blockSection','matrixBlockType:4','','none',NULL,'charliedev\\sectionfield\\fields\\SectionField','{\"allowMultiple\":\"1\",\"whitelistedSections\":[\"1\"]}','2018-10-10 08:42:37','2018-10-11 12:27:20','1cb201aa-45e1-40b1-abd1-380be5b37754'),
-	(40,NULL,'Aantal teasers','blockCount','matrixBlockType:4','','none',NULL,'craft\\fields\\Number','{\"defaultValue\":\"5\",\"min\":\"2\",\"max\":null,\"decimals\":0,\"size\":null}','2018-10-10 08:42:37','2018-10-11 12:27:20','d8d9d6dd-7d09-4b31-a283-1ae645683016'),
-	(53,NULL,'Titel','blockTitle','matrixBlockType:7','','none',NULL,'craft\\redactor\\Field','{\"redactorConfig\":\"Simple.json\",\"purifierConfig\":\"\",\"cleanupHtml\":\"1\",\"purifyHtml\":\"1\",\"columnType\":\"text\",\"availableVolumes\":\"*\",\"availableTransforms\":\"*\"}','2018-10-10 09:04:47','2018-10-11 12:27:20','4bb1cf13-bc8f-469c-95af-d9cda6e4ef9c'),
-	(54,NULL,'Link','blockLink','matrixBlockType:7','','none',NULL,'typedlinkfield\\fields\\LinkField','{\"allowCustomText\":\"1\",\"allowedLinkNames\":\"*\",\"allowTarget\":\"1\",\"defaultLinkName\":\"entry\",\"defaultText\":\"\",\"enableAriaLabel\":\"\",\"enableTitle\":\"\",\"typeSettings\":{\"asset\":{\"sources\":\"*\"},\"category\":{\"sources\":\"*\"},\"user\":{\"sources\":\"*\"},\"entry\":{\"sources\":\"*\"},\"site\":{\"sites\":\"*\"},\"custom\":{\"disableValidation\":\"\",\"allowAliases\":\"\"},\"email\":{\"disableValidation\":\"\",\"allowAliases\":\"\"},\"tel\":{\"disableValidation\":\"\",\"allowAliases\":\"\"},\"url\":{\"disableValidation\":\"\",\"allowAliases\":\"\"}}}','2018-10-10 09:04:47','2018-10-11 12:27:20','ff89a7ce-c0b0-4814-8bbd-2b6bdb687cdb'),
-	(74,NULL,'Beschrijving','blockDescription','matrixBlockType:7','','none',NULL,'craft\\redactor\\Field','{\"redactorConfig\":\"Simple.json\",\"purifierConfig\":\"\",\"cleanupHtml\":\"1\",\"purifyHtml\":\"1\",\"columnType\":\"text\",\"availableVolumes\":\"*\",\"availableTransforms\":\"*\"}','2018-10-10 11:49:44','2018-10-11 12:27:20','c466ef3a-cf99-4d68-8eea-0bb7a088f917');
+	(2,2,'Builder','builder','global','',1,'site',NULL,'craft\\fields\\Matrix','{\"minBlocks\":\"\",\"maxBlocks\":\"\",\"contentTable\":\"{{%matrixcontent_builder}}\",\"localizeBlocks\":false}','2018-02-19 20:49:31','2018-10-11 12:27:19','b494bf2c-eafd-4194-99a9-559a9549d81e'),
+	(3,NULL,'Body','body','matrixBlockType:8a344f4b-be5d-44bf-9318-3fe86affe1e6','',1,'none',NULL,'craft\\redactor\\Field','{\"redactorConfig\":\"Standard.json\",\"purifierConfig\":\"\",\"cleanupHtml\":\"1\",\"purifyHtml\":\"1\",\"columnType\":\"text\",\"availableVolumes\":\"*\",\"availableTransforms\":\"*\"}','2018-02-19 20:49:31','2018-10-11 12:27:19','0edea4a0-2b09-4a26-a09e-7487817ecc20'),
+	(5,NULL,'Width','width','matrixBlockType:8a344f4b-be5d-44bf-9318-3fe86affe1e6','',1,'none',NULL,'rias\\widthfieldtype\\fields\\Width','{\"options\":{\"1/6\":\"1\",\"1/5\":\"1\",\"1/4\":\"1\",\"1/3\":\"1\",\"2/5\":\"1\",\"1/2\":\"1\",\"3/5\":\"1\",\"2/3\":\"1\",\"3/4\":\"1\",\"4/5\":\"1\",\"5/6\":\"1\",\"full\":\"1\"},\"default\":\"full\"}','2018-02-19 20:49:31','2018-10-11 12:27:19','89e35dd6-b38e-45e6-8eaa-6c06f01563ca'),
+	(6,NULL,'Asset','asset','matrixBlockType:bfcf13f7-9c84-4a4c-b1b7-8a6b79bdbc41','',1,'site',NULL,'craft\\fields\\Assets','{\"useSingleFolder\":\"\",\"defaultUploadLocationSource\":\"folder:d0f09da2-3dbc-4180-af77-fdfe80c5e475\",\"defaultUploadLocationSubpath\":\"\",\"singleUploadLocationSource\":\"folder:d0f09da2-3dbc-4180-af77-fdfe80c5e475\",\"singleUploadLocationSubpath\":\"\",\"restrictFiles\":\"1\",\"allowedKinds\":[\"image\"],\"sources\":[\"folder:d0f09da2-3dbc-4180-af77-fdfe80c5e475\"],\"source\":null,\"targetSiteId\":null,\"viewMode\":\"large\",\"limit\":\"1\",\"selectionLabel\":\"\",\"localizeRelations\":false}','2018-02-19 20:49:31','2018-10-11 12:27:20','04e62582-3faa-426a-8f14-1b623ee9c767'),
+	(7,NULL,'Caption','caption','matrixBlockType:bfcf13f7-9c84-4a4c-b1b7-8a6b79bdbc41','',1,'none',NULL,'craft\\fields\\PlainText','{\"placeholder\":\"\",\"code\":\"\",\"multiline\":\"\",\"initialRows\":\"4\",\"charLimit\":\"\",\"columnType\":\"text\"}','2018-02-19 20:55:37','2018-10-11 12:27:20','2e68dbcd-def6-4d07-afb6-ed54ed934083'),
+	(9,NULL,'Type blok','positionType','matrixBlockType:bfcf13f7-9c84-4a4c-b1b7-8a6b79bdbc41','Is dit blok een kolom, een alleenstaand blok of een blok dat buiten de container valt.',1,'none',NULL,'craft\\fields\\RadioButtons','{\"options\":[{\"label\":\"Kolom\",\"value\":\"column\",\"default\":\"1\"},{\"label\":\"Aleenstaand\",\"value\":\"single\",\"default\":\"\"},{\"label\":\"Buiten container\",\"value\":\"container\",\"default\":\"\"}]}','2018-02-19 20:55:37','2018-10-11 12:27:20','e3f47e81-e327-4ce4-a456-5943ba3df7a6'),
+	(10,NULL,'Width','width','matrixBlockType:bfcf13f7-9c84-4a4c-b1b7-8a6b79bdbc41','',1,'none',NULL,'rias\\widthfieldtype\\fields\\Width','{\"options\":{\"1/6\":\"1\",\"1/5\":\"1\",\"1/4\":\"1\",\"1/3\":\"1\",\"2/5\":\"1\",\"1/2\":\"1\",\"3/5\":\"1\",\"2/3\":\"1\",\"3/4\":\"1\",\"4/5\":\"1\",\"5/6\":\"1\",\"full\":\"1\"},\"default\":\"full\"}','2018-02-19 20:55:37','2018-10-11 12:27:20','46d41182-8de5-4fe6-b1f8-ac9b37040f31'),
+	(16,4,'Teaser Beschrijving','teaserDescription','global','',1,'none',NULL,'craft\\redactor\\Field','{\"redactorConfig\":\"Simple.json\",\"purifierConfig\":\"\",\"cleanupHtml\":\"1\",\"purifyHtml\":\"1\",\"columnType\":\"text\",\"availableVolumes\":\"\",\"availableTransforms\":\"*\"}','2018-02-19 20:57:32','2018-11-19 13:54:51','98cb59e0-b890-4c98-a5cc-a740202371ac'),
+	(17,4,'Teaser Afbeelding','teaserImage','global','',1,'site',NULL,'craft\\fields\\Assets','{\"useSingleFolder\":\"\",\"defaultUploadLocationSource\":\"folder:d0f09da2-3dbc-4180-af77-fdfe80c5e475\",\"defaultUploadLocationSubpath\":\"\",\"singleUploadLocationSource\":\"folder:d0f09da2-3dbc-4180-af77-fdfe80c5e475\",\"singleUploadLocationSubpath\":\"\",\"restrictFiles\":\"1\",\"allowedKinds\":[\"image\"],\"sources\":[\"folder:d0f09da2-3dbc-4180-af77-fdfe80c5e475\"],\"source\":null,\"targetSiteId\":null,\"viewMode\":\"large\",\"limit\":\"1\",\"selectionLabel\":\"\",\"localizeRelations\":false}','2018-02-19 20:57:52','2018-11-19 13:54:59','012cc720-8595-4594-828d-06e3e4b4d6da'),
+	(24,NULL,'Type blok','positionType','matrixBlockType:8a344f4b-be5d-44bf-9318-3fe86affe1e6','Is dit blok een kolom, een alleenstaand blok of een blok dat buiten de container valt.',1,'none',NULL,'craft\\fields\\RadioButtons','{\"options\":[{\"label\":\"Kolom\",\"value\":\"column\",\"default\":\"1\"},{\"label\":\"Aleenstaand\",\"value\":\"single\",\"default\":\"\"},{\"label\":\"Buiten container\",\"value\":\"container\",\"default\":\"\"}]}','2018-08-14 09:03:03','2018-10-11 12:27:19','3423b3bd-9504-4533-b534-a0d8b1a67c66'),
+	(25,5,'Header Beschrijving','headerDescription','global','',1,'none',NULL,'craft\\redactor\\Field','{\"redactorConfig\":\"Simple.json\",\"purifierConfig\":\"\",\"cleanupHtml\":\"1\",\"purifyHtml\":\"1\",\"columnType\":\"text\",\"availableVolumes\":\"*\",\"availableTransforms\":\"*\"}','2018-10-09 11:45:08','2018-11-19 13:55:07','4d0e15b6-48b2-4e0a-aa88-3bfeb5fbade6'),
+	(32,5,'Header Titel','headerTitle','global','',1,'none',NULL,'craft\\redactor\\Field','{\"redactorConfig\":\"Simple.json\",\"purifierConfig\":\"\",\"cleanupHtml\":\"1\",\"purifyHtml\":\"1\",\"columnType\":\"text\",\"availableVolumes\":\"*\",\"availableTransforms\":\"*\"}','2018-10-09 11:52:02','2018-10-09 11:52:02','b917a8a3-28d7-40a4-9602-748d6325f75c'),
+	(33,NULL,'Titel','blockTitle','matrixBlockType:becddbce-0e94-4b08-9e48-226f9ca61193','',1,'none',NULL,'craft\\redactor\\Field','{\"redactorConfig\":\"Simple.json\",\"purifierConfig\":\"\",\"cleanupHtml\":\"1\",\"purifyHtml\":\"1\",\"columnType\":\"text\",\"availableVolumes\":\"*\",\"availableTransforms\":\"*\"}','2018-10-09 12:10:14','2018-10-11 12:27:20','30577327-3276-4d9b-bdfa-8e9404e5b536'),
+	(34,NULL,'Introductie','blockDescription','matrixBlockType:becddbce-0e94-4b08-9e48-226f9ca61193','',1,'none',NULL,'craft\\redactor\\Field','{\"redactorConfig\":\"Simple.json\",\"purifierConfig\":\"\",\"cleanupHtml\":\"1\",\"purifyHtml\":\"1\",\"columnType\":\"text\",\"availableVolumes\":\"*\",\"availableTransforms\":\"*\"}','2018-10-09 12:10:14','2018-10-11 12:27:20','a6b44536-88f8-4d64-ad09-c50f3420c227'),
+	(39,NULL,'Sectie','blockSection','matrixBlockType:becddbce-0e94-4b08-9e48-226f9ca61193','',1,'none',NULL,'charliedev\\sectionfield\\fields\\SectionField','{\"allowMultiple\":\"1\",\"whitelistedSections\":[\"1\"]}','2018-10-10 08:42:37','2018-10-11 12:27:20','1cb201aa-45e1-40b1-abd1-380be5b37754'),
+	(40,NULL,'Aantal teasers','blockCount','matrixBlockType:becddbce-0e94-4b08-9e48-226f9ca61193','',1,'none',NULL,'craft\\fields\\Number','{\"defaultValue\":\"5\",\"min\":\"2\",\"max\":null,\"decimals\":0,\"size\":null}','2018-10-10 08:42:37','2018-10-11 12:27:20','d8d9d6dd-7d09-4b31-a283-1ae645683016'),
+	(53,NULL,'Titel','blockTitle','matrixBlockType:8d04a4d7-2f0f-4aaa-92f4-2e249b8cd8a3','',1,'none',NULL,'craft\\redactor\\Field','{\"redactorConfig\":\"Simple.json\",\"purifierConfig\":\"\",\"cleanupHtml\":\"1\",\"purifyHtml\":\"1\",\"columnType\":\"text\",\"availableVolumes\":\"*\",\"availableTransforms\":\"*\"}','2018-10-10 09:04:47','2018-10-11 12:27:20','4bb1cf13-bc8f-469c-95af-d9cda6e4ef9c'),
+	(54,NULL,'Link','blockLink','matrixBlockType:8d04a4d7-2f0f-4aaa-92f4-2e249b8cd8a3','',1,'none',NULL,'typedlinkfield\\fields\\LinkField','{\"allowCustomText\":\"1\",\"allowedLinkNames\":\"*\",\"allowTarget\":\"1\",\"defaultLinkName\":\"entry\",\"defaultText\":\"\",\"enableAriaLabel\":\"\",\"enableTitle\":\"\",\"typeSettings\":{\"asset\":{\"sources\":\"*\"},\"category\":{\"sources\":\"*\"},\"user\":{\"sources\":\"*\"},\"entry\":{\"sources\":\"*\"},\"site\":{\"sites\":\"*\"},\"custom\":{\"disableValidation\":\"\",\"allowAliases\":\"\"},\"email\":{\"disableValidation\":\"\",\"allowAliases\":\"\"},\"tel\":{\"disableValidation\":\"\",\"allowAliases\":\"\"},\"url\":{\"disableValidation\":\"\",\"allowAliases\":\"\"}}}','2018-10-10 09:04:47','2018-10-11 12:27:20','ff89a7ce-c0b0-4814-8bbd-2b6bdb687cdb'),
+	(74,NULL,'Beschrijving','blockDescription','matrixBlockType:8d04a4d7-2f0f-4aaa-92f4-2e249b8cd8a3','',1,'none',NULL,'craft\\redactor\\Field','{\"redactorConfig\":\"Simple.json\",\"purifierConfig\":\"\",\"cleanupHtml\":\"1\",\"purifyHtml\":\"1\",\"columnType\":\"text\",\"availableVolumes\":\"*\",\"availableTransforms\":\"*\"}','2018-10-10 11:49:44','2018-10-11 12:27:20','c466ef3a-cf99-4d68-8eea-0bb7a088f917');
 
 /*!40000 ALTER TABLE `fields` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -836,24 +848,22 @@ CREATE TABLE `info` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `version` varchar(50) NOT NULL,
   `schemaVersion` varchar(15) NOT NULL,
-  `edition` tinyint(3) unsigned NOT NULL,
-  `timezone` varchar(30) DEFAULT NULL,
-  `name` varchar(255) NOT NULL,
-  `on` tinyint(1) NOT NULL DEFAULT '0',
   `maintenance` tinyint(1) NOT NULL DEFAULT '0',
   `fieldVersion` char(12) NOT NULL DEFAULT '000000000000',
   `dateCreated` datetime NOT NULL,
   `dateUpdated` datetime NOT NULL,
   `uid` char(36) NOT NULL DEFAULT '0',
+  `config` mediumtext,
+  `configMap` mediumtext,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `info` WRITE;
 /*!40000 ALTER TABLE `info` DISABLE KEYS */;
 
-INSERT INTO `info` (`id`, `version`, `schemaVersion`, `edition`, `timezone`, `name`, `on`, `maintenance`, `fieldVersion`, `dateCreated`, `dateUpdated`, `uid`)
+INSERT INTO `info` (`id`, `version`, `schemaVersion`, `maintenance`, `fieldVersion`, `dateCreated`, `dateUpdated`, `uid`, `config`, `configMap`)
 VALUES
-	(1,'3.0.31','3.0.94',1,'Europe/Brussels','Website',1,0,'2zTBw2y2vmT2','2018-02-19 20:35:16','2018-11-19 13:55:17','15a1bfa3-0de9-405e-9aca-6190f554c2fb');
+	(1,'3.1.0-beta.4','3.1.9',0,'2zTBw2y2vmT2','2018-02-19 20:35:16','2018-12-03 09:09:20','15a1bfa3-0de9-405e-9aca-6190f554c2fb','a:12:{s:12:\"dateModified\";i:1543828160;s:5:\"email\";a:3:{s:9:\"fromEmail\";s:15:\"rias@marbles.be\";s:8:\"fromName\";s:5:\"craft\";s:13:\"transportType\";s:37:\"craft\\mail\\transportadapters\\Sendmail\";}s:11:\"fieldGroups\";a:4:{s:36:\"2339f388-7cbe-4547-ba61-c4a0bfcd16dc\";a:1:{s:4:\"name\";s:6:\"Common\";}s:36:\"3e8e6e1e-d8a8-4001-9310-ddd73a81cb80\";a:1:{s:4:\"name\";s:6:\"Teaser\";}s:36:\"a5394e36-c5da-4690-813f-bbb839bdbb0e\";a:1:{s:4:\"name\";s:4:\"Page\";}s:36:\"ec17aa49-c101-4f11-b7cd-e36919065cbe\";a:1:{s:4:\"name\";s:6:\"Header\";}}s:6:\"fields\";a:5:{s:36:\"012cc720-8595-4594-828d-06e3e4b4d6da\";a:10:{s:17:\"contentColumnType\";s:6:\"string\";s:10:\"fieldGroup\";s:36:\"3e8e6e1e-d8a8-4001-9310-ddd73a81cb80\";s:6:\"handle\";s:11:\"teaserImage\";s:12:\"instructions\";s:0:\"\";s:4:\"name\";s:17:\"Teaser Afbeelding\";s:10:\"searchable\";s:1:\"1\";s:8:\"settings\";a:14:{s:12:\"allowedKinds\";a:1:{i:0;s:5:\"image\";}s:27:\"defaultUploadLocationSource\";s:43:\"folder:d0f09da2-3dbc-4180-af77-fdfe80c5e475\";s:28:\"defaultUploadLocationSubpath\";s:0:\"\";s:5:\"limit\";s:1:\"1\";s:17:\"localizeRelations\";b:0;s:13:\"restrictFiles\";s:1:\"1\";s:14:\"selectionLabel\";s:0:\"\";s:26:\"singleUploadLocationSource\";s:43:\"folder:d0f09da2-3dbc-4180-af77-fdfe80c5e475\";s:27:\"singleUploadLocationSubpath\";s:0:\"\";s:6:\"source\";N;s:7:\"sources\";a:1:{i:0;s:43:\"folder:d0f09da2-3dbc-4180-af77-fdfe80c5e475\";}s:12:\"targetSiteId\";N;s:15:\"useSingleFolder\";s:0:\"\";s:8:\"viewMode\";s:5:\"large\";}s:20:\"translationKeyFormat\";N;s:17:\"translationMethod\";s:4:\"site\";s:4:\"type\";s:19:\"craft\\fields\\Assets\";}s:36:\"4d0e15b6-48b2-4e0a-aa88-3bfeb5fbade6\";a:10:{s:17:\"contentColumnType\";s:4:\"text\";s:10:\"fieldGroup\";s:36:\"ec17aa49-c101-4f11-b7cd-e36919065cbe\";s:6:\"handle\";s:17:\"headerDescription\";s:12:\"instructions\";s:0:\"\";s:4:\"name\";s:19:\"Header Beschrijving\";s:10:\"searchable\";s:1:\"1\";s:8:\"settings\";a:7:{s:19:\"availableTransforms\";s:1:\"*\";s:16:\"availableVolumes\";s:1:\"*\";s:11:\"cleanupHtml\";s:1:\"1\";s:10:\"columnType\";s:4:\"text\";s:14:\"purifierConfig\";s:0:\"\";s:10:\"purifyHtml\";s:1:\"1\";s:14:\"redactorConfig\";s:11:\"Simple.json\";}s:20:\"translationKeyFormat\";N;s:17:\"translationMethod\";s:4:\"none\";s:4:\"type\";s:20:\"craft\\redactor\\Field\";}s:36:\"98cb59e0-b890-4c98-a5cc-a740202371ac\";a:10:{s:17:\"contentColumnType\";s:4:\"text\";s:10:\"fieldGroup\";s:36:\"3e8e6e1e-d8a8-4001-9310-ddd73a81cb80\";s:6:\"handle\";s:17:\"teaserDescription\";s:12:\"instructions\";s:0:\"\";s:4:\"name\";s:19:\"Teaser Beschrijving\";s:10:\"searchable\";s:1:\"1\";s:8:\"settings\";a:7:{s:19:\"availableTransforms\";s:1:\"*\";s:16:\"availableVolumes\";s:0:\"\";s:11:\"cleanupHtml\";s:1:\"1\";s:10:\"columnType\";s:4:\"text\";s:14:\"purifierConfig\";s:0:\"\";s:10:\"purifyHtml\";s:1:\"1\";s:14:\"redactorConfig\";s:11:\"Simple.json\";}s:20:\"translationKeyFormat\";N;s:17:\"translationMethod\";s:4:\"none\";s:4:\"type\";s:20:\"craft\\redactor\\Field\";}s:36:\"b494bf2c-eafd-4194-99a9-559a9549d81e\";a:10:{s:17:\"contentColumnType\";s:6:\"string\";s:10:\"fieldGroup\";s:36:\"a5394e36-c5da-4690-813f-bbb839bdbb0e\";s:6:\"handle\";s:7:\"builder\";s:12:\"instructions\";s:0:\"\";s:4:\"name\";s:7:\"Builder\";s:10:\"searchable\";s:1:\"1\";s:8:\"settings\";a:4:{s:12:\"contentTable\";s:26:\"{{%matrixcontent_builder}}\";s:14:\"localizeBlocks\";b:0;s:9:\"maxBlocks\";s:0:\"\";s:9:\"minBlocks\";s:0:\"\";}s:20:\"translationKeyFormat\";N;s:17:\"translationMethod\";s:4:\"site\";s:4:\"type\";s:19:\"craft\\fields\\Matrix\";}s:36:\"b917a8a3-28d7-40a4-9602-748d6325f75c\";a:10:{s:17:\"contentColumnType\";s:4:\"text\";s:10:\"fieldGroup\";s:36:\"ec17aa49-c101-4f11-b7cd-e36919065cbe\";s:6:\"handle\";s:11:\"headerTitle\";s:12:\"instructions\";s:0:\"\";s:4:\"name\";s:12:\"Header Titel\";s:10:\"searchable\";s:1:\"1\";s:8:\"settings\";a:7:{s:19:\"availableTransforms\";s:1:\"*\";s:16:\"availableVolumes\";s:1:\"*\";s:11:\"cleanupHtml\";s:1:\"1\";s:10:\"columnType\";s:4:\"text\";s:14:\"purifierConfig\";s:0:\"\";s:10:\"purifyHtml\";s:1:\"1\";s:14:\"redactorConfig\";s:11:\"Simple.json\";}s:20:\"translationKeyFormat\";N;s:17:\"translationMethod\";s:4:\"none\";s:4:\"type\";s:20:\"craft\\redactor\\Field\";}}s:16:\"matrixBlockTypes\";a:4:{s:36:\"8a344f4b-be5d-44bf-9318-3fe86affe1e6\";a:6:{s:5:\"field\";s:36:\"b494bf2c-eafd-4194-99a9-559a9549d81e\";s:12:\"fieldLayouts\";a:1:{s:36:\"b4e95136-129b-44b0-806f-4179e32cca7d\";a:1:{s:4:\"tabs\";a:1:{i:0;a:3:{s:6:\"fields\";a:3:{s:36:\"0edea4a0-2b09-4a26-a09e-7487817ecc20\";a:2:{s:8:\"required\";s:1:\"1\";s:9:\"sortOrder\";s:1:\"1\";}s:36:\"3423b3bd-9504-4533-b534-a0d8b1a67c66\";a:2:{s:8:\"required\";s:1:\"1\";s:9:\"sortOrder\";s:1:\"3\";}s:36:\"89e35dd6-b38e-45e6-8eaa-6c06f01563ca\";a:2:{s:8:\"required\";s:1:\"1\";s:9:\"sortOrder\";s:1:\"2\";}}s:4:\"name\";s:7:\"Content\";s:9:\"sortOrder\";s:1:\"1\";}}}}s:6:\"fields\";a:3:{s:36:\"0edea4a0-2b09-4a26-a09e-7487817ecc20\";a:10:{s:17:\"contentColumnType\";s:4:\"text\";s:10:\"fieldGroup\";N;s:6:\"handle\";s:4:\"body\";s:12:\"instructions\";s:0:\"\";s:4:\"name\";s:4:\"Body\";s:10:\"searchable\";s:1:\"1\";s:8:\"settings\";a:7:{s:19:\"availableTransforms\";s:1:\"*\";s:16:\"availableVolumes\";s:1:\"*\";s:11:\"cleanupHtml\";s:1:\"1\";s:10:\"columnType\";s:4:\"text\";s:14:\"purifierConfig\";s:0:\"\";s:10:\"purifyHtml\";s:1:\"1\";s:14:\"redactorConfig\";s:13:\"Standard.json\";}s:20:\"translationKeyFormat\";N;s:17:\"translationMethod\";s:4:\"none\";s:4:\"type\";s:20:\"craft\\redactor\\Field\";}s:36:\"3423b3bd-9504-4533-b534-a0d8b1a67c66\";a:10:{s:17:\"contentColumnType\";s:6:\"string\";s:10:\"fieldGroup\";N;s:6:\"handle\";s:12:\"positionType\";s:12:\"instructions\";s:86:\"Is dit blok een kolom, een alleenstaand blok of een blok dat buiten de container valt.\";s:4:\"name\";s:9:\"Type blok\";s:10:\"searchable\";s:1:\"1\";s:8:\"settings\";a:1:{s:7:\"options\";a:3:{i:0;a:3:{s:7:\"default\";s:1:\"1\";s:5:\"label\";s:5:\"Kolom\";s:5:\"value\";s:6:\"column\";}i:1;a:3:{s:7:\"default\";s:0:\"\";s:5:\"label\";s:11:\"Aleenstaand\";s:5:\"value\";s:6:\"single\";}i:2;a:3:{s:7:\"default\";s:0:\"\";s:5:\"label\";s:16:\"Buiten container\";s:5:\"value\";s:9:\"container\";}}}s:20:\"translationKeyFormat\";N;s:17:\"translationMethod\";s:4:\"none\";s:4:\"type\";s:25:\"craft\\fields\\RadioButtons\";}s:36:\"89e35dd6-b38e-45e6-8eaa-6c06f01563ca\";a:10:{s:17:\"contentColumnType\";s:6:\"string\";s:10:\"fieldGroup\";N;s:6:\"handle\";s:5:\"width\";s:12:\"instructions\";s:0:\"\";s:4:\"name\";s:5:\"Width\";s:10:\"searchable\";s:1:\"1\";s:8:\"settings\";a:2:{s:7:\"default\";s:4:\"full\";s:7:\"options\";a:12:{s:3:\"1/2\";s:1:\"1\";s:3:\"1/3\";s:1:\"1\";s:3:\"1/4\";s:1:\"1\";s:3:\"1/5\";s:1:\"1\";s:3:\"1/6\";s:1:\"1\";s:3:\"2/3\";s:1:\"1\";s:3:\"2/5\";s:1:\"1\";s:3:\"3/4\";s:1:\"1\";s:3:\"3/5\";s:1:\"1\";s:3:\"4/5\";s:1:\"1\";s:3:\"5/6\";s:1:\"1\";s:4:\"full\";s:1:\"1\";}}s:20:\"translationKeyFormat\";N;s:17:\"translationMethod\";s:4:\"none\";s:4:\"type\";s:32:\"rias\\widthfieldtype\\fields\\Width\";}}s:6:\"handle\";s:4:\"text\";s:4:\"name\";s:4:\"Text\";s:9:\"sortOrder\";s:1:\"1\";}s:36:\"8d04a4d7-2f0f-4aaa-92f4-2e249b8cd8a3\";a:6:{s:5:\"field\";s:36:\"b494bf2c-eafd-4194-99a9-559a9549d81e\";s:12:\"fieldLayouts\";a:1:{s:36:\"2d40e1f6-b0da-494b-882e-8b06be9395e4\";a:1:{s:4:\"tabs\";a:1:{i:0;a:3:{s:6:\"fields\";a:3:{s:36:\"4bb1cf13-bc8f-469c-95af-d9cda6e4ef9c\";a:2:{s:8:\"required\";s:1:\"1\";s:9:\"sortOrder\";s:1:\"1\";}s:36:\"c466ef3a-cf99-4d68-8eea-0bb7a088f917\";a:2:{s:8:\"required\";s:1:\"0\";s:9:\"sortOrder\";s:1:\"2\";}s:36:\"ff89a7ce-c0b0-4814-8bbd-2b6bdb687cdb\";a:2:{s:8:\"required\";s:1:\"1\";s:9:\"sortOrder\";s:1:\"3\";}}s:4:\"name\";s:7:\"Content\";s:9:\"sortOrder\";s:1:\"1\";}}}}s:6:\"fields\";a:3:{s:36:\"4bb1cf13-bc8f-469c-95af-d9cda6e4ef9c\";a:10:{s:17:\"contentColumnType\";s:4:\"text\";s:10:\"fieldGroup\";N;s:6:\"handle\";s:10:\"blockTitle\";s:12:\"instructions\";s:0:\"\";s:4:\"name\";s:5:\"Titel\";s:10:\"searchable\";s:1:\"1\";s:8:\"settings\";a:7:{s:19:\"availableTransforms\";s:1:\"*\";s:16:\"availableVolumes\";s:1:\"*\";s:11:\"cleanupHtml\";s:1:\"1\";s:10:\"columnType\";s:4:\"text\";s:14:\"purifierConfig\";s:0:\"\";s:10:\"purifyHtml\";s:1:\"1\";s:14:\"redactorConfig\";s:11:\"Simple.json\";}s:20:\"translationKeyFormat\";N;s:17:\"translationMethod\";s:4:\"none\";s:4:\"type\";s:20:\"craft\\redactor\\Field\";}s:36:\"c466ef3a-cf99-4d68-8eea-0bb7a088f917\";a:10:{s:17:\"contentColumnType\";s:4:\"text\";s:10:\"fieldGroup\";N;s:6:\"handle\";s:16:\"blockDescription\";s:12:\"instructions\";s:0:\"\";s:4:\"name\";s:12:\"Beschrijving\";s:10:\"searchable\";s:1:\"1\";s:8:\"settings\";a:7:{s:19:\"availableTransforms\";s:1:\"*\";s:16:\"availableVolumes\";s:1:\"*\";s:11:\"cleanupHtml\";s:1:\"1\";s:10:\"columnType\";s:4:\"text\";s:14:\"purifierConfig\";s:0:\"\";s:10:\"purifyHtml\";s:1:\"1\";s:14:\"redactorConfig\";s:11:\"Simple.json\";}s:20:\"translationKeyFormat\";N;s:17:\"translationMethod\";s:4:\"none\";s:4:\"type\";s:20:\"craft\\redactor\\Field\";}s:36:\"ff89a7ce-c0b0-4814-8bbd-2b6bdb687cdb\";a:10:{s:17:\"contentColumnType\";s:4:\"text\";s:10:\"fieldGroup\";N;s:6:\"handle\";s:9:\"blockLink\";s:12:\"instructions\";s:0:\"\";s:4:\"name\";s:4:\"Link\";s:10:\"searchable\";s:1:\"1\";s:8:\"settings\";a:8:{s:15:\"allowCustomText\";s:1:\"1\";s:11:\"allowTarget\";s:1:\"1\";s:16:\"allowedLinkNames\";s:1:\"*\";s:15:\"defaultLinkName\";s:5:\"entry\";s:11:\"defaultText\";s:0:\"\";s:15:\"enableAriaLabel\";s:0:\"\";s:11:\"enableTitle\";s:0:\"\";s:12:\"typeSettings\";a:9:{s:5:\"asset\";a:1:{s:7:\"sources\";s:1:\"*\";}s:8:\"category\";a:1:{s:7:\"sources\";s:1:\"*\";}s:6:\"custom\";a:2:{s:12:\"allowAliases\";s:0:\"\";s:17:\"disableValidation\";s:0:\"\";}s:5:\"email\";a:2:{s:12:\"allowAliases\";s:0:\"\";s:17:\"disableValidation\";s:0:\"\";}s:5:\"entry\";a:1:{s:7:\"sources\";s:1:\"*\";}s:4:\"site\";a:1:{s:5:\"sites\";s:1:\"*\";}s:3:\"tel\";a:2:{s:12:\"allowAliases\";s:0:\"\";s:17:\"disableValidation\";s:0:\"\";}s:3:\"url\";a:2:{s:12:\"allowAliases\";s:0:\"\";s:17:\"disableValidation\";s:0:\"\";}s:4:\"user\";a:1:{s:7:\"sources\";s:1:\"*\";}}}s:20:\"translationKeyFormat\";N;s:17:\"translationMethod\";s:4:\"none\";s:4:\"type\";s:31:\"typedlinkfield\\fields\\LinkField\";}}s:6:\"handle\";s:12:\"callToAction\";s:4:\"name\";s:14:\"Call to Action\";s:9:\"sortOrder\";s:1:\"3\";}s:36:\"becddbce-0e94-4b08-9e48-226f9ca61193\";a:6:{s:5:\"field\";s:36:\"b494bf2c-eafd-4194-99a9-559a9549d81e\";s:12:\"fieldLayouts\";a:1:{s:36:\"0c8a6d95-e864-42cb-87f9-3827e2e30a29\";a:1:{s:4:\"tabs\";a:1:{i:0;a:3:{s:6:\"fields\";a:4:{s:36:\"1cb201aa-45e1-40b1-abd1-380be5b37754\";a:2:{s:8:\"required\";s:1:\"1\";s:9:\"sortOrder\";s:1:\"3\";}s:36:\"30577327-3276-4d9b-bdfa-8e9404e5b536\";a:2:{s:8:\"required\";s:1:\"1\";s:9:\"sortOrder\";s:1:\"1\";}s:36:\"a6b44536-88f8-4d64-ad09-c50f3420c227\";a:2:{s:8:\"required\";s:1:\"1\";s:9:\"sortOrder\";s:1:\"2\";}s:36:\"d8d9d6dd-7d09-4b31-a283-1ae645683016\";a:2:{s:8:\"required\";s:1:\"1\";s:9:\"sortOrder\";s:1:\"4\";}}s:4:\"name\";s:7:\"Content\";s:9:\"sortOrder\";s:1:\"1\";}}}}s:6:\"fields\";a:4:{s:36:\"1cb201aa-45e1-40b1-abd1-380be5b37754\";a:10:{s:17:\"contentColumnType\";s:6:\"string\";s:10:\"fieldGroup\";N;s:6:\"handle\";s:12:\"blockSection\";s:12:\"instructions\";s:0:\"\";s:4:\"name\";s:6:\"Sectie\";s:10:\"searchable\";s:1:\"1\";s:8:\"settings\";a:2:{s:13:\"allowMultiple\";s:1:\"1\";s:19:\"whitelistedSections\";a:1:{i:0;s:1:\"1\";}}s:20:\"translationKeyFormat\";N;s:17:\"translationMethod\";s:4:\"none\";s:4:\"type\";s:43:\"charliedev\\sectionfield\\fields\\SectionField\";}s:36:\"30577327-3276-4d9b-bdfa-8e9404e5b536\";a:10:{s:17:\"contentColumnType\";s:4:\"text\";s:10:\"fieldGroup\";N;s:6:\"handle\";s:10:\"blockTitle\";s:12:\"instructions\";s:0:\"\";s:4:\"name\";s:5:\"Titel\";s:10:\"searchable\";s:1:\"1\";s:8:\"settings\";a:7:{s:19:\"availableTransforms\";s:1:\"*\";s:16:\"availableVolumes\";s:1:\"*\";s:11:\"cleanupHtml\";s:1:\"1\";s:10:\"columnType\";s:4:\"text\";s:14:\"purifierConfig\";s:0:\"\";s:10:\"purifyHtml\";s:1:\"1\";s:14:\"redactorConfig\";s:11:\"Simple.json\";}s:20:\"translationKeyFormat\";N;s:17:\"translationMethod\";s:4:\"none\";s:4:\"type\";s:20:\"craft\\redactor\\Field\";}s:36:\"a6b44536-88f8-4d64-ad09-c50f3420c227\";a:10:{s:17:\"contentColumnType\";s:4:\"text\";s:10:\"fieldGroup\";N;s:6:\"handle\";s:16:\"blockDescription\";s:12:\"instructions\";s:0:\"\";s:4:\"name\";s:11:\"Introductie\";s:10:\"searchable\";s:1:\"1\";s:8:\"settings\";a:7:{s:19:\"availableTransforms\";s:1:\"*\";s:16:\"availableVolumes\";s:1:\"*\";s:11:\"cleanupHtml\";s:1:\"1\";s:10:\"columnType\";s:4:\"text\";s:14:\"purifierConfig\";s:0:\"\";s:10:\"purifyHtml\";s:1:\"1\";s:14:\"redactorConfig\";s:11:\"Simple.json\";}s:20:\"translationKeyFormat\";N;s:17:\"translationMethod\";s:4:\"none\";s:4:\"type\";s:20:\"craft\\redactor\\Field\";}s:36:\"d8d9d6dd-7d09-4b31-a283-1ae645683016\";a:10:{s:17:\"contentColumnType\";s:11:\"integer(10)\";s:10:\"fieldGroup\";N;s:6:\"handle\";s:10:\"blockCount\";s:12:\"instructions\";s:0:\"\";s:4:\"name\";s:14:\"Aantal teasers\";s:10:\"searchable\";s:1:\"1\";s:8:\"settings\";a:5:{s:8:\"decimals\";i:0;s:12:\"defaultValue\";s:1:\"5\";s:3:\"max\";N;s:3:\"min\";s:1:\"2\";s:4:\"size\";N;}s:20:\"translationKeyFormat\";N;s:17:\"translationMethod\";s:4:\"none\";s:4:\"type\";s:19:\"craft\\fields\\Number\";}}s:6:\"handle\";s:7:\"teasers\";s:4:\"name\";s:7:\"Teasers\";s:9:\"sortOrder\";s:1:\"4\";}s:36:\"bfcf13f7-9c84-4a4c-b1b7-8a6b79bdbc41\";a:6:{s:5:\"field\";s:36:\"b494bf2c-eafd-4194-99a9-559a9549d81e\";s:12:\"fieldLayouts\";a:1:{s:36:\"11f56c1a-4166-4b03-915e-bae305a5d987\";a:1:{s:4:\"tabs\";a:1:{i:0;a:3:{s:6:\"fields\";a:4:{s:36:\"04e62582-3faa-426a-8f14-1b623ee9c767\";a:2:{s:8:\"required\";s:1:\"1\";s:9:\"sortOrder\";s:1:\"1\";}s:36:\"2e68dbcd-def6-4d07-afb6-ed54ed934083\";a:2:{s:8:\"required\";s:1:\"0\";s:9:\"sortOrder\";s:1:\"2\";}s:36:\"46d41182-8de5-4fe6-b1f8-ac9b37040f31\";a:2:{s:8:\"required\";s:1:\"1\";s:9:\"sortOrder\";s:1:\"4\";}s:36:\"e3f47e81-e327-4ce4-a456-5943ba3df7a6\";a:2:{s:8:\"required\";s:1:\"1\";s:9:\"sortOrder\";s:1:\"3\";}}s:4:\"name\";s:7:\"Content\";s:9:\"sortOrder\";s:1:\"1\";}}}}s:6:\"fields\";a:4:{s:36:\"04e62582-3faa-426a-8f14-1b623ee9c767\";a:10:{s:17:\"contentColumnType\";s:6:\"string\";s:10:\"fieldGroup\";N;s:6:\"handle\";s:5:\"asset\";s:12:\"instructions\";s:0:\"\";s:4:\"name\";s:5:\"Asset\";s:10:\"searchable\";s:1:\"1\";s:8:\"settings\";a:14:{s:12:\"allowedKinds\";a:1:{i:0;s:5:\"image\";}s:27:\"defaultUploadLocationSource\";s:43:\"folder:d0f09da2-3dbc-4180-af77-fdfe80c5e475\";s:28:\"defaultUploadLocationSubpath\";s:0:\"\";s:5:\"limit\";s:1:\"1\";s:17:\"localizeRelations\";b:0;s:13:\"restrictFiles\";s:1:\"1\";s:14:\"selectionLabel\";s:0:\"\";s:26:\"singleUploadLocationSource\";s:43:\"folder:d0f09da2-3dbc-4180-af77-fdfe80c5e475\";s:27:\"singleUploadLocationSubpath\";s:0:\"\";s:6:\"source\";N;s:7:\"sources\";a:1:{i:0;s:43:\"folder:d0f09da2-3dbc-4180-af77-fdfe80c5e475\";}s:12:\"targetSiteId\";N;s:15:\"useSingleFolder\";s:0:\"\";s:8:\"viewMode\";s:5:\"large\";}s:20:\"translationKeyFormat\";N;s:17:\"translationMethod\";s:4:\"site\";s:4:\"type\";s:19:\"craft\\fields\\Assets\";}s:36:\"2e68dbcd-def6-4d07-afb6-ed54ed934083\";a:10:{s:17:\"contentColumnType\";s:4:\"text\";s:10:\"fieldGroup\";N;s:6:\"handle\";s:7:\"caption\";s:12:\"instructions\";s:0:\"\";s:4:\"name\";s:7:\"Caption\";s:10:\"searchable\";s:1:\"1\";s:8:\"settings\";a:6:{s:9:\"charLimit\";s:0:\"\";s:4:\"code\";s:0:\"\";s:10:\"columnType\";s:4:\"text\";s:11:\"initialRows\";s:1:\"4\";s:9:\"multiline\";s:0:\"\";s:11:\"placeholder\";s:0:\"\";}s:20:\"translationKeyFormat\";N;s:17:\"translationMethod\";s:4:\"none\";s:4:\"type\";s:22:\"craft\\fields\\PlainText\";}s:36:\"46d41182-8de5-4fe6-b1f8-ac9b37040f31\";a:10:{s:17:\"contentColumnType\";s:6:\"string\";s:10:\"fieldGroup\";N;s:6:\"handle\";s:5:\"width\";s:12:\"instructions\";s:0:\"\";s:4:\"name\";s:5:\"Width\";s:10:\"searchable\";s:1:\"1\";s:8:\"settings\";a:2:{s:7:\"default\";s:4:\"full\";s:7:\"options\";a:12:{s:3:\"1/2\";s:1:\"1\";s:3:\"1/3\";s:1:\"1\";s:3:\"1/4\";s:1:\"1\";s:3:\"1/5\";s:1:\"1\";s:3:\"1/6\";s:1:\"1\";s:3:\"2/3\";s:1:\"1\";s:3:\"2/5\";s:1:\"1\";s:3:\"3/4\";s:1:\"1\";s:3:\"3/5\";s:1:\"1\";s:3:\"4/5\";s:1:\"1\";s:3:\"5/6\";s:1:\"1\";s:4:\"full\";s:1:\"1\";}}s:20:\"translationKeyFormat\";N;s:17:\"translationMethod\";s:4:\"none\";s:4:\"type\";s:32:\"rias\\widthfieldtype\\fields\\Width\";}s:36:\"e3f47e81-e327-4ce4-a456-5943ba3df7a6\";a:10:{s:17:\"contentColumnType\";s:6:\"string\";s:10:\"fieldGroup\";N;s:6:\"handle\";s:12:\"positionType\";s:12:\"instructions\";s:86:\"Is dit blok een kolom, een alleenstaand blok of een blok dat buiten de container valt.\";s:4:\"name\";s:9:\"Type blok\";s:10:\"searchable\";s:1:\"1\";s:8:\"settings\";a:1:{s:7:\"options\";a:3:{i:0;a:3:{s:7:\"default\";s:1:\"1\";s:5:\"label\";s:5:\"Kolom\";s:5:\"value\";s:6:\"column\";}i:1;a:3:{s:7:\"default\";s:0:\"\";s:5:\"label\";s:11:\"Aleenstaand\";s:5:\"value\";s:6:\"single\";}i:2;a:3:{s:7:\"default\";s:0:\"\";s:5:\"label\";s:16:\"Buiten container\";s:5:\"value\";s:9:\"container\";}}}s:20:\"translationKeyFormat\";N;s:17:\"translationMethod\";s:4:\"none\";s:4:\"type\";s:25:\"craft\\fields\\RadioButtons\";}}s:6:\"handle\";s:5:\"image\";s:4:\"name\";s:5:\"Image\";s:9:\"sortOrder\";s:1:\"2\";}}s:7:\"plugins\";a:20:{s:9:\"architect\";a:4:{s:7:\"enabled\";s:1:\"1\";s:10:\"licenseKey\";N;s:13:\"schemaVersion\";s:5:\"2.0.0\";s:8:\"settings\";N;}s:11:\"async-queue\";a:4:{s:7:\"enabled\";s:1:\"1\";s:10:\"licenseKey\";N;s:13:\"schemaVersion\";s:5:\"1.0.0\";s:8:\"settings\";N;}s:15:\"colour-swatches\";a:4:{s:7:\"enabled\";s:1:\"1\";s:10:\"licenseKey\";N;s:13:\"schemaVersion\";s:5:\"1.0.0\";s:8:\"settings\";N;}s:11:\"craftremote\";a:4:{s:7:\"enabled\";s:1:\"1\";s:10:\"licenseKey\";N;s:13:\"schemaVersion\";s:5:\"1.0.0\";s:8:\"settings\";N;}s:16:\"expanded-singles\";a:4:{s:7:\"enabled\";s:1:\"1\";s:10:\"licenseKey\";N;s:13:\"schemaVersion\";s:5:\"1.0.0\";s:8:\"settings\";N;}s:6:\"imager\";a:4:{s:7:\"enabled\";s:1:\"1\";s:10:\"licenseKey\";N;s:13:\"schemaVersion\";s:5:\"2.0.0\";s:8:\"settings\";N;}s:19:\"imager-pretransform\";a:4:{s:7:\"enabled\";s:1:\"1\";s:10:\"licenseKey\";N;s:13:\"schemaVersion\";s:5:\"2.0.0\";s:8:\"settings\";N;}s:6:\"minify\";a:4:{s:7:\"enabled\";s:1:\"1\";s:10:\"licenseKey\";N;s:13:\"schemaVersion\";s:5:\"1.0.0\";s:8:\"settings\";N;}s:3:\"mix\";a:4:{s:7:\"enabled\";s:1:\"1\";s:10:\"licenseKey\";N;s:13:\"schemaVersion\";s:5:\"1.0.0\";s:8:\"settings\";N;}s:10:\"navigation\";a:4:{s:7:\"enabled\";s:1:\"1\";s:10:\"licenseKey\";N;s:13:\"schemaVersion\";s:5:\"1.0.5\";s:8:\"settings\";a:1:{s:10:\"pluginName\";s:9:\"Navigatie\";}}s:15:\"password-policy\";a:4:{s:7:\"enabled\";s:1:\"1\";s:10:\"licenseKey\";N;s:13:\"schemaVersion\";s:5:\"1.0.0\";s:8:\"settings\";a:7:{s:5:\"cases\";s:0:\"\";s:10:\"checkPwned\";s:1:\"1\";s:9:\"maxLength\";s:3:\"160\";s:9:\"minLength\";s:1:\"5\";s:7:\"numbers\";s:0:\"\";s:21:\"showStrengthIndicator\";s:1:\"1\";s:7:\"symbols\";s:0:\"\";}}s:18:\"position-fieldtype\";a:4:{s:7:\"enabled\";s:1:\"1\";s:10:\"licenseKey\";N;s:13:\"schemaVersion\";s:5:\"1.0.0\";s:8:\"settings\";N;}s:8:\"redactor\";a:4:{s:7:\"enabled\";s:1:\"1\";s:10:\"licenseKey\";N;s:13:\"schemaVersion\";s:5:\"2.0.0\";s:8:\"settings\";N;}s:13:\"section-field\";a:4:{s:7:\"enabled\";s:1:\"1\";s:10:\"licenseKey\";N;s:13:\"schemaVersion\";s:5:\"0.0.1\";s:8:\"settings\";N;}s:8:\"seomatic\";a:4:{s:7:\"enabled\";s:1:\"1\";s:10:\"licenseKey\";N;s:13:\"schemaVersion\";s:5:\"3.0.6\";s:8:\"settings\";a:9:{s:18:\"devModeTitlePrefix\";s:10:\"[devMode] \";s:22:\"displayAnalysisSidebar\";s:1:\"1\";s:21:\"displayPreviewSidebar\";s:1:\"1\";s:11:\"environment\";s:5:\"local\";s:20:\"maxDescriptionLength\";s:3:\"300\";s:14:\"maxTitleLength\";s:3:\"120\";s:10:\"pluginName\";s:3:\"SEO\";s:13:\"renderEnabled\";s:1:\"1\";s:13:\"separatorChar\";s:1:\"|\";}}s:12:\"simple-forms\";a:4:{s:7:\"enabled\";s:1:\"1\";s:10:\"licenseKey\";N;s:13:\"schemaVersion\";s:5:\"0.1.0\";s:8:\"settings\";N;}s:11:\"super-table\";a:4:{s:7:\"enabled\";s:1:\"1\";s:10:\"licenseKey\";N;s:13:\"schemaVersion\";s:5:\"2.0.4\";s:8:\"settings\";N;}s:14:\"typedlinkfield\";a:4:{s:7:\"enabled\";s:1:\"1\";s:10:\"licenseKey\";N;s:13:\"schemaVersion\";s:5:\"1.0.0\";s:8:\"settings\";N;}s:9:\"typogrify\";a:4:{s:7:\"enabled\";s:1:\"1\";s:10:\"licenseKey\";N;s:13:\"schemaVersion\";s:5:\"1.0.0\";s:8:\"settings\";N;}s:15:\"width-fieldtype\";a:4:{s:7:\"enabled\";s:1:\"1\";s:10:\"licenseKey\";N;s:13:\"schemaVersion\";s:5:\"1.0.0\";s:8:\"settings\";N;}}s:8:\"sections\";a:3:{s:36:\"2692068f-5212-4ade-91df-f5b3ed74fd3a\";a:7:{s:16:\"enableVersioning\";s:1:\"0\";s:10:\"entryTypes\";a:1:{s:36:\"e21494a3-47f6-4ec6-b09b-0e7438ec3900\";a:7:{s:12:\"fieldLayouts\";a:1:{s:36:\"e1017557-2915-4a3b-b582-a890f41e20da\";a:1:{s:4:\"tabs\";a:1:{i:0;a:3:{s:6:\"fields\";a:1:{s:36:\"b494bf2c-eafd-4194-99a9-559a9549d81e\";a:2:{s:8:\"required\";s:1:\"0\";s:9:\"sortOrder\";s:1:\"1\";}}s:4:\"name\";s:7:\"Content\";s:9:\"sortOrder\";s:1:\"1\";}}}}s:6:\"handle\";s:8:\"notFound\";s:13:\"hasTitleField\";s:1:\"1\";s:4:\"name\";s:3:\"404\";s:9:\"sortOrder\";s:1:\"1\";s:11:\"titleFormat\";N;s:10:\"titleLabel\";s:5:\"Title\";}}s:6:\"handle\";s:8:\"notFound\";s:4:\"name\";s:3:\"404\";s:16:\"propagateEntries\";s:1:\"1\";s:12:\"siteSettings\";a:1:{s:36:\"9d6f768b-e1c6-4802-9e7d-06ef35121847\";a:4:{s:16:\"enabledByDefault\";s:1:\"1\";s:7:\"hasUrls\";s:1:\"1\";s:8:\"template\";s:13:\"_routers/page\";s:9:\"uriFormat\";s:3:\"404\";}}s:4:\"type\";s:6:\"single\";}s:36:\"5d164903-fa95-4b19-bb53-3ccb8eccdc10\";a:7:{s:16:\"enableVersioning\";s:1:\"1\";s:10:\"entryTypes\";a:1:{s:36:\"e15b0eea-1d26-4fd9-ac19-e5e047b53f84\";a:7:{s:12:\"fieldLayouts\";a:1:{s:36:\"9bae5357-2666-46d6-8b1f-c6b0c89683ea\";a:1:{s:4:\"tabs\";a:1:{i:0;a:3:{s:6:\"fields\";a:1:{s:36:\"b494bf2c-eafd-4194-99a9-559a9549d81e\";a:2:{s:8:\"required\";s:1:\"0\";s:9:\"sortOrder\";s:1:\"1\";}}s:4:\"name\";s:7:\"Content\";s:9:\"sortOrder\";s:1:\"1\";}}}}s:6:\"handle\";s:18:\"serviceUnavailable\";s:13:\"hasTitleField\";s:1:\"1\";s:4:\"name\";s:3:\"503\";s:9:\"sortOrder\";s:1:\"1\";s:11:\"titleFormat\";N;s:10:\"titleLabel\";s:5:\"Title\";}}s:6:\"handle\";s:18:\"serviceUnavailable\";s:4:\"name\";s:3:\"503\";s:16:\"propagateEntries\";s:1:\"1\";s:12:\"siteSettings\";a:1:{s:36:\"9d6f768b-e1c6-4802-9e7d-06ef35121847\";a:4:{s:16:\"enabledByDefault\";s:1:\"1\";s:7:\"hasUrls\";s:1:\"1\";s:8:\"template\";s:13:\"_routers/page\";s:9:\"uriFormat\";s:3:\"503\";}}s:4:\"type\";s:6:\"single\";}s:36:\"fe154a59-9561-4bf1-ba7b-f2e632f45aaf\";a:8:{s:16:\"enableVersioning\";s:1:\"1\";s:10:\"entryTypes\";a:1:{s:36:\"61f1fb8a-a31e-424a-a094-0bb848c53bf9\";a:7:{s:12:\"fieldLayouts\";a:1:{s:36:\"287b486d-5e0f-4da3-ad71-b0e6e4f5bb6e\";a:1:{s:4:\"tabs\";a:3:{i:0;a:3:{s:6:\"fields\";a:1:{s:36:\"b494bf2c-eafd-4194-99a9-559a9549d81e\";a:2:{s:8:\"required\";s:1:\"0\";s:9:\"sortOrder\";s:1:\"1\";}}s:4:\"name\";s:7:\"Content\";s:9:\"sortOrder\";s:1:\"1\";}i:1;a:3:{s:6:\"fields\";a:2:{s:36:\"4d0e15b6-48b2-4e0a-aa88-3bfeb5fbade6\";a:2:{s:8:\"required\";s:1:\"1\";s:9:\"sortOrder\";s:1:\"2\";}s:36:\"b917a8a3-28d7-40a4-9602-748d6325f75c\";a:2:{s:8:\"required\";s:1:\"0\";s:9:\"sortOrder\";s:1:\"1\";}}s:4:\"name\";s:6:\"Header\";s:9:\"sortOrder\";s:1:\"2\";}i:2;a:3:{s:6:\"fields\";a:2:{s:36:\"012cc720-8595-4594-828d-06e3e4b4d6da\";a:2:{s:8:\"required\";s:1:\"0\";s:9:\"sortOrder\";s:1:\"1\";}s:36:\"98cb59e0-b890-4c98-a5cc-a740202371ac\";a:2:{s:8:\"required\";s:1:\"0\";s:9:\"sortOrder\";s:1:\"2\";}}s:4:\"name\";s:6:\"Teaser\";s:9:\"sortOrder\";s:1:\"3\";}}}}s:6:\"handle\";s:4:\"page\";s:13:\"hasTitleField\";s:1:\"1\";s:4:\"name\";s:6:\"Pagina\";s:9:\"sortOrder\";s:1:\"1\";s:11:\"titleFormat\";N;s:10:\"titleLabel\";s:5:\"Title\";}}s:6:\"handle\";s:5:\"pages\";s:4:\"name\";s:5:\"Pages\";s:16:\"propagateEntries\";s:1:\"1\";s:12:\"siteSettings\";a:1:{s:36:\"9d6f768b-e1c6-4802-9e7d-06ef35121847\";a:4:{s:16:\"enabledByDefault\";s:1:\"1\";s:7:\"hasUrls\";s:1:\"1\";s:8:\"template\";s:15:\"_resolvers/page\";s:9:\"uriFormat\";s:6:\"{slug}\";}}s:9:\"structure\";a:2:{s:9:\"maxLevels\";N;s:3:\"uid\";s:36:\"a7be0409-cc51-42d0-b87b-69b4e0a5f994\";}s:4:\"type\";s:9:\"structure\";}}s:10:\"siteGroups\";a:1:{s:36:\"621953cd-07f9-4cb7-b4b8-ce528d22656b\";a:1:{s:4:\"name\";s:7:\"Website\";}}s:5:\"sites\";a:1:{s:36:\"9d6f768b-e1c6-4802-9e7d-06ef35121847\";a:8:{s:7:\"baseUrl\";s:5:\"@web/\";s:6:\"handle\";s:7:\"default\";s:7:\"hasUrls\";s:1:\"1\";s:8:\"language\";s:5:\"nl-BE\";s:4:\"name\";s:7:\"Website\";s:7:\"primary\";s:1:\"1\";s:9:\"siteGroup\";s:36:\"621953cd-07f9-4cb7-b4b8-ce528d22656b\";s:9:\"sortOrder\";s:1:\"1\";}}s:6:\"system\";a:5:{s:7:\"edition\";s:3:\"pro\";s:4:\"live\";b:1;s:4:\"name\";s:7:\"Website\";s:13:\"schemaVersion\";s:5:\"3.1.9\";s:8:\"timeZone\";s:15:\"Europe/Brussels\";}s:5:\"users\";a:5:{s:23:\"allowPublicRegistration\";b:0;s:12:\"defaultGroup\";N;s:12:\"photoSubpath\";s:0:\"\";s:14:\"photoVolumeUid\";N;s:24:\"requireEmailVerification\";b:1;}s:7:\"volumes\";a:2:{s:36:\"12c8dca7-56cf-417a-9df3-c5a710146773\";a:7:{s:6:\"handle\";s:9:\"documents\";s:7:\"hasUrls\";s:1:\"1\";s:4:\"name\";s:10:\"Documenten\";s:8:\"settings\";a:1:{s:4:\"path\";s:35:\"@basePath/storage/assets/documents/\";}s:9:\"sortOrder\";s:1:\"2\";s:4:\"type\";s:19:\"craft\\volumes\\Local\";s:3:\"url\";s:26:\"@baseUrl/assets/documents/\";}s:36:\"56927c8a-e051-4381-aa6c-4100a9fa4991\";a:7:{s:6:\"handle\";s:6:\"images\";s:7:\"hasUrls\";s:1:\"1\";s:4:\"name\";s:6:\"Images\";s:8:\"settings\";a:1:{s:4:\"path\";s:32:\"@basePath/storage/assets/images/\";}s:9:\"sortOrder\";s:1:\"1\";s:4:\"type\";s:19:\"craft\\volumes\\Local\";s:3:\"url\";s:23:\"@baseUrl/assets/images/\";}}}','{\"dateModified\":\"/Users/rias/Code/craft/config/project.yaml\",\"email\":\"/Users/rias/Code/craft/config/project.yaml\",\"fieldGroups\":\"/Users/rias/Code/craft/config/project.yaml\",\"fields\":\"/Users/rias/Code/craft/config/project.yaml\",\"matrixBlockTypes\":\"/Users/rias/Code/craft/config/project.yaml\",\"plugins\":\"/Users/rias/Code/craft/config/project.yaml\",\"sections\":\"/Users/rias/Code/craft/config/project.yaml\",\"siteGroups\":\"/Users/rias/Code/craft/config/project.yaml\",\"sites\":\"/Users/rias/Code/craft/config/project.yaml\",\"system\":\"/Users/rias/Code/craft/config/project.yaml\",\"users\":\"/Users/rias/Code/craft/config/project.yaml\",\"volumes\":\"/Users/rias/Code/craft/config/project.yaml\"}');
 
 /*!40000 ALTER TABLE `info` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1124,7 +1134,27 @@ VALUES
 	(121,16,'plugin','m180314_002755_field_type','2018-09-17 12:39:26','2018-09-17 12:39:26','2018-09-17 12:39:26','a5c76b4d-c7d2-4430-a3d6-f7e7e081ba30'),
 	(122,NULL,'app','m181112_203955_sequences_table','2018-11-19 12:11:52','2018-11-19 12:11:52','2018-11-19 12:11:52','bc7dbdd5-9dfd-4804-8eab-cb5fdc52f326'),
 	(124,26,'plugin','m181110_000000_add_elementSiteId','2018-11-19 12:11:52','2018-11-19 12:11:52','2018-11-19 12:11:52','16bee5a0-d17e-409d-8a0b-fe1dd8e67bac'),
-	(125,30,'plugin','Install','2018-11-19 13:43:20','2018-11-19 13:43:20','2018-11-19 13:43:20','de1136b6-51ca-4ef4-982e-2bc5f42bf0d3');
+	(125,30,'plugin','Install','2018-11-19 13:43:20','2018-11-19 13:43:20','2018-11-19 13:43:20','de1136b6-51ca-4ef4-982e-2bc5f42bf0d3'),
+	(126,NULL,'app','m180425_203349_searchable_fields','2018-12-03 09:05:28','2018-12-03 09:05:28','2018-12-03 09:05:28','4aa1d723-e2b8-458c-b5aa-fc867e02931e'),
+	(127,NULL,'app','m180516_153000_uids_in_field_settings','2018-12-03 09:05:28','2018-12-03 09:05:28','2018-12-03 09:05:28','000c8523-7af4-4933-9a29-8ef75aa93d07'),
+	(128,NULL,'app','m180517_173000_user_photo_volume_to_uid','2018-12-03 09:05:28','2018-12-03 09:05:28','2018-12-03 09:05:28','2dd1e021-eddd-4eb7-bc0a-088a32ee0cec'),
+	(129,NULL,'app','m180518_173000_permissions_to_uid','2018-12-03 09:05:28','2018-12-03 09:05:28','2018-12-03 09:05:28','4caaf325-2856-48e9-a9a4-9d7a80e451ec'),
+	(130,NULL,'app','m180520_173000_matrix_context_to_uids','2018-12-03 09:05:28','2018-12-03 09:05:28','2018-12-03 09:05:28','d39b9035-286e-4a53-84f1-06043fd0dbe6'),
+	(131,NULL,'app','m180521_173000_initial_yml_and_snapshot','2018-12-03 09:05:29','2018-12-03 09:05:29','2018-12-03 09:05:29','bb4e1a85-0367-4665-8c4b-bb41ea9859c8'),
+	(132,NULL,'app','m180731_162030_soft_delete_sites','2018-12-03 09:05:30','2018-12-03 09:05:30','2018-12-03 09:05:30','9098d73a-5f10-4fc0-bed2-be5eda464952'),
+	(133,NULL,'app','m180810_214427_soft_delete_field_layouts','2018-12-03 09:05:30','2018-12-03 09:05:30','2018-12-03 09:05:30','a4269b43-9968-479f-a457-f4c16d179026'),
+	(134,NULL,'app','m180810_214439_soft_delete_elements','2018-12-03 09:05:30','2018-12-03 09:05:30','2018-12-03 09:05:30','4c54c515-893b-4631-be3e-d086ed97eee0'),
+	(135,NULL,'app','m180904_112109_permission_changes','2018-12-03 09:05:30','2018-12-03 09:05:30','2018-12-03 09:05:30','639c8ddc-fcc7-40c3-8c0f-9d0ad087ad35'),
+	(136,NULL,'app','m180910_142030_soft_delete_sitegroups','2018-12-03 09:05:31','2018-12-03 09:05:31','2018-12-03 09:05:31','57b15d76-9f9e-45ae-b2f3-6db06b2928da'),
+	(137,NULL,'app','m181011_160000_soft_delete_asset_support','2018-12-03 09:05:31','2018-12-03 09:05:31','2018-12-03 09:05:31','34515405-cb4f-4f0d-819e-e7464f9e64b2'),
+	(138,NULL,'app','m181016_183648_set_default_user_settings','2018-12-03 09:05:31','2018-12-03 09:05:31','2018-12-03 09:05:31','c4a386f6-92ec-4740-b301-a400db53cb11'),
+	(139,NULL,'app','m181017_225222_system_config_settings','2018-12-03 09:05:31','2018-12-03 09:05:31','2018-12-03 09:05:31','be39166b-e467-46a9-bc21-b64062208b3f'),
+	(140,NULL,'app','m181018_222343_drop_userpermissions_from_config','2018-12-03 09:05:31','2018-12-03 09:05:31','2018-12-03 09:05:31','28aae3df-9c31-4793-8942-a241259bc449'),
+	(141,NULL,'app','m181029_130000_add_transforms_routes_to_config','2018-12-03 09:05:31','2018-12-03 09:05:31','2018-12-03 09:05:31','77103c15-72e2-4697-aeca-2ec3ed61d8c2'),
+	(142,NULL,'app','m181121_001712_cleanup_field_configs','2018-12-03 09:05:31','2018-12-03 09:05:31','2018-12-03 09:05:31','9b8d512c-67b2-4812-a559-8b28444d36d5'),
+	(143,NULL,'app','m181128_193942_fix_project_config','2018-12-03 09:05:31','2018-12-03 09:05:31','2018-12-03 09:05:31','967b4a43-7146-4cb1-ab60-b82e217f00a0'),
+	(144,NULL,'app','m181130_143040_fix_schema_version','2018-12-03 09:05:31','2018-12-03 09:05:31','2018-12-03 09:05:31','492ea7fd-ed18-4e06-9cdb-679ef44f1151'),
+	(145,26,'plugin','m181123_000000_populate_elementSiteIds','2018-12-03 09:09:20','2018-12-03 09:09:20','2018-12-03 09:09:20','733d92d1-c489-4489-b0eb-284bdec9dce6');
 
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1194,7 +1224,7 @@ LOCK TABLES `navigation_nodes` WRITE;
 
 INSERT INTO `navigation_nodes` (`id`, `elementId`, `elementSiteId`, `navId`, `url`, `type`, `classes`, `newWindow`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(94,2,1,1,NULL,'craft\\elements\\Entry',NULL,0,'2018-10-11 12:21:38','2018-11-19 14:13:53','766e57c9-0b4f-40f6-b55c-8eee00c4acd6');
+	(94,2,1,1,NULL,'craft\\elements\\Entry',NULL,0,'2018-10-11 12:21:38','2018-12-03 09:09:20','766e57c9-0b4f-40f6-b55c-8eee00c4acd6');
 
 /*!40000 ALTER TABLE `navigation_nodes` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1210,44 +1240,40 @@ CREATE TABLE `plugins` (
   `handle` varchar(255) NOT NULL,
   `version` varchar(255) NOT NULL,
   `schemaVersion` varchar(255) NOT NULL,
-  `licenseKey` char(24) DEFAULT NULL,
   `licenseKeyStatus` enum('valid','invalid','mismatched','astray','unknown') NOT NULL DEFAULT 'unknown',
-  `enabled` tinyint(1) NOT NULL DEFAULT '0',
-  `settings` text,
   `installDate` datetime NOT NULL,
   `dateCreated` datetime NOT NULL,
   `dateUpdated` datetime NOT NULL,
   `uid` char(36) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `plugins_handle_unq_idx` (`handle`),
-  KEY `plugins_enabled_idx` (`enabled`)
+  UNIQUE KEY `plugins_handle_unq_idx` (`handle`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `plugins` WRITE;
 /*!40000 ALTER TABLE `plugins` DISABLE KEYS */;
 
-INSERT INTO `plugins` (`id`, `handle`, `version`, `schemaVersion`, `licenseKey`, `licenseKeyStatus`, `enabled`, `settings`, `installDate`, `dateCreated`, `dateUpdated`, `uid`)
+INSERT INTO `plugins` (`id`, `handle`, `version`, `schemaVersion`, `licenseKeyStatus`, `installDate`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(1,'architect','2.2.0','2.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:24','2018-02-19 20:37:24','2018-02-19 20:56:20','cc986a1c-784e-4266-bfbf-0404c36c9eff'),
-	(4,'minify','1.2.9','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-11-19 14:24:00','5316ced6-9a20-4ebb-b5c2-f4bfb0041f26'),
-	(5,'typogrify','1.1.16','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-11-19 14:24:00','55bdd6c3-ea0b-4ed1-b667-0ad91ea590e6'),
-	(6,'mix','1.5.2','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-11-19 14:24:00','bc4c8648-1d03-4fcb-9118-877d82bf15e4'),
-	(7,'position-fieldtype','1.0.14','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:35','2018-02-19 20:37:35','2018-11-19 14:24:00','2ba89699-c08b-486d-9d1d-01e9d640fa2b'),
-	(9,'colour-swatches','1.1.4','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:36','2018-02-19 20:37:36','2018-11-19 14:24:00','ef0a812f-4889-4a78-a653-0dd331467365'),
-	(11,'expanded-singles','1.0.5','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:36','2018-02-19 20:37:36','2018-11-19 14:24:00','793b39fd-2f59-4ad1-9c83-f06d900fd117'),
-	(12,'redactor','2.1.6','2.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:36','2018-02-19 20:37:36','2018-11-19 14:24:00','7a44b5b9-bab7-4c87-b6e2-18ef7ab7a694'),
-	(13,'typedlinkfield','1.0.15','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:37','2018-02-19 20:37:37','2018-11-19 14:24:00','eb26f007-f8d1-4f00-b0ae-8bca0ea0daa2'),
-	(15,'async-queue','1.3.3','1.0.0',NULL,'unknown',1,NULL,'2018-02-19 20:37:37','2018-02-19 20:37:37','2018-11-19 14:24:00','177bf137-4ba9-42d1-b69c-61f9a7988f2c'),
-	(16,'seomatic','3.1.31','3.0.6',NULL,'invalid',1,'{\"pluginName\":\"SEO\",\"renderEnabled\":\"1\",\"environment\":\"local\",\"displayPreviewSidebar\":\"1\",\"displayAnalysisSidebar\":\"1\",\"devModeTitlePrefix\":\"[devMode] \",\"separatorChar\":\"|\",\"maxTitleLength\":\"120\",\"maxDescriptionLength\":\"300\"}','2018-03-17 15:29:27','2018-03-17 15:29:27','2018-11-19 14:24:00','d46b237c-55bd-4437-b8de-0c526188c34c'),
-	(18,'super-table','2.0.14','2.0.4',NULL,'unknown',1,NULL,'2018-04-23 07:34:02','2018-04-23 07:34:02','2018-11-19 14:24:00','83bbd3c0-94c1-4242-b429-d5e63950c681'),
-	(19,'imager','v2.1.1','2.0.0',NULL,'unknown',1,NULL,'2018-04-23 07:36:24','2018-04-23 07:36:24','2018-11-19 14:24:00','1fd6043a-2f9b-4d68-99ac-4569135a9a08'),
-	(20,'password-policy','1.0.4','1.0.0',NULL,'unknown',1,'{\"minLength\":\"5\",\"maxLength\":\"160\",\"cases\":\"\",\"numbers\":\"\",\"symbols\":\"\",\"checkPwned\":\"1\",\"showStrengthIndicator\":\"1\"}','2018-04-23 07:38:05','2018-04-23 07:38:05','2018-11-19 14:24:00','928fecbc-e098-47aa-866b-5f1baa763d76'),
-	(22,'width-fieldtype','1.0.6','1.0.0',NULL,'unknown',1,NULL,'2018-08-14 08:35:35','2018-08-14 08:35:35','2018-11-19 14:24:00','83e316db-9ed9-4186-8b8f-bcc8fe99a0bf'),
-	(24,'craftremote','1.0.0','1.0.0',NULL,'unknown',1,NULL,'2018-08-14 08:38:22','2018-08-14 08:38:22','2018-11-19 14:24:00','c371a736-3e81-40da-aa70-a5b0a738dee1'),
-	(26,'navigation','1.0.16.1','1.0.4',NULL,'invalid',1,'{\"pluginName\":\"Navigatie\"}','2018-08-14 08:49:26','2018-08-14 08:49:26','2018-11-19 14:24:00','e4fab77a-a899-4d1a-a0f1-160b9026416f'),
-	(28,'imager-pretransform','2.0.1','2.0.0',NULL,'unknown',1,NULL,'2018-11-19 12:15:50','2018-11-19 12:15:50','2018-11-19 14:24:00','a694a747-4438-4c76-ad98-ebaffac50c98'),
-	(30,'simple-forms','1.0.4','0.1.0',NULL,'unknown',1,NULL,'2018-11-19 13:43:20','2018-11-19 13:43:20','2018-11-19 14:24:00','7295be13-97d7-418a-8bb0-14b24d752ca4'),
-	(32,'section-field','1.1.0','0.0.1',NULL,'unknown',1,NULL,'2018-11-19 13:56:09','2018-11-19 13:56:09','2018-11-19 14:24:00','c87da319-9d99-433f-a357-b0412ae7f575');
+	(1,'architect','2.2.0','2.0.0','unknown','2018-02-19 20:37:24','2018-02-19 20:37:24','2018-02-19 20:56:20','cc986a1c-784e-4266-bfbf-0404c36c9eff'),
+	(4,'minify','1.2.9','1.0.0','unknown','2018-02-19 20:37:35','2018-02-19 20:37:35','2018-12-03 09:09:26','5316ced6-9a20-4ebb-b5c2-f4bfb0041f26'),
+	(5,'typogrify','1.1.16','1.0.0','unknown','2018-02-19 20:37:35','2018-02-19 20:37:35','2018-12-03 09:09:26','55bdd6c3-ea0b-4ed1-b667-0ad91ea590e6'),
+	(6,'mix','1.5.2','1.0.0','unknown','2018-02-19 20:37:35','2018-02-19 20:37:35','2018-12-03 09:09:26','bc4c8648-1d03-4fcb-9118-877d82bf15e4'),
+	(7,'position-fieldtype','1.0.14','1.0.0','unknown','2018-02-19 20:37:35','2018-02-19 20:37:35','2018-12-03 09:09:26','2ba89699-c08b-486d-9d1d-01e9d640fa2b'),
+	(9,'colour-swatches','1.1.4','1.0.0','unknown','2018-02-19 20:37:36','2018-02-19 20:37:36','2018-12-03 09:09:26','ef0a812f-4889-4a78-a653-0dd331467365'),
+	(11,'expanded-singles','1.0.5','1.0.0','unknown','2018-02-19 20:37:36','2018-02-19 20:37:36','2018-12-03 09:09:26','793b39fd-2f59-4ad1-9c83-f06d900fd117'),
+	(12,'redactor','2.1.6','2.0.0','unknown','2018-02-19 20:37:36','2018-02-19 20:37:36','2018-12-03 09:09:26','7a44b5b9-bab7-4c87-b6e2-18ef7ab7a694'),
+	(13,'typedlinkfield','1.0.15','1.0.0','unknown','2018-02-19 20:37:37','2018-02-19 20:37:37','2018-12-03 09:09:26','eb26f007-f8d1-4f00-b0ae-8bca0ea0daa2'),
+	(15,'async-queue','1.3.3','1.0.0','unknown','2018-02-19 20:37:37','2018-02-19 20:37:37','2018-12-03 09:09:26','177bf137-4ba9-42d1-b69c-61f9a7988f2c'),
+	(16,'seomatic','3.1.31','3.0.6','invalid','2018-03-17 15:29:27','2018-03-17 15:29:27','2018-11-20 10:01:30','d46b237c-55bd-4437-b8de-0c526188c34c'),
+	(18,'super-table','2.0.14','2.0.4','unknown','2018-04-23 07:34:02','2018-04-23 07:34:02','2018-12-03 09:09:26','83bbd3c0-94c1-4242-b429-d5e63950c681'),
+	(19,'imager','v2.1.2','2.0.0','unknown','2018-04-23 07:36:24','2018-04-23 07:36:24','2018-12-03 09:09:26','1fd6043a-2f9b-4d68-99ac-4569135a9a08'),
+	(20,'password-policy','1.0.4','1.0.0','unknown','2018-04-23 07:38:05','2018-04-23 07:38:05','2018-12-03 09:09:26','928fecbc-e098-47aa-866b-5f1baa763d76'),
+	(22,'width-fieldtype','1.0.6','1.0.0','unknown','2018-08-14 08:35:35','2018-08-14 08:35:35','2018-12-03 09:09:26','83e316db-9ed9-4186-8b8f-bcc8fe99a0bf'),
+	(24,'craftremote','1.0.0','1.0.0','unknown','2018-08-14 08:38:22','2018-08-14 08:38:22','2018-11-20 10:01:30','c371a736-3e81-40da-aa70-a5b0a738dee1'),
+	(26,'navigation','1.0.17.2','1.0.5','invalid','2018-08-14 08:49:26','2018-08-14 08:49:26','2018-12-03 09:09:26','e4fab77a-a899-4d1a-a0f1-160b9026416f'),
+	(28,'imager-pretransform','2.0.2','2.0.0','unknown','2018-11-19 12:15:50','2018-11-19 12:15:50','2018-12-03 09:09:26','a694a747-4438-4c76-ad98-ebaffac50c98'),
+	(30,'simple-forms','1.0.6','0.1.0','unknown','2018-11-19 13:43:20','2018-11-19 13:43:20','2018-12-03 09:09:26','7295be13-97d7-418a-8bb0-14b24d752ca4'),
+	(32,'section-field','1.1.0','0.0.1','unknown','2018-11-19 13:56:09','2018-11-19 13:56:09','2018-12-03 09:09:26','c87da319-9d99-433f-a357-b0412ae7f575');
 
 /*!40000 ALTER TABLE `plugins` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1327,6 +1353,7 @@ VALUES
 	('100cf6b','@vendor/craftcms/redactor/lib/redactor-plugins/video'),
 	('102baa71','@lib/fabric'),
 	('104ac74c','@lib/timepicker'),
+	('1077c428','@app/web/assets/cp/dist'),
 	('10d3581f','@craft/web/assets/generalsettings/dist'),
 	('117e77ea','@craft/web/assets/updater/dist'),
 	('11ec6f5b','@app/web/assets/cp/dist'),
@@ -1334,8 +1361,10 @@ VALUES
 	('12b0b571','@craft/web/assets/plugins/dist'),
 	('132f7f79','@app/web/assets/generalsettings/dist'),
 	('13c7d84a','@lib/jquery.payment'),
+	('1449d156','@app/web/assets/login/dist'),
 	('146c9a00','@craft/web/assets/updater/dist'),
 	('14f35b90','@verbb/navigation/resources/dist'),
+	('1552743','@lib/picturefill'),
 	('15c7c2c8','@lib/datepicker-i18n'),
 	('1626a2e2','@craft/web/assets/updater/dist'),
 	('164ebe6e','@craft/web/assets/craftsupport/dist'),
@@ -1343,6 +1372,7 @@ VALUES
 	('16f6105','@craft/web/assets/plugins/dist'),
 	('17de4157','@app/web/assets/updater/dist'),
 	('18000961','@lib/element-resize-detector'),
+	('19bd26bd','@lib/fileupload'),
 	('19fc0c44','@craft/web/assets/updateswidget/dist'),
 	('1b9781df','@rias/passwordpolicy/assetbundles/PasswordPolicy/dist'),
 	('1c0e5780','@lib/datepicker-i18n'),
@@ -1358,6 +1388,7 @@ VALUES
 	('20716f41','@rias/widthfieldtype/assetbundles/widthfieldtype/dist/img'),
 	('209d4866','@lib/fileupload'),
 	('215fa6d3','@craft/web/assets/updateswidget/dist'),
+	('21dc4789','@lib/xregexp'),
 	('224e5887','@app/web/assets/updater/dist'),
 	('23159e31','@craft/web/assets/updateswidget/dist'),
 	('23f6fefa','@craft/web/assets/cp/dist'),
@@ -1372,10 +1403,14 @@ VALUES
 	('273117e9','@rias/passwordpolicy/assetbundles/PasswordPolicy/dist'),
 	('27464e2a','@craft/web/assets/recententries/dist'),
 	('2870f288','@craft/web/assets/generalsettings/dist'),
+	('290bc4aa','@lib/fabric'),
 	('2931cddb','@verbb/supertable/resources/dist'),
 	('295b832a','@craft/web/assets/feed/dist'),
 	('29fd09d4','@craft/web/assets/assetindexes/dist'),
 	('2a41c964','@lib/jquery-ui'),
+	('2a799f6f','@app/web/assets/dashboard/dist'),
+	('2bb00303','@lib/selectize'),
+	('2be58d6a','@app/web/assets/deprecationerrors/dist'),
 	('2c1dfd4','@craft/web/assets/updates/dist'),
 	('2c3a43e1','@app/web/assets/recententries/dist'),
 	('2dbe759b','@nystudio107/seomatic/assetbundles/seomatic/dist'),
@@ -1388,11 +1423,14 @@ VALUES
 	('30d6799f','@craft/web/assets/utilities/dist'),
 	('3177646c','@app/web/assets/cp/dist'),
 	('31ff2b2a','@lib/element-resize-detector'),
+	('3213a41f','@lib/datepicker-i18n'),
 	('321b0ab8','@app/web/assets/updateswidget/dist'),
 	('323c0447','@vendor/craftcms/redactor/lib/redactor-plugins/widget'),
 	('3249185a','@app/icons'),
+	('3380a1cb','@app/web/assets/updateswidget/dist'),
 	('34ff78d5','@craft/web/assets/plugins/dist'),
 	('35029a37','@craft/web/assets/pluginstore/dist'),
+	('3584501e','@app/web/assets/updates/dist'),
 	('3655358d','@vendor/craftcms/redactor/lib/redactor-plugins/fullscreen'),
 	('36d069c9','@lib/d3'),
 	('37621e81','@lib/xregexp'),
@@ -1405,10 +1443,12 @@ VALUES
 	('3a3cee17','@lib/jquery-ui'),
 	('3b108082','@craft/web/assets/dashboard/dist'),
 	('3b217f42','@craft/web/assets/cp/dist'),
+	('3c4d1094','@lib/garnishjs'),
 	('3c79aa4a','@craft/web/assets/cp/dist'),
 	('3c7a7caf','@lib/datepicker-i18n'),
 	('3c89a679','@app/web/assets/craftsupport/dist'),
 	('3d0e5a0b','@lib/selectize'),
+	('3d120d0a','@app/web/assets/craftsupport/dist'),
 	('3e593bfc','@app/icons'),
 	('3f443ba0','@app/web/assets/pluginstore/dist'),
 	('3fd1755a','@lib/jquery-touch-events'),
@@ -1416,6 +1456,7 @@ VALUES
 	('412e9466','@lib/fabric'),
 	('4149ec07','@lib/jquery-ui'),
 	('4253a649','@craft/web/assets/feed/dist'),
+	('42d61950','@lib/garnishjs'),
 	('4322dba8','@vendor/craftcms/redactor/lib/redactor-plugins/fullscreen'),
 	('436fd5d9','@nystudio107/seomatic/assetbundles/seomatic/dist'),
 	('43a16569','@craft/web/assets/fields/dist'),
@@ -1431,6 +1472,7 @@ VALUES
 	('49d486b9','@craft/web/assets/deprecationerrors/dist'),
 	('4a8a293a','@lib/element-resize-detector'),
 	('4baf8e42','@modules/sitemodule/assetbundles/sitemodule/dist'),
+	('4c88addb','@lib/datepicker-i18n'),
 	('4cbfc1e0','@lib/garnishjs'),
 	('4d4d6444','@lib'),
 	('4e82dfb2','@typedlinkfield/resources'),
@@ -1448,11 +1490,13 @@ VALUES
 	('54684058','@lib/garnishjs'),
 	('54f1eb53','@lib/prismjs'),
 	('55029ff1','@rias/passwordpolicy/assetbundles/passwordpolicy/dist'),
+	('552b0ac7','@lib/selectize'),
 	('55fcae8b','@bower/jquery/dist'),
 	('5677e1da','@lib/jquery-touch-events'),
 	('56bf6801','@lib/d3'),
 	('56d7e4f','@lib/garnishjs'),
 	('56f1aa45','@craft/web/assets/editentry/dist'),
+	('5790cd6e','@lib/fabric'),
 	('581a4850','@lib/picturefill'),
 	('5854f61e','@lib/jquery.payment'),
 	('591e7463','@vendor/craftcms/redactor/lib/redactor-plugins/fullscreen'),
@@ -1471,6 +1515,7 @@ VALUES
 	('5d387e1b','@lib/prismjs'),
 	('5d673d35','@app/web/assets/feed/dist'),
 	('5dec6055','@app/web/assets/fields/dist'),
+	('5f474e4d','@lib/xregexp'),
 	('5f76fd49','@lib/d3'),
 	('5fbe7492','@lib/jquery-touch-events'),
 	('603b3400','@modules/sitemodule/assetbundles/sitemodule/dist'),
@@ -1483,11 +1528,13 @@ VALUES
 	('651a82cf','@bower/jquery/dist'),
 	('66672096','@lib/xregexp'),
 	('668b9280','@craft/web/assets/utilities/dist'),
+	('67262f79','@lib/fileupload'),
 	('67d557de','@lib/d3'),
 	('68b2da5a','@lib/jquery.payment'),
 	('68b6ce4c','@lib/jquery-ui'),
 	('68f724e5','@app/web/assets/feed/dist'),
 	('694ff7c9','@lib/fileupload'),
+	('696c8f96','@app/web/assets/feed/dist'),
 	('6970778f','@lib/picturefill'),
 	('6a244155','@craft/web/assets/cp/dist'),
 	('6b42ab13','@craft/web/assets/matrix/dist'),
@@ -1500,11 +1547,13 @@ VALUES
 	('6d506b36','@craft/web/assets/edituser/dist'),
 	('6e4b8e85','@vendor/craftcms/redactor/lib/redactor-plugins/video'),
 	('6ed44b4d','@lib/jquery-touch-events'),
+	('6f11b81','@lib/jquery-touch-events'),
 	('6f6ab42c','@runtime/assets/thumbs/8'),
 	('7044abb9','@lib/fabric'),
 	('705a98c4','@craft/web/assets/updateswidget/dist'),
 	('70be67e1','@craft/web/assets/editentry/dist'),
 	('714709b2','@craft/redactor/assets/field/dist'),
+	('716b0ed6','@lib/d3'),
 	('71987671','@lib/fileupload'),
 	('71a7f637','@lib/picturefill'),
 	('71ac7b24','@rias/simpleforms/assetbundles/simpleforms'),
@@ -1520,6 +1569,7 @@ VALUES
 	('76576845','@craft/web/assets/dashboard/dist'),
 	('767c26d8','@lib/element-resize-detector'),
 	('76b8002a','@app/web/assets/editcategory/dist'),
+	('786a1245','@lib/jquery-touch-events'),
 	('78b1368','@app/web/assets/updateswidget/dist'),
 	('78cffd29','@lib/jquery.payment'),
 	('798d3ef1','@lib/fabric'),
@@ -1533,6 +1583,8 @@ VALUES
 	('7d469b0d','@craft/web/assets/craftsupport/dist'),
 	('7f02d666','@lib/d3'),
 	('7f5f583a','@angellco/spoon/assetbundles/spoon/dist'),
+	('7fce2e87','@lib/picturefill'),
+	('80574351','@lib/jquery.payment'),
 	('81389c2e','@lib/selectize'),
 	('8144aaa9','@typedlinkfield/resources'),
 	('8145c709','@craft/web/assets/feed/dist'),
@@ -1553,16 +1605,19 @@ VALUES
 	('87ace1f9','@verbb/supertable/resources/dist'),
 	('8a2dbda6','@lib/fileupload'),
 	('8b079ac1','@craft/web/assets/cp/dist'),
+	('8b0f93b2','@app/web/assets/utilities/dist'),
 	('8b54d8a4','@lib/xregexp'),
 	('8b96180f','@lib/jquery-ui'),
 	('8cbfdff5','@craft/web/assets/login/dist'),
 	('8d28bf88','@lib/selectize'),
 	('8dd35c52','@craft/web/assets/cp/dist'),
+	('8dff1bc4','@bower/jquery/dist'),
 	('8e6e93b5','@craft/icons'),
 	('8ef5e717','@craft/web/assets/login/dist'),
 	('8f580a09','@craft/web/assets/recententries/dist'),
 	('8fff8814','@app/web/assets/edituser/dist'),
 	('902a6c04','@app/web/assets/plugins/dist'),
+	('906f9a9d','@app/web/assets/feed/dist'),
 	('919bfa9','@app/web/assets/craftsupport/dist'),
 	('91a07542','@craft/web/assets/dashboard/dist'),
 	('92c5bc58','@lib/picturefill'),
@@ -1575,6 +1630,7 @@ VALUES
 	('9820a840','@lib/timepicker'),
 	('9823f426','@app/web/assets/pluginstore/dist'),
 	('989b3b32','@lib/datepicker-i18n'),
+	('994f1b84','@rias/passwordpolicy/assetbundles/PasswordPolicy/dist'),
 	('99945493','@craft/redactor/assets/field/dist'),
 	('99d13e6a','@runtime/assets/thumbs/9'),
 	('9a668c5f','@craft/web/assets/utilities/dist'),
@@ -1582,11 +1638,14 @@ VALUES
 	('9b4fdeea','@lib/element-resize-detector'),
 	('9c56c231','@modules/sitemodule/assetbundles/sitemodule/dist'),
 	('9c609c09','@lib/d3'),
+	('9c70ecb9','@lib/velocity'),
 	('9c7fbbd8','@rias/passwordpolicy/assetbundles/PasswordPolicy/dist'),
 	('9db81529','@app/web/assets/login/dist'),
 	('9e0c8826','@craft/web/assets/cp/dist'),
+	('9e1844b5','@rias/simpleforms/assetbundles/simpleforms'),
 	('a0d481f2','@craft/web/assets/updater/dist'),
 	('a22ba668','@lib/jquery-ui'),
+	('a26fb031','@lib/element-resize-detector'),
 	('a2e7a18b','@craft/web/assets/pluginstore/dist'),
 	('a31a4369','@craft/web/assets/plugins/dist'),
 	('a3d29fed','@lib/fileupload'),
@@ -1604,6 +1663,7 @@ VALUES
 	('a917c7ad','@craft/web/assets/recententries/dist'),
 	('aa24378b','@app/web/assets/updater/dist'),
 	('ab9c91f6','@craft/web/assets/cp/dist'),
+	('ac427ed8','@lib/jquery-ui'),
 	('ad42270','@app/web/assets/pluginstore/dist'),
 	('adac253','@lib/jquery-ui'),
 	('adb3b4bf','@lib/selectize'),
@@ -1612,6 +1672,7 @@ VALUES
 	('b0b98ed1','@app/web/assets/updater/dist'),
 	('b1e24867','@craft/web/assets/updateswidget/dist'),
 	('b29763a9','@rias/colourswatches/assetbundles/colourswatchesfield/dist'),
+	('b3a2c826','@rias/simpleforms/assetbundles/simpleforms'),
 	('b41013a3','@lib/datepicker-i18n'),
 	('b4ab80d1','@lib/timepicker'),
 	('b4df751f','@bower/jquery/dist'),
@@ -1644,6 +1705,7 @@ VALUES
 	('c2ad8982','@modules/sitemodule/assetbundles/sitemodule/dist'),
 	('c2ef73b7','@craft/web/assets/dashboard/dist'),
 	('c341a22c','@verbb/navigation/resources/dist'),
+	('c4111801','@app/web/assets/craftsupport/dist'),
 	('c4d5aeec','@lib/garnishjs'),
 	('c4feb0ec','@craft/web/assets/utilities/dist'),
 	('c5270b48','@lib'),
@@ -1657,11 +1719,13 @@ VALUES
 	('c8f5d8f3','@app/web/assets/matrix/dist'),
 	('ca148d6','@app/web/assets/recententries/dist'),
 	('ca4ae0fd','@lib/element-resize-detector'),
+	('ca83b4c0','@app/web/assets/updateswidget/dist'),
 	('ccd7d556','@lib/xregexp'),
 	('ccf616e2','@lib/velocity'),
 	('cd1cee66','@app/web/assets/updates/dist'),
 	('cd85761','@typedlinkfield/resources'),
 	('cdaeb054','@lib/fileupload'),
+	('cec12c39','@modules/sitemodule/assetbundles/sitemodule/dist'),
 	('d06487e1','@lib/prismjs'),
 	('d0d1b90a','@lib/jquery.payment'),
 	('d1571f86','@app/web/assets/matrixsettings/dist'),
@@ -1669,9 +1733,12 @@ VALUES
 	('d1937ad2','@lib/fabric'),
 	('d1bc5149','@app/web/assets/sites/dist'),
 	('d29d6145','@lib/element-resize-detector'),
+	('d2d9771c','@lib/jquery-ui'),
 	('d2dce820','@app/web/assets/editentry/dist'),
 	('d2e12117','@app/web/assets/dashboard/dist'),
 	('d2e28d68','@lib/jquery-touch-events'),
+	('d37a8a64','@app/web/assets/dashboard/dist'),
+	('d3ae3a5','@app/web/assets/recententries/dist'),
 	('d4a8899f','@lib/garnishjs'),
 	('d4b074d7','@bower/jquery/dist'),
 	('d546b1aa','@lib/picturefill'),
@@ -1684,10 +1751,12 @@ VALUES
 	('d9182c42','@lib/jquery.payment'),
 	('d956920c','@lib/picturefill'),
 	('d9e870c4','@craft/web/assets/edituser/dist'),
+	('dad6e6ff','@app/web/assets/updater/dist'),
 	('dad7af68','@lib/timepicker'),
 	('daea6d04','@craft/web/assets/updateswidget/dist'),
 	('dbe391fb','@lib/d3'),
 	('dc74a447','@lib/prismjs'),
+	('dcf4b9f5','@lib/element-resize-detector'),
 	('dd2590db','@craft/web/assets/matrixsettings/dist'),
 	('dd79e19f','@bower/jquery/dist'),
 	('ddfeca14','@app/web/assets/matrix/dist'),
@@ -1700,6 +1769,7 @@ VALUES
 	('e09d4be9','@app/web/assets/feed/dist'),
 	('e12598c5','@lib/fileupload'),
 	('e249b1b7','@craft/web/assets/editentry/dist'),
+	('e2ebe57d','@lib/velocity'),
 	('e301e2b1','@craft/web/assets/edituser/dist'),
 	('e42c4899','@app/web/assets/sites/dist'),
 	('e44ea5db','@lib/garnishjs'),
@@ -1717,6 +1787,7 @@ VALUES
 	('e872139d','@lib/jquery.payment'),
 	('e8e35389','@craft/web/assets/feed/dist'),
 	('e96b96de','@craft/web/assets/cp/dist'),
+	('e974d123','@app/web/assets/cp/dist'),
 	('e9b0be48','@lib/picturefill'),
 	('eac504c5','@verbb/navigation/resources/dist'),
 	('eb4680de','@rias/widthfieldtype/assetbundles/widthfieldtype/dist'),
@@ -1724,6 +1795,7 @@ VALUES
 	('ec823dcd','@lib/velocity'),
 	('ec9ab52f','@lib'),
 	('ed11c367','@verbb/navigation/resources/dist'),
+	('ed4ac45d','@app/web/assets/login/dist'),
 	('ed87e551','@app/web/assets/updates/dist'),
 	('ed936935','@craft/web/assets/updater/dist'),
 	('ee14828a','@lib/jquery-touch-events'),
@@ -1737,7 +1809,9 @@ VALUES
 	('f27a2a20','@app/web/assets/dashboard/dist'),
 	('f2d72c99','@app/web/assets/tablesettings/dist'),
 	('f2e94a6a','@lib/element-resize-detector'),
+	('f3641200','@bower/jquery/dist'),
 	('f3e63825','@app/web/assets/deprecationerrors/dist'),
+	('f439f6ae','@app/web/assets/recententries/dist'),
 	('f455bc75','@lib/velocity'),
 	('f51d046e','@app/web/assets/fields/dist'),
 	('f6e7148b','@lib/datepicker-i18n'),
@@ -1761,33 +1835,12 @@ VALUES
 	('fe077a2','@lib/velocity'),
 	('fe2cc10b','@craft/web/assets/updates/dist'),
 	('fe69a5f9','@lib/jquery-touch-events'),
-	('fef266d8','@vendor/craftcms/redactor/lib/redactor');
+	('fecc4a95','@lib/jquery.payment'),
+	('fef266d8','@vendor/craftcms/redactor/lib/redactor'),
+	('ff00712','@lib/d3');
 
 /*!40000 ALTER TABLE `resourcepaths` ENABLE KEYS */;
 UNLOCK TABLES;
-
-
-# Dump of table routes
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `routes`;
-
-CREATE TABLE `routes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `siteId` int(11) DEFAULT NULL,
-  `uriParts` varchar(255) NOT NULL,
-  `uriPattern` varchar(255) NOT NULL,
-  `template` varchar(500) NOT NULL,
-  `sortOrder` smallint(6) unsigned DEFAULT NULL,
-  `dateCreated` datetime NOT NULL,
-  `dateUpdated` datetime NOT NULL,
-  `uid` char(36) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `routes_uriPattern_idx` (`uriPattern`),
-  KEY `routes_siteId_idx` (`siteId`),
-  CONSTRAINT `routes_siteId_fk` FOREIGN KEY (`siteId`) REFERENCES `sites` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 
 
 # Dump of table searchindex
@@ -2009,7 +2062,9 @@ LOCK TABLES `sessions` WRITE;
 INSERT INTO `sessions` (`id`, `userId`, `token`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
 	(1,1,'wUkufsg9A2tWCw1Jm7uDARckHHUjaABAC96Kn7EB_r2CoRs6JkT8GD5lUJjeAdO7kDuZZXseosyG4voCt6XdJhWlNHK-En-HfSGJ','2018-10-11 12:14:31','2018-10-11 13:57:31','9cadf296-ac7d-4901-ad4d-97db7c703b50'),
-	(2,1,'Z7DFrFRr57o7NYWkt0umFOV5Dd2zyPO3B3GXq5ru1J_gt5kKH3GNkvsUXrnRdEXk5UUHqUbSSoQ8elihhpIz0b3q0N6HxNp2VMfo','2018-11-19 12:11:14','2018-11-19 14:27:36','b326e3ca-91a2-4b14-872c-12c3b379fdf9');
+	(3,1,'nnzZUha5NObvi3ZijAo8pGhBP-USxZsjYgui5GbvwNserHjI9UHVO1RP14UMKcgYFyOlc1Fr3P7ZHXxbkdzipbmFSVPU9SwQHWPa','2018-11-19 15:42:12','2018-11-19 15:52:26','568d97bf-5f20-470e-8e6a-451e88fccfd3'),
+	(4,1,'ELX5pJxgcPxHbOoohK6J-CzC29PC0zDQpAvtTTi_WZ5Yg7HjI-nUoUWeLKebbbEC0rdRzIJqgKTZGn4olDMKTUXttbuFn43lAPQn','2018-11-20 10:01:27','2018-11-20 10:01:31','9b5b8ad4-6182-4d5d-8f07-1ab5ef59cae5'),
+	(5,1,'COm9kHzHQjFyB1y1tDR6bENJ6TgAu_G-9RUYSEEgZcK6uJHlPlGv8woLxmEe9Fws_EiUfwzrclDjGMjoFxw5EWuS1MZMDjWuAmIM','2018-12-03 09:05:43','2018-12-03 09:10:29','94f903b4-51ac-44a5-be98-5e46f5215257');
 
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -2178,17 +2233,19 @@ CREATE TABLE `sitegroups` (
   `name` varchar(255) NOT NULL,
   `dateCreated` datetime NOT NULL,
   `dateUpdated` datetime NOT NULL,
+  `dateDeleted` datetime DEFAULT NULL,
   `uid` char(36) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `sitegroups_name_unq_idx` (`name`)
+  KEY `sitegroups_dateDeleted_idx` (`dateDeleted`),
+  KEY `sitegroups_name_idx` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `sitegroups` WRITE;
 /*!40000 ALTER TABLE `sitegroups` DISABLE KEYS */;
 
-INSERT INTO `sitegroups` (`id`, `name`, `dateCreated`, `dateUpdated`, `uid`)
+INSERT INTO `sitegroups` (`id`, `name`, `dateCreated`, `dateUpdated`, `dateDeleted`, `uid`)
 VALUES
-	(1,'Website','2018-02-19 20:35:16','2018-11-19 13:51:38','621953cd-07f9-4cb7-b4b8-ce528d22656b');
+	(1,'Website','2018-02-19 20:35:16','2018-11-19 13:51:38',NULL,'621953cd-07f9-4cb7-b4b8-ce528d22656b');
 
 /*!40000 ALTER TABLE `sitegroups` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -2211,20 +2268,22 @@ CREATE TABLE `sites` (
   `sortOrder` smallint(6) unsigned DEFAULT NULL,
   `dateCreated` datetime NOT NULL,
   `dateUpdated` datetime NOT NULL,
+  `dateDeleted` datetime DEFAULT NULL,
   `uid` char(36) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `sites_handle_unq_idx` (`handle`),
   KEY `sites_sortOrder_idx` (`sortOrder`),
   KEY `sites_groupId_fk` (`groupId`),
+  KEY `sites_dateDeleted_idx` (`dateDeleted`),
+  KEY `sites_handle_idx` (`handle`),
   CONSTRAINT `sites_groupId_fk` FOREIGN KEY (`groupId`) REFERENCES `sitegroups` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `sites` WRITE;
 /*!40000 ALTER TABLE `sites` DISABLE KEYS */;
 
-INSERT INTO `sites` (`id`, `groupId`, `primary`, `name`, `handle`, `language`, `hasUrls`, `baseUrl`, `sortOrder`, `dateCreated`, `dateUpdated`, `uid`)
+INSERT INTO `sites` (`id`, `groupId`, `primary`, `name`, `handle`, `language`, `hasUrls`, `baseUrl`, `sortOrder`, `dateCreated`, `dateUpdated`, `dateDeleted`, `uid`)
 VALUES
-	(1,1,1,'Website','default','nl-BE',1,'@web/',1,'2018-02-19 20:35:16','2018-11-19 13:51:33','9d6f768b-e1c6-4802-9e7d-06ef35121847');
+	(1,1,1,'Website','default','nl-BE',1,'@web/',1,'2018-02-19 20:35:16','2018-11-19 13:51:33',NULL,'9d6f768b-e1c6-4802-9e7d-06ef35121847');
 
 /*!40000 ALTER TABLE `sites` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -2368,33 +2427,6 @@ CREATE TABLE `systemmessages` (
   KEY `systemmessages_language_idx` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-
-# Dump of table systemsettings
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `systemsettings`;
-
-CREATE TABLE `systemsettings` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `category` varchar(15) NOT NULL,
-  `settings` text,
-  `dateCreated` datetime NOT NULL,
-  `dateUpdated` datetime NOT NULL,
-  `uid` char(36) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `systemsettings_category_unq_idx` (`category`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-LOCK TABLES `systemsettings` WRITE;
-/*!40000 ALTER TABLE `systemsettings` DISABLE KEYS */;
-
-INSERT INTO `systemsettings` (`id`, `category`, `settings`, `dateCreated`, `dateUpdated`, `uid`)
-VALUES
-	(1,'email','{\"fromEmail\":\"rias@marbles.be\",\"fromName\":\"craft\",\"transportType\":\"craft\\\\mail\\\\transportadapters\\\\Sendmail\"}','2018-02-19 20:35:16','2018-02-19 20:35:16','85b6eea2-7778-487c-9b88-4bf09a57a7cf');
-
-/*!40000 ALTER TABLE `systemsettings` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Dump of table taggroups
@@ -2684,7 +2716,7 @@ LOCK TABLES `users` WRITE;
 
 INSERT INTO `users` (`id`, `username`, `photoId`, `firstName`, `lastName`, `email`, `password`, `admin`, `locked`, `suspended`, `pending`, `lastLoginDate`, `lastLoginAttemptIp`, `invalidLoginWindowStart`, `invalidLoginCount`, `lastInvalidLoginDate`, `lockoutDate`, `hasDashboard`, `verificationCode`, `verificationCodeIssuedDate`, `unverifiedEmail`, `passwordResetRequired`, `lastPasswordChangeDate`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(1,'Marbles',NULL,'','','rias@marbles.be','$2y$13$WQR9mgqFRlDC1CQNYwOBsOUHss6YY7QpW.zwVFcsZZytccTy5k8QK',1,0,0,0,'2018-11-19 12:11:14','127.0.0.1',NULL,NULL,'2018-11-19 12:10:43',NULL,1,NULL,NULL,NULL,0,'2018-11-19 12:11:07','2018-02-19 20:35:16','2018-11-19 12:11:14','6aebbe27-3535-4912-a70d-5c180c8337db');
+	(1,'Marbles',NULL,'','','rias@marbles.be','$2y$13$WQR9mgqFRlDC1CQNYwOBsOUHss6YY7QpW.zwVFcsZZytccTy5k8QK',1,0,0,0,'2018-12-03 09:05:43','127.0.0.1',NULL,NULL,'2018-11-20 10:01:23',NULL,1,NULL,NULL,NULL,0,'2018-11-19 12:11:07','2018-02-19 20:35:16','2018-12-03 09:05:43','6aebbe27-3535-4912-a70d-5c180c8337db');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
