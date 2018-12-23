@@ -89,7 +89,7 @@ return [
         // Craft defined config settings
         'allowUpdates' => true,
         'backupOnUpdate' => true,
-        'devMode' => false,
+        'devMode' => true,
         'enableTemplateCaching' => false,
         'isSystemLive' => true,
         // Aliases parsed in sites’ settings, volumes’ settings, and Local volumes’ settings
