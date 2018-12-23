@@ -1,0 +1,13 @@
+{% extends '_layouts/error' %}
+
+{% block code %}401{% endblock %}
+{% block title %}{{ 'Unauthorized'|t }}{% endblock %}
+
+{% block image %}
+<div style="background-image: url('/svg/403.svg');" class="absolute pin bg-cover bg-no-repeat md:bg-left lg:bg-center">
+</div>
+{% endblock %}
+
+{% block message %}
+{{ 'Sorry, you are not authorized to access this page.'|t }}
+{% endblock %}

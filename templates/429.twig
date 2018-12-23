@@ -1,0 +1,13 @@
+{% extends '_layouts/error' %}
+
+{% block code %}429{% endblock %}
+{% block title %}{{ 'Too Many Requests'|t }}{% endblock %}
+
+{% block image %}
+    <div style="background-image: url('/svg/403.svg');" class="absolute pin bg-cover bg-no-repeat md:bg-left lg:bg-center">
+    </div>
+{% endblock %}
+
+{% block message %}
+    {{ 'Sorry, you are making too many requests to our servers.'|t }}
+{% endblock %}

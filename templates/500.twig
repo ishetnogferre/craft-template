@@ -1,0 +1,14 @@
+{% extends '_layouts/error' %}
+
+{% block code %}500{% endblock %}
+{% block title %}{{ 'Error'|t }}{% endblock %}
+
+{% block image %}
+    <div style="background-image: url('/svg/500.svg');" class="absolute pin bg-cover bg-no-repeat md:bg-left lg:bg-center">
+    </div>
+{% endblock %}
+
+{% block message %}
+    {{ 'Whoops, something went wrong on our servers.'|t }}
+{% endblock %}
+

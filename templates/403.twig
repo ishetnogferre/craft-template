@@ -1,0 +1,13 @@
+{% extends '_layouts/error' %}
+
+{% block code %}403{% endblock %}
+{% block title %}{{ 'Forbidden'|t }}{% endblock %}
+
+{% block image %}
+    <div style="background-image: url('/svg/403.svg');" class="absolute pin bg-cover bg-no-repeat md:bg-left lg:bg-center">
+    </div>
+{% endblock %}
+
+{% block message %}
+    {{ 'Sorry, you are forbidden from accessing this page.'|t }}
+{% endblock %}

@@ -1,4 +1,4 @@
-dateModified: 1545572809
+dateModified: 1545580733
 email:
   fromEmail: rias@marbles.be
   fromName: Craft
@@ -628,66 +628,6 @@ plugins:
     schemaVersion: 1.0.0
     settings: null
 sections:
-  2692068f-5212-4ade-91df-f5b3ed74fd3a:
-    enableVersioning: '0'
-    entryTypes:
-      e21494a3-47f6-4ec6-b09b-0e7438ec3900:
-        fieldLayouts:
-          e1017557-2915-4a3b-b582-a890f41e20da:
-            tabs:
-              -
-                fields:
-                  b494bf2c-eafd-4194-99a9-559a9549d81e:
-                    required: '0'
-                    sortOrder: '1'
-                name: Content
-                sortOrder: '1'
-        handle: notFound
-        hasTitleField: '1'
-        name: '404'
-        sortOrder: '1'
-        titleFormat: null
-        titleLabel: Title
-    handle: notFound
-    name: '404'
-    propagateEntries: '1'
-    siteSettings:
-      9d6f768b-e1c6-4802-9e7d-06ef35121847:
-        enabledByDefault: '1'
-        hasUrls: '1'
-        template: _routers/page
-        uriFormat: '404'
-    type: single
-  5d164903-fa95-4b19-bb53-3ccb8eccdc10:
-    enableVersioning: '1'
-    entryTypes:
-      e15b0eea-1d26-4fd9-ac19-e5e047b53f84:
-        fieldLayouts:
-          9bae5357-2666-46d6-8b1f-c6b0c89683ea:
-            tabs:
-              -
-                fields:
-                  b494bf2c-eafd-4194-99a9-559a9549d81e:
-                    required: '0'
-                    sortOrder: '1'
-                name: Content
-                sortOrder: '1'
-        handle: serviceUnavailable
-        hasTitleField: '1'
-        name: '503'
-        sortOrder: '1'
-        titleFormat: null
-        titleLabel: Title
-    handle: serviceUnavailable
-    name: '503'
-    propagateEntries: '1'
-    siteSettings:
-      9d6f768b-e1c6-4802-9e7d-06ef35121847:
-        enabledByDefault: '1'
-        hasUrls: '1'
-        template: _routers/page
-        uriFormat: '503'
-    type: single
   fe154a59-9561-4bf1-ba7b-f2e632f45aaf:
     enableVersioning: '1'
     entryTypes:
