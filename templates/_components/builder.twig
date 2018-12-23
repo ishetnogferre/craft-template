@@ -13,7 +13,7 @@
 
 {# Load all our blocks with eager loading #}
 {% set blocks = entry.builder.with([
-    'image:asset',
+    'image.asset',
 ]).all %}
 
 {% for i, block in blocks %}

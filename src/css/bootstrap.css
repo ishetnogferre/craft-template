@@ -1,0 +1,65 @@
+@tailwind preflight;
+
+/* -- CSS variables */
+:root {
+    --outlineColor: #5db7a5;
+}
+
+* {
+    position: relative;
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    font: inherit;
+
+    &:after,
+    &:before {
+         box-sizing: inherit;
+    }
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+h1 {
+    font-size: inherit; /* Reset normalize 2em */
+}
+
+a {
+    text-decoration: none;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+img,
+svg {
+    display: block;
+    vertical-align: middle;
+}
+
+/* -- A subtle focus style for keyboard-input elements */
+.text-input:focus {
+    outline: 1px solid var(--outlineColor); /* Adjust to suit your tastes */
+}
+
+/* -- No outline for non-keyboard-inputs elements */
+button:focus,
+select:focus {
+    outline: none;
+}
+
+html.user-is-tabbing *:focus {
+    outline: 2px solid var(--outlineColor) !important; /* for non-webkit browsers */
+    outline: 5px auto -webkit-focus-ring-color !important;
+}

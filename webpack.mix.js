@@ -1,69 +1,57 @@
-// Set the mix variable
-const mix = require("laravel-mix");
+let mix = require('laravel-mix');
 
 /* Mix Plugins */
 require("laravel-mix-purgecss");
-require("laravel-mix-tailwind");
-require("laravel-mix-banner");
-require("laravel-mix-eslint");
-require("laravel-mix-critical");
 
-/**
- * Start the Mix function
- */
 mix
-  .setPublicPath("./web/dist")
-  .banner({
-    banner: (function() {
-      const moment = require("moment");
-      const gitRevSync = require("git-rev-sync");
+    .js('src/js/site.js', './web/dist')
+    .postCss('src/css/site.css', './web/dist')
 
-      return [
-        "/**",
-        " * @project        Marbles Website",
-        " * @author         Marbles",
-        " * @build          " + moment().format("llll") + " GMT+1",
-        " * @release        " +
-          gitRevSync.long() +
-          " [" +
-          gitRevSync.branch() +
-          "]",
-        " * @copyright      Copyright (c) " +
-          moment().format("YYYY") +
-          ", Marbles",
-        " *",
-        " */",
-        ""
-      ].join("\n");
-    })(),
-    raw: true,
-    entryOnly: true
-  })
-  .js("./src/js/site.js", "./web/dist/js/")
-  .eslint()
-  .sass("./src/scss/site.scss", "./web/dist/css")
-  .tailwind()
-  .critical({
-    urls: [
-      {
-        src: process.env.BASE_URL + "/",
-        dest: "./templates/index_critical.min.css"
-      }
-    ],
-    options: {
-      minify: true,
-      width: 1200,
-      height: 1200
-    }
-  })
-  .purgeCss({
-    enabled: mix.inProduction(),
-    globs: [
-      path.join(__dirname, "/templates/**/*.{html,twig}"),
-      path.join(__dirname, "/src/scss/*.scss")
-    ],
-    extensions: ["html", "js", "php", "vue", "twig", "scss", "css"],
-    whitelistPatterns: [/ls-blur-up-img/],
-    whitelistPatternsChildren: [/body/, /ls-blur-up-img/]
-  })
-  .version();
+    .setPublicPath('./web/dist')
+
+    .options({
+        // Our own set of PostCSS plugins.
+        postCss: [
+            require('postcss-easy-import')(),
+            require('tailwindcss')('./tailwind.js'),
+            require('postcss-cssnext')(),
+        ],
+
+        // CSSNext already processes our css with Autoprefixer, so we don't
+        // need mix to do it twice.
+        autoprefixer: false,
+
+        // Since we don't do any image preprocessing and write url's that are
+        // relative to the site root, we don't want the css loader to try to
+        // follow paths in `url()` functions.
+        processCssUrls: false,
+    })
+
+    .version()
+
+    .babelConfig({
+        plugins: ['@babel/syntax-dynamic-import'],
+    })
+
+    .webpackConfig({
+        output: {
+            // The public path needs to be set to the root of the site so
+            // Webpack can locate chunks at runtime.
+            publicPath: '/',
+
+            // We'll place all chunks in the `js` folder by default so we don't
+            // need to worry about ignoring them in our version control system.
+            chunkFilename: 'js/[name].js',
+        },
+    })
+
+    .purgeCss({
+        enabled: mix.inProduction(),
+        globs: [
+            path.join(__dirname, "/templates/**/*.{html,twig}"),
+            path.join(__dirname, "/src/css/**/*.css"),
+        ],
+        extensions: ["html", "js", "php", "vue", "twig", "scss", "css"],
+        whitelistPatterns: [/ls-blur-up-img/],
+        whitelistPatternsChildren: [/body/, /ls-blur-up-img/],
+    });

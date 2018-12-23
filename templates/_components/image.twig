@@ -45,7 +45,7 @@
     {% endfor %}
 {% else %}
     {% set transform = attribute(transforms, transform) %}
-    <picture class="absolute {{ classes }}">
+    <picture class="{{ classes }}">
         {% if asset.extension == 'svg' %}
             {{ svg(asset) }}
         {% else %}
@@ -56,7 +56,7 @@
                 {% set transformedImagesWebp = craft.imager.transformImage(asset, widths, transform, { fillTransforms: true }) %}
             {% endif %}
             {% if craft.imager.serverSupportsWebp() %}
-                <source sizes="{{ sizes }}" srcset="{{ craft.imager.srcset(transformedImagesWebp) }}" type="image/webp">
+                <source sizes="{{ sizes }}" data-srcset="{{ craft.imager.srcset(transformedImagesWebp) }}" type="image/webp">
             {% endif %}
             <img class="lazyload w-full h-full" src="{{ craft.imager.base64pixel }}" data-lowsrc="{{ placeholder.url }}" data-src="{{ transformedImages[0].url }}" data-srcset="{{ craft.imager.srcset(transformedImages) }}" sizes="{{ sizes }}" alt="{{ asset.title }}">
         {% endif %}
