@@ -1,4 +1,4 @@
-dateModified: 1545580733
+dateModified: 1545580955
 email:
   fromEmail: rias@marbles.be
   fromName: Craft
@@ -697,14 +697,14 @@ sites:
     siteGroup: dfdd1edf-3d41-482d-bdb7-f79b0f86a32d
     sortOrder: 1
   9d6f768b-e1c6-4802-9e7d-06ef35121847:
-    baseUrl: '@web/'
+    baseUrl: $BASE_URL
     handle: default
-    hasUrls: '1'
+    hasUrls: true
     language: nl-BE
     name: Website
-    primary: '1'
+    primary: true
     siteGroup: 621953cd-07f9-4cb7-b4b8-ce528d22656b
-    sortOrder: '1'
+    sortOrder: 1
 system:
   edition: solo
   live: true
