@@ -4,8 +4,8 @@ let mix = require('laravel-mix');
 require("laravel-mix-purgecss");
 
 mix
-    .js('src/js/site.js', './web/dist')
-    .postCss('src/css/site.css', './web/dist')
+    .js('src/js/site.js', './web/dist/js')
+    .postCss('src/css/site.css', './web/dist/css')
 
     .setPublicPath('./web/dist')
 
@@ -27,22 +27,17 @@ mix
         processCssUrls: false,
     })
 
+    .sourceMaps()
+
     .version()
+
+    .extract()
+
+    .autoload({
+    })
 
     .babelConfig({
         plugins: ['@babel/syntax-dynamic-import'],
-    })
-
-    .webpackConfig({
-        output: {
-            // The public path needs to be set to the root of the site so
-            // Webpack can locate chunks at runtime.
-            publicPath: '/',
-
-            // We'll place all chunks in the `js` folder by default so we don't
-            // need to worry about ignoring them in our version control system.
-            chunkFilename: 'js/[name].js',
-        },
     })
 
     .purgeCss({
