@@ -42,6 +42,13 @@
     {% else %}
         {% set placeholder = craft.imager.transformImage(asset, placeholder, transforms.base|merge({effects: {blur: 1}})) %}
         {% set transformedImages = craft.imager.transformImage(asset, widths, transform, { fillTransforms: true }) %}
-        <img class="lazyload w-full h-full" src="{{ craft.imager.base64pixel }}" data-lowsrc="{{ placeholder.url }}" data-src="{{ transformedImages[0].url }}" data-srcset="{{ craft.imager.srcset(transformedImages) }}" sizes="{{ sizes }}" alt="{{ asset.title }}">
+        <img class="lazyload w-full h-full"
+             src="{{ craft.imager.base64pixel }}"
+             data-lowsrc="{{ placeholder.url }}"
+             data-src="{{ transformedImages[0].url }}"
+             data-srcset="{{ craft.imager.srcset(transformedImages) }}"
+             sizes="{{ sizes }}"
+             alt="{{ asset.title }}"
+        >
     {% endif %}
 </picture>
