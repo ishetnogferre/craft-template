@@ -14,7 +14,6 @@ In addition to setting up a new Craft 3 CMS project, this project sets up:
   
 ...and sets up some other base scaffolding as described to the following articles:
 
-* [A Better package.json for the Frontend](https://nystudio107.com/blog/a-better-package-json-for-the-frontend)
 * Frontend Development Automation using Laravel Mix
 * [Implementing Critical CSS on your website](https://nystudio107.com/blog/implementing-critical-css)
 * [Enhancing a Craft CMS 3 Website with a Custom Module](https://nystudio107.com/blog/enhancing-a-craft-cms-3-website-with-a-custom-module)
@@ -29,7 +28,6 @@ Since this is boilerplate that Marbles uses for projects, it is by definition op
 * [Vue](https://github.com/vuejs/vue) is used as the frontend JavaScript framework, with [Axios](https://github.com/axios/axios) providing the http client
 * [Tailwind CSS](https://tailwindcss.com/docs/what-is-tailwind) is used as the utility-first CSS framework
 * Critical CSS is used site-wide
-* FontFaceObserver is used for font loading
 * Craft-Scripts are used for db/asset synching
 * Craft 3 Multi-Environment is used for the Craft 3 multi-environment setup
 
@@ -53,10 +51,6 @@ Then `cd` to your new project directory, and run Craft's `setup` console command
 Finally, run the `marbles-setup` command to configure Craft-Scripts & Craft 3 Multi-Environment based on your newly created `.env` settings:
 
     ./marbles-setup
-
-And last but not least:
-
-*Import the databank found in your project folder (craft.sql)*
 
 That's it, enjoy!
 
