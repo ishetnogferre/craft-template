@@ -1,6 +1,19 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+ # Snippet Resolver Template
+ # ----------------------
+ #
+ # This template gets loaded whenever a Panel View is requested by either the
+ # Page Resolver or in a parent view.
+ #
+ # An `entry` variable expected in this template,
+ # and optionally a `baseSegmentRoute` for special non-entry URIs.
+-#}
+
 {%- include [
-    '_views/teaser/' ~ entry.section.handle ~ '/' ~ entry.type.handle,
-    '_views/teaser/' ~ entry.section.handle ~ '/default',
-    '_views/teaser/' ~ entry.section.handle,
-    '_views/teaser/default',
+    '_views/teasers/' ~ baseSegmentRoute ?? null,
+    '_views/teasers/' ~ entry.section.handle ~ '/' ~ entry.type.handle,
+    '_views/teasers/' ~ entry.section.handle ~ '/default',
+    '_views/teasers/' ~ entry.section.handle,
+    '_views/teasers/default',
 ] -%}

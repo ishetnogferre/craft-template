@@ -1,0 +1,21 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+ # Teaser View Template – Default
+ # ------------------------------
+ #
+ # This template gets loaded whenever the Teaser Router falls back to the default variant.
+ #
+-#}
+
+{% block view_main %}
+    {% set image = image ?? entry.teaserImage.one() %}
+    <a href="{{ entry.url }}" class="block">
+        {% if image %}
+            {# TODO: Image component #}
+            <img src="{{ image.getUrl('thumb') }}" alt="{{ image.title }}"/>
+        {% endif %}
+
+        <h3 class="text-center">{{ entry.title }}</h3>
+        {{ entry.teaserDescription|typogrify|raw }}
+    </a>
+{% endblock %}

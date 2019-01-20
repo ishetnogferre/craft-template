@@ -1,0 +1,60 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{% extends "_layouts/base" %}
+
+{# Add a dns prefetch header #}
+{% set baseUrl = alias('@baseUrl') ~ '/' %}
+{% header "Link: <#{baseUrl}>; rel=dns-prefetch;,<#{baseUrl}>; rel=preconnect; crossorigin;" %}
+
+{# Set the `bodyClass` variable to the entry's section handle if there is one,
+   or the first URI segment (this is used by the parent template) #}
+{% if bodyClass is not defined %}
+    {% set bodyClass = entry is defined ? entry.section.handle : craft.app.request.segments|first %}
+{% endif %}
+
+{% block body %}
+    <div id="site">
+        <header>
+            <nav class="container mx-auto">
+                {% set nav = craft.navigation.nodes('navMain').level(1).all() %}
+                <ul class="list-reset w-full lg:text-right">
+                    {% for node in nav %}
+                        <li class="block lg:inline-block group">
+                            <a href="{{ node.url }}" class="py-4 inline-block relative mx-8 text-hnb-white hover:underline {% if node.active %}underline{% else %}no-underline{% endif %} {{ node.classes }}" {% if node.newWindow %}target="_blank"{% endif %}>
+                                {{ node.title }}
+
+                                {% if node.children|length %}
+                                    <span class="hidden lg:flex absolute pin-b w-full items-end justify-center mb-2">
+                                        <svg class="w-2 h-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 6">
+                                            <path fill="#FFF" fill-rule="evenodd" d="M.094.781C.03.72 0 .625 0 .5 0 .354.052.234.156.14A.541.541 0 0 1 .531 0H9.47c.146 0 .27.047.375.14A.462.462 0 0 1 10 .5a.338.338 0 0 1-.094.25l-.062.094-4.25 4.875C5.406 5.906 5.208 6 5 6c-.208 0-.406-.094-.594-.281L.156.844.094.78z"/>
+                                        </svg>
+                                    </span>
+                                {% endif %}
+                            </a>
+                            {% if node.children|length %}
+                                <ul class="lg:hidden hover:block group-hover:block list-reset block lg:absolute lg:shadow z-50 lg:-mt-1">
+                                    {% for child in node.children.all %}
+                                        <li class="text-left lg:bg-white lg:block lg:border-b-2 lg:border-hnb-orange">
+                                            <a href="{{ child.url }}" class="inline-block py-4 ml-16 lg:mx-4 text-white lg:text-black hover:underline {% if child.active %}underline{% else %}no-underline{% endif %} {{ child.classes }}" {% if child.newWindow %}target="_blank"{% endif %}>
+                                                {{ child.title }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            {# -- Primary content block -- #}
+            {% block main %}{% endblock %}
+        </main>
+
+        {# -- Footer -- #}
+        <footer id="footer">
+            &copy; {{ now|date('Y') }} Marbles
+        </footer>
+    </div>
+{% endblock %}

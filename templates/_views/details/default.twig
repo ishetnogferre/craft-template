@@ -1,0 +1,31 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+ # Detail View Template – Default
+ # ----------------------------
+ #
+ # This template gets loaded whenever the Detail Router falls back to the default variant.
+ #
+-#}
+
+{% block view_header %}{% endblock %}
+
+{% block view_main %}
+    <article>
+        <header>
+            {% block detail_header_content %}
+                <div class="container flex">
+                    <div class="">
+                        <h1>{{ entry.headerTitle ?? entry.title }}</h1>
+                        <div>{{ entry.headerDescription|typogrify|raw }}</div>
+                    </div>
+                </div>
+            {% endblock %}
+        </header>
+
+        <section>
+            {% include '_components/builder' %}
+        </section>
+    </article>
+{% endblock %}
+
+{% block view_footer %}{% endblock %}

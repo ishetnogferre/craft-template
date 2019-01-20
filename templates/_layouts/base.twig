@@ -1,0 +1,145 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+ # The base layout template
+ # ------------------------
+ #
+ # This template defines the base HTML structure for our site: the DTD, the
+ # `<html>`, `<head>`, `<title>`, and `<body>` tags, plus some `<meta>` tags and
+ # a `<link rel="stylesheet">` tag that includes our main CSS file.
+ #
+ # This is the only place in our templates where we'll ever need to define that
+ # stuff. All other templates will extend this one.
+ #
+ # This template is never accessed directly; instead it is extended by two child
+ # templates:
+ #
+ #   * `_layouts/site.twig`: A sub-layout, which in turn is extended by all the
+ #                           main site templates.
+ #
+ #   * `offline.html`:       The template that we serve when the site is offline
+ #
+ # Any templates that extend this template can optionally set a `title` variable,
+ # which will be output within the `<title>` tag, before the site name:
+ #
+ #     <title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
+ #
+ # They can also optionally set a `bodyClass` variable, which will be output
+ # within the `<body>` tag's `class=` attribute.
+ #
+ #     <body {% if bodyClass is defined %}class="{{ bodyClass }}"{% endif %}>
+ #
+ # This template also defines 3 `block` regions, which child templates are free to
+ # override:
+ #
+ #   * `head`: This block wraps the entire default contents of our `<head>` tag.
+ #             If a child template wishes to add more to the head, they can do so
+ #             like this:
+ #
+ #                 {% block head %}
+ #                     {{ parent() }}
+ #                     <!-- additional stuff -->
+ #                 {% endblock %}
+ #
+ #             Calling `{{ parent() }}` will output the contents of the `head`
+ #             block that are already defined in this template.
+ #
+ #   * `body`: This block is placed directly after the opening `<body>` tag.
+ #             Child templates can use this to define the main body contents.
+ #
+ #   * `foot`: This block is placed directly before the closing `</body>` tag.
+ #             Child templates can use this to include Javascript files, etc.
+-#}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ craft.app.language |slice(0,2) }}" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+    {% block head %}
+        {%- minify -%}
+            <link rel="dns-prefetch" href="{{ baseUrl }}">
+            <link rel="preconnect" href="{{ baseUrl }}" crossorigin>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width,minimum-scale=1">
+            <meta name="csrf-token-name" content="{{ craft.app.config.general.csrfTokenName }}">
+            <meta name="csrf-token" content="{{ craft.app.request.csrfToken() }}">
+
+            {#-- SEO Hook --#}
+            {% hook "seo" %}
+
+            {#-- Favicons --#}
+            <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png">
+            <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60.png">
+            <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-icon-72x72.png">
+            <link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-icon-76x76.png">
+            <link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-icon-114x114.png">
+            <link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-icon-120x120.png">
+            <link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-icon-144x144.png">
+            <link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-icon-152x152.png">
+            <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-icon-180x180.png">
+            <link rel="icon" type="image/png" sizes="192x192"  href="/favicons/android-icon-192x192.png">
+            <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+            <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png">
+            <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+            <link rel="manifest" href="/manifest.json">
+            <meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png">
+            <meta name="msapplication-TileColor" content="#ffffff">
+            <meta name="theme-color" content="#ffffff">
+
+            <script>
+                // Handle tabs gracefully as per https://hackernoon.com/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2
+                function handleFirstTab(e) {
+                    if (e.keyCode === 9) {
+                        document.documentElement.classList.add('user-is-tabbing');
+
+                        window.removeEventListener('keydown', handleFirstTab);
+                        window.addEventListener('mousedown', handleMouseDownOnce);
+                    }
+                }
+
+                function handleMouseDownOnce() {
+                    document.documentElement.classList.remove('user-is-tabbing');
+
+                    window.removeEventListener('mousedown', handleMouseDownOnce);
+                    window.addEventListener('keydown', handleFirstTab);
+                }
+
+                window.addEventListener('keydown', handleFirstTab);
+            </script>
+
+            {# -- Inline CSS block used by templates for Critical CSS #}
+            {# -- Only use Critical CSS & LoadCSS when we have it available to prevent flashing #}
+            {% set inline_css = block("inline_css") %}
+            {% if inline_css|trim is not empty %}
+                <style>{{ inline_css | raw }}</style>
+                <link rel="preload" href="{{ mix('css/site.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+                <noscript><link rel="stylesheet" href="{{ mix('css/site.css') }}"></noscript>
+                <script>!function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);</script>
+            {% else %}
+                <link rel="stylesheet" href="{{ mix('css/site.css') }}">
+            {% endif %}
+
+            {% if not craft.app.config.general.devMode %}
+                <!-- Google Tag Manager -->
+                <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+                <!-- End Google Tag Manager -->
+            {% endif %}
+        {%- endminify -%}
+    {% endblock %}
+</head>
+<body {% if bodyClass is defined %}class="{{ bodyClass }}"{% endif %}>
+{% if not craft.app.config.general.devMode %}
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+{% endif %}
+{% block body %}{% endblock %}
+{# -- Scripts -- #}
+<script src="{{ mix('js/manifest.js') }}"></script>
+<script src="{{ mix('js/vendor.js') }}"></script>
+<script src="{{ mix('js/site.js') }}"></script>
+{% block foot %}{% endblock %}
+</body>
+</html>

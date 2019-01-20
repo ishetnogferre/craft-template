@@ -1,0 +1,14 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+ # Snippet View Template – Default
+ # -------------------------------
+ #
+ # This template gets loaded whenever the Snippet Router falls back to the default variant.
+ #
+-#}
+
+{% block view_main %}
+    <a href="{{ entry.url }}">
+        <span>{{ entry.title }}</span>
+    </a>
+{% endblock %}

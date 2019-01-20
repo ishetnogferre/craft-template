@@ -1,6 +1,19 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+ # Detail Resolver Template
+ # ----------------------
+ #
+ # This template gets loaded whenever a Panel View is requested by either the
+ # Page Resolver or in a parent view.
+ #
+ # An `entry` variable expected in this template,
+ # and optionally a `baseSegmentRoute` for special non-entry URIs.
+-#}
+
 {%- include [
-    '_views/detail/' ~ entry.section.handle ~ '/' ~ entry.type,
-    '_views/detail/' ~ entry.section.handle ~ '/default',
-    '_views/detail/' ~ entry.section.handle,
-    '_views/detail/default',
+    '_views/details/' ~ baseSegmentRoute ?? null,
+    '_views/details/' ~ entry.section.handle ~ '/' ~ entry.type.handle,
+    '_views/details/' ~ entry.section.handle ~ '/default',
+    '_views/details/' ~ entry.section.handle,
+    '_views/details/default',
 ] -%}

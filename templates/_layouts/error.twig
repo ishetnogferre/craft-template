@@ -1,3 +1,4 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
 <!doctype html>
 <html lang="en">
 <head>
@@ -408,6 +409,10 @@
             width: 100%;
         }
 
+        .inline-block {
+            display: inline-block;
+        }
+
         @media (min-width: 768px) {
             .md\:bg-left {
                 background-position: left;
@@ -470,11 +475,13 @@
                 {% block message %}{% endblock %}
             </p>
 
+            {% block links %}
             <a href="{{ url('/') }}">
                 <button class="bg-transparent text-grey-darkest font-bold uppercase tracking-wide py-3 px-6 border-2 border-grey-light hover:border-grey rounded-lg">
                     {{ 'Go Home'|t }}
                 </button>
             </a>
+            {% endblock %}
         </div>
     </div>
 

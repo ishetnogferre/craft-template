@@ -1,0 +1,3 @@
+body {
+    @apply leading-normal font-sans tracking-normal text-base text-black;
+}
