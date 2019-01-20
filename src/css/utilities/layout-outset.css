@@ -1,4 +1,5 @@
-.layout-outset-both, .content iframe {
+.layout-outset-both,
+.content iframe {
     @apply mb-6 text-center;
 
     & img {
