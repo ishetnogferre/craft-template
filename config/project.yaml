@@ -1,7 +1,9 @@
-dateModified: 1547997588
+dateModified: 1548003073
 email:
   fromEmail: rias@marbles.be
   fromName: Craft
+  template: null
+  transportSettings: null
   transportType: craft\mail\transportadapters\Sendmail
 fieldGroups:
   2339f388-7cbe-4547-ba61-c4a0bfcd16dc:
