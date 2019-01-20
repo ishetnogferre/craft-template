@@ -11,8 +11,11 @@
     {% set image = image ?? entry.teaserImage.one() %}
     <a href="{{ entry.url }}" class="block">
         {% if image %}
-            {# TODO: Image component #}
-            <img src="{{ image.getUrl('thumb') }}" alt="{{ image.title }}"/>
+            {% include '_components/image' with {
+                asset: image,
+                transform: 'landscape-4/3',
+                sizes: '300px',
+            } %}
         {% endif %}
 
         <h3 class="text-center">{{ entry.title }}</h3>
