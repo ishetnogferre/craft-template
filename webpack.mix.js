@@ -31,11 +31,6 @@ mix
 
     .version()
 
-    .extract()
-
-    .autoload({
-    })
-
     .babelConfig({
         plugins: ['@babel/syntax-dynamic-import'],
     })

@@ -1,17 +1,13 @@
 {# @var craft \craft\web\twig\variables\CraftVariable #}
 {% set image = block.asset[0] ?? null %}
 {% if image %}
-    {% set sizes = block.width == "full" ? "100vw" : "50vw" %}
-
-    <figure class="block relative">
-        {% include '_components/image' with {
-            asset: image,
-            transform: 'base',
-            sizes: sizes,
-            classes: 'w-full h-auto',
-        } %}
-        {% if block.caption %}
-            <figcaption class="text-grey text-sm mt-1">{{ block.caption }}</figcaption>
-        {% endif %}
-    </figure>
+    <div class="max-w-content max-auto">
+        <figure class="block relative {% if block.position == 'full' %}layout-outset-both{% endif %}">
+            {% include '_components/image' with {
+                asset: image,
+                transform: 'base',
+                sizes: sizes ?? (block.position == 'full' ? '100vw' : '42rem'),
+            } %}
+        </figure>
+    </div>
 {% endif %}

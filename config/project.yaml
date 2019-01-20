@@ -1,4 +1,4 @@
-dateModified: 1547987240
+dateModified: 1547997588
 email:
   fromEmail: rias@marbles.be
   fromName: Craft
@@ -156,12 +156,6 @@ matrixBlockTypes:
               0edea4a0-2b09-4a26-a09e-7487817ecc20:
                 required: true
                 sortOrder: 1
-              3423b3bd-9504-4533-b534-a0d8b1a67c66:
-                required: true
-                sortOrder: 3
-              89e35dd6-b38e-45e6-8eaa-6c06f01563ca:
-                required: true
-                sortOrder: 2
             name: Content
             sortOrder: 1
     fields:
@@ -174,64 +168,15 @@ matrixBlockTypes:
         searchable: true
         settings:
           availableTransforms: '*'
-          availableVolumes: '*'
+          availableVolumes: ''
           cleanupHtml: '1'
           columnType: text
           purifierConfig: ''
-          purifyHtml: '1'
+          purifyHtml: ''
           redactorConfig: Standard.json
         translationKeyFormat: null
         translationMethod: none
         type: craft\redactor\Field
-      3423b3bd-9504-4533-b534-a0d8b1a67c66:
-        contentColumnType: string
-        fieldGroup: null
-        handle: positionType
-        instructions: 'Is dit blok een kolom, een alleenstaand blok of een blok dat buiten de container valt.'
-        name: 'Type blok'
-        searchable: true
-        settings:
-          options:
-            -
-              default: '1'
-              label: Kolom
-              value: column
-            -
-              default: ''
-              label: Aleenstaand
-              value: single
-            -
-              default: ''
-              label: 'Buiten container'
-              value: container
-        translationKeyFormat: null
-        translationMethod: none
-        type: craft\fields\RadioButtons
-      89e35dd6-b38e-45e6-8eaa-6c06f01563ca:
-        contentColumnType: string
-        fieldGroup: null
-        handle: width
-        instructions: ''
-        name: Width
-        searchable: true
-        settings:
-          default: full
-          options:
-            1/2: '1'
-            1/3: '1'
-            1/4: '1'
-            1/5: '1'
-            1/6: '1'
-            2/3: '1'
-            2/5: '1'
-            3/4: '1'
-            3/5: '1'
-            4/5: '1'
-            5/6: '1'
-            full: '1'
-        translationKeyFormat: null
-        translationMethod: none
-        type: rias\widthfieldtype\fields\Width
     handle: text
     name: Text
     sortOrder: 1
@@ -300,17 +245,7 @@ matrixBlockTypes:
         settings:
           allowCustomText: '1'
           allowTarget: '1'
-          allowedLinkNames:
-            - '*'
-            - asset
-            - category
-            - user
-            - entry
-            - site
-            - custom
-            - email
-            - tel
-            - url
+          allowedLinkNames: '*'
           defaultLinkName: entry
           defaultText: ''
           enableAriaLabel: ''
@@ -343,7 +278,7 @@ matrixBlockTypes:
         type: typedlinkfield\fields\LinkField
     handle: callToAction
     name: 'Call to Action'
-    sortOrder: 3
+    sortOrder: 5
   bc34b968-eda7-45cd-bdbb-a919e4c9d110:
     field: b494bf2c-eafd-4194-99a9-559a9549d81e
     fieldLayouts:
@@ -378,7 +313,7 @@ matrixBlockTypes:
         type: rias\simpleforms\fields\Form
     handle: form
     name: Form
-    sortOrder: 5
+    sortOrder: 7
   becddbce-0e94-4b08-9e48-226f9ca61193:
     field: b494bf2c-eafd-4194-99a9-559a9549d81e
     fieldLayouts:
@@ -469,7 +404,7 @@ matrixBlockTypes:
         type: craft\fields\Number
     handle: teasers
     name: Teasers
-    sortOrder: 4
+    sortOrder: 6
   bfcf13f7-9c84-4a4c-b1b7-8a6b79bdbc41:
     field: b494bf2c-eafd-4194-99a9-559a9549d81e
     fieldLayouts:
@@ -480,15 +415,9 @@ matrixBlockTypes:
               04e62582-3faa-426a-8f14-1b623ee9c767:
                 required: true
                 sortOrder: 1
-              2e68dbcd-def6-4d07-afb6-ed54ed934083:
-                required: false
-                sortOrder: 2
-              46d41182-8de5-4fe6-b1f8-ac9b37040f31:
-                required: true
-                sortOrder: 4
               e3f47e81-e327-4ce4-a456-5943ba3df7a6:
                 required: true
-                sortOrder: 3
+                sortOrder: 2
             name: Content
             sortOrder: 1
     fields:
@@ -519,75 +448,169 @@ matrixBlockTypes:
         translationKeyFormat: null
         translationMethod: site
         type: craft\fields\Assets
-      2e68dbcd-def6-4d07-afb6-ed54ed934083:
-        contentColumnType: text
-        fieldGroup: null
-        handle: caption
-        instructions: ''
-        name: Caption
-        searchable: true
-        settings:
-          charLimit: ''
-          code: ''
-          columnType: text
-          initialRows: '4'
-          multiline: ''
-          placeholder: ''
-        translationKeyFormat: null
-        translationMethod: none
-        type: craft\fields\PlainText
-      46d41182-8de5-4fe6-b1f8-ac9b37040f31:
-        contentColumnType: string
-        fieldGroup: null
-        handle: width
-        instructions: ''
-        name: Width
-        searchable: true
-        settings:
-          default: full
-          options:
-            1/2: '1'
-            1/3: '1'
-            1/4: '1'
-            1/5: '1'
-            1/6: '1'
-            2/3: '1'
-            2/5: '1'
-            3/4: '1'
-            3/5: '1'
-            4/5: '1'
-            5/6: '1'
-            full: '1'
-        translationKeyFormat: null
-        translationMethod: none
-        type: rias\widthfieldtype\fields\Width
       e3f47e81-e327-4ce4-a456-5943ba3df7a6:
         contentColumnType: string
         fieldGroup: null
-        handle: positionType
-        instructions: 'Is dit blok een kolom, een alleenstaand blok of een blok dat buiten de container valt.'
-        name: 'Type blok'
+        handle: position
+        instructions: 'Inside or outside the text container?'
+        name: Position
         searchable: true
         settings:
+          default: center
           options:
-            -
-              default: '1'
-              label: Kolom
-              value: column
-            -
-              default: ''
-              label: Aleenstaand
-              value: single
-            -
-              default: ''
-              label: 'Buiten container'
-              value: container
+            center: '1'
+            drop-left: ''
+            drop-right: ''
+            full: '1'
+            left: ''
+            right: ''
         translationKeyFormat: null
         translationMethod: none
-        type: craft\fields\RadioButtons
+        type: rias\positionfieldtype\fields\Position
     handle: image
     name: Image
     sortOrder: 2
+  ee4c9bb1-5fcf-4250-9681-4da8a3130262:
+    field: b494bf2c-eafd-4194-99a9-559a9549d81e
+    fieldLayouts:
+      11507b3f-841e-4263-babc-7f2ce5a7eab1:
+        tabs:
+          -
+            fields:
+              24ae2ad0-7b98-4004-9124-7a526e54ab81:
+                required: true
+                sortOrder: 2
+              9adff1f9-e747-4952-aebb-6a91e83b7990:
+                required: true
+                sortOrder: 1
+            name: Content
+            sortOrder: 1
+    fields:
+      24ae2ad0-7b98-4004-9124-7a526e54ab81:
+        contentColumnType: text
+        fieldGroup: null
+        handle: body2
+        instructions: ''
+        name: Body
+        searchable: true
+        settings:
+          availableTransforms: '*'
+          availableVolumes: ''
+          cleanupHtml: '1'
+          columnType: text
+          purifierConfig: ''
+          purifyHtml: ''
+          redactorConfig: Standard.json
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\redactor\Field
+      9adff1f9-e747-4952-aebb-6a91e83b7990:
+        contentColumnType: text
+        fieldGroup: null
+        handle: body1
+        instructions: ''
+        name: Body
+        searchable: true
+        settings:
+          availableTransforms: '*'
+          availableVolumes: ''
+          cleanupHtml: '1'
+          columnType: text
+          purifierConfig: ''
+          purifyHtml: ''
+          redactorConfig: Standard.json
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\redactor\Field
+    handle: columns
+    name: Columns
+    sortOrder: 3
+  ff051b1d-5208-4170-ab34-156932dd14dd:
+    field: b494bf2c-eafd-4194-99a9-559a9549d81e
+    fieldLayouts:
+      76bba208-2219-45e2-aabb-4bfb95451840:
+        tabs:
+          -
+            fields:
+              370c1b69-2c83-419f-aeed-4a6ab33242cb:
+                required: true
+                sortOrder: 2
+              a31e6f46-afaf-4af7-ad33-c1ac0ebf6f9d:
+                required: true
+                sortOrder: 3
+              acf70de9-f8a7-4f8c-8882-e4a89cb6cc62:
+                required: false
+                sortOrder: 1
+            name: Content
+            sortOrder: 1
+    fields:
+      370c1b69-2c83-419f-aeed-4a6ab33242cb:
+        contentColumnType: string
+        fieldGroup: null
+        handle: asset
+        instructions: ''
+        name: Image
+        searchable: true
+        settings:
+          allowedKinds:
+            - image
+          defaultUploadLocationSource: 'volume:56927c8a-e051-4381-aa6c-4100a9fa4991'
+          defaultUploadLocationSubpath: ''
+          limit: '1'
+          localizeRelations: false
+          restrictFiles: '1'
+          selectionLabel: ''
+          singleUploadLocationSource: 'volume:56927c8a-e051-4381-aa6c-4100a9fa4991'
+          singleUploadLocationSubpath: ''
+          source: null
+          sources:
+            - 'volume:56927c8a-e051-4381-aa6c-4100a9fa4991'
+          targetSiteId: null
+          useSingleFolder: ''
+          viewMode: list
+        translationKeyFormat: null
+        translationMethod: site
+        type: craft\fields\Assets
+      a31e6f46-afaf-4af7-ad33-c1ac0ebf6f9d:
+        contentColumnType: string
+        fieldGroup: null
+        handle: position
+        instructions: ''
+        name: 'Image position'
+        searchable: true
+        settings:
+          default: right
+          options:
+            center: ''
+            drop-left: ''
+            drop-right: ''
+            full: ''
+            left: '1'
+            right: '1'
+        translationKeyFormat: null
+        translationMethod: none
+        type: rias\positionfieldtype\fields\Position
+      acf70de9-f8a7-4f8c-8882-e4a89cb6cc62:
+        contentColumnType: text
+        fieldGroup: null
+        handle: body
+        instructions: ''
+        name: Body
+        searchable: true
+        settings:
+          availableTransforms: '*'
+          availableVolumes: '*'
+          cleanupHtml: '1'
+          columnType: text
+          purifierConfig: ''
+          purifyHtml: '1'
+          redactorConfig: Standard.json
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\redactor\Field
+    handle: textImage
+    name: 'Text & Image'
+    sortOrder: 4
 plugins:
   architect:
     enabled: '1'
@@ -718,6 +741,31 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 0.1.0
+    settings:
+      bccEmailAddress: ''
+      cleanUpSubmissions: true
+      cleanUpSubmissionsFrom: '-4 weeks'
+      confirmationTemplate: ''
+      delimiter: ;
+      duplicateCheckEnabled: true
+      exportRowsPerSet: 50
+      fieldTemplate: ''
+      fieldsPerSet: '8'
+      formTemplate: ''
+      googleRecaptchaEnabled: false
+      googleRecaptchaSecretKey: ''
+      googleRecaptchaSiteKey: ''
+      honeypotEnabled: true
+      honeypotName: yourssince1615
+      ignoreMatrixFieldAndBlockNames: false
+      ignoreMatrixMultipleRows: false
+      minimumTimeInSeconds: 3
+      notificationTemplate: ''
+      originCheckEnabled: true
+      pluginName: Forms
+      quietErrors: ''
+      tabTemplate: ''
+      timeCheckEnabled: true
   super-table:
     enabled: '1'
     licenseKey: null
@@ -729,11 +777,6 @@ plugins:
     schemaVersion: 1.0.0
     settings: null
   typogrify:
-    enabled: '1'
-    licenseKey: null
-    schemaVersion: 1.0.0
-    settings: null
-  width-fieldtype:
     enabled: '1'
     licenseKey: null
     schemaVersion: 1.0.0

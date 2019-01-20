@@ -13,29 +13,6 @@ use yii\helpers\Console;
 
 use mikehaertl\shellcommand\Command as ShellCommand;
 
-const INSTALL_PLUGINS = [
-    'minify',
-    'typogrify',
-    'mix',
-    'position-fieldtype',
-    'width-fieldtype',
-    'colour-swatches',
-    'expanded-singles',
-    'redactor',
-    'typedlinkfield',
-    'contact-form',
-    'async-queue',
-    'seomatic',
-    'section-field',
-    'super-table',
-    'imager',
-    'password-policy',
-    'contact-form-extensions',
-    'craftremote',
-    'navigation',
-    'blitz',
-];
-
 const CRAFT_SCRIPTS_SETUP = [
     'srclink'      => 'vendor/nystudio107/craft-scripts/scripts',
     'destlink'     => 'scripts',
@@ -167,8 +144,6 @@ function setupNysCraft()
     outputString(PHP_EOL.'Welcome to marbles-setup', Console::FG_YELLOW);
     // Set up Craft-Scripts
     setupCraftScripts();
-    // Install the default plugins
-    installPlugins();
     // Install the NodeJS packages
     installNodePackages();
     // Initialize a git repository
@@ -210,7 +185,7 @@ function symlinkAssetsFolder()
     // Make sure the storage/assets folder exists
     executeShellCommand('mkdir -p storage/assets');
     // Create the symlink
-    executeShellCommand('cd web && ln -s ../storage/assets assets');
+    executeShellCommand('cd web && rm -rf assets && ln -s ../storage/assets assets');
 }
 
 /**
@@ -243,24 +218,14 @@ function setupCraftScripts()
 
 }
 
-/**
- * Install the default plugins
- */
-function installPlugins()
-{
-    outputString(PHP_EOL.'Installing plugins', Console::FG_YELLOW);
-    $installPluginCmd = './craft install/plugin ';
-    foreach (INSTALL_PLUGINS as $pluginHandle) {
-        outputString('- installing plugin '.$pluginHandle);
-        executeShellCommand($installPluginCmd . $pluginHandle);
-    }
-}
-
 function installNodePackages()
 {
     $command = '';
     if (shellCommandExists('npm')) {
         $command = 'npm install';
+    }
+    if (shellCommandExists('yarn')) {
+        $command = 'yarn';
     }
 
     outputString(PHP_EOL.'Installing NodeJS packages via '.$command. ' (this may take a while)', Console::FG_YELLOW);

@@ -16,12 +16,14 @@
         "h4",
         "h5",
         "h6",
-        "pre"
+        "pre",
+        "blockquote"
     ],
     "plugins": [
         "fullscreen",
         "video",
-        "widget"
+        "widget",
+        "table"
     ],
     "pastePlainText": true,
     "toolbarFixed": false,

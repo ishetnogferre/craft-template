@@ -13,7 +13,7 @@
     <article>
         <header>
             {% block detail_header_content %}
-                <div class="container flex">
+                <div class="max-w-content mx-auto flex">
                     <div class="">
                         <h1>{{ entry.headerTitle ?? entry.title }}</h1>
                         <div>{{ entry.headerDescription|typogrify|raw }}</div>
