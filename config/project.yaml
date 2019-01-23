@@ -1,4 +1,4 @@
-dateModified: 1548003073
+dateModified: 1548230876
 email:
   fromEmail: rias@marbles.be
   fromName: Craft
@@ -872,7 +872,7 @@ system:
   edition: solo
   live: true
   name: Craft
-  schemaVersion: 3.1.21
+  schemaVersion: 3.1.22
   timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false
