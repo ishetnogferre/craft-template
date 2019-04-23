@@ -1,6 +1,6 @@
-dateModified: 1548230876
+dateModified: 1556020325
 email:
-  fromEmail: rias@marbles.be
+  fromEmail: kjell@marbles.be
   fromName: Craft
   template: null
   transportSettings: null
@@ -14,8 +14,6 @@ fieldGroups:
     name: SEO
   a5394e36-c5da-4690-813f-bbb839bdbb0e:
     name: Page
-  e4532dae-3308-44ad-b729-8fa7f312ffcc:
-    name: Common
   ec17aa49-c101-4f11-b7cd-e36919065cbe:
     name: Header
 fields:
@@ -614,11 +612,6 @@ matrixBlockTypes:
     name: 'Text & Image'
     sortOrder: 4
 plugins:
-  architect:
-    enabled: '1'
-    licenseKey: null
-    schemaVersion: 2.0.0
-    settings: null
   async-queue:
     enabled: '1'
     licenseKey: null
@@ -627,7 +620,7 @@ plugins:
   blitz:
     edition: standard
     enabled: true
-    schemaVersion: 1.11.2
+    schemaVersion: 2.0.0
     settings:
       cacheElementQueries: true
       cacheElements: true
@@ -677,7 +670,7 @@ plugins:
   navigation:
     enabled: '1'
     licenseKey: null
-    schemaVersion: 1.0.5
+    schemaVersion: 1.0.11
     settings:
       pluginName: Navigatie
   position-fieldtype:
@@ -688,7 +681,7 @@ plugins:
   redactor:
     enabled: '1'
     licenseKey: null
-    schemaVersion: 2.2.1
+    schemaVersion: 2.2.2
     settings: null
   section-field:
     enabled: '1'
@@ -725,20 +718,6 @@ plugins:
           template: ' - {{ siteName }}'
       titleSuffix: null
       twitterHandle: ''
-  seomatic:
-    enabled: '1'
-    licenseKey: null
-    schemaVersion: 3.0.6
-    settings:
-      devModeTitlePrefix: '[devMode] '
-      displayAnalysisSidebar: '1'
-      displayPreviewSidebar: '1'
-      environment: local
-      maxDescriptionLength: '300'
-      maxTitleLength: '120'
-      pluginName: SEO
-      renderEnabled: '1'
-      separatorChar: '|'
   simple-forms:
     edition: standard
     enabled: true
@@ -771,7 +750,7 @@ plugins:
   super-table:
     enabled: '1'
     licenseKey: null
-    schemaVersion: 2.0.7
+    schemaVersion: 2.0.10
     settings: null
   typedlinkfield:
     enabled: '1'
@@ -872,7 +851,7 @@ system:
   edition: solo
   live: true
   name: Craft
-  schemaVersion: 3.1.22
+  schemaVersion: 3.1.27
   timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false
