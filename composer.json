@@ -20,7 +20,7 @@
   "require": {
     "aelvan/imager": "v2.1.10",
     "charliedev/section-field": "1.1.0",
-    "craftcms/cms": "3.1.33",
+    "craftcms/cms": "3.2.5.1",
     "craftcms/redactor": "2.3.3.2",
     "craftremote/plugin": "1.1.2",
     "ether/seo": "3.5.4",
@@ -29,14 +29,14 @@
     "nystudio107/craft-scripts": "^1.2.4",
     "nystudio107/craft-typogrify": "1.1.18",
     "ostark/craft-async-queue": "2.0.0",
-    "putyourlightson/craft-blitz": "2.0.8",
+    "putyourlightson/craft-blitz": "2.1.4",
     "rias/craft-colour-swatches": "1.2.3",
     "rias/craft-position-fieldtype": "1.0.14",
     "rias/craft-simple-forms": "^1.0",
     "sebastianlenz/linkfield": "1.0.19",
     "verbb/expanded-singles": "1.0.7",
     "verbb/navigation": "1.1.12",
-    "verbb/super-table": "2.1.20",
+    "verbb/super-table": "2.2.1",
     "vlucas/phpdotenv": "^2.4.0"
   },
   "autoload": {

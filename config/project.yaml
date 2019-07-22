@@ -1,4 +1,4 @@
-dateModified: 1562335483
+dateModified: 1563781461
 email:
   fromEmail: kjell@marbles.be
   fromName: Craft
@@ -642,23 +642,35 @@ plugins:
   blitz:
     edition: standard
     enabled: true
-    schemaVersion: 2.0.0
+    schemaVersion: 2.1.0
     settings:
-      cacheElementQueries: true
-      cacheElements: true
-      cacheFolderPath: cache/blitz
-      cachingEnabled: ''
-      concurrency: '5'
-      excludedUriPatterns: ''
+      cachingEnabled: false
       includedUriPatterns:
         -
           - ''
         -
           - '.*'
-      queryStringCaching: '1'
-      sendPoweredByHeader: true
+      excludedUriPatterns: ''
+      cacheStorageType: putyourlightson\blitz\drivers\storage\FileStorage
+      cachePurgerType: putyourlightson\blitz\drivers\purgers\DummyPurger
+      cachePurgerTypes:
+        - putyourlightson\blitz\drivers\purgers\CloudflarePurger
+      clearCacheAutomatically: true
+      clearCacheAutomaticallyForGlobals: true
       warmCacheAutomatically: '1'
       warmCacheAutomaticallyForGlobals: true
+      queryStringCaching: '1'
+      concurrency: '5'
+      apiKey: ''
+      cacheElements: true
+      cacheElementQueries: true
+      cacheDuration: null
+      integrations:
+        - putyourlightson\blitz\drivers\integrations\FeedMeIntegration
+        - putyourlightson\blitz\drivers\integrations\SeomaticIntegration
+      cacheControlHeader: 'public, s-maxage=0'
+      sendPoweredByHeader: true
+      outputComments: true
   colour-swatches:
     enabled: '1'
     licenseKey: null
@@ -772,7 +784,7 @@ plugins:
   super-table:
     enabled: '1'
     licenseKey: null
-    schemaVersion: 2.0.12
+    schemaVersion: 2.2.0
     settings: null
   typedlinkfield:
     enabled: '1'
@@ -834,7 +846,6 @@ sections:
         titleLabel: Title
     handle: pages
     name: Pages
-    propagateEntries: '1'
     siteSettings:
       9d6f768b-e1c6-4802-9e7d-06ef35121847:
         enabledByDefault: '1'
@@ -845,6 +856,7 @@ sections:
       maxLevels: null
       uid: a7be0409-cc51-42d0-b87b-69b4e0a5f994
     type: structure
+    propagationMethod: all
 siteGroups:
   621953cd-07f9-4cb7-b4b8-ce528d22656b:
     name: Website
@@ -873,7 +885,7 @@ system:
   edition: solo
   live: true
   name: Craft
-  schemaVersion: 3.1.28
+  schemaVersion: 3.2.15
   timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false

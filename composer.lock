@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d3c218bf37aff06ae1325ea2d2d8ae2f",
+    "content-hash": "cf592ccd6f976928b7e63ac4185359b3",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -510,17 +510,17 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.1.33",
+            "version": "3.2.5.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/403d21b8bf65567fd1df391981dfd3e9548dd4b2",
-                "reference": "403d21b8bf65567fd1df391981dfd3e9548dd4b2",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/e44b9d1b6dd94198d71825345c3ba437d2fd1e91",
+                "reference": "e44b9d1b6dd94198d71825345c3ba437d2fd1e91",
                 "shasum": ""
             },
             "require": {
                 "composer/composer": "1.6.3",
                 "craftcms/oauth2-craftid": "~1.0.0",
-                "craftcms/plugin-installer": "~1.5.0",
+                "craftcms/plugin-installer": "~1.5.3",
                 "craftcms/server-check": "~1.1.0",
                 "creocoder/yii2-nested-sets": "~0.9.0",
                 "danielstjules/stringy": "^3.1.0",
@@ -590,7 +590,7 @@
                 "docs": "https://docs.craftcms.com/v3/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2019-07-02T17:38:39+00:00"
+            "time": "2019-07-19T19:56:35+00:00"
         },
         {
             "name": "craftcms/oauth2-craftid",
@@ -939,11 +939,11 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "2.1.9",
+            "version": "2.1.10",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/128cc721d771ec2c46ce59698f4ca42b73f71b25",
-                "reference": "128cc721d771ec2c46ce59698f4ca42b73f71b25",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/a6c8d7101b19a451c1707b1b79bbbc56e4bdb7ec",
+                "reference": "a6c8d7101b19a451c1707b1b79bbbc56e4bdb7ec",
                 "shasum": ""
             },
             "require": {
@@ -981,7 +981,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2019-06-23T10:14:27+00:00"
+            "time": "2019-07-19T20:52:08+00:00"
         },
         {
             "name": "elvanto/litemoji",
@@ -1082,11 +1082,11 @@
         },
         {
             "name": "ezyang/htmlpurifier",
-            "version": "v4.10.0",
+            "version": "v4.11.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/d85d39da4576a6934b72480be6978fb10c860021",
-                "reference": "d85d39da4576a6934b72480be6978fb10c860021",
+                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/83ab08bc1af7d808a9e0fbf024f1c24bfd73c0a7",
+                "reference": "83ab08bc1af7d808a9e0fbf024f1c24bfd73c0a7",
                 "shasum": ""
             },
             "require": {
@@ -1102,7 +1102,7 @@
                 ]
             },
             "license": [
-                "LGPL"
+                "LGPL-2.1-or-later"
             ],
             "authors": [
                 {
@@ -1116,7 +1116,7 @@
             "keywords": [
                 "html"
             ],
-            "time": "2018-02-23T01:58:20+00:00"
+            "time": "2019-07-14T18:58:38+00:00"
         },
         {
             "name": "firebase/php-jwt",
@@ -3167,15 +3167,15 @@
         },
         {
             "name": "putyourlightson/craft-blitz",
-            "version": "2.0.8",
+            "version": "2.1.4",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-blitz/zipball/c61901c2b68d5ad7df39db85b10cb3b56832e738",
-                "reference": "c61901c2b68d5ad7df39db85b10cb3b56832e738",
+                "url": "https://api.github.com/repos/putyourlightson/craft-blitz/zipball/cfb63c51b7a5ea207d9e030e7c7af95109e92548",
+                "reference": "cfb63c51b7a5ea207d9e030e7c7af95109e92548",
                 "shasum": ""
             },
             "require": {
-                "craftcms/cms": "^3.1.0",
+                "craftcms/cms": "^3.2.1",
                 "ext-json": "*"
             },
             "type": "craft-plugin",
@@ -3186,7 +3186,7 @@
                 "developerUrl": "https://putyourlightson.com/",
                 "changelogUrl": "https://raw.githubusercontent.com/putyourlightson/craft-blitz/v2/CHANGELOG.md",
                 "class": "putyourlightson\\blitz\\Blitz",
-                "schemaVersion": "2.0.0",
+                "schemaVersion": "2.1.0",
                 "hasCpSettings": true
             },
             "autoload": {
@@ -3194,23 +3194,27 @@
                     "putyourlightson\\blitz\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "Intelligent static page caching for creating lightning-fast sites.",
             "homepage": "https://putyourlightson.com/craft-plugins/blitz",
             "keywords": [
-                "Craft",
                 "cache",
                 "caching",
                 "cms",
+                "craft",
                 "craftcms",
                 "performance",
                 "plugin",
                 "speed"
             ],
-            "time": "2019-04-05T17:48:36+00:00"
+            "support": {
+                "docs": "https://putyourlightson.com/craft-plugins/blitz/docs",
+                "source": "https://github.com/putyourlightson/craft-blitz",
+                "issues": "https://github.com/putyourlightson/craft-blitz/issues"
+            },
+            "time": "2019-07-16T08:25:33+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -4673,15 +4677,15 @@
         },
         {
             "name": "verbb/super-table",
-            "version": "2.1.20",
+            "version": "2.2.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/super-table/zipball/5be146e3f741f9e52145cf773cba2753214e6d36",
-                "reference": "5be146e3f741f9e52145cf773cba2753214e6d36",
+                "url": "https://api.github.com/repos/verbb/super-table/zipball/64376fd147dbced22c457561fc4bd034074a1ead",
+                "reference": "64376fd147dbced22c457561fc4bd034074a1ead",
                 "shasum": ""
             },
             "require": {
-                "craftcms/cms": "^3.1.20"
+                "craftcms/cms": "^3.2.0"
             },
             "type": "craft-plugin",
             "extra": {
@@ -4721,7 +4725,7 @@
                 "docs": "https://github.com/verbb/super-table",
                 "rss": "https://github.com/verbb/super-table/commits/v2.atom"
             },
-            "time": "2019-05-21T10:42:31+00:00"
+            "time": "2019-07-14T12:17:02+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -4910,11 +4914,11 @@
         },
         {
             "name": "yiisoft/yii2-composer",
-            "version": "2.0.7",
+            "version": "2.0.8",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/1439e78be1218c492e6cde251ed87d3f128b9534",
-                "reference": "1439e78be1218c492e6cde251ed87d3f128b9534",
+                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/5c7ca9836cf80b34db265332a7f2f8438eb469b9",
+                "reference": "5c7ca9836cf80b34db265332a7f2f8438eb469b9",
                 "shasum": ""
             },
             "require": {
@@ -4951,7 +4955,7 @@
                 "extension installer",
                 "yii2"
             ],
-            "time": "2018-07-05T15:44:47+00:00"
+            "time": "2019-07-16T13:22:30+00:00"
         },
         {
             "name": "yiisoft/yii2-debug",
