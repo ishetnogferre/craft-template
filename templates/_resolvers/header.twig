@@ -1,0 +1,19 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+ # Header Resolver Template
+ # ----------------------
+ #
+ # This template gets loaded whenever a Panel View is requested by either the
+ # Page Resolver or in a parent view.
+ #
+ # An `entry` variable expected in this template,
+ # and optionally a `baseSegmentRoute` for special non-entry URIs.
+-#}
+
+{%- include [
+    '_views/headers/' ~ baseSegmentRoute ?? null,
+    '_views/headers/' ~ entry.section.handle ~ '/' ~ entry.type.handle,
+    '_views/headers/' ~ entry.section.handle ~ '/default',
+    '_views/headers/' ~ entry.section.handle,
+    '_views/headers/default',
+] -%}

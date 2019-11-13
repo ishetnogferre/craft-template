@@ -18,12 +18,12 @@
   },
   "minimum-stability": "beta",
   "require": {
-    "aelvan/imager": "v2.1.10",
+    "aelvan/imager": "v2.3.0",
     "charliedev/section-field": "1.1.0",
-    "craftcms/cms": "3.2.5.1",
-    "craftcms/redactor": "2.3.3.2",
+    "craftcms/cms": "3.3.15",
+    "craftcms/redactor": "2.4.0",
     "craftremote/plugin": "1.1.2",
-    "ether/seo": "3.5.4",
+    "ether/seo": "3.6.2",
     "misterbk/mix": "1.5.2",
     "nystudio107/craft-minify": "1.2.9",
     "nystudio107/craft-scripts": "^1.2.4",
@@ -35,8 +35,8 @@
     "rias/craft-simple-forms": "^1.0",
     "sebastianlenz/linkfield": "1.0.19",
     "verbb/expanded-singles": "1.0.7",
-    "verbb/navigation": "1.1.12",
-    "verbb/super-table": "2.2.1",
+    "verbb/navigation": "1.1.13",
+    "verbb/super-table": "2.3.0",
     "vlucas/phpdotenv": "^2.4.0"
   },
   "autoload": {

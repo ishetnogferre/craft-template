@@ -57,6 +57,7 @@
         {%- minify -%}
             <link rel="dns-prefetch" href="{{ baseUrl }}">
             <link rel="preconnect" href="{{ baseUrl }}" crossorigin>
+
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width,minimum-scale=1">
             <meta name="csrf-token-name" content="{{ craft.app.config.general.csrfTokenName }}">
@@ -137,6 +138,8 @@
 {% endif %}
 {% block body %}{% endblock %}
 {# -- Scripts -- #}
+<script src="{{ mix('js/manifest.js') }}"></script>
+<script src="{{ mix('js/vendor.js') }}"></script>
 <script src="{{ mix('js/site.js') }}"></script>
 {% block foot %}{% endblock %}
 </body>

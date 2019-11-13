@@ -60,7 +60,7 @@ ol {
 }
 
 blockquote {
-    @apply my-4 border-l-4 border-grey pl-4;
+    @apply my-4 border-l-4 border-gray-200 pl-4;
 }
 
 p {
@@ -76,11 +76,11 @@ table {
 
     & tr {
         & th {
-            @apply border border-grey font-bold py-1 px-2;
+            @apply border border-gray-200 font-bold py-1 px-2;
         }
 
         & td {
-            @apply border border-grey py-1 px-2;
+            @apply border border-gray-200 py-1 px-2;
         }
     }
 }

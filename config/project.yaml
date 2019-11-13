@@ -1,4 +1,4 @@
-dateModified: 1563781461
+dateModified: 1573675109
 email:
   fromEmail: kjell@marbles.be
   fromName: Craft
@@ -639,38 +639,6 @@ plugins:
     licenseKey: null
     schemaVersion: 1.0.0
     settings: null
-  blitz:
-    edition: standard
-    enabled: true
-    schemaVersion: 2.1.0
-    settings:
-      cachingEnabled: false
-      includedUriPatterns:
-        -
-          - ''
-        -
-          - '.*'
-      excludedUriPatterns: ''
-      cacheStorageType: putyourlightson\blitz\drivers\storage\FileStorage
-      cachePurgerType: putyourlightson\blitz\drivers\purgers\DummyPurger
-      cachePurgerTypes:
-        - putyourlightson\blitz\drivers\purgers\CloudflarePurger
-      clearCacheAutomatically: true
-      clearCacheAutomaticallyForGlobals: true
-      warmCacheAutomatically: '1'
-      warmCacheAutomaticallyForGlobals: true
-      queryStringCaching: '1'
-      concurrency: '5'
-      apiKey: ''
-      cacheElements: true
-      cacheElementQueries: true
-      cacheDuration: null
-      integrations:
-        - putyourlightson\blitz\drivers\integrations\FeedMeIntegration
-        - putyourlightson\blitz\drivers\integrations\SeomaticIntegration
-      cacheControlHeader: 'public, s-maxage=0'
-      sendPoweredByHeader: true
-      outputComments: true
   colour-swatches:
     enabled: '1'
     licenseKey: null
@@ -752,35 +720,6 @@ plugins:
           template: ' - {{ siteName }}'
       titleSuffix: null
       twitterHandle: ''
-  simple-forms:
-    edition: standard
-    enabled: true
-    schemaVersion: 0.1.0
-    settings:
-      bccEmailAddress: ''
-      cleanUpSubmissions: true
-      cleanUpSubmissionsFrom: '-4 weeks'
-      confirmationTemplate: ''
-      delimiter: ;
-      duplicateCheckEnabled: true
-      exportRowsPerSet: 50
-      fieldTemplate: ''
-      fieldsPerSet: '8'
-      formTemplate: ''
-      googleRecaptchaEnabled: false
-      googleRecaptchaSecretKey: ''
-      googleRecaptchaSiteKey: ''
-      honeypotEnabled: true
-      honeypotName: yourssince1615
-      ignoreMatrixFieldAndBlockNames: false
-      ignoreMatrixMultipleRows: false
-      minimumTimeInSeconds: 3
-      notificationTemplate: ''
-      originCheckEnabled: true
-      pluginName: Forms
-      quietErrors: ''
-      tabTemplate: ''
-      timeCheckEnabled: true
   super-table:
     enabled: '1'
     licenseKey: null
@@ -885,7 +824,7 @@ system:
   edition: solo
   live: true
   name: Craft
-  schemaVersion: 3.2.15
+  schemaVersion: 3.3.3
   timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false
