@@ -21,12 +21,6 @@ return [
             'site-module' => [
                 'class' => \modules\sitemodule\SiteModule::class,
             ],
-            'db' => function() {
-                $config = craft\helpers\App::dbConfig();
-                $config['enableSchemaCache'] = true;
-                $config['schemaCacheDuration'] = 60 * 60 * 24; // 1 day
-                return Craft::createObject($config);
-            },
         ],
         'bootstrap' => ['site-module'],
     ],

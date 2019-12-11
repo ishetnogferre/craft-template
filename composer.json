@@ -20,7 +20,7 @@
   "require": {
     "aelvan/imager": "v2.3.0",
     "charliedev/section-field": "1.1.0",
-    "craftcms/cms": "3.3.15",
+    "craftcms/cms": "3.3.18.1",
     "craftcms/redactor": "2.4.0",
     "craftremote/plugin": "1.1.2",
     "ether/seo": "3.6.2",
@@ -35,8 +35,8 @@
     "rias/craft-simple-forms": "^1.0",
     "sebastianlenz/linkfield": "1.0.19",
     "verbb/expanded-singles": "1.0.7",
-    "verbb/navigation": "1.1.13",
-    "verbb/super-table": "2.3.0",
+    "verbb/navigation": "1.1.14.1",
+    "verbb/super-table": "2.3.1",
     "vlucas/phpdotenv": "^2.4.0"
   },
   "autoload": {
