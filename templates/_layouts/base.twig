@@ -136,6 +136,17 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 {% endif %}
+{% if craft.app.config.general.devMode %}
+    <script>
+        Userback = window.Userback || {};
+        Userback.access_token = '{{ craft.config.userbackToken }}';
+        (function(id) {
+            var s = document.createElement('script');
+            s.async = 1;s.src = 'https://static.userback.io/widget/v1.js';
+            var parent_node = document.head || document.body;parent_node.appendChild(s);
+        })('userback-sdk');
+    </script>
+{% endif %}
 {% block body %}{% endblock %}
 {# -- Scripts -- #}
 <script src="{{ mix('js/manifest.js') }}"></script>

@@ -35,6 +35,7 @@ return [
         'generateTransformsBeforePageLoad' => true,
         'omitScriptNameInUrls' => true,
         'securityKey' => getenv('SECURITY_KEY'),
+        'userbackToken' => getenv('USERBACK_TOKEN'),
 
         // Aliases parsed in sites’ settings, volumes’ settings, and Local volumes’ settings
         'aliases' => [
