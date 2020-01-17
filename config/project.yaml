@@ -1,4 +1,4 @@
-dateModified: 1575040644
+dateModified: 1579263365
 email:
   fromEmail: kjell@marbles.be
   fromName: Craft
@@ -672,7 +672,7 @@ plugins:
   navigation:
     enabled: '1'
     licenseKey: null
-    schemaVersion: 1.0.12
+    schemaVersion: 1.0.16
     settings:
       pluginName: Navigatie
   position-fieldtype:

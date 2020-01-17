@@ -4,7 +4,7 @@
     "@babel/polyfill": "^7.6.0",
     "@tailwindcss/custom-forms": "^0.2.1",
     "axios": "^0.18.1",
-    "compression-webpack-plugin": "^3.0.0",
+    "compression-webpack-plugin": "^3.1.0",
     "lazysizes": "^4.1.8",
     "picturefill": "^3.0.3",
     "postcss-object-fit-images": "^1.1.2",
