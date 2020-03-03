@@ -119,23 +119,25 @@
             {% endif %}
 
             {% if not craft.app.config.general.devMode %}
-                <!-- Google Tag Manager -->
-                <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-                <!-- End Google Tag Manager -->
+                <!-- Iubenda Cookie solution -->
+                <script defer type="text/javascript">
+                    var _iub = _iub || [];
+                    _iub.csConfiguration = {"lang":"nl","siteId": '{{ craft.config.iubSiteID }}',"consentOnScroll":false,"countryDetection":true,"gdprAppliesGlobally":false,"enableCMP":true,"isTCFConsentGlobal":false,"googleAdsPreferenceManagement":true,"cookiePolicyInOtherWindow":false,"cookiePolicyId":{{ craft.config.iubCookiePolicyId }}, "banner":{ "acceptButtonDisplay":true,"customizeButtonDisplay":true,"position":"float-bottom-right","textColor":"black","backgroundColor":"white","acceptButtonColor":"#0073CE","acceptButtonCaptionColor":"white","rejectButtonDisplay":true,"rejectButtonColor":"#da6161","rejectButtonCaptionColor":"white","customizeButtonColor":"#DADADA","customizeButtonCaptionColor":"#4D4D4D","customizeButtonCaption":"Meer informatie & voorkeuren instellen"}, callback: {
+                          onConsentGiven: function(){
+                              // Fire Google tag manager after consent is given
+                              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                                          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                                      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                                      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                              })(window,document,'script','dataLayer','GTM-XXXXXXX');
+                          }
+                        }};
+                </script><script defer type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8"></script>
             {% endif %}
         {%- endminify -%}
     {% endblock %}
 </head>
 <body {% if bodyClass is defined %}class="{{ bodyClass }}"{% endif %}>
-{% if not craft.app.config.general.devMode %}
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-{% endif %}
 {% if craft.app.config.general.devMode %}
     <script>
         Userback = window.Userback || {};
@@ -153,5 +155,7 @@
 <script src="{{ mix('js/vendor.js') }}"></script>
 <script src="{{ mix('js/site.js') }}"></script>
 {% block foot %}{% endblock %}
+<!-- Iubenda Cookie en Privacy policy links script -->
+<script defer type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.defer = true; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
 </body>
 </html>
