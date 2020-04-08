@@ -1,4 +1,4 @@
-dateModified: 1579263365
+dateModified: 1586356898
 email:
   fromEmail: kjell@marbles.be
   fromName: Craft
@@ -58,8 +58,8 @@ fields:
       purifierConfig: ''
       purifyHtml: '1'
       redactorConfig: Simple.json
-      removeInlineStyles: '1'
       removeEmptyTags: '1'
+      removeInlineStyles: '1'
       removeNbsp: '1'
     translationKeyFormat: null
     translationMethod: none
@@ -85,13 +85,27 @@ fields:
       suffixAsPrefix: null
       title:
         -
-          key: '1'
-          locked: '0'
-          template: '{title}'
+          __assoc__:
+            -
+              - key
+              - '1'
+            -
+              - locked
+              - '0'
+            -
+              - template
+              - '{title}'
         -
-          key: qo6
-          locked: '1'
-          template: ' | {{ systemName }}'
+          __assoc__:
+            -
+              - key
+              - qo6
+            -
+              - locked
+              - '1'
+            -
+              - template
+              - ' | {{ systemName }}'
       titleSuffix: null
     translationKeyFormat: null
     translationMethod: none
@@ -110,8 +124,8 @@ fields:
       purifierConfig: ''
       purifyHtml: '1'
       redactorConfig: Simple.json
-      removeInlineStyles: '1'
       removeEmptyTags: '1'
+      removeInlineStyles: '1'
       removeNbsp: '1'
     translationKeyFormat: null
     translationMethod: none
@@ -145,8 +159,8 @@ fields:
       purifierConfig: ''
       purifyHtml: '1'
       redactorConfig: Simple.json
-      removeInlineStyles: '1'
       removeEmptyTags: '1'
+      removeInlineStyles: '1'
       removeNbsp: '1'
     translationKeyFormat: null
     translationMethod: none
@@ -179,8 +193,8 @@ matrixBlockTypes:
           purifierConfig: ''
           purifyHtml: ''
           redactorConfig: Standard.json
-          removeInlineStyles: '1'
           removeEmptyTags: '1'
+          removeInlineStyles: '1'
           removeNbsp: '1'
         translationKeyFormat: null
         translationMethod: none
@@ -221,8 +235,8 @@ matrixBlockTypes:
           purifierConfig: ''
           purifyHtml: '1'
           redactorConfig: Simple.json
-          removeInlineStyles: '1'
           removeEmptyTags: '1'
+          removeInlineStyles: '1'
           removeNbsp: '1'
         translationKeyFormat: null
         translationMethod: none
@@ -241,8 +255,8 @@ matrixBlockTypes:
           purifierConfig: ''
           purifyHtml: '1'
           redactorConfig: Simple.json
-          removeInlineStyles: '1'
           removeEmptyTags: '1'
+          removeInlineStyles: '1'
           removeNbsp: '1'
         translationKeyFormat: null
         translationMethod: none
@@ -263,28 +277,82 @@ matrixBlockTypes:
           enableAriaLabel: ''
           enableTitle: ''
           typeSettings:
-            asset:
-              sources: '*'
-            category:
-              sources: '*'
-            custom:
-              allowAliases: ''
-              disableValidation: ''
-            email:
-              allowAliases: ''
-              disableValidation: ''
-            entry:
-              sources: '*'
-            site:
-              sites: '*'
-            tel:
-              allowAliases: ''
-              disableValidation: ''
-            url:
-              allowAliases: ''
-              disableValidation: ''
-            user:
-              sources: '*'
+            __assoc__:
+              -
+                - asset
+                -
+                  __assoc__:
+                    -
+                      - sources
+                      - '*'
+              -
+                - category
+                -
+                  __assoc__:
+                    -
+                      - sources
+                      - '*'
+              -
+                - custom
+                -
+                  __assoc__:
+                    -
+                      - allowAliases
+                      - ''
+                    -
+                      - disableValidation
+                      - ''
+              -
+                - email
+                -
+                  __assoc__:
+                    -
+                      - allowAliases
+                      - ''
+                    -
+                      - disableValidation
+                      - ''
+              -
+                - entry
+                -
+                  __assoc__:
+                    -
+                      - sources
+                      - '*'
+              -
+                - site
+                -
+                  __assoc__:
+                    -
+                      - sites
+                      - '*'
+              -
+                - tel
+                -
+                  __assoc__:
+                    -
+                      - allowAliases
+                      - ''
+                    -
+                      - disableValidation
+                      - ''
+              -
+                - url
+                -
+                  __assoc__:
+                    -
+                      - allowAliases
+                      - ''
+                    -
+                      - disableValidation
+                      - ''
+              -
+                - user
+                -
+                  __assoc__:
+                    -
+                      - sources
+                      - '*'
         translationKeyFormat: null
         translationMethod: none
         type: typedlinkfield\fields\LinkField
@@ -376,8 +444,8 @@ matrixBlockTypes:
           purifierConfig: ''
           purifyHtml: '1'
           redactorConfig: Simple.json
-          removeInlineStyles: '1'
           removeEmptyTags: '1'
+          removeInlineStyles: '1'
           removeNbsp: '1'
         translationKeyFormat: null
         translationMethod: none
@@ -396,8 +464,8 @@ matrixBlockTypes:
           purifierConfig: ''
           purifyHtml: '1'
           redactorConfig: Simple.json
-          removeInlineStyles: '1'
           removeEmptyTags: '1'
+          removeInlineStyles: '1'
           removeNbsp: '1'
         translationKeyFormat: null
         translationMethod: none
@@ -474,12 +542,25 @@ matrixBlockTypes:
         settings:
           default: center
           options:
-            center: '1'
-            drop-left: ''
-            drop-right: ''
-            full: '1'
-            left: ''
-            right: ''
+            __assoc__:
+              -
+                - center
+                - '1'
+              -
+                - drop-left
+                - ''
+              -
+                - drop-right
+                - ''
+              -
+                - full
+                - '1'
+              -
+                - left
+                - ''
+              -
+                - right
+                - ''
         translationKeyFormat: null
         translationMethod: none
         type: rias\positionfieldtype\fields\Position
@@ -516,8 +597,8 @@ matrixBlockTypes:
           purifierConfig: ''
           purifyHtml: ''
           redactorConfig: Standard.json
-          removeInlineStyles: '1'
           removeEmptyTags: '1'
+          removeInlineStyles: '1'
           removeNbsp: '1'
         translationKeyFormat: null
         translationMethod: none
@@ -536,8 +617,8 @@ matrixBlockTypes:
           purifierConfig: ''
           purifyHtml: ''
           redactorConfig: Standard.json
-          removeInlineStyles: '1'
           removeEmptyTags: '1'
+          removeInlineStyles: '1'
           removeNbsp: '1'
         translationKeyFormat: null
         translationMethod: none
@@ -601,12 +682,25 @@ matrixBlockTypes:
         settings:
           default: right
           options:
-            center: ''
-            drop-left: ''
-            drop-right: ''
-            full: ''
-            left: '1'
-            right: '1'
+            __assoc__:
+              -
+                - center
+                - ''
+              -
+                - drop-left
+                - ''
+              -
+                - drop-right
+                - ''
+              -
+                - full
+                - ''
+              -
+                - left
+                - '1'
+              -
+                - right
+                - '1'
         translationKeyFormat: null
         translationMethod: none
         type: rias\positionfieldtype\fields\Position
@@ -624,8 +718,8 @@ matrixBlockTypes:
           purifierConfig: ''
           purifyHtml: '1'
           redactorConfig: Standard.json
-          removeInlineStyles: '1'
           removeEmptyTags: '1'
+          removeInlineStyles: '1'
           removeNbsp: '1'
         translationKeyFormat: null
         translationMethod: none
@@ -785,6 +879,11 @@ sections:
         titleLabel: Title
     handle: pages
     name: Pages
+    previewTargets:
+      -
+        label: 'Primary entry page'
+        urlFormat: '{url}'
+    propagationMethod: all
     siteSettings:
       9d6f768b-e1c6-4802-9e7d-06ef35121847:
         enabledByDefault: '1'
@@ -795,7 +894,6 @@ sections:
       maxLevels: null
       uid: a7be0409-cc51-42d0-b87b-69b4e0a5f994
     type: structure
-    propagationMethod: all
 siteGroups:
   621953cd-07f9-4cb7-b4b8-ce528d22656b:
     name: Website
@@ -824,7 +922,7 @@ system:
   edition: solo
   live: true
   name: Craft
-  schemaVersion: 3.3.3
+  schemaVersion: 3.4.10
   timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false
