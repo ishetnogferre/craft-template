@@ -1,4 +1,4 @@
-dateModified: 1586356898
+dateModified: 1595489312
 email:
   fromEmail: kjell@marbles.be
   fromName: Craft
@@ -6,12 +6,16 @@ email:
   transportSettings: null
   transportType: craft\mail\transportadapters\Sendmail
 fieldGroups:
+  00f652d6-c8ce-4f88-9b78-fb606319e79c:
+    name: Global
   2339f388-7cbe-4547-ba61-c4a0bfcd16dc:
     name: Common
   3e8e6e1e-d8a8-4001-9310-ddd73a81cb80:
     name: Teaser
   4aa522cd-b60c-4dc0-a75e-8e841ce726b3:
     name: SEO
+  78bdf0c6-f90e-4267-a5d3-003a053a5161:
+    name: Navigation
   a5394e36-c5da-4690-813f-bbb839bdbb0e:
     name: Page
   ec17aa49-c101-4f11-b7cd-e36919065cbe:
@@ -130,6 +134,117 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\redactor\Field
+  add2854a-af6c-41a5-8ae0-ab82a9fa8e05:
+    contentColumnType: text
+    fieldGroup: 78bdf0c6-f90e-4267-a5d3-003a053a5161
+    handle: navLink
+    instructions: ''
+    name: 'Navigatie Link'
+    searchable: true
+    settings:
+      allowCustomText: ''
+      allowTarget: '1'
+      allowedLinkNames:
+        3: entry
+        4: site
+        6: custom
+      autoNoReferrer: ''
+      defaultLinkName: entry
+      defaultText: ''
+      enableAriaLabel: ''
+      enableTitle: ''
+      typeSettings:
+        __assoc__:
+          -
+            - asset
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - category
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - entry
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - site
+            -
+              __assoc__:
+                -
+                  - sites
+                  - '*'
+          -
+            - user
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - custom
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - email
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - tel
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - url
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: typedlinkfield\fields\LinkField
   b494bf2c-eafd-4194-99a9-559a9549d81e:
     contentColumnType: string
     fieldGroup: a5394e36-c5da-4690-813f-bbb839bdbb0e
@@ -165,6 +280,215 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\redactor\Field
+  ca966992-20b9-48cf-bb88-821dd048f877:
+    contentColumnType: string
+    fieldGroup: 00f652d6-c8ce-4f88-9b78-fb606319e79c
+    handle: logo
+    instructions: ''
+    name: Logo
+    searchable: true
+    settings:
+      allowSelfRelations: ''
+      allowedKinds: null
+      defaultUploadLocationSource: 'volume:56927c8a-e051-4381-aa6c-4100a9fa4991'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: ''
+      restrictFiles: ''
+      selectionLabel: 'Voeg je logo toe'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:56927c8a-e051-4381-aa6c-4100a9fa4991'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources:
+        - 'volume:56927c8a-e051-4381-aa6c-4100a9fa4991'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: ''
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+formie:
+  statuses:
+    2714d4d5-06d5-47d2-88eb-5e18f8af9ffa:
+      color: green
+      description: null
+      handle: new
+      isDefault: true
+      name: New
+      sortOrder: 1
+  stencils:
+    709e5ae5-0138-473b-b55b-cc3629d3b785:
+      data:
+        availability: always
+        availabilityFrom: null
+        availabilitySubmissions: null
+        availabilityTo: null
+        dataRetention: forever
+        dataRetentionValue: null
+        notifications:
+          -
+            attachFiles: true
+            content: '[{"type":"paragraph","content":[{"type":"text","text":"A user submission has been made on the \""},{"type":"variableTag","attrs":{"label":"Form Name","value":"{formName}"}},{"type":"text","text":"\" form on "},{"type":"variableTag","attrs":{"label":"Site Name","value":"{siteName}"}},{"type":"text","text":" at "},{"type":"variableTag","attrs":{"label":"Timestamp (yyyy-mm-dd hh:mm:ss)","value":"{timestamp}"}}]},{"type":"paragraph","content":[{"type":"text","text":"Their submission details are:"}]},{"type":"paragraph","content":[{"type":"variableTag","attrs":{"label":"All Form Fields","value":"{allFields}"}}]}]'
+            enabled: true
+            from: '{emailAddress}'
+            id: new981-8077
+            name: 'Admin Notification'
+            replyTo: '{emailAddress}'
+            subject: 'A new submission was made on "{formName}"'
+            templateId: ''
+            to: '{systemEmail}'
+          -
+            attachFiles: true
+            content: '[{"type":"paragraph","content":[{"type":"text","text":"Thanks again for contacting us. Our team will get back to you as soon as we can."}]},{"type":"paragraph","content":[{"type":"text","text":"As a reminder, you submitted the following details at "},{"type":"variableTag","attrs":{"label":"Timestamp (yyyy-mm-dd hh:mm:ss)","value":"{timestamp}"}}]},{"type":"paragraph","content":[{"type":"variableTag","attrs":{"label":"All Form Fields","value":"{allFields}"}}]}]'
+            enabled: true
+            id: new7052-5168
+            name: 'User Notification'
+            subject: 'Thanks for contacting us!'
+            templateId: ''
+            to: '{emailAddress}'
+        pages:
+          -
+            id: new1272610411
+            label: 'Page 1'
+            rows:
+              -
+                fields:
+                  -
+                    brandNewField: false
+                    columnWidth: 12
+                    handle: yourName
+                    hasLabel: true
+                    id: new7715-7348
+                    label: 'Your Name'
+                    settings:
+                      firstNameCollapsed: false
+                      firstNameDefaultValue: ''
+                      firstNameEnabled: true
+                      firstNameLabel: 'First Name'
+                      firstNamePlaceholder: 'eg. Peter'
+                      firstNameRequired: true
+                      handle: yourName
+                      instructions: 'Please enter your full name.'
+                      instructionsPosition: ''
+                      label: 'Your Name'
+                      labelPosition: verbb\formie\positions\Hidden
+                      lastNameCollapsed: false
+                      lastNameDefaultValue: ''
+                      lastNameEnabled: true
+                      lastNameLabel: 'Last Name'
+                      lastNamePlaceholder: 'eg. Sherman'
+                      lastNameRequired: true
+                      limitType: characters
+                      middleNameCollapsed: true
+                      middleNameDefaultValue: ''
+                      middleNameEnabled: false
+                      middleNameLabel: 'Middle Name'
+                      placeholder: 'Your name'
+                      prefixCollapsed: true
+                      prefixDefaultValue: ''
+                      prefixEnabled: false
+                      prefixLabel: Prefix
+                      subfieldLabelPosition: ''
+                      useMultipleFields: true
+                    type: verbb\formie\fields\formfields\Name
+                id: new8990-9934
+              -
+                fields:
+                  -
+                    brandNewField: false
+                    columnWidth: 12
+                    handle: emailAddress
+                    hasLabel: true
+                    id: new6482-9528
+                    label: 'Email Address'
+                    settings:
+                      handle: emailAddress
+                      instructions: 'Please enter your email so we can get in touch.'
+                      instructionsPosition: ''
+                      label: 'Email Address'
+                      labelPosition: ''
+                      limitType: characters
+                      placeholder: 'eg. psherman@wallaby.com'
+                      required: true
+                    type: verbb\formie\fields\formfields\Email
+                id: new9524-8509
+              -
+                fields:
+                  -
+                    brandNewField: false
+                    columnWidth: 12
+                    handle: message
+                    hasLabel: true
+                    id: new982-7322
+                    label: Message
+                    settings:
+                      handle: message
+                      instructions: 'Please enter your comments.'
+                      instructionsPosition: ''
+                      label: Message
+                      labelPosition: ''
+                      limitType: characters
+                      placeholder: 'eg. The reason for my enquiry is...'
+                      required: true
+                    type: verbb\formie\fields\formfields\MultiLineText
+                id: new2177-9685
+            settings:
+              backButtonLabel: Back
+              buttonsPosition: left
+              label: 'Page 1'
+              showBackButton: false
+              submitButtonLabel: 'Contact us'
+            sortOrder: 0
+        requireUser: false
+        settings:
+          availabilityMessage: null
+          availabilityMessageDate: null
+          availabilityMessageSubmissions: null
+          collectIp: ''
+          collectUser: null
+          defaultInstructionsPosition: verbb\formie\positions\BelowInput
+          defaultLabelPosition: verbb\formie\positions\AboveInput
+          displayCurrentPageTitle: ''
+          displayFormTitle: ''
+          displayPageProgress: ''
+          displayPageTabs: ''
+          errorMessage: 'Couldn’t save submission due to errors.'
+          loadingIndicator: spinner
+          loadingIndicatorText: ''
+          progressPosition: end
+          storeData: null
+          submissionTitleFormat: '{timestamp}'
+          submitAction: message
+          submitActionFormHide: ''
+          submitActionMessage: 'Thank you for contacting us! Our team will get in touch shortly to follow up on your message.'
+          submitActionMessageTimeout: ''
+          submitActionTab: null
+          submitActionUrl: ''
+          submitMethod: ajax
+          validationOnFocus: '1'
+          validationOnSubmit: '1'
+        userDeletedAction: retain
+      defaultStatusId: null
+      handle: contactForm
+      name: 'Contact Form'
+      templateId: null
+globalSets:
+  853233bc-3add-4d6a-bd99-0e80c8c4c7d1:
+    fieldLayouts:
+      bc24330b-7e09-4e95-9069-380eca5aeaa6:
+        tabs:
+          -
+            fields:
+              ca966992-20b9-48cf-bb88-821dd048f877:
+                required: false
+                sortOrder: 1
+            name: Global
+            sortOrder: 1
+    handle: globals
+    name: Algemeen
 matrixBlockTypes:
   8a344f4b-be5d-44bf-9318-3fe86affe1e6:
     field: b494bf2c-eafd-4194-99a9-559a9549d81e
@@ -733,21 +1057,15 @@ plugins:
     licenseKey: null
     schemaVersion: 1.0.0
     settings: null
-  colour-swatches:
-    enabled: '1'
-    licenseKey: null
-    schemaVersion: 1.0.0
-    settings: null
-  craftremote:
-    enabled: '1'
-    licenseKey: null
-    schemaVersion: 1.0.0
-    settings: null
   expanded-singles:
     enabled: '1'
     licenseKey: null
     schemaVersion: 1.0.0
     settings: null
+  formie:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   imager:
     enabled: '1'
     licenseKey: null
@@ -763,12 +1081,6 @@ plugins:
     licenseKey: null
     schemaVersion: 1.0.0
     settings: null
-  navigation:
-    enabled: '1'
-    licenseKey: null
-    schemaVersion: 1.0.16
-    settings:
-      pluginName: Navigatie
   position-fieldtype:
     enabled: '1'
     licenseKey: null
@@ -787,7 +1099,7 @@ plugins:
   seo:
     edition: standard
     enabled: true
-    schemaVersion: 3.1.0
+    schemaVersion: 3.1.1
     settings:
       description: ''
       facebookAppId: ''
@@ -830,6 +1142,51 @@ plugins:
     schemaVersion: 1.0.0
     settings: null
 sections:
+  60b38ee4-df61-475f-b749-fdc2c0b3eddb:
+    enableVersioning: true
+    entryTypes:
+      879c0e12-3caa-4d28-b6de-0f9848bb49e5:
+        handle: navCategory
+        hasTitleField: true
+        name: 'Navigatie Category'
+        sortOrder: 2
+        titleFormat: ''
+        titleLabel: Title
+      e447c808-a7b4-476c-956e-6e8e6e18b48c:
+        fieldLayouts:
+          9d4e57a5-ae68-4ada-87c6-b66d7ba56b3a:
+            tabs:
+              -
+                fields:
+                  add2854a-af6c-41a5-8ae0-ab82a9fa8e05:
+                    required: false
+                    sortOrder: 1
+                name: Navigation
+                sortOrder: 1
+        handle: navItem
+        hasTitleField: true
+        name: 'Navigatie Item'
+        sortOrder: 1
+        titleFormat: ''
+        titleLabel: Title
+    handle: nav
+    name: Navigation
+    propagationMethod: all
+    siteSettings:
+      47c098da-b5ac-4503-b399-ef8a969c1775:
+        enabledByDefault: true
+        hasUrls: false
+        template: null
+        uriFormat: ''
+      9d6f768b-e1c6-4802-9e7d-06ef35121847:
+        enabledByDefault: true
+        hasUrls: false
+        template: null
+        uriFormat: ''
+    structure:
+      maxLevels: null
+      uid: 1f2389db-25e7-4db5-a94e-4a8eaf25a12d
+    type: structure
   fe154a59-9561-4bf1-ba7b-f2e632f45aaf:
     enableVersioning: '1'
     entryTypes:
@@ -922,7 +1279,7 @@ system:
   edition: solo
   live: true
   name: Craft
-  schemaVersion: 3.4.10
+  schemaVersion: 3.4.11
   timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false
