@@ -1,4 +1,4 @@
-dateModified: 1595489312
+dateModified: 1595492521
 email:
   fromEmail: kjell@marbles.be
   fromName: Craft
@@ -254,9 +254,9 @@ fields:
     searchable: true
     settings:
       contentTable: '{{%matrixcontent_builder}}'
-      localizeBlocks: false
       maxBlocks: ''
       minBlocks: ''
+      propagationMethod: all
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Matrix
@@ -513,6 +513,7 @@ matrixBlockTypes:
         settings:
           availableTransforms: '*'
           availableVolumes: ''
+          cleanupHtml: true
           columnType: text
           purifierConfig: ''
           purifyHtml: ''
@@ -520,6 +521,8 @@ matrixBlockTypes:
           removeEmptyTags: '1'
           removeInlineStyles: '1'
           removeNbsp: '1'
+          showUnpermittedFiles: false
+          showUnpermittedVolumes: true
         translationKeyFormat: null
         translationMethod: none
         type: craft\redactor\Field
@@ -555,6 +558,7 @@ matrixBlockTypes:
         settings:
           availableTransforms: '*'
           availableVolumes: '*'
+          cleanupHtml: true
           columnType: text
           purifierConfig: ''
           purifyHtml: '1'
@@ -562,6 +566,8 @@ matrixBlockTypes:
           removeEmptyTags: '1'
           removeInlineStyles: '1'
           removeNbsp: '1'
+          showUnpermittedFiles: false
+          showUnpermittedVolumes: true
         translationKeyFormat: null
         translationMethod: none
         type: craft\redactor\Field
@@ -575,6 +581,7 @@ matrixBlockTypes:
         settings:
           availableTransforms: '*'
           availableVolumes: '*'
+          cleanupHtml: true
           columnType: text
           purifierConfig: ''
           purifyHtml: '1'
@@ -582,6 +589,8 @@ matrixBlockTypes:
           removeEmptyTags: '1'
           removeInlineStyles: '1'
           removeNbsp: '1'
+          showUnpermittedFiles: false
+          showUnpermittedVolumes: true
         translationKeyFormat: null
         translationMethod: none
         type: craft\redactor\Field
@@ -596,6 +605,7 @@ matrixBlockTypes:
           allowCustomText: '1'
           allowTarget: '1'
           allowedLinkNames: '*'
+          autoNoReferrer: ''
           defaultLinkName: entry
           defaultText: ''
           enableAriaLabel: ''
@@ -609,6 +619,9 @@ matrixBlockTypes:
                     -
                       - sources
                       - '*'
+                    -
+                      - allowCustomQuery
+                      - ''
               -
                 - category
                 -
@@ -616,25 +629,8 @@ matrixBlockTypes:
                     -
                       - sources
                       - '*'
-              -
-                - custom
-                -
-                  __assoc__:
                     -
-                      - allowAliases
-                      - ''
-                    -
-                      - disableValidation
-                      - ''
-              -
-                - email
-                -
-                  __assoc__:
-                    -
-                      - allowAliases
-                      - ''
-                    -
-                      - disableValidation
+                      - allowCustomQuery
                       - ''
               -
                 - entry
@@ -643,6 +639,9 @@ matrixBlockTypes:
                     -
                       - sources
                       - '*'
+                    -
+                      - allowCustomQuery
+                      - ''
               -
                 - site
                 -
@@ -651,73 +650,61 @@ matrixBlockTypes:
                       - sites
                       - '*'
               -
-                - tel
-                -
-                  __assoc__:
-                    -
-                      - allowAliases
-                      - ''
-                    -
-                      - disableValidation
-                      - ''
-              -
-                - url
-                -
-                  __assoc__:
-                    -
-                      - allowAliases
-                      - ''
-                    -
-                      - disableValidation
-                      - ''
-              -
                 - user
                 -
                   __assoc__:
                     -
                       - sources
                       - '*'
+                    -
+                      - allowCustomQuery
+                      - ''
+              -
+                - custom
+                -
+                  __assoc__:
+                    -
+                      - disableValidation
+                      - ''
+                    -
+                      - allowAliases
+                      - ''
+              -
+                - email
+                -
+                  __assoc__:
+                    -
+                      - disableValidation
+                      - ''
+                    -
+                      - allowAliases
+                      - ''
+              -
+                - tel
+                -
+                  __assoc__:
+                    -
+                      - disableValidation
+                      - ''
+                    -
+                      - allowAliases
+                      - ''
+              -
+                - url
+                -
+                  __assoc__:
+                    -
+                      - disableValidation
+                      - ''
+                    -
+                      - allowAliases
+                      - ''
         translationKeyFormat: null
         translationMethod: none
         type: typedlinkfield\fields\LinkField
     handle: callToAction
     name: 'Call to Action'
     sortOrder: 5
-  bc34b968-eda7-45cd-bdbb-a919e4c9d110:
-    field: b494bf2c-eafd-4194-99a9-559a9549d81e
-    fieldLayouts:
-      8b1bad1a-7789-4700-aab3-15ee80c12842:
-        tabs:
-          -
-            fields:
-              aff4a234-35cc-47ee-98d2-d5cb011ab131:
-                required: false
-                sortOrder: 1
-            name: Content
-            sortOrder: 1
-    fields:
-      aff4a234-35cc-47ee-98d2-d5cb011ab131:
-        contentColumnType: string
-        fieldGroup: null
-        handle: form
-        instructions: ''
-        name: Form
-        searchable: true
-        settings:
-          allowMultipleSources: false
-          limit: '1'
-          localizeRelations: false
-          selectionLabel: ''
-          source: '*'
-          sources: '*'
-          targetSiteId: null
-          viewMode: null
-        translationKeyFormat: null
-        translationMethod: site
-        type: rias\simpleforms\fields\Form
-    handle: form
-    name: Form
-    sortOrder: 7
   becddbce-0e94-4b08-9e48-226f9ca61193:
     field: b494bf2c-eafd-4194-99a9-559a9549d81e
     fieldLayouts:
@@ -764,6 +751,7 @@ matrixBlockTypes:
         settings:
           availableTransforms: '*'
           availableVolumes: '*'
+          cleanupHtml: true
           columnType: text
           purifierConfig: ''
           purifyHtml: '1'
@@ -771,6 +759,8 @@ matrixBlockTypes:
           removeEmptyTags: '1'
           removeInlineStyles: '1'
           removeNbsp: '1'
+          showUnpermittedFiles: false
+          showUnpermittedVolumes: true
         translationKeyFormat: null
         translationMethod: none
         type: craft\redactor\Field
@@ -784,6 +774,7 @@ matrixBlockTypes:
         settings:
           availableTransforms: '*'
           availableVolumes: '*'
+          cleanupHtml: true
           columnType: text
           purifierConfig: ''
           purifyHtml: '1'
@@ -791,6 +782,8 @@ matrixBlockTypes:
           removeEmptyTags: '1'
           removeInlineStyles: '1'
           removeNbsp: '1'
+          showUnpermittedFiles: false
+          showUnpermittedVolumes: true
         translationKeyFormat: null
         translationMethod: none
         type: craft\redactor\Field
@@ -806,7 +799,9 @@ matrixBlockTypes:
           defaultValue: '5'
           max: null
           min: '2'
+          prefix: ''
           size: null
+          suffix: ''
         translationKeyFormat: null
         translationMethod: none
         type: craft\fields\Number
@@ -837,21 +832,25 @@ matrixBlockTypes:
         name: Asset
         searchable: true
         settings:
+          allowSelfRelations: ''
           allowedKinds:
             - image
           defaultUploadLocationSource: 'volume:56927c8a-e051-4381-aa6c-4100a9fa4991'
           defaultUploadLocationSubpath: ''
           limit: '1'
-          localizeRelations: false
+          localizeRelations: ''
           restrictFiles: '1'
           selectionLabel: ''
+          showUnpermittedFiles: false
+          showUnpermittedVolumes: true
           singleUploadLocationSource: 'volume:56927c8a-e051-4381-aa6c-4100a9fa4991'
           singleUploadLocationSubpath: ''
           source: null
           sources:
             - 'volume:56927c8a-e051-4381-aa6c-4100a9fa4991'
           targetSiteId: null
-          useSingleFolder: ''
+          useSingleFolder: false
+          validateRelatedElements: ''
           viewMode: large
         translationKeyFormat: null
         translationMethod: site
@@ -868,22 +867,22 @@ matrixBlockTypes:
           options:
             __assoc__:
               -
+                - left
+                - ''
+              -
                 - center
+                - '1'
+              -
+                - right
+                - ''
+              -
+                - full
                 - '1'
               -
                 - drop-left
                 - ''
               -
                 - drop-right
-                - ''
-              -
-                - full
-                - '1'
-              -
-                - left
-                - ''
-              -
-                - right
                 - ''
         translationKeyFormat: null
         translationMethod: none
@@ -917,6 +916,7 @@ matrixBlockTypes:
         settings:
           availableTransforms: '*'
           availableVolumes: ''
+          cleanupHtml: true
           columnType: text
           purifierConfig: ''
           purifyHtml: ''
@@ -924,6 +924,8 @@ matrixBlockTypes:
           removeEmptyTags: '1'
           removeInlineStyles: '1'
           removeNbsp: '1'
+          showUnpermittedFiles: false
+          showUnpermittedVolumes: true
         translationKeyFormat: null
         translationMethod: none
         type: craft\redactor\Field
@@ -937,6 +939,7 @@ matrixBlockTypes:
         settings:
           availableTransforms: '*'
           availableVolumes: ''
+          cleanupHtml: true
           columnType: text
           purifierConfig: ''
           purifyHtml: ''
@@ -944,6 +947,8 @@ matrixBlockTypes:
           removeEmptyTags: '1'
           removeInlineStyles: '1'
           removeNbsp: '1'
+          showUnpermittedFiles: false
+          showUnpermittedVolumes: true
         translationKeyFormat: null
         translationMethod: none
         type: craft\redactor\Field
@@ -977,21 +982,25 @@ matrixBlockTypes:
         name: Image
         searchable: true
         settings:
+          allowSelfRelations: ''
           allowedKinds:
             - image
           defaultUploadLocationSource: 'volume:56927c8a-e051-4381-aa6c-4100a9fa4991'
           defaultUploadLocationSubpath: ''
           limit: '1'
-          localizeRelations: false
+          localizeRelations: ''
           restrictFiles: '1'
           selectionLabel: ''
+          showUnpermittedFiles: false
+          showUnpermittedVolumes: true
           singleUploadLocationSource: 'volume:56927c8a-e051-4381-aa6c-4100a9fa4991'
           singleUploadLocationSubpath: ''
           source: null
           sources:
             - 'volume:56927c8a-e051-4381-aa6c-4100a9fa4991'
           targetSiteId: null
-          useSingleFolder: ''
+          useSingleFolder: false
+          validateRelatedElements: ''
           viewMode: list
         translationKeyFormat: null
         translationMethod: site
@@ -1008,7 +1017,16 @@ matrixBlockTypes:
           options:
             __assoc__:
               -
+                - left
+                - '1'
+              -
                 - center
+                - ''
+              -
+                - right
+                - '1'
+              -
+                - full
                 - ''
               -
                 - drop-left
@@ -1016,15 +1034,6 @@ matrixBlockTypes:
               -
                 - drop-right
                 - ''
-              -
-                - full
-                - ''
-              -
-                - left
-                - '1'
-              -
-                - right
-                - '1'
         translationKeyFormat: null
         translationMethod: none
         type: rias\positionfieldtype\fields\Position
@@ -1038,6 +1047,7 @@ matrixBlockTypes:
         settings:
           availableTransforms: '*'
           availableVolumes: '*'
+          cleanupHtml: true
           columnType: text
           purifierConfig: ''
           purifyHtml: '1'
@@ -1045,6 +1055,8 @@ matrixBlockTypes:
           removeEmptyTags: '1'
           removeInlineStyles: '1'
           removeNbsp: '1'
+          showUnpermittedFiles: false
+          showUnpermittedVolumes: true
         translationKeyFormat: null
         translationMethod: none
         type: craft\redactor\Field
