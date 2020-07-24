@@ -55,8 +55,16 @@
 <head>
     {% block head %}
         {%- minify -%}
-            <link rel="dns-prefetch" href="{{ baseUrl }}">
-            <link rel="preconnect" href="{{ baseUrl }}" crossorigin>
+            <link rel="dns-prefetch" href="{{ currentSite.baseUrl }}">
+            <!-- Google Tag Manager -->
+            <link rel="dns-prefetch" href="//www.googletagmanager.com">
+            <link rel="dns-prefetch" href="https://{{ getenv('IMGIX_DOMAIN') }}">
+            <link rel="dns-prefetch" href="https://cdn.iubenda.com/">
+
+
+            <link rel="preconnect" href="{{ currentSite.baseUrl }}" crossorigin>
+            <link rel="preconnect" href="https://{{ getenv('IMGIX_DOMAIN') }}" crossorigin>
+            <link rel="preconnect" href="https://cdn.iubenda.com/">
 
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width,minimum-scale=1">
@@ -105,6 +113,7 @@
 
                 window.addEventListener('keydown', handleFirstTab);
             </script>
+        {%- endminify -%}
 
             {# -- Inline CSS block used by templates for Critical CSS #}
             {# -- Only use Critical CSS & LoadCSS when we have it available to prevent flashing #}
@@ -117,27 +126,81 @@
             {% else %}
                 <link rel="stylesheet" href="{{ mix('css/site.css') }}">
             {% endif %}
+            
+            {%- minify -%}
+            {% if craft.app.config.general.devMode %}
+                {% set siteId = '' %}
+                {% switch craft.app.locale %}
+                    {% default %}
+                        {% set cookiePolicy = '' %}
+                        {% set language = 'nl' %}
+                        {% set content = "" %}
+                {% endswitch %}
 
-            {% if not craft.app.config.general.devMode %}
-                <!-- Iubenda Cookie solution -->
+            <!-- Iubenda Cookie solution -->
+                <script type="text/javascript">var _iub = _iub || {}; _iub.cons_instructions = _iub.cons_instructions || []; _iub.cons_instructions.push(["init", {api_key: "ZH5o8BtICFsUUJBVyx2e8gTrhKU6ehXA"}]);</script><script type="text/javascript" src="https://cdn.iubenda.com/cons/iubenda_cons.js" async></script>
+
                 <script defer type="text/javascript">
                     var _iub = _iub || [];
-                    _iub.csConfiguration = {"lang":"nl","siteId": '{{ craft.config.iubSiteID }}',"consentOnScroll":false,"countryDetection":true,"gdprAppliesGlobally":false,"enableCMP":true,"isTCFConsentGlobal":false,"googleAdsPreferenceManagement":true,"cookiePolicyInOtherWindow":false,"cookiePolicyId":{{ craft.config.iubCookiePolicyId }}, "banner":{ "acceptButtonDisplay":true,"customizeButtonDisplay":true,"position":"float-bottom-right","textColor":"black","backgroundColor":"white","acceptButtonColor":"#0073CE","acceptButtonCaptionColor":"white","rejectButtonDisplay":true,"rejectButtonColor":"#da6161","rejectButtonCaptionColor":"white","customizeButtonColor":"#DADADA","customizeButtonCaptionColor":"#4D4D4D","customizeButtonCaption":"Meer informatie & voorkeuren instellen"}, callback: {
-                          onConsentGiven: function(){
-                              // Fire Google tag manager after consent is given
-                              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                                          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                                      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                                      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                              })(window,document,'script','dataLayer','GTM-XXXXXXX');
-                          }
+                    _iub.csConfiguration = {
+                        "consentOnContinuedBrowsing":false,
+                        "perPurposeConsent":true,
+                        "isTCFConsentGlobal":false,
+                        "tcfVersion":2,
+                        "lang":'{{ language }}',
+                        "siteId": {{ siteId }},
+                        "enableCMP":true,
+                        "cookiePolicyId": {{ cookiePolicy }},
+                        "askConsentIfCMPNotFound":false,
+                        "banner":{ 
+                            "acceptButtonDisplay":true,
+                            "customizeButtonDisplay":true,
+                            "acceptButtonColor":"#b1cc47",
+                            "customizeButtonColor":"#35b0e4",
+                            "rejectButtonDisplay":true,
+                            "rejectButtonColor":"#35b0e4",
+                            "backgroundColor":"#007299",
+                            "position":"top",
+                            // "content": "{{ content }}"
+                        },
+                        callback: {
+                            onConsentGiven: function(){
+                                // Fire Google tag manager after consent is given
+                                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                                            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                                        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                                        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                                })(window,document,'script','dataLayer','GTM-XXXXXXX');
+                            },
+                            onBannerClosed: function () {
+                                connsole.log(_iub);
+                            }
                         }};
-                </script><script defer type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8"></script>
+                </script>
+                <script type="text/javascript" src="//cdn.iubenda.com/cs/tcf/stub-v2.js"></script>
+                <script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
             {% endif %}
+
+            {# -- </head> JS -- #}
+            {% block head_js %}{% endblock %}
+
         {%- endminify -%}
     {% endblock %}
 </head>
 <body {% if bodyClass is defined %}class="{{ bodyClass }}"{% endif %}>
+{% block body %}{% endblock %}
+
+<script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+{# -- Scripts -- #}
+<script src="{{ mix('js/manifest.js') }}"></script>
+<script src="{{ mix('js/vendor.js') }}"></script>
+<script src="{{ mix('js/site.js') }}"></script>
+
+{# -- Inline JS -- #}
+{% block inline_js %}
+{% endblock %}
+
+<!-- Userback -->
 {% if craft.app.config.general.devMode %}
     <script>
         Userback = window.Userback || {};
@@ -149,11 +212,7 @@
         })('userback-sdk');
     </script>
 {% endif %}
-{% block body %}{% endblock %}
-{# -- Scripts -- #}
-<script src="{{ mix('js/manifest.js') }}"></script>
-<script src="{{ mix('js/vendor.js') }}"></script>
-<script src="{{ mix('js/site.js') }}"></script>
+
 {% block foot %}{% endblock %}
 <!-- Iubenda Cookie en Privacy policy links script -->
 <script defer type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.defer = true; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
