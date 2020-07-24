@@ -128,7 +128,7 @@
             {% endif %}
             
             {%- minify -%}
-            {% if craft.app.config.general.devMode %}
+            {% if not craft.app.config.general.devMode %}
                 {% set siteId = '' %}
                 {% switch craft.app.locale %}
                     {% default %}
