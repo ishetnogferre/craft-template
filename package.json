@@ -1,7 +1,7 @@
 {
   "name": "website",
   "dependencies": {
-    "@babel/polyfill": "^7.10.4",
+    "@babel/polyfill": "^7.12.1",
     "@tailwindcss/custom-forms": "^0.2.1",
     "axios": "^0.18.1",
     "compression-webpack-plugin": "^3.1.0",
@@ -11,12 +11,12 @@
     "postcss-preset-env": "^6.7.0",
     "tailwindcss-aspect-ratio": "2.0.0",
     "tailwindcss-scrims": "^1.0.0",
-    "vue": "^2.6.11"
+    "vue": "^2.6.12"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.5",
+    "@babel/core": "^7.12.3",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "caniuse-lite": "^1.0.30001105",
+    "caniuse-lite": "^1.0.30001159",
     "cross-env": "^5.2.1",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^3.3.0",
@@ -25,9 +25,9 @@
     "laravel-mix-purgecss": "^4.2.0",
     "postcss-easy-import": "^3.0.0",
     "prettier": "^1.18.2",
-    "tailwindcss": "^1.2.0",
-    "vue-template-compiler": "^2.6.11",
-    "webpack": "^4.43.0"
+    "tailwindcss": "^1.9.6",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^4.44.2"
   },
   "scripts": {
     "dev": "npm run development",
