@@ -1,0 +1,64 @@
+field: b494bf2c-eafd-4194-99a9-559a9549d81e
+fieldLayouts:
+  11507b3f-841e-4263-babc-7f2ce5a7eab1:
+    tabs:
+      -
+        fields:
+          24ae2ad0-7b98-4004-9124-7a526e54ab81:
+            required: true
+            sortOrder: 2
+          9adff1f9-e747-4952-aebb-6a91e83b7990:
+            required: true
+            sortOrder: 1
+        name: Content
+        sortOrder: 1
+fields:
+  24ae2ad0-7b98-4004-9124-7a526e54ab81:
+    contentColumnType: text
+    fieldGroup: null
+    handle: body2
+    instructions: ''
+    name: Body
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: ''
+      cleanupHtml: true
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: ''
+      redactorConfig: Standard.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  9adff1f9-e747-4952-aebb-6a91e83b7990:
+    contentColumnType: text
+    fieldGroup: null
+    handle: body1
+    instructions: ''
+    name: Body
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: ''
+      cleanupHtml: true
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: ''
+      redactorConfig: Standard.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+handle: columns
+name: Columns
+sortOrder: 3

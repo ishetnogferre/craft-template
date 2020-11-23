@@ -1,41 +1,96 @@
 {
-  "name": "website",
-  "dependencies": {
-    "@babel/polyfill": "^7.12.1",
-    "@tailwindcss/custom-forms": "^0.2.1",
-    "axios": "^0.18.1",
-    "compression-webpack-plugin": "^3.1.0",
-    "lazysizes": "^4.1.8",
-    "picturefill": "^3.0.3",
-    "postcss-object-fit-images": "^1.1.2",
-    "postcss-preset-env": "^6.7.0",
-    "tailwindcss-aspect-ratio": "2.0.0",
-    "tailwindcss-scrims": "^1.0.0",
-    "vue": "^2.6.12"
+  "scripts": {
+    "watch": "npm run clean && NODE_ENV=development webpack --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "dev": "npm run clean && NODE_ENV=development webpack-dev-server --https --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "start": "npm run clean && NODE_ENV=development webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "build": "npm run clean && NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "clean": "rimraf web/dist/* web/{,**/}*{html,json}",
+    "fix-scripts": "eslint --fix 'src/scripts/**/*.{vue,js,jsx,mjs}'",
+    "test": "echo \"No test script specified\""
   },
   "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "caniuse-lite": "^1.0.30001159",
-    "cross-env": "^5.2.1",
-    "eslint": "^5.16.0",
-    "eslint-config-prettier": "^3.3.0",
-    "eslint-plugin-vue": "^5.2.3",
-    "laravel-mix": "^4.1.4",
-    "laravel-mix-purgecss": "^4.2.0",
+    "babel-eslint": "^10.1.0",
+    "copy-webpack-plugin": "^6.3.2",
+    "core-js": "^3.6.5",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.12.1",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-compat": "^3.7.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "faker": "^4.1.0",
+    "globby": "^11.0.1",
+    "html-critical-webpack-plugin": "^2.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "imagemin-webpack-plugin": "^2.4.2",
+    "laravel-mix": "^5.0.4",
+    "laravel-mix-critical": "^0.1.2",
+    "laravel-mix-eslint": "^0.1.3",
+    "laravel-mix-imagemin": "1.0.3",
+    "laravel-mix-make-file-hash": "^2.1.0",
+    "laravel-mix-polyfill": "^2.0.0",
+    "laravel-mix-purgecss": "^5.0.0",
+    "laravel-mix-svg-sprite": "^1.0.1",
+    "laravel-mix-twig-to-html": "^1.3.0",
+    "node-sass": "^4.14.1",
     "postcss-easy-import": "^3.0.0",
-    "prettier": "^1.18.2",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.1.2",
+    "raw-loader": "^4.0.1",
+    "rimraf": "^3.0.2",
+    "sass-loader": "^8.0.2",
     "tailwindcss": "^1.9.6",
-    "vue-template-compiler": "^2.6.12",
-    "webpack": "^4.44.2"
+    "twig-html-loader": "^0.1.7",
+    "vue-eslint-parser": "^7.1.1",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.43.0"
   },
-  "scripts": {
-    "dev": "npm run development",
-    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "prod": "npm run production",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "format": "prettier --write 'src/**/*.{css,js,vue}'"
+  "dependencies": {
+    "@tailwindcss/custom-forms": "github:tailwindcss/custom-forms",
+    "alpinejs": "^2.7.3",
+    "autoprefixer": "^10.0.1",
+    "font-awesome": "^4.7.0",
+    "lazysizes": "^5.2.2",
+    "lightbox2": "^2.11.3",
+    "tailwindcss-aspect-ratio": "^3.0.0",
+    "tailwindcss-bg-alpha": "^2.1.0",
+    "tailwindcss-gradients": "^3.0.0",
+    "tailwindcss-half-container": "github:ferrrrrre/tailwindcss-half-container#master",
+    "tailwindcss-responsive-embed": "^1.0.0",
+    "tailwindcss-scrims": "^1.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "Firefox ESR",
+    "not ie 10",
+    "not op_mini all",
+    "not op_mob 12.1",
+    "not baidu 7.12",
+    "not ie_mob 10",
+    "not ie_mob 11",
+    "not and_uc 11.8"
+  ],
+  "eslintConfig": {
+    "parser": "vue-eslint-parser",
+    "parserOptions": {
+      "parser": "babel-eslint",
+      "sourceType": "module"
+    },
+    "plugins": [
+      "compat"
+    ],
+    "rules": {
+      "compat/compat": "warn"
+    }
+  },
+  "engines": {
+    "node": ">=10.18.1"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "useTabs": false,
+    "tabWidth": 4,
+    "semi": false,
+    "singleQuote": false
   }
 }

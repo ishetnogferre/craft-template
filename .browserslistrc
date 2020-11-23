@@ -1,6 +1,0 @@
-# Browsers we support via Babel, Autoprefixer etc.
-# https://github.com/ai/browserslist
-
->0.25%
->5% in BE
-not op_mini all

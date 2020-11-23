@@ -1,0 +1,102 @@
+field: b494bf2c-eafd-4194-99a9-559a9549d81e
+fieldLayouts:
+  f37e971e-9f46-4d69-b01c-938da4eb8da2:
+    tabs:
+      -
+        fields:
+          1cb201aa-45e1-40b1-abd1-380be5b37754:
+            required: true
+            sortOrder: 3
+          30577327-3276-4d9b-bdfa-8e9404e5b536:
+            required: true
+            sortOrder: 1
+          a6b44536-88f8-4d64-ad09-c50f3420c227:
+            required: true
+            sortOrder: 2
+          d8d9d6dd-7d09-4b31-a283-1ae645683016:
+            required: true
+            sortOrder: 4
+        name: Content
+        sortOrder: 1
+fields:
+  1cb201aa-45e1-40b1-abd1-380be5b37754:
+    contentColumnType: string
+    fieldGroup: null
+    handle: blockSection
+    instructions: ''
+    name: Sectie
+    searchable: true
+    settings:
+      allowMultiple: '1'
+      whitelistedSections:
+        - '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: charliedev\sectionfield\fields\SectionField
+  30577327-3276-4d9b-bdfa-8e9404e5b536:
+    contentColumnType: text
+    fieldGroup: null
+    handle: blockTitle
+    instructions: ''
+    name: Titel
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Simple.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  a6b44536-88f8-4d64-ad09-c50f3420c227:
+    contentColumnType: text
+    fieldGroup: null
+    handle: blockDescription
+    instructions: ''
+    name: Introductie
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Simple.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  d8d9d6dd-7d09-4b31-a283-1ae645683016:
+    contentColumnType: integer(10)
+    fieldGroup: null
+    handle: blockCount
+    instructions: ''
+    name: 'Aantal teasers'
+    searchable: true
+    settings:
+      decimals: 0
+      defaultValue: '5'
+      max: null
+      min: '2'
+      prefix: ''
+      size: null
+      suffix: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Number
+handle: teasers
+name: Teasers
+sortOrder: 6

@@ -1,0 +1,45 @@
+contentColumnType: text
+fieldGroup: 4aa522cd-b60c-4dc0-a75e-8e841ce726b3
+handle: seo
+instructions: ''
+name: SEO
+searchable: true
+settings:
+  description: ''
+  hideSocial: ''
+  robots:
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+    - ''
+  socialImage: ''
+  suffixAsPrefix: null
+  title:
+    -
+      __assoc__:
+        -
+          - key
+          - '1'
+        -
+          - locked
+          - '0'
+        -
+          - template
+          - '{title}'
+    -
+      __assoc__:
+        -
+          - key
+          - qo6
+        -
+          - locked
+          - '1'
+        -
+          - template
+          - ' | {{ systemName }}'
+  titleSuffix: null
+translationKeyFormat: null
+translationMethod: none
+type: ether\seo\fields\SeoField

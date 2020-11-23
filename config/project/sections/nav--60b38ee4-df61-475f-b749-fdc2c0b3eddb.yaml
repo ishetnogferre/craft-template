@@ -1,0 +1,19 @@
+enableVersioning: true
+handle: nav
+name: Navigation
+propagationMethod: all
+siteSettings:
+  47c098da-b5ac-4503-b399-ef8a969c1775:
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: ''
+  9d6f768b-e1c6-4802-9e7d-06ef35121847:
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: ''
+structure:
+  maxLevels: null
+  uid: 1f2389db-25e7-4db5-a94e-4a8eaf25a12d
+type: structure

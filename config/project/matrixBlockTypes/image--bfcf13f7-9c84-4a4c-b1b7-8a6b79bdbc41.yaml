@@ -1,0 +1,81 @@
+field: b494bf2c-eafd-4194-99a9-559a9549d81e
+fieldLayouts:
+  d1153f26-fd93-4822-9419-361c3734c059:
+    tabs:
+      -
+        fields:
+          04e62582-3faa-426a-8f14-1b623ee9c767:
+            required: true
+            sortOrder: 1
+          e3f47e81-e327-4ce4-a456-5943ba3df7a6:
+            required: true
+            sortOrder: 2
+        name: Content
+        sortOrder: 1
+fields:
+  04e62582-3faa-426a-8f14-1b623ee9c767:
+    contentColumnType: string
+    fieldGroup: null
+    handle: asset
+    instructions: ''
+    name: Asset
+    searchable: true
+    settings:
+      allowSelfRelations: ''
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:56927c8a-e051-4381-aa6c-4100a9fa4991'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: ''
+      restrictFiles: '1'
+      selectionLabel: ''
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: true
+      singleUploadLocationSource: 'volume:56927c8a-e051-4381-aa6c-4100a9fa4991'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources:
+        - 'volume:56927c8a-e051-4381-aa6c-4100a9fa4991'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: ''
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  e3f47e81-e327-4ce4-a456-5943ba3df7a6:
+    contentColumnType: string
+    fieldGroup: null
+    handle: position
+    instructions: 'Inside or outside the text container?'
+    name: Position
+    searchable: true
+    settings:
+      default: center
+      options:
+        __assoc__:
+          -
+            - left
+            - ''
+          -
+            - center
+            - '1'
+          -
+            - right
+            - ''
+          -
+            - full
+            - '1'
+          -
+            - drop-left
+            - ''
+          -
+            - drop-right
+            - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: rias\positionfieldtype\fields\Position
+handle: image
+name: Image
+sortOrder: 2

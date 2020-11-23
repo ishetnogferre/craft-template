@@ -1,0 +1,21 @@
+fieldLayouts:
+  9d4e57a5-ae68-4ada-87c6-b66d7ba56b3a:
+    tabs:
+      -
+        elements:
+          -
+            instructions: null
+            label: Title
+            type: craft\fieldlayoutelements\EntryTitleField
+          -
+            fieldUid: add2854a-af6c-41a5-8ae0-ab82a9fa8e05
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+        name: Navigation
+        sortOrder: 1
+handle: navItem
+hasTitleField: true
+name: 'Navigatie Item'
+section: 60b38ee4-df61-475f-b749-fdc2c0b3eddb
+sortOrder: 1
+titleFormat: ''

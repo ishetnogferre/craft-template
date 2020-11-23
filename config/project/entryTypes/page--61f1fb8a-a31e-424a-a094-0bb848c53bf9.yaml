@@ -1,0 +1,53 @@
+fieldLayouts:
+  287b486d-5e0f-4da3-ad71-b0e6e4f5bb6e:
+    tabs:
+      -
+        elements:
+          -
+            instructions: null
+            label: Title
+            type: craft\fieldlayoutelements\EntryTitleField
+          -
+            fieldUid: b494bf2c-eafd-4194-99a9-559a9549d81e
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+        name: Content
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: b917a8a3-28d7-40a4-9602-748d6325f75c
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: 4d0e15b6-48b2-4e0a-aa88-3bfeb5fbade6
+            required: true
+            type: craft\fieldlayoutelements\CustomField
+        name: Header
+        sortOrder: 2
+      -
+        elements:
+          -
+            fieldUid: 012cc720-8595-4594-828d-06e3e4b4d6da
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+          -
+            fieldUid: 98cb59e0-b890-4c98-a5cc-a740202371ac
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+        name: Teaser
+        sortOrder: 3
+      -
+        elements:
+          -
+            fieldUid: 7a674abb-2b3b-4954-bf38-14eb75963c6b
+            required: true
+            type: craft\fieldlayoutelements\CustomField
+        name: SEO
+        sortOrder: 4
+handle: page
+hasTitleField: true
+name: Pagina
+section: fe154a59-9561-4bf1-ba7b-f2e632f45aaf
+sortOrder: 1
+titleFormat: ''

@@ -6,6 +6,22 @@
 **
 */
 module.exports = {
+  purge: {
+    enabled: true,
+    mode: 'all',
+    content: [
+      './templates/**/**/*.twig',
+      './templates/**/**/*.html',
+      './src/styles/**/*.css',
+      './src/scripts/**/*.js',
+      './src/scripts/**/*.vue'
+    ],
+    options: {
+      whitelistPatterns: [/ls-blur-up-img/],
+      whitelist: [],
+      whitelistPatternsChildren: [/body/, /ls-blur-up-img/, /lb-/]
+    }
+  },
   theme: {
     aspectRatio: {
       square: [1, 1],
