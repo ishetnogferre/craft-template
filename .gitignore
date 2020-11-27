@@ -16,7 +16,7 @@ config/license.key
 /web/assets
 
 # SCRIPTS
-scripts
+/scripts
 
 # BUILD FILES
 /bower_components/*
