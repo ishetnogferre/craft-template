@@ -80,6 +80,10 @@
                         {% set language = 'nl' %}
                         {% set content = "" %}
                 {% endswitch %}
+                <script>
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({'language': '{{ language }}'});
+                </script>
 
             <!-- Iubenda Cookie solution -->
                 <script type="text/javascript">var _iub = _iub || {}; _iub.cons_instructions = _iub.cons_instructions || []; _iub.cons_instructions.push(["init", {api_key: "ZH5o8BtICFsUUJBVyx2e8gTrhKU6ehXA"}]);</script><script type="text/javascript" src="https://cdn.iubenda.com/cons/iubenda_cons.js" async></script>
