@@ -1,4 +1,4 @@
-dateModified: 1605888692
+dateModified: 1610703049
 email:
   fromEmail: kjell@marbles.be
   fromName: Craft
@@ -15,6 +15,14 @@ plugins:
     licenseKey: null
     schemaVersion: 1.0.0
     settings: null
+  eager-beaver:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  elements-panel:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   expanded-singles:
     enabled: '1'
     licenseKey: null
@@ -39,6 +47,10 @@ plugins:
     licenseKey: null
     schemaVersion: 1.0.0
     settings: null
+  navigation:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.21
   position-fieldtype:
     enabled: '1'
     licenseKey: null
@@ -84,6 +96,10 @@ plugins:
           template: ' - {{ siteName }}'
       titleSuffix: null
       twitterHandle: ''
+  sprig:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.1
   super-table:
     enabled: '1'
     licenseKey: null

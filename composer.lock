@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c1ebfdaa1da93daea7cef3c5fc8797bb",
+    "content-hash": "ca631ff8e92cc3fd78dde1dc71120bc4",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -2847,6 +2847,38 @@
             "time": "2020-03-09T16:18:28+00:00"
         },
         {
+            "name": "ivopetkov/html5-dom-document-php",
+            "version": "v2.2.8",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ivopetkov/html5-dom-document-php/zipball/e14df5e8a6039c47cfe1aea7b121956d7c0a53b3",
+                "reference": "e14df5e8a6039c47cfe1aea7b121956d7c0a53b3",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "php": ">=7.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "autoload.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivo Petkov",
+                    "email": "ivo@ivopetkov.com",
+                    "homepage": "http://ivopetkov.com"
+                }
+            ],
+            "description": "HTML5 DOMDocument PHP library (extends DOMDocument)",
+            "time": "2021-01-04T09:17:30+00:00"
+        },
+        {
             "name": "justinrainbow/json-schema",
             "version": "5.2.10",
             "dist": {
@@ -3020,11 +3052,11 @@
         },
         {
             "name": "laminas/laminas-feed",
-            "version": "2.13.0",
+            "version": "2.13.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-feed/zipball/fb89aac1984222227f37792dd193d34829a0762f",
-                "reference": "fb89aac1984222227f37792dd193d34829a0762f",
+                "url": "https://api.github.com/repos/laminas/laminas-feed/zipball/45d36702d09afd5d8ca01192ecd3b5afaf37126b",
+                "reference": "45d36702d09afd5d8ca01192ecd3b5afaf37126b",
                 "shasum": ""
             },
             "require": {
@@ -3064,7 +3096,7 @@
                 "feed",
                 "laminas"
             ],
-            "time": "2020-11-18T21:02:52+00:00"
+            "time": "2021-01-04T19:20:24+00:00"
         },
         {
             "name": "laminas/laminas-stdlib",
@@ -4140,6 +4172,62 @@
             "time": "2020-07-02T17:12:47+00:00"
         },
         {
+            "name": "nystudio107/craft-eagerbeaver",
+            "version": "1.0.4",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nystudio107/craft-eagerbeaver/zipball/e3b2d3e1847bfca022812a2a2aba2481636a85ea",
+                "reference": "e3b2d3e1847bfca022812a2a2aba2481636a85ea",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Eager Beaver",
+                "handle": "eager-beaver",
+                "schemaVersion": "1.0.0",
+                "hasCpSettings": false,
+                "hasCpSection": false,
+                "changelogUrl": "https://raw.githubusercontent.com/nystudio107/craft-eagerbeaver/v1/CHANGELOG.md",
+                "components": {
+                    "eagerBeaverService": "nystudio107\\eagerbeaver\\services\\EagerBeaverService"
+                },
+                "class": "nystudio107\\eagerbeaver\\EagerBeaver"
+            },
+            "autoload": {
+                "psr-4": {
+                    "nystudio107\\eagerbeaver\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "nystudio107",
+                    "homepage": "https://nystudio107.com"
+                }
+            ],
+            "description": "Allows you to eager load elements from auto-injected Entry elements on demand from your templates.",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "eager",
+                "eager beaver",
+                "eager loading",
+                "loading"
+            ],
+            "support": {
+                "docs": "https://github.com/nystudio107/craft-eagerbeaver/blob/v1/README.md",
+                "issues": "https://github.com/nystudio107/craft-eagerbeaver/issues"
+            },
+            "time": "2018-07-30T05:25:22+00:00"
+        },
+        {
             "name": "nystudio107/craft-minify",
             "version": "1.2.10",
             "dist": {
@@ -5025,6 +5113,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2020-02-07T06:19:00+00:00"
         },
         {
@@ -5527,6 +5616,84 @@
                 "speed"
             ],
             "time": "2019-07-16T08:25:33+00:00"
+        },
+        {
+            "name": "putyourlightson/craft-elements-panel",
+            "version": "1.1.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/putyourlightson/craft-elements-panel/zipball/b5f0b6215dcb54231af0e2d043d9874b0d56ed19",
+                "reference": "b5f0b6215dcb54231af0e2d043d9874b0d56ed19",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Elements Panel",
+                "handle": "elements-panel",
+                "developer": "PutYourLightsOn",
+                "developerUrl": "https://putyourlightson.com/",
+                "documentationUrl": "https://putyourlightson.com/plugins/elements-panel",
+                "changelogUrl": "https://raw.githubusercontent.com/putyourlightson/craft-elements-panel/v1/CHANGELOG.md",
+                "class": "putyourlightson\\elementspanel\\ElementsPanel"
+            },
+            "autoload": {
+                "psr-4": {
+                    "putyourlightson\\elementspanel\\": "src/"
+                }
+            },
+            "license": [
+                "mit"
+            ],
+            "description": "Adds an Elements and an Eager-Loading panel to the debug toolbar.",
+            "support": {
+                "docs": "https://putyourlightson.com/plugins/elements-panel",
+                "source": "https://github.com/putyourlightson/craft-elements-panel",
+                "issues": "https://github.com/putyourlightson/craft-elements-panel/issues"
+            },
+            "time": "2020-10-30T08:19:36+00:00"
+        },
+        {
+            "name": "putyourlightson/craft-sprig",
+            "version": "1.3.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/putyourlightson/craft-sprig/zipball/5a551531518a1aac52413ffd2b5f721815e04f90",
+                "reference": "5a551531518a1aac52413ffd2b5f721815e04f90",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.1.19",
+                "ivopetkov/html5-dom-document-php": "^2.2.8"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Sprig",
+                "handle": "sprig",
+                "developer": "PutYourLightsOn",
+                "developerUrl": "https://putyourlightson.com/",
+                "documentationUrl": "https://putyourlightson.com/plugins/sprig",
+                "changelogUrl": "https://raw.githubusercontent.com/putyourlightson/craft-sprig/v1/CHANGELOG.md",
+                "class": "putyourlightson\\sprig\\Sprig",
+                "schemaVersion": "1.0.1"
+            },
+            "autoload": {
+                "psr-4": {
+                    "putyourlightson\\sprig\\": "src/"
+                }
+            },
+            "license": [
+                "mit"
+            ],
+            "description": "A reactive Twig component framework for Craft.",
+            "support": {
+                "docs": "https://putyourlightson.com/plugins/sprig",
+                "source": "https://github.com/putyourlightson/craft-sprig",
+                "issues": "https://github.com/putyourlightson/craft-sprig/issues"
+            },
+            "time": "2021-01-13T12:45:19+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -8239,6 +8406,58 @@
                 "rss": "https://github.com/verbb/formie/commits/v2.atom"
             },
             "time": "2020-11-19T10:57:23+00:00"
+        },
+        {
+            "name": "verbb/navigation",
+            "version": "1.4.12",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/verbb/navigation/zipball/bfb0438250830e21f2c1ba75e22652337efccfbe",
+                "reference": "bfb0438250830e21f2c1ba75e22652337efccfbe",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.4.0",
+                "verbb/base": "^1.0.2"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Navigation",
+                "handle": "navigation",
+                "changelogUrl": "https://raw.githubusercontent.com/verbb/navigation/craft-3/CHANGELOG.md",
+                "class": "verbb\\navigation\\Navigation"
+            },
+            "autoload": {
+                "psr-4": {
+                    "verbb\\navigation\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Verbb",
+                    "homepage": "https://verbb.io"
+                }
+            ],
+            "description": "A Craft CMS plugin to create navigation menus for your site.",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "menu",
+                "navigation"
+            ],
+            "support": {
+                "email": "support@verbb.io",
+                "issues": "https://github.com/verbb/navigation/issues?state=open",
+                "source": "https://github.com/verbb/navigation",
+                "docs": "https://github.com/verbb/navigation",
+                "rss": "https://github.com/verbb/navigation/commits/v2.atom"
+            },
+            "time": "2021-01-15T00:59:17+00:00"
         },
         {
             "name": "verbb/super-table",

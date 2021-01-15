@@ -42,8 +42,6 @@ const config = {
     // Urls for CriticalCss to look for "above the fold" Css
     criticalCssUrls: [
         { urlPath: "/", label: "homepage"},
-        { urlPath: "/blog", label: "blogIndex" },
-        { urlPath: "/offerte", label: "formPage" }
         // { urlPath: "/", label: "index" },
         // { urlPath: "/about", label: "about" },
     ],

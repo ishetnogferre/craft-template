@@ -16,7 +16,7 @@
     "eslint": "^7.12.1",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-compat": "^3.7.0",
-    "eslint-plugin-vue": "^6.2.2",
+    "eslint-plugin-vue": "^7.4.1",
     "faker": "^4.1.0",
     "globby": "^11.0.1",
     "html-critical-webpack-plugin": "^2.1.0",
@@ -38,25 +38,18 @@
     "raw-loader": "^4.0.1",
     "rimraf": "^3.0.2",
     "sass-loader": "^8.0.2",
-    "tailwindcss": "^1.9.6",
     "twig-html-loader": "^0.1.7",
-    "vue-eslint-parser": "^7.1.1",
-    "vue-template-compiler": "^2.6.11",
+    "vue-template-compiler": "^2.6.12",
     "webpack": "^4.43.0"
   },
   "dependencies": {
-    "@tailwindcss/custom-forms": "github:tailwindcss/custom-forms",
     "alpinejs": "^2.7.3",
-    "autoprefixer": "^10.0.1",
     "font-awesome": "^4.7.0",
     "lazysizes": "^5.2.2",
-    "lightbox2": "^2.11.3",
     "tailwindcss-aspect-ratio": "^3.0.0",
-    "tailwindcss-bg-alpha": "^2.1.0",
-    "tailwindcss-gradients": "^3.0.0",
-    "tailwindcss-half-container": "github:ferrrrrre/tailwindcss-half-container#master",
     "tailwindcss-responsive-embed": "^1.0.0",
-    "tailwindcss-scrims": "^1.0.0"
+    "tailwindcss-scrims": "^1.0.0",
+    "vue-eslint-parser": "^7.1.1"
   },
   "browserslist": [
     "> 1%",
@@ -92,5 +85,6 @@
     "tabWidth": 4,
     "semi": false,
     "singleQuote": false
-  }
+  },
+  "name": "craft-template"
 }

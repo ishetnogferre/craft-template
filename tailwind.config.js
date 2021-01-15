@@ -228,14 +228,6 @@ module.exports = {
   plugins: [
     /* Doc: https://github.com/webdna/tailwindcss-aspect-ratio */
     require('tailwindcss-aspect-ratio'),
-    /* Doc: https://github.com/tailwindcss/custom-forms/blob/master/src/defaultOptions.js */
-    require('@tailwindcss/custom-forms'),
-    /* Doc: https://github.com/adfdev/tailwindcss-bg-alpha*/
-    //require('tailwindcss-bg-alpha')(),
-    /* Doc: https://github.com/ChanceArthur/tailwindcss-dark-mode */
-    //require('tailwindcss-dark-mode')(),
-    /* Doc: https://github.com/jorenvanhee/tailwindcss-debug-screens */
-    //require('tailwindcss-debug-screens'),
     /* Doc: https://github.com/brettgullan/tailwindcss-scrims */
     require('tailwindcss-scrims')({
       directions: {
