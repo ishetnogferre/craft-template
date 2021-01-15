@@ -1,0 +1,16 @@
+enableVersioning: true
+handle: homepage
+name: Home
+propagationMethod: all
+siteSettings:
+  47c098da-b5ac-4503-b399-ef8a969c1775:
+    enabledByDefault: true
+    hasUrls: true
+    template: _resolvers/page
+    uriFormat: __home__
+  9d6f768b-e1c6-4802-9e7d-06ef35121847:
+    enabledByDefault: true
+    hasUrls: true
+    template: _resolvers/page
+    uriFormat: __home__
+type: single

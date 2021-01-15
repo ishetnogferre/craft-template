@@ -1,4 +1,4 @@
-dateModified: 1610703049
+dateModified: 1610704740
 email:
   fromEmail: kjell@marbles.be
   fromName: Craft
@@ -51,6 +51,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.21
+  neo:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.8.16
   position-fieldtype:
     enabled: '1'
     licenseKey: null
@@ -61,6 +65,10 @@ plugins:
     licenseKey: null
     schemaVersion: 2.3.0
     settings: null
+  redactor-custom-styles:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   section-field:
     enabled: '1'
     licenseKey: null

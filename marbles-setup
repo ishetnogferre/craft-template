@@ -173,7 +173,7 @@ function initializeGit()
 function runLaravelMix()
 {
     outputString(PHP_EOL.'Running Laravel Mix', Console::FG_YELLOW);
-    executeShellCommand('npm run dev');
+    executeShellCommand('npm run watch');
 }
 
 /**
@@ -223,9 +223,6 @@ function installNodePackages()
     $command = '';
     if (shellCommandExists('npm')) {
         $command = 'npm install';
-    }
-    if (shellCommandExists('yarn')) {
-        $command = 'yarn';
     }
 
     outputString(PHP_EOL.'Installing NodeJS packages via '.$command. ' (this may take a while)', Console::FG_YELLOW);
