@@ -1,4 +1,4 @@
-dateModified: 1610704740
+dateModified: 1610906317
 email:
   fromEmail: kjell@marbles.be
   fromName: Craft
@@ -20,6 +20,10 @@ plugins:
     enabled: true
     schemaVersion: 1.0.0
   elements-panel:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  embeddedassets:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0

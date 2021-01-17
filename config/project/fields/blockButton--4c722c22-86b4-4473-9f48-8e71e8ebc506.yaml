@@ -1,16 +1,20 @@
 contentColumnType: text
-fieldGroup: 78bdf0c6-f90e-4267-a5d3-003a053a5161
-handle: navLink
+fieldGroup: 7c4e2735-1749-4be8-bf8f-ea4263b6938b
+handle: blockButton
 instructions: ''
-name: 'Navigatie Link'
-searchable: true
+name: Button
+searchable: false
 settings:
-  allowCustomText: ''
+  allowCustomText: '1'
   allowTarget: '1'
   allowedLinkNames:
+    1: asset
+    2: category
     3: entry
-    4: site
     6: custom
+    7: email
+    8: tel
+    9: url
   autoNoReferrer: ''
   defaultLinkName: entry
   defaultText: ''

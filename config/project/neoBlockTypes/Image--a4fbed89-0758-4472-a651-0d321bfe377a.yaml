@@ -1,0 +1,25 @@
+childBlocks: ''
+field: b494bf2c-eafd-4194-99a9-559a9549d81e
+fieldLayouts:
+  18073ac5-690e-4811-8e1b-3b2c8dfd7c5a:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: eeb563db-583c-447b-ab42-6b427d78acc8
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Afbeelding
+        sortOrder: 1
+handle: Image
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Afbeelding
+sortOrder: 3
+topLevel: false

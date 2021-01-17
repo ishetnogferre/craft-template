@@ -1,0 +1,25 @@
+childBlocks: ''
+field: b494bf2c-eafd-4194-99a9-559a9549d81e
+fieldLayouts:
+  56da23a5-f16b-44c2-9f61-b9424505a3eb:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 4556bddb-8fe2-4c61-8d62-78f1f1941905
+            instructions: ''
+            label: Tekst
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Tekst
+        sortOrder: 1
+handle: text
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Tekst
+sortOrder: 5
+topLevel: false

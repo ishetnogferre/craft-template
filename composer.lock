@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b8caba887581f57fe95b23fbb19737a0",
+    "content-hash": "5bc77761b5a969420f36c180b73d491d",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -1627,6 +1627,50 @@
                 "php-emoji"
             ],
             "time": "2018-09-28T05:23:38+00:00"
+        },
+        {
+            "name": "embed/embed",
+            "version": "v3.4.13",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oscarotero/Embed/zipball/99f6d95aebd94251573e4f4febf14bc6aba28697",
+                "reference": "99f6d95aebd94251573e4f4febf14bc6aba28697",
+                "shasum": ""
+            },
+            "require": {
+                "composer/ca-bundle": "^1.0",
+                "ext-curl": "*",
+                "ext-dom": "*",
+                "ext-mbstring": "*",
+                "php": "^5.6|^7.0|^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Embed\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oscar Otero",
+                    "email": "oom@oscarotero.com",
+                    "homepage": "http://oscarotero.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP library to retrieve page info using oembed, opengraph, etc",
+            "homepage": "https://github.com/oscarotero/Embed",
+            "keywords": [
+                "embed",
+                "embedly",
+                "oembed",
+                "opengraph",
+                "twitter cards"
+            ],
+            "time": "2020-12-24T09:42:20+00:00"
         },
         {
             "name": "enshrined/svg-sanitize",
@@ -6479,6 +6523,62 @@
                 "phar"
             ],
             "time": "2020-07-07T18:42:57+00:00"
+        },
+        {
+            "name": "spicyweb/craft-embedded-assets",
+            "version": "2.4.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spicywebau/craft-embedded-assets/zipball/54ed458aac02f099682386b3c2f708ec3ebbf06e",
+                "reference": "54ed458aac02f099682386b3c2f708ec3ebbf06e",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.4.0",
+                "embed/embed": "^3.4.13"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "handle": "embeddedassets",
+                "name": "Embedded Assets",
+                "schemaVersion": "1.0.0",
+                "class": "spicyweb\\embeddedassets\\Plugin",
+                "changelogUrl": "https://github.com/spicywebau/craft-embedded-assets/blob/master/CHANGELOG.md",
+                "downloadUrl": "https://github.com/spicywebau/craft-embedded-assets/archive/master.zip"
+            },
+            "autoload": {
+                "psr-4": {
+                    "spicyweb\\embeddedassets\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Spicy Web",
+                    "homepage": "https://spicyweb.com.au"
+                }
+            ],
+            "description": "Manage YouTube videos, Instagram photos, Twitter posts and more as first class assets",
+            "keywords": [
+                "assets",
+                "cms",
+                "craftcms",
+                "embed",
+                "instagram",
+                "plugin",
+                "twitter",
+                "vimeo",
+                "youtube"
+            ],
+            "support": {
+                "issues": "https://github.com/spicywebau/craft-embedded-assets/issues",
+                "source": "https://github.com/spicywebau/craft-embedded-assets",
+                "docs": "https://github.com/spicywebau/craft-embedded-assets/wiki",
+                "rss": "https://github.com/spicywebau/craft-embedded-assets/commits/master.atom"
+            },
+            "time": "2020-12-28T13:11:42+00:00"
         },
         {
             "name": "spicyweb/craft-neo",

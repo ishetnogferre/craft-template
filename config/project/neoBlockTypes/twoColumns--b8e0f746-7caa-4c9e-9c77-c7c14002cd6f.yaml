@@ -1,0 +1,11 @@
+childBlocks:
+  - Image
+  - text
+field: b494bf2c-eafd-4194-99a9-559a9549d81e
+handle: twoColumns
+maxBlocks: 0
+maxChildBlocks: 2
+maxSiblingBlocks: 0
+name: '-- 2 Kolommen'
+sortOrder: 1
+topLevel: true

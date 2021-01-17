@@ -5,10 +5,11 @@ instructions: ''
 name: Builder
 searchable: true
 settings:
-  contentTable: '{{%matrixcontent_builder}}'
   maxBlocks: ''
+  maxTopBlocks: ''
   minBlocks: ''
   propagationMethod: all
+  wasModified: false
 translationKeyFormat: null
 translationMethod: site
-type: craft\fields\Matrix
+type: benf\neo\Field

@@ -1,0 +1,32 @@
+contentColumnType: string
+fieldGroup: 7c4e2735-1749-4be8-bf8f-ea4263b6938b
+handle: video
+instructions: ''
+name: Video
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds:
+    - video
+  defaultUploadLocationSource: 'volume:56927c8a-e051-4381-aa6c-4100a9fa4991'
+  defaultUploadLocationSubpath: ''
+  limit: '1'
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: '1'
+  selectionLabel: ''
+  showSiteMenu: false
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  singleUploadLocationSource: 'volume:cbb7ba8e-4ec4-4c61-bb3f-892c24353455'
+  singleUploadLocationSubpath: ''
+  source: null
+  sources: '*'
+  targetSiteId: null
+  useSingleFolder: true
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets
