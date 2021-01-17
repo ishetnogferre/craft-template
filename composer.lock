@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5bc77761b5a969420f36c180b73d491d",
+    "content-hash": "9790081fbf80fced4b8167f9a1d3c08d",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -4386,6 +4386,56 @@
             "time": "2020-10-15T08:29:30+00:00"
         },
         {
+            "name": "percipioglobal/craft-colour-swatches",
+            "version": "1.4.1.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/percipioglobal/craft-colour-swatches/zipball/877a5edbf61ce6774d040a120a2e4539cbb3704a",
+                "reference": "877a5edbf61ce6774d040a120a2e4539cbb3704a",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Colour Swatches",
+                "handle": "colour-swatches",
+                "schemaVersion": "1.4.1.1",
+                "hasCpSettings": false,
+                "hasCpSection": false,
+                "changelogUrl": "https://raw.githubusercontent.com/percipioglobal/craft-colour-swatches/master/CHANGELOG.md",
+                "class": "percipioglobal\\colourswatches\\ColourSwatches"
+            },
+            "autoload": {
+                "psr-4": {
+                    "percipioglobal\\colourswatches\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Percipio Global",
+                    "homepage": "https://percipio.london"
+                }
+            ],
+            "description": "Let clients choose from a predefined set of colours.",
+            "keywords": [
+                "cms",
+                "colour-swatches",
+                "craft",
+                "craft-plugin",
+                "craftcms"
+            ],
+            "support": {
+                "docs": "https://github.com/percipioglobal/craft-colour-swatches/blob/master/README.md",
+                "issues": "https://github.com/percipioglobal/craft-colour-swatches/issues"
+            },
+            "time": "2020-12-11T15:46:20+00:00"
+        },
+        {
             "name": "phar-io/manifest",
             "version": "2.0.1",
             "dist": {
@@ -5351,6 +5401,44 @@
                 "speed"
             ],
             "time": "2019-07-16T08:25:33+00:00"
+        },
+        {
+            "name": "putyourlightson/craft-blitz-recommendations",
+            "version": "1.2.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/putyourlightson/craft-blitz-recommendations/zipball/25ae49355ae6c53a80ab9cde060102e77309eb36",
+                "reference": "25ae49355ae6c53a80ab9cde060102e77309eb36",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Blitz Recommendations",
+                "handle": "blitz-recommendations",
+                "developer": "PutYourLightsOn",
+                "developerUrl": "https://putyourlightson.com/",
+                "documentationUrl": "https://putyourlightson.com/plugins/blitz-recommendations",
+                "changelogUrl": "https://raw.githubusercontent.com/putyourlightson/craft-blitz-recommendations/v1/CHANGELOG.md",
+                "class": "putyourlightson\\blitzrecommendations\\BlitzRecommendations"
+            },
+            "autoload": {
+                "psr-4": {
+                    "putyourlightson\\blitzrecommendations\\": "src/"
+                }
+            },
+            "license": [
+                "mit"
+            ],
+            "description": "Adds a utility that provides templating performance recommendations.",
+            "support": {
+                "docs": "https://putyourlightson.com/plugins/blitz-recommendations",
+                "source": "https://github.com/putyourlightson/craft-blitz-recommendations",
+                "issues": "https://github.com/putyourlightson/craft-blitz-recommendations/issues"
+            },
+            "time": "2020-10-06T09:27:19+00:00"
         },
         {
             "name": "putyourlightson/craft-elements-panel",
