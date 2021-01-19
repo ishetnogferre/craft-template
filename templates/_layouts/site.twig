@@ -13,10 +13,7 @@
 
 {% block body %}
     <div id="site">
-        <header>
-            {% include "_layouts/nav" %}
-            {% block header %}{% endblock %}
-        </header>
+        {% block header %}{% endblock %}
 
         <main>
             {# -- Primary content block -- #}

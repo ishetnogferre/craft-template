@@ -285,7 +285,6 @@ if (!mix.inProduction()) {
  * copy-webpack-plugin > 5.1.1, so keep that dependency at that version.
  * See: https://github.com/CupOfTea696/laravel-mix-imagemin/issues/9
  */
-mix.copy('node_modules/lightbox2/dist/images', './web/dist/images')
 /*require("laravel-mix-imagemin")
 mix.imagemin(
     {
