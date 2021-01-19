@@ -37,6 +37,14 @@ a {
     text-decoration: none;
 }
 
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+}
+
 ol,
 ul {
     list-style: none;
