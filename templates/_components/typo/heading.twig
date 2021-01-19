@@ -1,0 +1,5 @@
+{# TO DO: check this component with Craft article about attributes #}
+{%- set tag = tag ?? 'span' -%}
+<{{- tag }} class="{{ classes ?? '' -}}">
+    {{- heading|striptags("<em><strong><span>")|raw -}}
+</{{-  tag }}>
