@@ -151,7 +151,7 @@
 {% if currentUser %}
     <script>
         Userback = window.Userback || {};
-        Userback.access_token = '{{ craft.config.userbackToken }}';
+        Userback.access_token = '{{ craft.app.config.general.userbackToken }}';
         (function(id) {
             var s = document.createElement('script');
             s.async = 1;s.src = 'https://static.userback.io/widget/v1.js';
