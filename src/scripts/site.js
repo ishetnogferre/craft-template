@@ -1,3 +1,3 @@
 require('lazysizes');
-require('./vendor/ls.blur-up.min.js');
+import 'lazysizes/plugins/blur-up/ls.blur-up';
 
