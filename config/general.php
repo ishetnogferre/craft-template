@@ -36,12 +36,17 @@ return [
         'omitScriptNameInUrls' => true,
         'securityKey' => getenv('SECURITY_KEY'),
         'userbackToken' => getenv('USERBACK_TOKEN'),
+        'siteUrl' => getenv('SITE_URL'),
+        'siteName' => getenv('SITE_NAME'),
 
         // Aliases parsed in sites’ settings, volumes’ settings, and Local volumes’ settings
         'aliases' => [
+            '@webroot' => getenv('BASE_PATH') . 'web',
             '@basePath' => getenv('BASE_PATH'),
             '@baseUrl' => getenv('BASE_URL'),
         ],
+        'enableGql' => false,
+
     ],
 
     // Live (production) environment
