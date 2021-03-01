@@ -36,6 +36,7 @@ return [
         'omitScriptNameInUrls' => true,
         'securityKey' => getenv('SECURITY_KEY'),
         'userbackToken' => getenv('USERBACK_TOKEN'),
+        'extraAllowedFileExtensions' => ['htm', 'html'],
         'siteUrl' => getenv('SITE_URL'),
         'siteName' => getenv('SITE_NAME'),
 
