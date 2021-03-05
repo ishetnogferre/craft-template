@@ -2,27 +2,7 @@
 
 @import './vendor/*';
 @import './bootstrap.css';
-@import './components/tailwind';
-@import './components/typogrify';
+@import './components/*';
 @import './utilities/*';
 
 @tailwind utilities;
-
-.iubenda-cs-content a {
-  @apply border-none;
-}
-
-div.g-recaptcha > div.grecaptcha-badge {
-  width:0 !important;
-}
-
-.grid--site {
-  display: grid;
-  grid-template-columns:
-    minmax(1rem, 1fr)
-    repeat(12, 1fr)
-    minmax(1rem, 1fr);
-  @screen lg {
-    grid-column-gap: 1.875rem;
-  }
-}

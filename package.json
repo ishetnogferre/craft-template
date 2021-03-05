@@ -9,6 +9,8 @@
     "test": "echo \"No test script specified\""
   },
   "devDependencies": {
+    "@tailwindcss/postcss7-compat": "^2.0.3",
+    "autoprefixer": "^9.8.6",
     "babel-eslint": "^10.1.0",
     "copy-webpack-plugin": "^6.3.2",
     "core-js": "^3.6.5",
@@ -32,12 +34,14 @@
     "laravel-mix-svg-sprite": "^1.0.1",
     "laravel-mix-twig-to-html": "^1.3.0",
     "node-sass": "^4.14.1",
+    "postcss": "^7.0.35",
     "postcss-easy-import": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.1.2",
     "raw-loader": "^4.0.1",
     "rimraf": "^3.0.2",
     "sass-loader": "^8.0.2",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3",
     "twig-html-loader": "^0.1.7",
     "vue-template-compiler": "^2.6.12",
     "webpack": "^4.43.0"

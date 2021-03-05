@@ -12,6 +12,7 @@
 {% endif %}
 
 {% block body %}
+    {{ adminbar({ entry: entry }) }}
     <div id="site">
         {% block header %}{% endblock %}
 
@@ -21,9 +22,7 @@
         </main>
 
         {# -- Footer -- #}
-        <footer id="footer">
-            {% block footer %}{% endblock %}
-            {% include "_layouts/footer" %}
-        </footer>
+        {% block footer %}{% endblock %}
+        {% include "_layouts/_partials/footer" %}
     </div>
 {% endblock %}

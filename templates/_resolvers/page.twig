@@ -46,7 +46,7 @@
 {% set title = entry.title  %}
 
 {% block inline_css %}
-    {{ source(entry.type.handle ~ "_critical.min.css", ignore_missing = true) }}
+    {{ source('_critical/' ~ entry.section.handle ~ "_critical.css", ignore_missing = true) }}
 {% endblock %}
 
 {% block main %}

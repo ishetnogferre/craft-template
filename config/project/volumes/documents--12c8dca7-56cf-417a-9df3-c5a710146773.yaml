@@ -1,8 +1,0 @@
-handle: documents
-hasUrls: '1'
-name: Documenten
-settings:
-  path: '@basePath/storage/assets/documents/'
-sortOrder: '2'
-type: craft\volumes\Local
-url: '@baseUrl/assets/documents/'
