@@ -1,4 +1,4 @@
-dateModified: 1614965203
+dateModified: 1614967934
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER
@@ -67,6 +67,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  imager:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
   minify:
     edition: standard
     enabled: true
@@ -93,6 +97,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  section-field:
+    edition: standard
+    enabled: true
+    schemaVersion: 0.0.1
   seo:
     edition: standard
     enabled: true

@@ -2,7 +2,8 @@
 
 @import './vendor/*';
 @import './bootstrap.css';
-@import './components/*';
+@import './components/tailwind.css';
+@import './components/typogrify.css';
 @import './utilities/*';
 
 @tailwind utilities;
