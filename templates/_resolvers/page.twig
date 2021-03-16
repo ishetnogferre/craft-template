@@ -49,8 +49,10 @@
     {{ source('_critical/' ~ entry.section.handle ~ "_critical.css", ignore_missing = true) }}
 {% endblock %}
 
-{% block main %}
-    
-    {% include "_resolvers/detail" %}
+{% block header %}
+    {% include "_resolvers/header" %}
+{% endblock %}
 
+{% block main %}
+    {% include "_resolvers/detail" %}
 {% endblock %}

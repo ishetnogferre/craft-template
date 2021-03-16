@@ -41,6 +41,7 @@
         width: 32,
         quality: 25,
     } %}
+    {% set imgContain = imgContain ?? false %}
 
     {% set transform = attribute(transforms, transform) %}
     <picture class="{{ picClasses ?? '' }}">
@@ -49,14 +50,15 @@
         {% else %}
             {% set placeholder = craft.imager.transformImage(asset, placeholder, transforms.base|merge({effects: {blur: 1}})) %}
             {% set transformedImages = craft.imager.transformImage(asset, widths, transform, { fillTransforms: true }) %}
-            <img class="lazyload w-full h-full {{ imgClasses }}"
+            <img class="lazyload {{ imgClasses }}"
                 src="{{ craft.imager.base64pixel }}"
                 data-lowsrc="{{ placeholder.url }}"
                 data-src="{{ transformedImages[0].url }}"
                 data-srcset="{{ craft.imager.srcset(transformedImages) }}"
                 sizes="{{ sizes }}"
                 alt="{{ asset.title }}"
-                style="object-position: {{ asset.focalpoint.x|round(1, 'common') * 100 }}% {{ asset.focalpoint.y|round(1, 'common') * 100 }}%"
+                style="object-position: {%- if imgContain %} top {%- else -%}
+                {{ asset.focalpoint.x|round(1, 'common') * 100 }}% {{ asset.focalpoint.y|round(1, 'common') * 100 }}%{%- endif -%}"
             >
         {% endif %}
     </picture>

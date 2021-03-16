@@ -2,7 +2,7 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
   purge: {
-    enabled: false,
+    enabled: true,
     mode: 'all',
     content: [
       './templates/**/**/*.twig',
@@ -80,6 +80,9 @@ module.exports = {
       72: '18rem',
       80: '20rem',
       96: '24rem',
+      100: '25rem',
+      120: '30rem',
+      128: '32rem',
     },
     animation: {
       none: 'none',
@@ -87,6 +90,16 @@ module.exports = {
       ping: 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
       pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       bounce: 'bounce 1s infinite',
+    },
+    aspectRatio: {
+      'none': 0,
+      'square': [1, 1],
+      "5/4": [5, 4],
+      "4/3": [4, 3],
+      "3/2": [3, 2],
+      "16/10": [16, 10],
+      "16/9": [16, 9],
+      "21/9": [21, 9],
     },
     backgroundColor: (theme) => theme('colors'),
     backgroundImage: {
@@ -262,6 +275,8 @@ module.exports = {
       'span-10': 'span 10 / span 10',
       'span-11': 'span 11 / span 11',
       'span-12': 'span 12 / span 12',
+      'span-13': 'span 13 / span 13',
+      'span-14': 'span 14 / span 14',
       'span-full': '1 / -1',
     },
     gridColumnEnd: {
@@ -340,6 +355,8 @@ module.exports = {
       10: 'repeat(10, minmax(0, 1fr))',
       11: 'repeat(11, minmax(0, 1fr))',
       12: 'repeat(12, minmax(0, 1fr))',
+      13: 'repeat(13, minmax(0, 1fr))',
+      14: 'repeat(14, minmax(0, 1fr))',
     },
     gridTemplateRows: {
       none: 'none',

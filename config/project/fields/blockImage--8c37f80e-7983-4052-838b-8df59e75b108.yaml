@@ -1,0 +1,33 @@
+contentColumnType: string
+fieldGroup: d0393e73-f781-4174-9020-2f7649b53d09 # Blocks
+handle: blockImage
+instructions: ''
+name: Afbeelding
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds:
+    - image
+  defaultUploadLocationSource: 'volume:49ded60a-198f-449b-819e-2533dde2cb20' # Afbeeldingen
+  defaultUploadLocationSubpath: ''
+  limit: ''
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: '1'
+  selectionLabel: ''
+  showSiteMenu: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  singleUploadLocationSource: 'volume:49ded60a-198f-449b-819e-2533dde2cb20' # Afbeeldingen
+  singleUploadLocationSubpath: ''
+  source: null
+  sources:
+    - 'volume:49ded60a-198f-449b-819e-2533dde2cb20' # Afbeeldingen
+  targetSiteId: null
+  useSingleFolder: false
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

@@ -7,3 +7,12 @@
 @import './utilities/*';
 
 @tailwind utilities;
+
+.grid__site {
+  gap: 1rem;
+  display: grid;
+  grid-template-columns:
+    minmax(1rem, 1fr)
+    repeat(12, 1fr)
+    minmax(1rem, 1fr);
+}

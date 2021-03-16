@@ -1,0 +1,25 @@
+childBlocks: ''
+field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Builder
+fieldLayouts:
+  f595fdd7-d940-4527-856e-e35a2845d786:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 69ba21d5-87f9-4a3b-b3c8-d1b6501e497d # Call To Action
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: cta
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 'Call To Action'
+sortOrder: 8
+topLevel: false

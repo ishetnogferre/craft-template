@@ -1,0 +1,25 @@
+childBlocks: ''
+field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Builder
+fieldLayouts:
+  21ddc4d5-3001-4019-b2bf-82824d42bacb:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 4c8d2d62-5025-479a-938e-85b4d983e83e # Redactor
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: blockRedactor
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Tekst
+sortOrder: 12
+topLevel: false

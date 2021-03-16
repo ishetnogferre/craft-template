@@ -68,7 +68,7 @@
         {% if inline_css|trim is not empty %}
         <style>{{ inline_css | raw }}</style>
         {% endif %}
-        {{ craft.twigpack.includeCssModule("/dist/site.css", true) }}
+        {{ craft.twigpack.includeCssModule("/dist/site.css") }}
         
         {%- minify -%}
         {% if not craft.app.config.general.devMode %}

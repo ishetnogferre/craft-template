@@ -1,7 +1,7 @@
 {
-  "buttons": ["format", "bold", "italic", "lists", "link", "file"],
-  "formatting": ["p", "h3", "h4", "h5", "h6", "pre", "blockquote"],
-  "plugins": ["customstyles", "fontcolor", "video", "widget", "table"],
+  "buttons": ["redo", "undo", "format", "bold", "italic", "lists", "link", "image"],
+  "formatting": ["p", "h1", "h2", "h3", "h4", "h5", "h6", "blockquote"],
+  "plugins": ["customstyles", "fontcolor", "widget", "table", "alignment", "inlinebutton"],
   "fontcolors": [
     "#292929",
     "#F1F1F1",
@@ -24,17 +24,8 @@
         "code": {
           "args": "code"
         },
-        "variable": {
-          "args": "var"
-        },
-        "shortcut": {
-          "args": "kbd"
-        },
-        "deleted": {
+        "strikethrough": {
           "args": "del"
-        },
-        "inserted": {
-          "args": "ins"
         },
         "superscript": {
           "args": "sup"
@@ -42,58 +33,23 @@
         "subscript": {
           "args": "sub"
         },
-        "quote": {
-          "args": "q"
-        },
-        "sourceCitation": {
-          "args": "cite"
-        },
-        "smallPrint": {
-          "args": "small"
-        },
         "clearStyles": {
           "api": "module.inline.clearformat"
         }
       }
     },
-    "quote": {
-      "args": "q"
-    },
-    "clearStyles": {
-      "api": "module.inline.clearformat"
-    },
-    "align": {
-      "dropdown": {
-        "alignLeft": {
-          "api": "module.block.format",
-          "args": "p"
-        },
-        "alignRight": {
-          "api": "module.block.format",
-          "args": {
-            "tag": "p",
-            "class": "align-right"
-          }
-        },
-        "alignCenter": {
-          "api": "module.block.format",
-          "args": {
-            "tag": "p",
-            "class": "align-center"
-          }
-        },
-        "alignJustify": {
-          "api": "module.block.format",
-          "args": {
-            "tag": "p",
-            "class": "align-justify"
-          }
-        }
+    "clearStyle": {
+      "args": {
+        "tag": "a",
+        "class": "btn__styled",
+        "type": "toggle"
       }
     }
   },
+  "imageUpload": true,
   "pastePlainText": true,
   "toolbarFixed": false,
   "source": true,
-  "linkNewTab": true
+  "linkNewTab": true,
+  "structure": true
 }

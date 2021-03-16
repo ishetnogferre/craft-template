@@ -1,0 +1,11 @@
+<div class="grid__site">
+  <div class="col-start-2 col-span-12 grid grid-cols-12 gap-4">
+    {% for batch in module.children|batch(2) %}
+      {% for block in batch %}
+        <div class="{% if loop.first %}col-span-4{% else %}col-span-8{% endif %}">
+          {% include '_components/widgets/' ~ block.type.handle %}
+        </div>
+      {% endfor %}
+    {% endfor %}
+  </div>
+</div>

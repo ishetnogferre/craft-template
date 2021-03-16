@@ -1,0 +1,15 @@
+childBlocks:
+  - blockImage
+  - cta
+  - gallery
+  - overzicht
+  - blockRedactor
+  - blockVideo
+field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Builder
+handle: moduleFull
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: 1/1
+sortOrder: 2
+topLevel: true

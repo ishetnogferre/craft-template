@@ -1,0 +1,14 @@
+enableVersioning: true
+handle: pages
+name: 'Pagina''s'
+propagationMethod: all
+siteSettings:
+  9c0e7bfb-10c6-4875-8c5f-03da5842320b: # Craft Template
+    enabledByDefault: true
+    hasUrls: true
+    template: _resolvers/page
+    uriFormat: '{parent.uri ?? ''''}/{slug}'
+structure:
+  maxLevels: null
+  uid: fa08f3b7-a013-4af6-817c-e4b1ffb0473c
+type: structure

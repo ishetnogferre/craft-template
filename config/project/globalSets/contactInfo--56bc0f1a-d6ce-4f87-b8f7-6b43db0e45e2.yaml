@@ -1,0 +1,36 @@
+fieldLayouts:
+  e5d21ef4-33c3-419f-92e6-e489e642dfd4:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 870e8579-1237-4e5b-ad88-60468567da83 # Adres
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: eff4bf4c-f34e-4e11-944c-c132eb404694 # Email
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 99eb80f8-ad39-4772-9111-899d244fa56b # Telefoon nr
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+        name: Contact
+        sortOrder: 1
+handle: contactInfo
+name: 'Contact Info'

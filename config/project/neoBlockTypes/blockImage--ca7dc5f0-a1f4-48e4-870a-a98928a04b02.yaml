@@ -1,0 +1,34 @@
+childBlocks: ''
+field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Builder
+fieldLayouts:
+  e824cb48-d04f-4122-9ac1-cf45007c0535:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 8c37f80e-7983-4052-838b-8df59e75b108 # Afbeelding
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: bf22d816-18ad-457e-afbb-7a509979cff9 # Afbeelding grootte
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: blockImage
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Afbeelding
+sortOrder: 7
+topLevel: false

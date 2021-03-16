@@ -1,0 +1,16 @@
+contentColumnType: string
+fieldGroup: d0393e73-f781-4174-9020-2f7649b53d09 # Blocks
+handle: builder
+instructions: ''
+name: Builder
+searchable: false
+settings:
+  maxBlocks: ''
+  maxLevels: ''
+  maxTopBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+  wasModified: true
+translationKeyFormat: null
+translationMethod: site
+type: benf\neo\Field
