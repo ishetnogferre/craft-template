@@ -1,5 +1,19 @@
-{% set headerClasses = 'grid--site' %}
+{% set headerClasses = 'grid__site mb-16' %}
 {% extends "_views/headers/_blueprint" %}
 {% block innerHeader %}
-
+  <div class="col-start-1 col-span-14 h-56 w-full {% if entry.headerAsset.one is null %}bg-gray-200{% endif %}">
+    <div class="grid__site h-full">
+      {% if entry.headerAsset.one is not null %}
+        <figure class="col-start-1 col-span-14 row-start-1">
+          {% include "_components/blocks/image" with {
+            asset: entry.headerAsset[0] ?? null,
+            transform: 'base',
+            sizes: '100vw',
+            picClasses: 'block relative w-full h-full',
+            imgClasses: 'h-full w-full absolute top-0 left-0 object-cover'
+          } %}
+        </figure>
+      {% endif %}
+    </div>
+  </div>
 {% endblock %}

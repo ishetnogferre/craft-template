@@ -1,14 +1,14 @@
 childBlocks: ''
 field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Builder
 fieldLayouts:
-  dbf263de-4614-47b2-a62e-325a6db5b277:
+  3b831667-9987-4593-980b-5d953c3ac75d:
     tabs:
       -
         elements:
           -
-            fieldUid: 78c04609-9462-4e5a-808c-76d5790fcdc2 # Overzicht
+            fieldUid: 8c37f80e-7983-4052-838b-8df59e75b108 # Afbeelding
             instructions: ''
-            label: ''
+            label: Gallerij
             required: '1'
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -16,10 +16,10 @@ fieldLayouts:
             width: 100
         name: Content
         sortOrder: 1
-handle: overzicht
+handle: blockGallery
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
-name: Overzicht
-sortOrder: 11
+name: Gallerij
+sortOrder: 9
 topLevel: false

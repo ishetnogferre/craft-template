@@ -16,7 +16,7 @@ fieldLayouts:
             width: 100
         name: Content
         sortOrder: 1
-handle: cta
+handle: blockCta
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
