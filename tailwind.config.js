@@ -19,7 +19,6 @@ module.exports = {
       // rejected: true 
     }
   },
-  presets: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
     screens: {
