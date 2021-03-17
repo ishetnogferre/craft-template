@@ -1,3 +1,12 @@
-<div>
-  {{- block.blockRedactor|typogrify -}}
+<div class="flex flex-col my-4 lg:my-12 lg:h-full">
+  {% include "_components/blocks/image" with { 
+    asset: block.blockIcon.one,
+    sizes: '250px',
+    transform: 'base',
+    picClasses: "w-18 lg:w-24 h-18 lg:h-24 block relative mb-4 flex-none overflow-hidden",
+    imgClasses: "absolute top-0 left-0 object-contain h-full w-full"
+  } %}
+  <div class="max-w-prose ml-4 lg:ml-0 flex-1">
+    {{- block.blockRedactor|typogrify -}}
+  </div>
 </div>

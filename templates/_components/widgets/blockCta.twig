@@ -1,6 +1,22 @@
 {% set cta = block.ctaPicker.one %}
-<div class="py-8 bg-green-200 grid grid-cols-12 gap-4">
+<div class="py-12 bg-green-200 grid grid-cols-14 gap-4">
   <div class="col-start-2 col-span-12">
-    {{- cta.ctaTitle -}}
+    <div class="grid grid-cols-12 gap-x-4">
+      <div class="col-span-6">
+        {% include "_components/typo/heading" with {
+          tag: 'h2',
+          heading: cta.ctaTitle,
+          classes: 'mb-0'
+        } %}
+        <div class="max-w-prose">
+          {{- cta.ctaDescription|typogrify -}}
+        </div>
+      </div>
+      <div class="col-span-6 justify-self-end">
+        {% include "_components/blocks/button" with {
+          link: cta.ctaLink
+        } %}
+      </div>
+    </div>
   </div>
 </div>
