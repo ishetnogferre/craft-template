@@ -13,6 +13,19 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            fieldUid: 7ee97b17-343b-4bfc-b89b-6524fc2dd8af # Button
+            instructions: ''
+            label: 'Menu Button'
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Menu
+        sortOrder: 1
+      -
+        elements:
+          -
             fieldUid: 870e8579-1237-4e5b-ad88-60468567da83 # Adres
             instructions: null
             label: null
@@ -40,6 +53,6 @@ fieldLayouts:
             warning: null
             width: 50
         name: Contact
-        sortOrder: 1
-handle: contactInfo
-name: 'Contact Info'
+        sortOrder: 2
+handle: globals
+name: 'Algemene Info'

@@ -15,3 +15,15 @@
     repeat(12, 1fr)
     minmax(1rem, 1fr);
 }
+
+.btn {
+  @apply inline-block no-underline px-8 py-4 text-center text-lg font-bold hover:shadow-md transition duration-500;
+}
+
+.btn--colored {
+  @apply bg-green-300;
+}
+
+.btn--inverse {
+  @apply bg-white;
+}
