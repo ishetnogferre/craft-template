@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "885e0978bdb698b993709d72272ee35b",
+    "content-hash": "f87111ae76bcbf22c8fbb8b38c7a9635",
     "packages": [
         {
             "name": "aelvan/imager",
@@ -5029,11 +5029,11 @@
         },
         {
             "name": "spicyweb/craft-neo",
-            "version": "2.9.2",
+            "version": "2.9.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spicywebau/craft-neo/zipball/0b9c0aca88612ed8b704c124eb8968e320208289",
-                "reference": "0b9c0aca88612ed8b704c124eb8968e320208289",
+                "url": "https://api.github.com/repos/spicywebau/craft-neo/zipball/f09738f4ed4dcc164cf3f01434b49d43163b7f3d",
+                "reference": "f09738f4ed4dcc164cf3f01434b49d43163b7f3d",
                 "shasum": ""
             },
             "require": {
@@ -5077,7 +5077,7 @@
                 "docs": "https://github.com/spicywebau/craft-neo/wiki",
                 "rss": "https://github.com/spicywebau/craft-neo/commits/master.atom"
             },
-            "time": "2021-03-09T01:50:48+00:00"
+            "time": "2021-03-17T08:22:49+00:00"
         },
         {
             "name": "ssnepenthe/color-utils",

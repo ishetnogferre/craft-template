@@ -1,5 +1,5 @@
-<div class="max-w-prose {% if module.type.handle == 'moduleHalfHalf' %}grid-cols-7 grid{% endif %}">
+<div class="{% if module.type.handle == 'moduleHalfHalf' %}grid-cols-7 grid{% endif %}">
   <div class="{% if module.type.handle == 'moduleHalfHalf' %}col-start-2 col-span-5 py-8{% endif %}">
-    {{- block.blockRedactor|typogrify -}}
+    <div class="max-w-prose">{{- block.blockRedactor|typogrify -}}</div>
   </div>
 </div>

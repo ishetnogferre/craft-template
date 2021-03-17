@@ -3,7 +3,7 @@
     <div class="grid__site max-w-big mx-auto">
         <div class="col-start-2 col-span-2 py-4">
             <a href="{{ currentSite.baseUrl }}" class="block no-underline">
-                <img src="{{ globals.logo.one.url ?? '' }}" alt="Logo" class="h-10 lg:h-10 xl:h-auto">
+                <img src="{{ contactInfo.logo.one.url ?? '' }}" alt="Logo" class="h-10 lg:h-10 xl:h-auto">
             </a>
         </div>
         <div class="col-span-10 self-center justify-self-end">
@@ -12,7 +12,7 @@
                   href="{{ node.url }}"
                   title="{{ node.title }}"
                   target="{{ node.target }}"
-                  class="inline-block font-bold {% if node.active %} underline {% else %} no-underline transition-colors duration-500{% endif %}"
+                  class="inline-block font-bold mx-4 {% if node.active %} underline {% else %} no-underline transition-colors duration-500{% endif %}"
                 >
                     {{- node.title -}}
                 </a>

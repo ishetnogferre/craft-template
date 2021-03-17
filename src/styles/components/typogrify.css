@@ -2,6 +2,10 @@ body {
   @apply leading-normal font-sans tracking-normal text-base text-black;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold;
+}
+
 h1 {
   @apply text-5xl leading-tight mt-4 mb-2;
 }

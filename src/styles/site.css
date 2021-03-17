@@ -9,8 +9,7 @@
 @tailwind utilities;
 
 .grid__site {
-  gap: 1rem;
-  display: grid;
+  @apply grid gap-x-4;
   grid-template-columns:
     minmax(1rem, 1fr)
     repeat(12, 1fr)

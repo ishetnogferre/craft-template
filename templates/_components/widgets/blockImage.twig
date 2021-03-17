@@ -1,5 +1,5 @@
-{% set imgAttachment = block.imgSize ? 'contain' : 'cover' %}
-<div class="h-full w-full min-h-64">
+{% set imgAttachment = block.imgSize ? 'object-contain' : 'object-cover' %}
+<div class="w-full min-h-64">
   {% include "_components/blocks/image" with {
     asset: block.blockImage.one ?? null,
     transform: 'base',
