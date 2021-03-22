@@ -1,24 +1,36 @@
-{# @var craft \craft\web\twig\variables\CraftVariable #}
-{#
- # Teaser View Template – Default
- # ------------------------------
- #
- # This template gets loaded whenever the Teaser Router falls back to the default variant.
- #
--#}
 
-{% block view_main %}
-    {% set image = image ?? entry.teaserImage.one() %}
-    <a href="{{ entry.url }}" class="block">
-        {% if image %}
-            {% include '_components/image' with {
-                asset: image,
-                transform: 'landscape-16/9',
-                sizes: '300px',
+{% set teaserImage = teaserImage ?? entry.teaserImage.one() %}
+{% set teaserTitle = teaserTitle ?? entry.teaserTitle ?? entry.title %}
+{% set teaserDescription = teaserDescription ?? entry.teaserDescription %}
+{% set moreInfoText = "Meer info" %}
+
+<div class="col-span-4 group cursor-pointer mb-16">
+    <div onclick="goToUrl('{{ entry.url }}')">
+        <figure class="w-full h-0 aspect-ratio-16/9 overflow-hidden">
+            {% include "_components/blocks/image" with {
+                asset: teaserImage,
+                transform: "landscape-16/9",
+                sizes: "300px",
+                picClasses: "block h-full aspect-ratio-16/9 w-full relative",
+                imgClasses: "absolute h-full w-full top-0 left-0 object-cover"
             } %}
-        {% endif %}
-
-        <h3 class="text-center">{{ entry.title }}</h3>
-        {{ entry.teaserDescription|typogrify|raw }}
+        </figure>
+        {% include "_components/typo/heading" with {
+            tag: 'h3',
+            heading: teaserTitle,
+            classes: 'my-2'
+        } %}
+        <div>
+            {{- teaserDescription | typogrify -}}
+        </div>
+    </div>
+    <a href="{{ entry.url }}" title="{{ entry.title }}" class="text-lg text-green-400 font-bold mt-2">
+        + {{ moreInfoText -}}
     </a>
-{% endblock %}
+</div>
+
+{% js at endBody %}
+ function goToUrl(url) {
+    window.location = url;
+ }
+{% endjs %}

@@ -40,7 +40,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Page builder
+            fieldUid: 4c8d2d62-5025-479a-938e-85b4d983e83e # Redactor
             instructions: null
             label: null
             required: false
