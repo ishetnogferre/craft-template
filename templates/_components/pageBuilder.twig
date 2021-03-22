@@ -9,7 +9,7 @@
 -#}
 
 {# Load all our blocks with eager loading #}
-{% set modules = entry.builder.level(1).all %}
+{% set modules = entry.pageBuilder.level(1).all %}
 
 {% for i, module in modules %}
     {# Load our component #}

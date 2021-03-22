@@ -17,7 +17,8 @@
       <div class="col-span-14 row-start-1 place-self-center text-center">
         {% include "_components/typo/heading" with {
           tag: 'h1',
-          heading: entry.headerTitle ?? entry.title
+          heading: entry.headerTitle ?? entry.title,
+          classes: 'text-5xl'
         } %}
         <div class="max-w-prose">{{- entry.headerDescription|typogrify -}}</div>
         {% if entry.blockButton is not null %}

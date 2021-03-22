@@ -1,1 +1,14 @@
-BLOCK GALLERY
+{% set gallery = block.blockImage.all %}
+<div class="grid grid-cols-12 gap-4 my-16">
+  {% for item in gallery %}
+    <div class="col-span-4">
+      {% include "_components/blocks/image" with {
+        asset: item ?? null,
+        transform: 'base',
+        sizes: '25vw',
+        picClasses: 'block relative w-full h-0 aspect-ratio-16/9',
+        imgClasses: 'h-full w-full absolute top-0 left-0 object-cover',
+      } %}
+    </div>
+  {% endfor %}
+</div>

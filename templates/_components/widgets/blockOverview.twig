@@ -6,6 +6,8 @@
 {{ craft.app.sections.getSectionById(block.blockOverview).handle }}
 <div class="grid grid-cols-12 gap-x-4">
   {% for teaser in teasers %}
-    {{ teaser.title }}
+    {% include "_resolvers/teaser" with {
+      entry: teaser
+    } %}
   {% endfor %}
 </div>
