@@ -1,1 +1,11 @@
-BLOCK OVERVIEW
+{% set teasers = craft.entries({
+  section: craft.app.sections.getSectionById(block.blockOverview),
+  limit: 9
+}).all %}
+
+{{ craft.app.sections.getSectionById(block.blockOverview).handle }}
+<div class="grid grid-cols-12 gap-x-4">
+  {% for teaser in teasers %}
+    {{ teaser.title }}
+  {% endfor %}
+</div>

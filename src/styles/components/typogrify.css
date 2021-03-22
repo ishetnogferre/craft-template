@@ -11,23 +11,23 @@ h1 {
 }
 
 h2 {
-  @apply text-4xl leading-tight mb-4;
-}
-
-h3 {
   @apply text-3xl leading-tight mb-4;
 }
 
+h3 {
+  @apply text-2xl leading-tight mb-4;
+}
+
 h4 {
-  @apply text-2xl mb-4;
+  @apply text-xl mb-4;
 }
 
 h5 {
-  @apply text-xl mb-2;
+  @apply text-lg mb-2;
 }
 
 h6 {
-  @apply text-lg mb-2;
+  @apply text-base mb-2;
 }
 
 strong {

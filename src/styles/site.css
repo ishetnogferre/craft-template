@@ -27,3 +27,7 @@
 .btn--inverse {
   @apply bg-white;
 }
+
+.policy__links {
+  @apply font-bold text-2xl no-underline;
+}

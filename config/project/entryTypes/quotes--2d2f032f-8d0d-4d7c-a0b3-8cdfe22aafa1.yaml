@@ -1,0 +1,47 @@
+fieldLayouts:
+  c336cb50-410a-4751-8da9-c44f66ec8d3b:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 4c8d2d62-5025-479a-938e-85b4d983e83e # Redactor
+            instructions: ''
+            label: Quote
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: ''
+            label: Auteur
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: quotes
+hasTitleField: true
+name: Quotes
+section: d18d2409-3736-42db-b8d9-70d07bb2f19c # Quotes
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

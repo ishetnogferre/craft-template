@@ -1,25 +1,25 @@
 childBlocks: ''
 field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Builder
 fieldLayouts:
-  50d6d3dd-4e01-4239-a9ad-6403a2bca87a:
+  45e5ad46-1830-4ea4-9799-f0f140f41d57:
     tabs:
       -
         elements:
           -
-            fieldUid: 1299796b-435a-4986-afe7-352e6f1d2914 # Video
-            instructions: null
-            label: null
-            required: false
+            fieldUid: 54cd2e2b-47b8-4eee-a066-14d594e4466e # Quote
+            instructions: ''
+            label: ''
+            required: '1'
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
         name: Content
         sortOrder: 1
-handle: blockVideo
+handle: blockQuote
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
-name: Video
-sortOrder: 14
+name: Quote
+sortOrder: 12
 topLevel: false

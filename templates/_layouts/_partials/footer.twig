@@ -1,0 +1,15 @@
+{% set policyId = '' %}
+<div class="bg-gray-500 py-8">
+  <div class="grid__site max-w-big mx-auto">
+    <div class="col-span-12 col-start-2 lg:col-start-2 lg:col-span-6 text-white">
+      <a class="policy__links iubenda-nostyle no-brand iubenda-embed" href="https://www.iubenda.com/privacy-policy/{{ policyId }}" title="Privacy Policy">{{- "Privacy" -}}</a>
+      <span class="text-2xl">&ndash;</span>
+      <a class="policy__links iubenda-nostyle no-brand iubenda-embed" href="https://www.iubenda.com/privacy-policy/{{ policyId }}/cookie-policy" title="Cookie Policy">{{- "Cookies" -}}</a>
+      <h6 class="font-normal mt-1">&copy; {{ 'now'|date('Y') }}, {{ currentSite.name -}}</h6>
+      <h6 class="font-normal mt-2 text-sm">{{- "Created by "-}} <a href="https://www.marbles.be/?utm_source={{ currentSite.name|kebab }}&utm_medium=externe-link&utm_campaign=created_by" title="Created by Marbles">Marbles</a></h6>
+    </div>
+    <div class="col-span-12 col-start-2 lg:col-end-14 lg:col-span-6 justify-self-end">
+      SOCIAL MEDIA ICONS
+    </div>
+  </div>
+</div>

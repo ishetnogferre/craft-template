@@ -1,8 +1,9 @@
+{% set breakOutBlocks = ["blockCta"] %}
 <div class="grid__site">
   <div class="col-start-1 col-span-14 grid grid-cols-14 gap-x-4">
     {% for batch in module.children|batch(1) %}
       {% for block in batch %}
-        <div class="col-span-full">
+        <div class="{% if block.type.handle not in breakOutBlocks %}col-span-12 col-start-2 {% else %}col-span-full{% endif %}">
           {% include '_components/widgets/' ~ block.type.handle %}
         </div>
       {% endfor %}
