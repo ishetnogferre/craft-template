@@ -1,0 +1,9 @@
+<div class="grid__site">
+  <div class="col-span-12 col-start-2 lg:col-span-8 lg:col-start-2">
+    {% include "_components/typo/heading" with {
+      tag: 'h1',
+      heading: entry.title
+    } %}
+    {{- entry.blockRedactor | typogrify -}}
+  </div>
+</div>
