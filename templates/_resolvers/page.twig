@@ -9,8 +9,17 @@
  # An `entry` variable will be automatically passed to this template if the URI matches
  # an element URI. Otherwise an `entry` array is created before invoking a view router.
 -#}
+{% do craft.app.elements.eagerLoadElements(
+    className(entry),
+    [entry],
+    [
+        'headerAsset',
+    ]
+) %}
+
 
 {% extends '_layouts/site' %}
+
 
 {# Handle special routes that don’t correspond to Craft entries. #}
 {% if entry is not defined %}

@@ -12,6 +12,13 @@
 {% set modules = entry.pageBuilder.level(1).all %}
 
 {% for i, module in modules %}
+    {% set children = module.children.with([
+        'blockQuote:blockQuotePicker',
+        'blockIconText:blockIcon',
+        'blockImage:blockImage',
+        'blockCta:ctaPicker',
+        'blockGallery:blockImage'
+    ]).all() %}
     {# Load our component #}
     {% include '_components/modules/' ~ module.type.handle %}
 {% endfor %}

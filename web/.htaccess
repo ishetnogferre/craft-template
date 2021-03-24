@@ -5,8 +5,8 @@
   RewriteBase /
 
   # Force HTTPS and WWW 
-  # RewriteCond %{HTTP_HOST} !^www\.(.*)$
-  # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [L,R]
+  RewriteCond %{HTTP_HOST} !^www\.(.*)$
+  RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [L,R]
 
   RewriteCond %{https} off 
   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [L,R]
