@@ -1,4 +1,4 @@
-dateModified: 1616449500
+dateModified: 1618564970
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER
@@ -130,7 +130,7 @@ system:
   live: true
   name: 'Craft Template'
   retryDuration: null
-  schemaVersion: 3.6.6
+  schemaVersion: 3.6.8
   timeZone: Europe/Brussels
 users:
   allowPublicRegistration: false
