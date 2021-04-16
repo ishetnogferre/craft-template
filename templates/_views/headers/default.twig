@@ -1,9 +1,9 @@
 {% set headerClasses = 'grid__site mb-16' %}
 {% extends "_views/headers/_blueprint" %}
 {% block innerHeader %}
-  <div class="col-start-1 col-span-14 h-56 w-full {% if entry.headerAsset[0] is null %}bg-gray-200{% endif %}">
+  <div class="col-start-1 col-span-14 h-56 w-full {% if entry.headerAsset is empty %}bg-gray-200{% endif %}">
     <div class="grid__site h-full">
-      {% if entry.headerAsset[0] is not null %}
+      {% if entry.headerAsset is not empty %}
         <figure class="col-start-1 col-span-14 row-start-1">
           {% include "_components/blocks/image" with {
             asset: entry.headerAsset[0] ?? null,
