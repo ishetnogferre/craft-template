@@ -1,4 +1,4 @@
-dateModified: 1618564970
+dateModified: 1618672181
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER
@@ -47,6 +47,10 @@ plugins:
           -
             - admin-bar_edit-links
             - '1'
+  breadcrumb:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.1.0
   colour-swatches:
     edition: standard
     enabled: true
@@ -64,6 +68,10 @@ plugins:
     enabled: true
     schemaVersion: 1.0.0
   expanded-singles:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  fingerprint-assets:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
@@ -93,6 +101,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.3.0
+  redactor-anchors:
+    edition: standard
+    enabled: true
+    schemaVersion: '2.0'
   redactor-custom-styles:
     edition: standard
     enabled: true
