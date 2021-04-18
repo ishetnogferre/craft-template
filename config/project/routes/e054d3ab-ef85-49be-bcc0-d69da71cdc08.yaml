@@ -1,0 +1,10 @@
+siteUid: null
+sortOrder: 9
+template: /form/custom/form
+uriParts:
+  - form/custom/
+  -
+    - slug
+    - '[^\/]+'
+  - /success
+uriPattern: 'form/custom/<slug:[^\/]+>/success'

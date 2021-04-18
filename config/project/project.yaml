@@ -1,4 +1,4 @@
-dateModified: 1618672181
+dateModified: 1618771530
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER
@@ -75,6 +75,76 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  freeform:
+    edition: lite
+    enabled: true
+    schemaVersion: 3.3.0
+    settings:
+      ajaxByDefault: true
+      alertNotificationRecipients: ''
+      autoScrollToErrors: '1'
+      badgeType: all
+      blockedEmails: ''
+      blockedEmailsError: 'Invalid Email Address'
+      blockedIpAddresses: ''
+      blockedKeywords: ''
+      blockedKeywordsError: 'Invalid Entry Data'
+      clientDigestFrequency: 1
+      clientDigestRecipients: ''
+      customErrorMessage: ''
+      customHoneypotName: ''
+      defaultTemplates: true
+      defaultView: dashboard
+      digestFrequency: 1
+      digestOnlyOnProduction: false
+      digestRecipients: ''
+      displayFeed: false
+      emailTemplateDirectory: null
+      emailTemplateStorage: db
+      fieldDisplayOrder: name
+      fillWithGet: ''
+      footerScripts: false
+      formSubmitDisable: '1'
+      formSubmitExpiration: ''
+      formTemplateDirectory: null
+      formattingTemplate: tailwind.html
+      freeformHoneypot: '1'
+      freeformHoneypotEnhancement: ''
+      hideBannerDemo: '1'
+      hideBannerOldFreeform: false
+      minimumSubmitTime: ''
+      pluginName: ''
+      purgableSpamAgeInDays: '0'
+      purgableSubmissionAgeInDays: null
+      purgableUnfinalizedAssetAgeInMinutes: 180
+      recaptchaBehaviour: display_error
+      recaptchaEnabled: false
+      recaptchaErrorMessage: 'Please verify that you are not a robot.'
+      recaptchaKey: null
+      recaptchaMinScore: 0.5
+      recaptchaSecret: null
+      recaptchaSize: normal
+      recaptchaTheme: light
+      recaptchaType: v2_checkbox
+      removeNewlines: ''
+      renderFormHtmlInCpViews: true
+      salesforce_client_id: null
+      salesforce_client_secret: null
+      salesforce_password: null
+      salesforce_username: null
+      scriptInsertLocation: footer
+      sessionEntryMaxCount: 50
+      sessionEntryTTL: 10800
+      showErrorsForBlockedEmails: ''
+      showErrorsForBlockedKeywords: ''
+      showTutorial: false
+      spamFolderEnabled: ''
+      spamProtectionBehaviour: simulate_success
+      submissionThrottlingCount: ''
+      submissionThrottlingTimeFrame: m
+      twigInHtml: true
+      twigInHtmlIsolatedMode: true
+      updateSearchIndexes: '1'
   imager:
     edition: standard
     enabled: true

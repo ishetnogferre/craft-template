@@ -1,14 +1,14 @@
 childBlocks: ''
 field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Page builder
 fieldLayouts:
-  dbf263de-4614-47b2-a62e-325a6db5b277:
+  11db6823-93d5-4373-a076-94f705b839a5:
     tabs:
       -
         elements:
           -
-            fieldUid: 78c04609-9462-4e5a-808c-76d5790fcdc2 # Overzicht
+            fieldUid: 4992b4f3-da5d-4115-aa38-a34a7305c9a9 # Form
             instructions: ''
-            label: ''
+            label: Formulier
             required: '1'
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -16,10 +16,10 @@ fieldLayouts:
             width: 100
         name: Content
         sortOrder: 1
-handle: blockOverview
+handle: blockForm
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
-name: Overzicht
-sortOrder: 12
+name: Formulier
+sortOrder: 9
 topLevel: false
