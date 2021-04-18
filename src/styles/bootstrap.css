@@ -55,19 +55,3 @@ svg {
     display: block;
     vertical-align: middle;
 }
-
-/* -- A subtle focus style for keyboard-input elements */
-.text-input:focus {
-    outline: 1px solid var(--outlineColor); /* Adjust to suit your tastes */
-}
-
-/* -- No outline for non-keyboard-inputs elements */
-button:focus,
-select:focus {
-    outline: none;
-}
-
-html.user-is-tabbing *:focus {
-    outline: 2px solid var(--outlineColor) !important; /* for non-webkit browsers */
-    outline: 5px auto -webkit-focus-ring-color !important;
-}
