@@ -1,0 +1,21 @@
+contentColumnType: string
+fieldGroup: d0393e73-f781-4174-9020-2f7649b53d09 # Blocks
+handle: ctaPicker
+instructions: ''
+name: 'Call To Action'
+searchable: false
+settings:
+  allowSelfRelations: false
+  limit: '1'
+  localizeRelations: false
+  selectionLabel: 'Kies een CTA'
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:d47efc5d-a677-4569-8c82-6c4ea0a04109' # Call to Actions
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

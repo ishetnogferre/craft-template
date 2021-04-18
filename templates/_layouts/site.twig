@@ -1,29 +1,49 @@
 {# @var craft \craft\web\twig\variables\CraftVariable #}
-{% extends "_layouts/base" %}
+{% extends "_boilerplate/_layouts/base-html-layout.twig" %}
 
-{# Add a dns prefetch header #}
-{% set baseUrl = alias('@baseUrl') ~ '/' %}
-{% header "Link: <#{baseUrl}>; rel=dns-prefetch;,<#{baseUrl}>; rel=preconnect; crossorigin;" %}
+{# -- Any <meta> tags that should be included in the <head> #}
+{% block headMeta %}
+{% endblock headMeta %}
 
-{# Set the `bodyClass` variable to the entry's section handle if there is one,
-   or the first URI segment (this is used by the parent template) #}
-{% if bodyClass is not defined %}
-    {% set bodyClass = entry is defined ? entry.section.handle : craft.app.request.segments|first %}
-{% endif %}
+{# -- Any <link> tags that should be included in the <head> #}
+{% block headLinks %}
+{% endblock headLinks %}
 
-{% block body %}
+{# -- Any JavaScript that should be included before </head> -- #}
+{% block headJs %}
+    {% include "_layouts/_partials/head-thirdparty" %}
+{% endblock %}
+
+{# -- Any CSS that should be included before </head> -- #}
+{% block headCss %}
+    {# -- Inline CSS block used by templates for Critical CSS #}
+    {# -- Only use Critical CSS & LoadCSS when we have it available to prevent flashing #}
+    {% set inline_css = block("inline_css") %}
+    {% if inline_css|trim is not empty %}
+        <style>{{ inline_css | raw }}</style>
+    {% endif %}
+    {{ craft.twigpack.includeCssModule("/dist/site.css") }}
+{% endblock headCss %}
+
+{% block bodyTag %}
+    {# Set the `bodyClass` variable to the entry's section handle if there is one, or the first URI segment (this is used by the parent template) #}
+    {% if bodyClass is not defined %}
+        {% set bodyClass = entry is defined ? entry.section.handle : craft.app.request.segments|first %}
+    {% endif %}
+{% endblock %}
+
+{# -- Page body -- #}
+{% block bodyHtml %}
+    {{ adminbar({ entry: entry }) }}
     <div id="site">
         {% block header %}{% endblock %}
-
         <main>
             {# -- Primary content block -- #}
             {% block main %}{% endblock %}
         </main>
 
         {# -- Footer -- #}
-        <footer id="footer">
-            {% block footer %}{% endblock %}
-            {% include "_layouts/footer" %}
-        </footer>
+        {% block footer %}{% endblock %}
+        {% include "_layouts/_partials/footer" %}
     </div>
-{% endblock %}
+{% endblock bodyHtml %}

@@ -1,0 +1,34 @@
+contentColumnType: string
+fieldGroup: d0393e73-f781-4174-9020-2f7649b53d09 # Blocks
+handle: blockVideo
+instructions: ''
+name: Video
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds:
+    - json
+    - video
+  defaultUploadLocationSource: 'volume:49ded60a-198f-449b-819e-2533dde2cb20' # Afbeeldingen
+  defaultUploadLocationSubpath: ''
+  limit: '1'
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: '1'
+  selectionLabel: ''
+  showSiteMenu: false
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  singleUploadLocationSource: 'volume:49ded60a-198f-449b-819e-2533dde2cb20' # Afbeeldingen
+  singleUploadLocationSubpath: ''
+  source: null
+  sources:
+    - 'volume:72299a99-247b-4138-876f-f85e0eb95839' # Videos
+  targetSiteId: null
+  useSingleFolder: false
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

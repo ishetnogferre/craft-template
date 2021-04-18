@@ -9,8 +9,17 @@
  # An `entry` variable will be automatically passed to this template if the URI matches
  # an element URI. Otherwise an `entry` array is created before invoking a view router.
 -#}
+{% do craft.app.elements.eagerLoadElements(
+    className(entry),
+    [entry],
+    [
+        'headerAsset',
+    ]
+) %}
+
 
 {% extends '_layouts/site' %}
+
 
 {# Handle special routes that don’t correspond to Craft entries. #}
 {% if entry is not defined %}
@@ -46,11 +55,13 @@
 {% set title = entry.title  %}
 
 {% block inline_css %}
-    {{ source(entry.type.handle ~ "_critical.min.css", ignore_missing = true) }}
+    {{ source('_critical/' ~ entry.section.handle ~ "_critical.css", ignore_missing = true) }}
+{% endblock %}
+
+{% block header %}
+    {% include "_resolvers/header" %}
 {% endblock %}
 
 {% block main %}
-    
     {% include "_resolvers/detail" %}
-
 {% endblock %}

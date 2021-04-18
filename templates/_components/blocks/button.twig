@@ -1,0 +1,10 @@
+{% if link.url %}
+<a 
+  id="{{ id ?? null }}"
+  href="{{ url ?? link.url }}"
+  target="{{ target ?? link.target }}"
+  class="btn {{ classes ?? null }}"
+>
+  {{- link.text -}}
+</a>
+{% endif %}

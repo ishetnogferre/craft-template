@@ -1,0 +1,73 @@
+fieldLayouts:
+  ffe11316-cf8d-4a8d-a5f4-f1fa99ae577f:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: ''
+            label: ''
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6efcc7d1-17e7-4880-9107-104c51a1a031 # Header Asset
+            instructions: ''
+            label: 'Header Achtergrond'
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Header
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Page builder
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Inhoud
+        sortOrder: 2
+      -
+        elements:
+          -
+            fieldUid: 2ef40c1a-fa32-405d-afc8-284aa0281b0a # SEO
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: SEO
+        sortOrder: 3
+handle: paginas
+hasTitleField: true
+name: 'Pagina''s'
+section: c22317fe-ede2-49d6-9c1c-9dd4ba995764 # Pagina's
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

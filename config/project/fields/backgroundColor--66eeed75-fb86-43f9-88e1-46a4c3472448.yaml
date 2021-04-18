@@ -1,0 +1,13 @@
+contentColumnType: text
+fieldGroup: d0393e73-f781-4174-9020-2f7649b53d09 # Blocks
+handle: backgroundColor
+instructions: ''
+name: Achtergrondkleur
+searchable: false
+settings:
+  options: ''
+  palette: ''
+  useConfigFile: '1'
+translationKeyFormat: null
+translationMethod: none
+type: percipioglobal\colourswatches\fields\ColourSwatches

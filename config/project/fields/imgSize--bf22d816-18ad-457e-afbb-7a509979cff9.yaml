@@ -1,0 +1,13 @@
+contentColumnType: boolean
+fieldGroup: d0393e73-f781-4174-9020-2f7649b53d09 # Blocks
+handle: imgSize
+instructions: ''
+name: 'Afbeelding grootte'
+searchable: false
+settings:
+  default: false
+  offLabel: Ingezoomd
+  onLabel: 'Volledig weergeven'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

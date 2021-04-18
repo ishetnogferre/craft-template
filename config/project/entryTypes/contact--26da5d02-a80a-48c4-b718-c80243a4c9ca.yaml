@@ -1,0 +1,78 @@
+fieldLayouts:
+  45944ec0-960e-4459-a136-9eec70f12a25:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: ''
+            label: __blank__
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6efcc7d1-17e7-4880-9107-104c51a1a031 # Header Asset
+            instructions: ''
+            label: 'Header Achtergrond'
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 20c0032a-ff8d-4528-abd3-a36e53ef21e1 # Header Title
+            instructions: ''
+            label: Titel
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c6d2994d-170a-4259-ba5d-96dc31b313b1 # Header Description
+            instructions: ''
+            label: Beschrijving
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Header
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 2ef40c1a-fa32-405d-afc8-284aa0281b0a # SEO
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: SEO
+        sortOrder: 2
+handle: contact
+hasTitleField: false
+name: Contact
+section: c678556d-4b65-4ad5-9b3d-5a976756af64 # Contact
+sortOrder: 1
+titleFormat: '{section.name|raw}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

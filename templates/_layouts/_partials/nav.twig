@@ -1,0 +1,28 @@
+{%- set nav = craft.navigation.nodes('mainNav').level(1).all() -%}
+<nav class="col-span-14">
+    <div class="grid__site max-w-big mx-auto">
+        <div class="col-start-2 col-span-2 py-4">
+            <a href="{{ currentSite.baseUrl }}" class="block no-underline">
+                <img src="{{ globals.logo.one.url ?? '' }}" alt="Logo" class="h-10 lg:h-10 xl:h-auto">
+            </a>
+        </div>
+        <div class="col-span-10 self-center justify-self-end">
+            {% for node in nav %}
+                <a 
+                  href="{{ node.url }}"
+                  title="{{ node.title }}"
+                  target="{{ node.target }}"
+                  class="inline-block font-bold text-lg mx-4 {% if node.active %} underline {% else %} no-underline transition-colors duration-500{% endif %}"
+                >
+                    {{- node.title -}}
+                </a>
+            {% endfor %}
+            {% if globals.blockButton %}
+                {% include "_components/blocks/button" with {
+                    link: globals.blockButton,
+                    classes: 'ml-4 btn--colored'
+                } %}
+            {% endif %}
+        </div>
+    </div>
+</nav>

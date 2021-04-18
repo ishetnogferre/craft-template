@@ -1,0 +1,21 @@
+contentColumnType: string
+fieldGroup: d0393e73-f781-4174-9020-2f7649b53d09 # Blocks
+handle: blockQuotePicker
+instructions: ''
+name: Quote
+searchable: false
+settings:
+  allowSelfRelations: false
+  limit: ''
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: false
+  source: null
+  sources:
+    - 'section:d18d2409-3736-42db-b8d9-70d07bb2f19c' # Quotes
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

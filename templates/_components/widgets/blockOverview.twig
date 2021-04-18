@@ -1,0 +1,12 @@
+{% set teasers = craft.entries({
+  section: craft.app.sections.getSectionById(block.blockOverview),
+  limit: 9
+}).all %}
+
+<div class="grid grid-cols-12 gap-x-4">
+  {% for teaser in teasers %}
+    {% include "_resolvers/teaser" with {
+      entry: teaser
+    } %}
+  {% endfor %}
+</div>

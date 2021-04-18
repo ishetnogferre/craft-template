@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: d0393e73-f781-4174-9020-2f7649b53d09 # Blocks
+handle: blockOverview
+instructions: ''
+name: Overzicht
+searchable: false
+settings:
+  allowMultiple: ''
+  whitelistedSections:
+    - '6'
+    - '5'
+translationKeyFormat: null
+translationMethod: none
+type: charliedev\sectionfield\fields\SectionField

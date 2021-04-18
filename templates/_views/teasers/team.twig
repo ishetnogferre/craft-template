@@ -1,0 +1,43 @@
+{% set memberImage = entry.blockImage.one ?? null %}
+{% set memberName = entry.title %}
+{% set memberJob = entry.blockSubtitle %}
+{% set memberBio = entry.blockRedactor %}
+{% set memberPhone = entry.contactPhone %}
+{% set memberEmail = entry.contactEmail %}
+
+<div class="col-span-3 mb-16">
+  {% include "_components/blocks/image" with {
+    asset: memberImage,
+    transform: 'square',
+    sizes: '250px',
+    picClasses: 'block h-0 w-full aspect-ratio-square relative',
+    imgClasses: 'absolute top-0 left-0 object-contain w-full h-full'
+  } %}
+  {% include "_components/typo/heading" with {
+    tag: 'h2',
+    heading: memberName,
+    classes: 'mt-4 mb-0'
+  } %}
+  <p class="my-0">
+    {{- memberJob -}}
+  </p>
+  <div class="my-4">{{- memberBio | typogrify -}}</div>
+  {% include "_components/typo/heading" with {
+    tag: 'h3',
+    heading: 'Contactgegevens'
+  } %}
+  <a href="{{ memberPhone.url }}" title="{{ memberPhone.url }}" class="no-underline block text-lg">
+    {% if memberPhone.text != '' %}
+      {{- memberPhone.text -}}
+    {% else %}
+      <i class="far fa-phone-alt"></i>
+    {% endif %}
+  </a>
+  <a href="{{ memberEmail.url }}" title="{{ memberEmail.url }}" class="no-underline block text-lg">
+    {% if memberEmail.text != '' %}
+      {{- memberEmail.text -}}
+    {% else %}
+      <i class="far fa-envelope"></i>
+    {% endif %}
+  </a>
+</div>

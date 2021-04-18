@@ -80,9 +80,8 @@ define('CRAFT_VENDOR_PATH', CRAFT_BASE_PATH.'/vendor');
 require_once CRAFT_VENDOR_PATH.'/autoload.php';
 
 // Load the .env file Craft created
-if (file_exists(CRAFT_BASE_PATH.'/.env')) {
-    $dotEnv = new Dotenv\Dotenv(CRAFT_BASE_PATH);
-    $dotEnv->load();
+if (class_exists('Dotenv\Dotenv') && file_exists(CRAFT_BASE_PATH.'/.env')) {
+    Dotenv\Dotenv::create(CRAFT_BASE_PATH)->load();
 }
 
 // By default, run the setup script
@@ -131,6 +130,8 @@ function updateNysCraft()
     outputString(PHP_EOL.'Updating marbles-setup', Console::FG_YELLOW);
     // Set up Craft-Scripts
     setupCraftScripts();
+    // Re-link assets
+    symlinkAssetsFolder();
     // Say goodbye
     outputString(PHP_EOL.'Update complete. Have a nice day!', Console::FG_YELLOW);
 }

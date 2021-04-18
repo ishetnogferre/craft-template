@@ -1,0 +1,33 @@
+{% set headerClasses = 'grid__site mb-16' %}
+{% extends "_views/headers/_blueprint" %}
+{% block innerHeader %}
+  <div class="col-start-1 col-span-14 h-136 w-full {% if entry.headerAsset is empty %}bg-gray-200{% endif %}">
+    <div class="grid__site h-full">
+      {% if entry.headerAsset is not empty %}
+        <figure class="col-start-1 col-span-14 row-start-1">
+          {% include "_components/blocks/image" with {
+            asset: entry.headerAsset[0] ?? null,
+            transform: 'base',
+            sizes: '100vw',
+            picClasses: 'block relative w-full h-full',
+            imgClasses: 'h-full w-full absolute top-0 left-0 object-cover'
+          } %}
+        </figure>
+      {% endif %}
+      <div class="col-start-1 col-span-14 row-start-1 place-self-center text-center">
+        {% include "_components/typo/heading" with {
+          tag: 'h1',
+          heading: entry.headerTitle ?? entry.title,
+          classes: 'text-5xl'
+        } %}
+        <div class="max-w-prose">{{- entry.headerDescription|typogrify -}}</div>
+        {% if entry.blockButton is not null %}
+          {% include "_components/blocks/button" with {
+            link: entry.blockButton,
+            classes: 'mx-auto btn--colored'
+          } %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

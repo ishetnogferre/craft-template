@@ -1,0 +1,25 @@
+childBlocks: ''
+field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Page builder
+fieldLayouts:
+  dbf263de-4614-47b2-a62e-325a6db5b277:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 78c04609-9462-4e5a-808c-76d5790fcdc2 # Overzicht
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: blockOverview
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Overzicht
+sortOrder: 11
+topLevel: false

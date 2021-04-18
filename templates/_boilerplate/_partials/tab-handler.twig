@@ -1,0 +1,29 @@
+{# -- Handle tabs gracefully as per https://hackernoon.com/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2 -- #}
+<style>
+  body:not(.user-is-tabbing) button:focus,
+  body:not(.user-is-tabbing) input:focus,
+  body:not(.user-is-tabbing) select:focus,
+  body:not(.user-is-tabbing) textarea:focus {
+    outline: none;
+  }
+
+  html.user-is-tabbing *:focus {
+    outline: 2px solid var(--outlineColor) !important; /* for non-webkit browsers */
+    outline: 5px auto -webkit-focus-ring-color !important;
+  }
+</style>
+<script>
+  function handleFirstTab(e) {
+    if (e.keyCode === 9) {
+      document.body.classList.add('user-is-tabbing');
+      window.removeEventListener('keydown', handleFirstTab);
+      window.addEventListener('mousedown', handleMouseDownOnce);
+    }
+  }
+  function handleMouseDownOnce() {
+    document.body.classList.remove('user-is-tabbing');
+    window.removeEventListener('mousedown', handleMouseDownOnce);
+    window.addEventListener('keydown', handleFirstTab);
+  }
+  window.addEventListener('keydown', handleFirstTab);
+</script>

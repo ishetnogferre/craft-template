@@ -1,0 +1,14 @@
+enableVersioning: true
+handle: team
+name: Team
+propagationMethod: all
+siteSettings:
+  9c0e7bfb-10c6-4875-8c5f-03da5842320b: # Craft Template
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 1
+  uid: 71d9bcb1-a862-4862-bded-df7a3ab1ef64
+type: structure

@@ -1,0 +1,14 @@
+childBlocks:
+  - blockImage
+  - blockIconText
+  - blockQuote
+  - blockRedactor
+  - blockVideo
+field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Page builder
+handle: moduleHalfHalf
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: '1/2 - 1/2'
+sortOrder: 3
+topLevel: true

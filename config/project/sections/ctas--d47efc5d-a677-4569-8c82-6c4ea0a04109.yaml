@@ -1,0 +1,11 @@
+enableVersioning: true
+handle: ctas
+name: 'Call to Actions'
+propagationMethod: all
+siteSettings:
+  9c0e7bfb-10c6-4875-8c5f-03da5842320b: # Craft Template
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+type: channel

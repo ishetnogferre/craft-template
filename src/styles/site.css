@@ -2,27 +2,32 @@
 
 @import './vendor/*';
 @import './bootstrap.css';
-@import './components/tailwind';
-@import './components/typogrify';
+@import './components/tailwind.css';
+@import './components/typogrify.css';
 @import './utilities/*';
 
 @tailwind utilities;
 
-.iubenda-cs-content a {
-  @apply border-none;
-}
-
-div.g-recaptcha > div.grecaptcha-badge {
-  width:0 !important;
-}
-
-.grid--site {
-  display: grid;
+.grid__site {
+  @apply grid gap-x-4;
   grid-template-columns:
     minmax(1rem, 1fr)
     repeat(12, 1fr)
     minmax(1rem, 1fr);
-  @screen lg {
-    grid-column-gap: 1.875rem;
-  }
+}
+
+.btn {
+  @apply inline-block no-underline px-8 py-4 text-center text-lg font-bold hover:shadow-md transition duration-500;
+}
+
+.btn--colored {
+  @apply bg-green-300;
+}
+
+.btn--inverse {
+  @apply bg-white;
+}
+
+.policy__links {
+  @apply font-bold text-2xl no-underline;
 }

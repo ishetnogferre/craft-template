@@ -1,24 +1,56 @@
-dateModified: 1610916788
+dateModified: 1618672181
 email:
-  fromEmail: kjell@marbles.be
-  fromName: Craft
+  fromEmail: $SYSTEM_EMAIL
+  fromName: $SENDER
+  replyToEmail: $REPLY_EMAIL
   template: null
-  transportSettings: null
-  transportType: craft\mail\transportadapters\Sendmail
-graphql:
-  publicToken:
-    enabled: false
-    expiryDate: null
+  transportSettings:
+    encryptionMethod: tls
+    host: $MAIL_HOST
+    password: $MAIL_PASSWORD
+    port: $MAIL_PORT
+    timeout: '10'
+    useAuthentication: '1'
+    username: $MAIL_USERNAME
+  transportType: craft\mail\transportadapters\Smtp
 plugins:
-  async-queue:
-    enabled: '1'
-    licenseKey: null
-    schemaVersion: 1.0.0
-    settings: null
-  blitz-recommendations:
+  admin-bar:
     edition: standard
     enabled: true
-    schemaVersion: 1.0.0
+    schemaVersion: 3.1.0
+    settings:
+      customCss: ''
+      customLinks:
+        -
+          __assoc__:
+            -
+              - linkLabel
+              - 'Globale instellingen'
+            -
+              - linkUrl
+              - /admin/globals
+            -
+              - adminOnly
+              - ''
+      displayDashboardLink: true
+      displayDefaultEditSection: true
+      displayEditAuthor: true
+      displayEditDate: true
+      displayGreeting: true
+      displayGuideLink: true
+      displayLogout: true
+      displayRevisionNote: true
+      displaySettingsLink: true
+      enableMobileMenu: true
+      widgets:
+        __assoc__:
+          -
+            - admin-bar_edit-links
+            - '1'
+  breadcrumb:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.1.0
   colour-swatches:
     edition: standard
     enabled: true
@@ -36,122 +68,85 @@ plugins:
     enabled: true
     schemaVersion: 1.0.0
   expanded-singles:
-    enabled: '1'
-    licenseKey: null
-    schemaVersion: 1.0.0
-    settings: null
-  formie:
     edition: standard
     enabled: true
-    schemaVersion: 1.0.14
+    schemaVersion: 1.0.0
+  fingerprint-assets:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   imager:
-    enabled: '1'
-    licenseKey: null
+    edition: standard
+    enabled: true
     schemaVersion: 2.0.0
-    settings: null
   minify:
-    enabled: '1'
-    licenseKey: null
+    edition: standard
+    enabled: true
     schemaVersion: 1.0.0
-    settings: null
-  mix:
-    enabled: '1'
-    licenseKey: null
-    schemaVersion: 1.0.0
-    settings: null
   navigation:
     edition: standard
     enabled: true
+    licenseKey: 9CSDTRPVDY56W8RZQVZRF28R
     schemaVersion: 1.0.21
   neo:
     edition: standard
     enabled: true
+    licenseKey: KLF3CMAXSAC9QVZ71V3FHRH7
     schemaVersion: 2.8.16
   position-fieldtype:
-    enabled: '1'
-    licenseKey: null
+    edition: standard
+    enabled: true
     schemaVersion: 1.0.0
-    settings: null
   redactor:
-    enabled: '1'
-    licenseKey: null
+    edition: standard
+    enabled: true
     schemaVersion: 2.3.0
-    settings: null
+  redactor-anchors:
+    edition: standard
+    enabled: true
+    schemaVersion: '2.0'
   redactor-custom-styles:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
-  retcon:
+  section-field:
     edition: standard
     enabled: true
-    schemaVersion: 1.0.0
-  section-field:
-    enabled: '1'
-    licenseKey: null
     schemaVersion: 0.0.1
-    settings: null
   seo:
     edition: standard
     enabled: true
     schemaVersion: 3.1.1
-    settings:
-      description: ''
-      facebookAppId: ''
-      metaTemplate: ''
-      robots:
-        - ''
-        - ''
-        - ''
-        - ''
-        - ''
-        - ''
-      robotsTxt: "{# Sitemap URL #}\r\nSitemap: {{ url(seo.sitemapName ~ '.xml') }}\r\n\r\n{# Disallows #}\r\n{% if craft.app.config.env != 'production' %}\r\n\r\n{# Disallow access to everything when NOT in production #}\r\nUser-agent: *\r\nDisallow: /\r\n\r\n{% else %}\r\n\r\n{# Disallow access to cpresources/ when live #}\r\nUser-agent: *\r\nDisallow: /cpresources/\r\n\r\n{% endif %}"
-      sitemapLimit: '1000'
-      sitemapName: sitemap
-      socialImage: ''
-      title:
-        -
-          key: '1'
-          locked: '0'
-          template: '{title}'
-        -
-          key: '2'
-          locked: '1'
-          template: ' - {{ siteName }}'
-      titleSuffix: null
-      twitterHandle: ''
   sprig:
     edition: standard
     enabled: true
     schemaVersion: 1.0.1
   super-table:
-    enabled: '1'
-    licenseKey: null
+    edition: standard
+    enabled: true
     schemaVersion: 2.2.1
-    settings: null
   twigpack:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
   typedlinkfield:
-    enabled: '1'
-    licenseKey: null
+    edition: standard
+    enabled: true
     schemaVersion: 1.0.0
-    settings: null
   typogrify:
-    enabled: '1'
-    licenseKey: null
+    edition: standard
+    enabled: true
     schemaVersion: 1.0.0
-    settings: null
 system:
   edition: solo
   live: true
-  name: Craft
-  schemaVersion: 3.5.13
-  timeZone: America/Los_Angeles
+  name: 'Craft Template'
+  retryDuration: null
+  schemaVersion: 3.6.8
+  timeZone: Europe/Brussels
 users:
   allowPublicRegistration: false
   defaultGroup: null
-  photoSubpath: ''
+  photoSubpath: null
   photoVolumeUid: null
   requireEmailVerification: true
