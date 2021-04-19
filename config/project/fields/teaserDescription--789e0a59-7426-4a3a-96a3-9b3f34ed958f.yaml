@@ -3,7 +3,7 @@ fieldGroup: 9c7a4966-42e8-49f7-b64d-2f90f14b5dc5 # Teaser
 handle: teaserDescription
 instructions: ''
 name: 'Teaser Beschriving'
-searchable: false
+searchable: true
 settings:
   availableTransforms: '*'
   availableVolumes: '*'

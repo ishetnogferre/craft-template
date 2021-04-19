@@ -1,4 +1,4 @@
-dateModified: 1618771530
+dateModified: 1618775938
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER
@@ -78,6 +78,7 @@ plugins:
   freeform:
     edition: lite
     enabled: true
+    licenseKey: 5W66A7U3YAL47SJL8ISFW30V
     schemaVersion: 3.3.0
     settings:
       ajaxByDefault: true

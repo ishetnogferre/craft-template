@@ -3,7 +3,7 @@ fieldGroup: d0393e73-f781-4174-9020-2f7649b53d09 # Blocks
 handle: blockRedactor
 instructions: ''
 name: Redactor
-searchable: false
+searchable: true
 settings:
   availableTransforms: '*'
   availableVolumes: '*'

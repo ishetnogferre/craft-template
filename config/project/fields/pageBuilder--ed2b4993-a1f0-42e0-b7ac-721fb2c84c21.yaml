@@ -3,14 +3,14 @@ fieldGroup: d0393e73-f781-4174-9020-2f7649b53d09 # Blocks
 handle: pageBuilder
 instructions: ''
 name: 'Page builder'
-searchable: false
+searchable: true
 settings:
   maxBlocks: ''
   maxLevels: ''
   maxTopBlocks: ''
   minBlocks: ''
   propagationMethod: all
-  wasModified: true
+  wasModified: false
 translationKeyFormat: null
 translationMethod: site
 type: benf\neo\Field

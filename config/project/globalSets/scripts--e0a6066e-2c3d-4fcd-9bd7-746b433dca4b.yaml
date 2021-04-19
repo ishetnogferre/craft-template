@@ -1,0 +1,27 @@
+fieldLayouts:
+  7f767bb8-cd19-4bec-bff1-9d36f8770fbf:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: ede512b1-e5c7-4d66-aeff-c7c526388e1c # Head Script
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 16e435de-d04a-4cf9-8c18-28f65479423f # Body Script
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: scripts
+name: Scripts

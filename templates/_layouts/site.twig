@@ -11,7 +11,14 @@
 
 {# -- Any JavaScript that should be included before </head> -- #}
 {% block headJs %}
-    {% include "_layouts/_partials/head-thirdparty" %}
+    {% if not craft.app.config.general.devMode %}  
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({'language': '{{ language }}'});
+        </script>
+
+        {{ scripts.headScript|raw }}
+    {% endif %}
 {% endblock %}
 
 {# -- Any CSS that should be included before </head> -- #}
@@ -47,3 +54,9 @@
         {% include "_layouts/_partials/footer" %}
     </div>
 {% endblock bodyHtml %}
+
+{% block bodyJs %}
+    {% if not craft.app.config.general.devMode %} 
+        {{ scripts.bodyScript|raw }}
+    {% endif %}
+{% endblock bodyJs %}
