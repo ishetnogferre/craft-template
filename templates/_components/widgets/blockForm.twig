@@ -1,3 +1,7 @@
-{% include "form/form" with {
-  form: block.blockForm
-} %}
+<div class="{% if module.type.handle == 'moduleHalfHalf' %}grid-cols-7 grid{% endif %}">
+  <div class="{% if module.type.handle == 'moduleHalfHalf' %}col-start-2 col-span-5 py-8{% endif %}">
+    {% include "form/form" with {
+      form: block.blockForm
+    } %}
+  </div>
+</div>

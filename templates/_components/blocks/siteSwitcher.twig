@@ -1,0 +1,16 @@
+{% if craft.app.sites.allSites|length > 1 %}
+  <div class="group text-base">
+    <div class="pl-4 py-3 cursor-pointer flex justify-between items-center">
+        <span class="inline-block mr-2">{{ currentSite.name }}</span>
+        <svg width="13" height="8" xmlns="http://www.w3.org/2000/svg" class="flex-none -mt-1"><path d="M12.353.946a.517.517 0 0 1-.006.728l-5.68 5.621-5.68-5.62a.517.517 0 0 1 .355-.883.512.512 0 0 1 .363.147l4.962 4.887 4.96-4.887a.511.511 0 0 1 .726.007z" fill="currentColor" stroke="currentColor" stroke-width=".5" fill-rule="evenodd"></path></svg>
+    </div>
+    <ul class="hidden group-hover:block absolute transition-sm z-90 shadow-md text-center w-full">
+      {% for site in craft.app.sites.allSites|without(currentSite) %}
+        {% set translation = craft.entries.id(entry.id).site(site).one() %}
+        <li class="m-0 list-none">
+            <a href="{{ translation ?? alias(site.baseUrl) }}" class="block p-2 bg-tech-yellow hover:bg-tech-purple text-white no-underline">{{ site.name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}

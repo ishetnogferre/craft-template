@@ -1,0 +1,41 @@
+{# If entry is empty, try category, tag and finally return null #}
+{% set element = entry ?? category ?? tag ?? null %}
+
+{# Breadcrumb settings array #}
+{# doc: https://github.com/youandmedigital/craft-breadcrumb/blob/master/README.md #}
+{% set settings =
+  {
+    homeTitle: 'Home',
+    customBaseUrl: alias('@baseUrl'),
+    customFieldHandleEntryId: 0,
+    customFieldHandle: null,
+    lastSegmentTitle: element.title,
+    skipUrlSegment: null,
+    limit: null
+  }
+%}
+
+{# The settings array above is passed into the Breadcrumb config below #}
+{% set breadcrumb = craft.breadcrumb.config(settings) %}
+
+{% if breadcrumb %}
+<div class="c-breadcrumb">
+  <ol class="c-breadcrumb__items flex items-center">
+    {% for crumb in breadcrumb  %}
+      {% if loop.last %}
+      <li class="c-breadcrumb__item mx-2">
+          <span>{{ crumb.title }}</span>
+      </li>
+      {% else %}
+      <li class="c-breadcrumb__item mx-2">
+          <a class="c-breadcrumb__link" href="{{ crumb.url }}">
+              <span>{{ crumb.title }}</span>
+          </a>
+      </li>
+      {% endif %}
+    {% endfor %}
+  </ol>
+</div>
+{% endif %}
+
+

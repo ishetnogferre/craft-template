@@ -4,7 +4,7 @@
 {% set teaserDescription = teaserDescription ?? entry.teaserDescription %}
 {% set moreInfoText = "Meer info" %}
 
-<div class="col-span-4 group cursor-pointer mb-16">
+<div class="col-span-4 group cursor-pointer mb-16 flex flex-col justify-between">
     <div onclick="goToUrl('{{ entry.url }}')">
         <figure class="w-full h-0 aspect-ratio-16/9 overflow-hidden">
             {% include "_components/blocks/image" with {
@@ -24,8 +24,8 @@
             {{- teaserDescription | typogrify -}}
         </div>
     </div>
-    <a href="{{ entry.url }}" title="{{ entry.title }}" class="text-lg text-green-400 font-bold mt-2">
-        + {{ moreInfoText -}}
+    <a href="{{ entry.url }}" title="{{ entry.title }}" class="inline-block text-lg text-green-400 font-bold mt-2">
+        {{- '+ ' ~ moreInfoText -}}
     </a>
 </div>
 
