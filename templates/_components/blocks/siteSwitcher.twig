@@ -8,7 +8,7 @@
       {% for site in craft.app.sites.allSites|without(currentSite) %}
         {% set translation = craft.entries.id(entry.id).site(site).one() %}
         <li class="m-0 list-none">
-            <a href="{{ translation ?? alias(site.baseUrl) }}" class="block p-2 bg-tech-yellow hover:bg-tech-purple text-white no-underline">{{ site.name }}</a>
+            <a href="{{ translation.url ?? alias(site.baseUrl) }}" class="block p-2 bg-tech-yellow hover:bg-tech-purple text-white no-underline">{{ site.name }}</a>
         </li>
       {% endfor %}
     </ul>
