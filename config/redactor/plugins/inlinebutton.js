@@ -1,75 +1,134 @@
-// !function(t){
-//   t.add("plugin","inlinebutton",{
-//     init:function(t){
-//       this.app=t,
-//       this.opts=t.opts,
-//       this.component=t.component,
-//       this.links=[]
-//     },
-//     onmodal:{
-//       link:{
-//         open: function(t,i){
-//           this.opts.definedlinks&&(this.$modal=t,this.$form=i,this._load())
-//         }
-//       }
-//     },
-//     _load:function(){
-//       "object"==typeof this.opts.definedlinks?this._build(this.opts.definedlinks):t.ajax.get({url:this.opts.definedlinks,success:this._build.bind(this)})
-//     },
-//     _build:function(i){
-//       if(0===(e=this.$modal.find("#redactor-defined-links")).length){
-//         var n=this.$modal.getBody(),s=t.dom('<div class="form-item" />'),e=t.dom('<select id="redactor-defined-links" />');s.append(e),n.prepend(s)
-//       }
-//       for(var o in this.links=[],e.html(""),
-//         e.off("change"),i)
-//         if(i.hasOwnProperty(o)&&"object"==typeof i[o]){
-//           this.links[o]=i[o];var d=t.dom("<option>");d.val(o),d.html(i[o].name),e.append(d)
-//         }
-//         e.on("change",this._select.bind(this))
-//       },
-//     _select:function(i){
-//       var n=this.$form.getData(),s=t.dom(i.target).val(),e={text:"",url:""};"0"!==s&&(e.text=this.links[s].name,e.url=this.links[s].url),""!==n.text&&(e={url:e.url}),this.$form.setData(e)
-//     }
-//   })
-// }(Redactor);
-
-
-
-(function($R)
-{
-  $R.add('plugin', 'inlinebutton', {
-    // set translations
-    translations: {
-      en: {
-        "my-button": "My button"
+var plugin = $.extend({}, Craft.Redactor.PluginBase, {
+  linkOptions: [],
+  existingText: '',
+  hack: null,
+  modalState: {
+      selectedLink: {
+          text: null,
+          url: null
       }
-    },
-    init: function(app) {
-      this.app = app;
-      this.toolbar = app.toolbar;
-
-      // define lang service
-      this.lang = app.lang;
-    },
-    start: function(){
-      // set up the button with lang variable
-      var buttonData = {
-        title: this.lang.get('my-button'),
-        api: 'plugin.craftElementLinks.setLinkOptions'
-      };
-
-      // add the button to the toolbar
-      var $button = this.toolbar.addButton('my-button', buttonData);
-    },
-    toggle: function(){
-      this.app.api('module.link.open');
-    },
-    onlink: {
-      inserted: function(link)
-      {
-        console.log('TOEGEVOEGD');
-      }
+  },
+  translations: {
+    en: {
+      "my-button": "My button"
     }
-    
-  });
+  },
+
+  init: function(app) {
+    this.app = app;
+    this.toolbar = app.toolbar;
+
+    // define lang service
+    this.lang = app.lang;
+  },
+  start: function(){
+    // set up the button with lang variable
+    var buttonData = {
+      title: this.lang.get('my-button'),
+      api: 'plugin.inlinebutton.setLinkOptions',
+    };
+
+    // add the button to the toolbar
+    var $button = this.toolbar.addButton('my-button', buttonData);
+  },
+  showModal: function (arguments, zIndex) {
+      let refHandle = arguments.refHandle,
+          callback = arguments.callback;
+
+      this.saveSelection(this.app);
+
+      this.modalState.isButton = true;
+
+      // Create a new one each time because Redactor creates a new one and we can't reuse the references.
+      const modal = Craft.createElementSelectorModal(arguments.elementType, {
+          storageKey: 'RedactorInput.LinkTo.' + arguments.elementType,
+          sources: arguments.sources,
+          criteria: arguments.criteria,
+          defaultSiteId: this.elementSiteId,
+          autoFocusSearchBox: false,
+          onSelect: $.proxy(function(elements) {
+              if (elements.length) {
+                  const element = elements[0];
+
+                  this.restoreSelection(this.app);
+
+                  this.modalState.selectedLink = {
+                      url: element.url + '#' + refHandle + ':' + element.id + '@' + element.siteId,
+                      text: this.app.selection.getText().length > 0 ? this.app.selection.getText() : element.label
+                  }
+
+                  this.app.api('module.link.open');
+              }
+          }, this),
+          closeOtherModals: false,
+      });
+  },
+  openLink: function () {
+    this.modalState.isButton = true;
+    this.app.api('module.link.open');
+  },
+
+  unLink: function () {
+    console.log(this.app);
+    this.modalState.isButton = true;
+    this.app.api('module.link.unlink');
+  },
+
+
+  setLinkOptions: function (linkOptions) {
+      this.linkOptions = linkOptions;
+  },
+
+  onmodal: {
+      link: {
+          open: function(modal, form) {
+              // Prevent Redactor from aggressively refocusing, when we don't want it to.
+              this.hack = modal.app.editor.focus;
+              modal.app.editor.focus = () => null;
+
+              $form = $(form.nodes);
+
+              if (this.modalState.selectedLink.url) {
+                  $form.find('input[name=url]').val(this.modalState.selectedLink.url);
+              }
+
+              if (this.modalState.selectedLink.text) {
+                  $form.find('input[name=text]').val(this.modalState.selectedLink.text);
+              }
+
+              this.modalState.selectedLink = {
+                  text: null,
+                  url: null
+              };
+
+          },
+      }
+  },
+  onlink: {
+    inserted: function(s) {
+      if (this.modalState.isButton == true) {
+        s.nodes[0].classList.add('redactor__btn-container')
+      }
+
+      this.modalState.isButton = false;
+    },
+  },
+
+  setLinkOptions: function (linkOptions) {
+      var button = this.app.toolbar.getButton('my-button'),
+          dropdown = this.app.toolbar.getButton('link').getDropdown(),
+          items = JSON.parse(JSON.stringify(dropdown.items));
+      
+
+      items.custom1.api = "plugin.inlinebutton.showModal";
+      items.custom2.api = "plugin.inlinebutton.showModal";
+      items.link.api = "plugin.inlinebutton.openLink";
+      items.unlink.api = "plugin.inlinebutton.unLink";
+
+      button.setDropdown(items);
+  }
+});
+
+(function($R) {
+  $R.add('plugin', 'inlinebutton', plugin);
 })(Redactor);

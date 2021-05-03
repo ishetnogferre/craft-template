@@ -31,3 +31,7 @@
 .policy__links {
   @apply font-bold text-2xl no-underline;
 }
+
+a.redactor__btn-container {
+  @apply inline-block no-underline bg-green-300 px-8 py-4 text-center text-lg font-bold hover:shadow-md transition duration-500;
+}
