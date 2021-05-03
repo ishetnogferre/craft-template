@@ -33,18 +33,22 @@
 
 {% endblock headContent %}
 
+{% block bodyTag %}
+    {# Set the `bodyClass` variable to the entry's section handle if there is one, or the first URI segment (this is used by the parent template) #}
+    {% set bodyClass = entry is defined ? entry.section.handle : craft.app.request.segments|first %}
+    <body class="{{ bodyClass ?? '' }}">
+{% endblock %}
+
 {# -- Page content that should be included in the <body> -- #}
 {% block bodyContent %}
-    <body {% if bodyClass is defined %}class="{{ bodyClass }}"{% endif %}>
-        {# -- Page content that should be included in the <body> -- #}
-        {% block bodyHtml %}
-        {% endblock bodyHtml %}
+    {# -- Page content that should be included in the <body> -- #}
+    {% block bodyHtml %}
+    {% endblock bodyHtml %}
 
-        {# -- Inline JS #}
-        {% include "_boilerplate/_partials/body-js.twig" %}
+    {# -- Inline JS #}
+    {% include "_boilerplate/_partials/body-js.twig" %}
 
-        {# -- Any JavaScript that should be included before </body> -- #}
-        {% block bodyJs %}
-        {% endblock bodyJs %}
-    </body>
+    {# -- Any JavaScript that should be included before </body> -- #}
+    {% block bodyJs %}
+    {% endblock bodyJs %}
 {% endblock bodyContent %}

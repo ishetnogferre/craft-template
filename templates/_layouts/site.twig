@@ -32,13 +32,6 @@
     {{ craft.twigpack.includeCssModule("/dist/site.css") }}
 {% endblock headCss %}
 
-{% block bodyTag %}
-    {# Set the `bodyClass` variable to the entry's section handle if there is one, or the first URI segment (this is used by the parent template) #}
-    {% if bodyClass is not defined %}
-        {% set bodyClass = entry is defined ? entry.section.handle : craft.app.request.segments|first %}
-    {% endif %}
-{% endblock %}
-
 {# -- Page body -- #}
 {% block bodyHtml %}
     {{ adminbar({ entry: entry }) }}
