@@ -10,7 +10,7 @@ var plugin = $.extend({}, Craft.Redactor.PluginBase, {
   },
   translations: {
     en: {
-      "my-button": "My button"
+      "my-button": "Button"
     }
   },
 
