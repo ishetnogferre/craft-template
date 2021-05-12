@@ -3,7 +3,8 @@
     {% for batch in children|batch(3) %}
       {% for block in batch %}
         <div class="overflow-hidden col-span-4">
-          {% include '_components/widgets/' ~ block.type.handle %}
+        	{% block innerModule %}
+        	{% endblock %}
         </div>
       {% endfor %}
     {% endfor %}

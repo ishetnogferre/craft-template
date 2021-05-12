@@ -4,7 +4,8 @@
     {% for batch in children|batch(1) %}
       {% for block in batch %}
         <div class="{% if block.type.handle not in breakOutBlocks %}col-span-12 col-start-2 {% else %}col-span-full{% endif %}">
-          {% include '_components/widgets/' ~ block.type.handle %}
+        	{% block innerModule %}
+        	{% endblock %}
         </div>
       {% endfor %}
     {% endfor %}
