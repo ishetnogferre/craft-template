@@ -1,4 +1,4 @@
-childBlocks: ''
+childBlocks: null
 field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Page builder
 fieldLayouts:
   3b831667-9987-4593-980b-5d953c3ac75d:
@@ -21,5 +21,5 @@ maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
 name: Gallerij
-sortOrder: 10
+sortOrder: 9
 topLevel: false

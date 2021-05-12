@@ -1,6 +1,5 @@
 childBlocks:
   - blockImage
-  - blockForm
   - blockIconText
   - blockQuote
   - blockRedactor
