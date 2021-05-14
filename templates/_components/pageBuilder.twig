@@ -20,12 +20,5 @@
         'blockGallery:blockImage'
     ]).all() %}
     {# Load our component #}
-    {% embed '_components/modules/' ~ module.type.handle %}
-    	{% block innerModule %}
-    		{%- include [
-	        	'_components/widgets/' ~ module.type.handle ~ '/' ~ block.type.handle,
-	        	'_components/widgets/' ~ block.type.handle 
-	        ] -%}
-    	{% endblock %}
-    {% endembed %}
+    {% include '_components/modules/' ~ module.type.handle %}
 {% endfor %}
