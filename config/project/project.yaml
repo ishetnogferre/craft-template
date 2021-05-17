@@ -1,4 +1,4 @@
-dateModified: 1620719466
+dateModified: 1621259430
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER
@@ -55,6 +55,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.4.1.1
+  cp-clearcache:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   eager-beaver:
     edition: standard
     enabled: true
@@ -157,7 +161,7 @@ plugins:
   navigation:
     edition: standard
     enabled: true
-    licenseKey: 9CSDTRPVDY56W8RZQVZRF28R
+    licenseKey: 788G205Y3EUY351M665NQODW
     schemaVersion: 1.0.21
   neo:
     edition: standard
