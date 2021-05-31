@@ -27,6 +27,7 @@ return [
     'securityKey' => App::env('SECURITY_KEY'),
     // Remove GraphQL from the Admin
     'enableGql' => false,
+    'preventUserEnumeration' => true,
 
     // Whether Dev Mode should be enabled (see https://craftcms.com/guides/what-dev-mode-does)
     'allowAdminChanges' => $isDev,

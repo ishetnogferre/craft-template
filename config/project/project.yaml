@@ -1,4 +1,4 @@
-dateModified: 1621259430
+dateModified: 1622136172
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER
@@ -150,7 +150,7 @@ plugins:
       twigInHtml: true
       twigInHtmlIsolatedMode: true
       updateSearchIndexes: '1'
-  imager:
+  imgix:
     edition: standard
     enabled: true
     schemaVersion: 2.0.0
@@ -166,7 +166,7 @@ plugins:
   neo:
     edition: standard
     enabled: true
-    licenseKey: KLF3CMAXSAC9QVZ71V3FHRH7
+    licenseKey: RCCEDJPU25LY0D5CB8DKTZQP
     schemaVersion: 2.8.16
   position-fieldtype:
     edition: standard
@@ -192,6 +192,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 3.2.0
+  sherlock:
+    edition: lite
+    enabled: true
+    schemaVersion: 3.0.0
   sprig:
     edition: standard
     enabled: true
