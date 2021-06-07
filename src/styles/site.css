@@ -35,3 +35,14 @@
 a.redactor__btn-container {
   @apply inline-block no-underline bg-green-300 px-8 py-4 text-center text-lg font-bold hover:shadow-md transition duration-500;
 }
+
+.moduleHalfHalf, .moduleOneAndTwoThirds {
+  & .moduleBlock.blockColored {
+    &.blockEven{
+      @apply -ml-4;
+    }
+    &.blockOdd {
+      @apply -mr-4;
+    }
+  }
+}

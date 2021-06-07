@@ -5,7 +5,6 @@ instructions: ''
 name: Achtergrondkleur
 searchable: false
 settings:
-  options: ''
   palette: ''
   useConfigFile: '1'
 translationKeyFormat: null

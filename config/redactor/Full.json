@@ -1,7 +1,7 @@
 {
   "buttons": ["redo", "undo", "format", "bold", "italic", "lists", "link", "image"],
   "formatting": ["p", "h1", "h2", "h3", "h4", "h5", "h6", "blockquote"],
-  "plugins": ["customstyles", "fontcolor", "widget", "table", "alignment", "inlinebutton"],
+  "plugins": ["customstyles", "fontcolor", "widget", "table", "alignment", "fontsize", "inlinebutton"],
   "fontcolors": [
     "#292929",
     "#F1F1F1",
@@ -38,13 +38,6 @@
         }
       }
     },
-    "clearStyle": {
-      "args": {
-        "tag": "a",
-        "class": "btn__styled",
-        "type": "toggle"
-      }
-    }
   },
   "imageUpload": true,
   "pastePlainText": true,
