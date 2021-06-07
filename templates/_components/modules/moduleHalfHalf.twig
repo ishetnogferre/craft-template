@@ -1,14 +1,15 @@
-<div class="grid__site">
+{% for batch in children|batch(2) %}
   <div class="col-start-1 col-span-14 grid grid-cols-14 gap-x-4">
-    {% for batch in children|batch(2) %}
-      {% for block in batch %}
-        <div class="col-span-7 overflow-hidden">
-        	{%- include [
-	        	'_components/widgets/' ~ module.type.handle ~ '/' ~ block.type.handle,
-	        	'_components/widgets/' ~ block.type.handle 
-	        ] -%}
-        </div>
-      {% endfor %}
+    {% for block in batch %}
+      {% set blockLoop = loop.index %}
+      <div class="col-span-14 lg:col-span-7 moduleBlock {{ block.type.handle }}"
+      {{ blockLoop % 2 == 0 ? 'blockEven' : 'blockOdd' }}
+      {{ block.backgroundColor != 'transparent' and block.backgroundColor != null ? 'blockColored' }}">
+        {%- include [
+          '_components/widgets/' ~ module.type.handle ~ '/' ~ block.type.handle,
+          '_components/widgets/' ~ block.type.handle 
+        ] -%}
+      </div>
     {% endfor %}
   </div>
-</div>
+{% endfor %}

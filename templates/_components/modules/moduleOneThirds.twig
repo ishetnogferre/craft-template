@@ -1,11 +1,12 @@
-<div class="grid__site">
+{% for batch in children|batch(3) %}
   <div class="col-start-2 col-span-12 grid grid-cols-12 gap-x-4">
-    {% for batch in children|batch(3) %}
-      {% for block in batch %}
-        <div class="overflow-hidden col-span-4">
-          {% include '_components/widgets/' ~ block.type.handle %}
-        </div>
-      {% endfor %}
+    {% for block in batch %}
+      <div class="overflow-hidden col-span-12 lg:col-span-4 moduleBlock {{ block.type.handle }}">
+        {%- include [
+          '_components/widgets/' ~ module.type.handle ~ '/' ~ block.type.handle,
+          '_components/widgets/' ~ block.type.handle 
+        ] -%}
+      </div>
     {% endfor %}
   </div>
-</div>
+{% endfor %}

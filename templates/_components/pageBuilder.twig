@@ -17,8 +17,12 @@
         'blockIconText:blockIcon',
         'blockImage:blockImage',
         'blockCta:ctaPicker',
-        'blockGallery:blockImage'
+        'blockGallery:blockImage',
+        'blockLogos:blockMultipleAssets'
     ]).all() %}
     {# Load our component #}
-    {% include '_components/modules/' ~ module.type.handle %}
+    <div class="grid__site {{ module.type.handle }}">
+        {% set moduleLoop = loop %}
+        {% include '_components/modules/' ~ module.type.handle %}
+    </div>
 {% endfor %}
