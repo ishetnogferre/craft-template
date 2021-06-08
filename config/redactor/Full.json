@@ -37,7 +37,7 @@
           "api": "module.inline.clearformat"
         }
       }
-    },
+    }
   },
   "imageUpload": true,
   "pastePlainText": true,
