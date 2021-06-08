@@ -1,0 +1,20 @@
+childBlocks: ''
+field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Page builder
+fieldLayouts:
+  72e047ee-32e8-4ebf-b87b-6ce717902f03:
+    tabs:
+      -
+        elements:
+          -
+            style: tip
+            tip: 'Voor als je net dat ietsje meer ruimte nodig hebt.'
+            type: craft\fieldlayoutelements\Tip
+        name: Content
+        sortOrder: 1
+handle: blockSpacer
+maxBlocks: 0
+maxChildBlocks: 0
+maxSiblingBlocks: 0
+name: Spacer
+sortOrder: 15
+topLevel: false

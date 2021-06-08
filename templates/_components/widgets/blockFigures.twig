@@ -1,0 +1,17 @@
+<div class="grid__site py-8 text-black bg-green-300">
+  <div class="col-start-2 col-span-12">
+    {% include "_components/typo/heading" with {
+      tag: 'h3',
+      heading: block.blockTitle,
+      classes: 'mx-auto text-center my-6'
+    } %}
+  </div>
+  <div class="col-span-12 col-start-2 grid--inner py-4 lg:py-12 lg:justify-items-center">
+    {% for figure in block.blockFigures %}
+      <div class="col-span-12 col-start-2 lg:col-span-4 my-6 lg:my-0">
+        <span class="block font-bold text-4xl lg:text-5xl leading-none">{{- figure.number -}}</span>
+        <span class="block uppercase text-lg tracking-widest">{{- figure.what -}}</span>
+      </div>
+    {% endfor %}
+  </div>
+</div>

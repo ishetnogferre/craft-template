@@ -1,12 +1,12 @@
 childBlocks: ''
 field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Page builder
 fieldLayouts:
-  45e5ad46-1830-4ea4-9799-f0f140f41d57:
+  433092b3-bfb9-483d-876f-da8795771999:
     tabs:
       -
         elements:
           -
-            fieldUid: 54cd2e2b-47b8-4eee-a066-14d594e4466e # Quote
+            fieldUid: 9c73910a-04bd-4adc-94f8-1a7869ccbfbd # Cijfers
             instructions: ''
             label: ''
             required: '1'
@@ -16,10 +16,10 @@ fieldLayouts:
             width: 100
         name: Content
         sortOrder: 1
-handle: blockQuote
+handle: blockFigures
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
-name: Quote
-sortOrder: 14
+name: Cijfers
+sortOrder: 9
 topLevel: false

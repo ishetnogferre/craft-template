@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: ff629bd2-b39a-4ba8-9ad0-dcb6f8f80ed8 # Team
+handle: memberLastName
+instructions: ''
+name: Achternaam
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

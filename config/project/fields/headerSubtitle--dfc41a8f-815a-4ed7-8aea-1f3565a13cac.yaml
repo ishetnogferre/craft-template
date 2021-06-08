@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: fc99e12c-0ba6-4a24-a5da-d1bbbfe3f063 # Header
+handle: headerSubtitle
+instructions: ''
+name: 'Header Subtitel'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

@@ -1,0 +1,33 @@
+contentColumnType: string
+fieldGroup: ff629bd2-b39a-4ba8-9ad0-dcb6f8f80ed8 # Team
+handle: memberPic
+instructions: ''
+name: Foto
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds:
+    - image
+    - video
+  defaultUploadLocationSource: 'volume:49ded60a-198f-449b-819e-2533dde2cb20' # Afbeeldingen
+  defaultUploadLocationSubpath: ''
+  limit: '1'
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: '1'
+  selectionLabel: ''
+  showSiteMenu: false
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  singleUploadLocationSource: 'volume:49ded60a-198f-449b-819e-2533dde2cb20' # Afbeeldingen
+  singleUploadLocationSubpath: ''
+  source: null
+  sources: '*'
+  targetSiteId: null
+  useSingleFolder: true
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets
