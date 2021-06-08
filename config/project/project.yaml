@@ -1,4 +1,4 @@
-dateModified: 1622550398
+dateModified: 1623140468
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER
@@ -167,7 +167,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: RCCEDJPU25LY0D5CB8DKTZQP
-    schemaVersion: 2.8.16
+    schemaVersion: 2.9.11
   position-fieldtype:
     edition: standard
     enabled: true
