@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ed1b4b92fa02b3542dd39bb13a0ea1b5",
+    "content-hash": "3a3ca52338286040f1476cf98c87ffb7",
     "packages": [
         {
             "name": "carlcs/craft-redactorcustomstyles",
@@ -997,11 +997,11 @@
         },
         {
             "name": "ether/seo",
-            "version": "3.7.3",
+            "version": "3.7.4",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ethercreative/seo/zipball/9fc5da15a5b10827b48e2858f041d85d5d7637ed",
-                "reference": "9fc5da15a5b10827b48e2858f041d85d5d7637ed",
+                "url": "https://api.github.com/repos/ethercreative/seo/zipball/67ce1f13d5bf33e9bf7453b3fa2cbe5c8d79a6f4",
+                "reference": "67ce1f13d5bf33e9bf7453b3fa2cbe5c8d79a6f4",
                 "shasum": ""
             },
             "require": {
@@ -1028,7 +1028,7 @@
                 "issues": "https://github.com/ethercreative/seo",
                 "docs": "https://github.com/ethercreative/seo/blob/v3/README.md"
             },
-            "time": "2021-05-28T10:50:31+00:00"
+            "time": "2021-06-14T11:07:59+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -1509,11 +1509,6 @@
         {
             "name": "ivopetkov/html5-dom-document-php",
             "version": "v2.2.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ivopetkov/html5-dom-document-php.git",
-                "reference": "13306694beb2d413f9411e20f59a505d2ce3060b"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/ivopetkov/html5-dom-document-php/zipball/13306694beb2d413f9411e20f59a505d2ce3060b",
@@ -1524,17 +1519,12 @@
                 "ext-dom": "*",
                 "php": "7.0.*|7.1.*|7.2.*|7.3.*|7.4.*|8.0.*"
             },
-            "require-dev": {
-                "ivopetkov/docs-generator": "0.2.*",
-                "phpunit/phpunit": "6.*|7.*|8.*|9.*"
-            },
             "type": "library",
             "autoload": {
                 "files": [
                     "autoload.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1546,10 +1536,6 @@
                 }
             ],
             "description": "HTML5 DOMDocument PHP library (extends DOMDocument)",
-            "support": {
-                "issues": "https://github.com/ivopetkov/html5-dom-document-php/issues",
-                "source": "https://github.com/ivopetkov/html5-dom-document-php/tree/v2.2.9"
-            },
             "time": "2021-01-17T21:29:24+00:00"
         },
         {
@@ -2727,11 +2713,11 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.48.1",
+            "version": "2.49.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/8d1f50f1436fb4b05e7127360483dd9c6e73da16",
-                "reference": "8d1f50f1436fb4b05e7127360483dd9c6e73da16",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/93d9db91c0235c486875d22f1e08b50bdf3e6eee",
+                "reference": "93d9db91c0235c486875d22f1e08b50bdf3e6eee",
                 "shasum": ""
             },
             "require": {
@@ -2786,7 +2772,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2021-05-26T22:08:38+00:00"
+            "time": "2021-06-02T07:31:40+00:00"
         },
         {
             "name": "nystudio107/craft-eagerbeaver",
@@ -3932,11 +3918,11 @@
         },
         {
             "name": "putyourlightson/craft-sherlock",
-            "version": "3.1.2",
+            "version": "3.1.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-sherlock/zipball/37ab45178e192c118a7c5ac5a99aee2192f016af",
-                "reference": "37ab45178e192c118a7c5ac5a99aee2192f016af",
+                "url": "https://api.github.com/repos/putyourlightson/craft-sherlock/zipball/454af038d234e9cebcfced599dabf6ca663b3a9d",
+                "reference": "454af038d234e9cebcfced599dabf6ca663b3a9d",
                 "shasum": ""
             },
             "require": {
@@ -3950,7 +3936,7 @@
                 "developer": "PutYourLightsOn",
                 "developerUrl": "https://putyourlightson.com/",
                 "documentationUrl": "https://putyourlightson.com/plugins/sherlock",
-                "schemaVersion": "3.0.0",
+                "schemaVersion": "3.1.3",
                 "hasCpSettings": true,
                 "hasCpSection": true,
                 "changelogUrl": "https://raw.githubusercontent.com/putyourlightson/craft-sherlock/v3/CHANGELOG.md",
@@ -3979,31 +3965,20 @@
                 "source": "https://github.com/putyourlightson/craft-sherlock",
                 "issues": "https://github.com/putyourlightson/craft-sherlock/issues"
             },
-            "time": "2021-03-30T08:32:34+00:00"
+            "time": "2021-06-08T21:51:44+00:00"
         },
         {
             "name": "putyourlightson/craft-sprig",
-            "version": "1.5.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/putyourlightson/craft-sprig.git",
-                "reference": "54ab13b4b0432fec5266b8eb3e0cd19ced84f116"
-            },
+            "version": "1.6.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-sprig/zipball/54ab13b4b0432fec5266b8eb3e0cd19ced84f116",
-                "reference": "54ab13b4b0432fec5266b8eb3e0cd19ced84f116",
+                "url": "https://api.github.com/repos/putyourlightson/craft-sprig/zipball/8858f0bbd58e485d83e2d60350f8e64a7bd062eb",
+                "reference": "8858f0bbd58e485d83e2d60350f8e64a7bd062eb",
                 "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^3.1.19",
                 "ivopetkov/html5-dom-document-php": "^2.2.8"
-            },
-            "require-dev": {
-                "codeception/codeception": "^4.0.0",
-                "codeception/module-asserts": "^1.0.0",
-                "codeception/module-yii2": "^1.0.0",
-                "vlucas/phpdotenv": "^3.0"
             },
             "type": "craft-plugin",
             "extra": {
@@ -4021,23 +3996,16 @@
                     "putyourlightson\\sprig\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "mit"
             ],
             "description": "A reactive Twig component framework for Craft.",
             "support": {
                 "docs": "https://putyourlightson.com/plugins/sprig",
-                "issues": "https://github.com/putyourlightson/craft-sprig/issues",
-                "source": "https://github.com/putyourlightson/craft-sprig"
+                "source": "https://github.com/putyourlightson/craft-sprig",
+                "issues": "https://github.com/putyourlightson/craft-sprig/issues"
             },
-            "funding": [
-                {
-                    "url": "https://github.com/bencroker",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-04-09T11:07:16+00:00"
+            "time": "2021-06-08T18:31:30+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -4272,14 +4240,15 @@
         },
         {
             "name": "solspace/craft-freeform",
-            "version": "3.11.5",
+            "version": "3.11.6",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/solspace/craft3-freeform/zipball/cd5ea9043919c6bf042a5d676563848221097b1b",
-                "reference": "cd5ea9043919c6bf042a5d676563848221097b1b",
+                "url": "https://api.github.com/repos/solspace/craft3-freeform/zipball/094a3245e31e758eaf2d008db5a6df202ba4f2af",
+                "reference": "094a3245e31e758eaf2d008db5a6df202ba4f2af",
                 "shasum": ""
             },
             "require": {
+                "composer/composer": "^1.0|^2.0.13",
                 "craftcms/cms": "^3.4.0",
                 "egulias/email-validator": "^2.1|^3.0",
                 "ext-json": "*",
@@ -4331,7 +4300,7 @@
                 }
             ],
             "description": "The most reliable, intuitive and powerful form builder for Craft.",
-            "time": "2021-06-03T05:03:20+00:00"
+            "time": "2021-06-10T19:55:26+00:00"
         },
         {
             "name": "solspace/craft3-commons",
@@ -4415,15 +4384,15 @@
         },
         {
             "name": "spicyweb/craft-neo",
-            "version": "2.9.12",
+            "version": "2.10.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spicywebau/craft-neo/zipball/c54ee06e581633478e04c2e8caaf386675ae716c",
-                "reference": "c54ee06e581633478e04c2e8caaf386675ae716c",
+                "url": "https://api.github.com/repos/spicywebau/craft-neo/zipball/78a3be45222f1ed2236ca4b2b757233eff5e53c0",
+                "reference": "78a3be45222f1ed2236ca4b2b757233eff5e53c0",
                 "shasum": ""
             },
             "require": {
-                "craftcms/cms": "^3.5.8"
+                "craftcms/cms": "^3.6.6"
             },
             "type": "craft-plugin",
             "extra": {
@@ -4460,10 +4429,10 @@
             "support": {
                 "issues": "https://github.com/spicywebau/craft-neo/issues",
                 "source": "https://github.com/spicywebau/craft-neo",
-                "docs": "https://github.com/spicywebau/craft-neo/wiki",
+                "docs": "https://github.com/spicywebau/craft-neo/blob/2.10.0/README.md",
                 "rss": "https://github.com/spicywebau/craft-neo/commits/master.atom"
             },
-            "time": "2021-06-07T15:19:33+00:00"
+            "time": "2021-06-13T14:33:46+00:00"
         },
         {
             "name": "stripe/stripe-php",
