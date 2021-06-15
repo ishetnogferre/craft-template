@@ -23,6 +23,7 @@ return [
     'id' => App::env('APP_ID') ?: 'CraftCMS',
     'modules' => [
         'my-module' => \modules\Module::class,
+        'hide-alerts' => \modules\hidealerts\HideAlertsModule::class,
     ],
-    //'bootstrap' => ['my-module'],
+    'bootstrap' => ['hide-alerts'],
 ];

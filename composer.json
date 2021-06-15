@@ -53,7 +53,8 @@
   },
   "autoload": {
     "psr-4": {
-      "modules\\": "modules/"
+      "modules\\": "modules/",
+      "modules\\hidealerts\\": "modules/hidealerts/src/"
     }
   },
   "config": {
