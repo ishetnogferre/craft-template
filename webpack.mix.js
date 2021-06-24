@@ -266,6 +266,7 @@ if (!mix.inProduction()) {
  * copy-webpack-plugin > 5.1.1, so keep that dependency at that version.
  * See: https://github.com/CupOfTea696/laravel-mix-imagemin/issues/9
  */
+  mix.copy('src/static/fonts/icons', './vendor/dolphiq/iconpicker/src/resources-shared/fonts')
 /*require("laravel-mix-imagemin")
 mix.imagemin(
   {

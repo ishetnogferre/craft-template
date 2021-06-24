@@ -1,4 +1,4 @@
-dateModified: 1623680872
+dateModified: 1624530447
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER
@@ -56,6 +56,10 @@ plugins:
     enabled: true
     schemaVersion: 1.4.1.1
   cp-clearcache:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  dolphiq-iconpicker:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0

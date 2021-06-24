@@ -1,0 +1,151 @@
+field: cee178be-b24e-4a96-839e-09486956d1d2 # Social Links
+fieldLayouts:
+  a7e9e216-70bc-45e0-a3d0-2d1f338e149b:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 6416c556-dbaa-4c1b-bc78-4c30a4ebc457 # Link Icon
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 4d7a1ee5-15a1-4dae-8d03-b802e5a80887 # Url
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  4d7a1ee5-15a1-4dae-8d03-b802e5a80887: # Url
+    contentColumnType: text
+    fieldGroup: null
+    handle: linkUrl
+    instructions: ''
+    name: Url
+    searchable: false
+    settings:
+      allowCustomText: ''
+      allowTarget: '1'
+      allowedLinkNames:
+        9: url
+      autoNoReferrer: ''
+      defaultLinkName: url
+      defaultText: ''
+      enableAriaLabel: '1'
+      enableTitle: ''
+      typeSettings:
+        __assoc__:
+          -
+            - asset
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - category
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - entry
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - site
+            -
+              __assoc__:
+                -
+                  - sites
+                  - '*'
+          -
+            - user
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - custom
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - email
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - tel
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - url
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: typedlinkfield\fields\LinkField
+  6416c556-dbaa-4c1b-bc78-4c30a4ebc457: # Link Icon
+    contentColumnType: string
+    fieldGroup: null
+    handle: linkIcon
+    instructions: ''
+    name: 'Link Icon'
+    searchable: false
+    settings:
+      charLimit: null
+      columnType: string
+      iconFont: fa-brands-400
+      placeholder: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: plugins\dolphiq\iconpicker\fields\Iconpicker
