@@ -1,12 +1,12 @@
 childBlocks: ''
-field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Page builder
+field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21
 fieldLayouts:
   285ae08a-110d-45c0-9339-31e4dfdd0266:
     tabs:
       -
         elements:
           -
-            fieldUid: f54f7984-d028-4c09-b235-1e547cef3e67 # Icoon
+            fieldUid: f54f7984-d028-4c09-b235-1e547cef3e67
             instructions: ''
             label: ''
             required: '1'
@@ -15,7 +15,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 4c8d2d62-5025-479a-938e-85b4d983e83e # Redactor
+            fieldUid: 4c8d2d62-5025-479a-938e-85b4d983e83e
             instructions: ''
             label: Tekst
             required: false

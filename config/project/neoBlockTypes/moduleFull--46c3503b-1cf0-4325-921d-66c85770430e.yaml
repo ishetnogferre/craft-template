@@ -5,7 +5,7 @@ childBlocks:
   - blockOverview
   - blockRedactor
   - blockVideo
-field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Page builder
+field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21
 handle: moduleFull
 maxBlocks: 0
 maxChildBlocks: 0

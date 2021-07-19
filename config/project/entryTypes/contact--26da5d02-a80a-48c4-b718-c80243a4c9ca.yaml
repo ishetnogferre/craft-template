@@ -27,7 +27,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 6efcc7d1-17e7-4880-9107-104c51a1a031 # Header Asset
+            fieldUid: 6efcc7d1-17e7-4880-9107-104c51a1a031
             instructions: ''
             label: 'Header Achtergrond'
             required: ''
@@ -36,7 +36,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 20c0032a-ff8d-4528-abd3-a36e53ef21e1 # Header Title
+            fieldUid: 20c0032a-ff8d-4528-abd3-a36e53ef21e1
             instructions: ''
             label: Titel
             required: ''
@@ -45,7 +45,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: c6d2994d-170a-4259-ba5d-96dc31b313b1 # Header Description
+            fieldUid: c6d2994d-170a-4259-ba5d-96dc31b313b1
             instructions: ''
             label: Beschrijving
             required: ''
@@ -58,7 +58,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Page builder
+            fieldUid: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21
             instructions: null
             label: null
             required: false
@@ -71,7 +71,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: 2ef40c1a-fa32-405d-afc8-284aa0281b0a # SEO
+            fieldUid: 2ef40c1a-fa32-405d-afc8-284aa0281b0a
             instructions: null
             label: null
             required: false
@@ -84,7 +84,7 @@ fieldLayouts:
 handle: contact
 hasTitleField: false
 name: Contact
-section: c678556d-4b65-4ad5-9b3d-5a976756af64 # Contact
+section: c678556d-4b65-4ad5-9b3d-5a976756af64
 sortOrder: 1
 titleFormat: '{section.name|raw}'
 titleTranslationKeyFormat: null

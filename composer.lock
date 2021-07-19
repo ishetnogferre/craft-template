@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1e91dccb4c3b587519b15e8208247f07",
+    "content-hash": "d84303a144e4edc59a26cf2781df6abd",
     "packages": [
         {
             "name": "carlcs/craft-redactorcustomstyles",
@@ -4587,6 +4587,55 @@
                 "rss": "https://github.com/spicywebau/craft-neo/commits/master.atom"
             },
             "time": "2021-07-15T07:14:33+00:00"
+        },
+        {
+            "name": "statikbe/craft-config-values",
+            "version": "1.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/statikbe/craft-config-values/zipball/f33ca6a8fe2f7d9c07d159c18ccee319b4273525",
+                "reference": "f33ca6a8fe2f7d9c07d159c18ccee319b4273525",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0-RC1"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Config Values Field",
+                "handle": "config-values-field",
+                "hasCpSettings": false,
+                "hasCpSection": false,
+                "changelogUrl": "https://raw.githubusercontent.com/statikbe/craft-config-values/master/CHANGELOG.md",
+                "class": "statikbe\\configvaluesfield\\ConfigValuesField"
+            },
+            "autoload": {
+                "psr-4": {
+                    "statikbe\\configvaluesfield\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jan Henckens",
+                    "email": "jan@statik.be"
+                }
+            ],
+            "description": "Populate a field with values from the plugin's config",
+            "keywords": [
+                "cms",
+                "config values field",
+                "craft",
+                "craft-plugin",
+                "craftcms"
+            ],
+            "support": {
+                "docs": "https://github.com/statikbe/craft-config-values/blob/master/README.md",
+                "issues": "https://github.com/statikbe/craft-config-values/issues"
+            },
+            "time": "2019-10-31T09:33:59+00:00"
         },
         {
             "name": "stripe/stripe-php",

@@ -4,7 +4,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: f6f87666-3cc8-41fe-9345-00716087c052 # Logo
+            fieldUid: f6f87666-3cc8-41fe-9345-00716087c052
             instructions: null
             label: null
             required: false
@@ -13,7 +13,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 7ee97b17-343b-4bfc-b89b-6524fc2dd8af # Button
+            fieldUid: 7ee97b17-343b-4bfc-b89b-6524fc2dd8af
             instructions: ''
             label: 'Menu Button'
             required: ''
@@ -26,7 +26,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: 870e8579-1237-4e5b-ad88-60468567da83 # Adres
+            fieldUid: 870e8579-1237-4e5b-ad88-60468567da83
             instructions: null
             label: null
             required: false
@@ -35,7 +35,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: eff4bf4c-f34e-4e11-944c-c132eb404694 # Email
+            fieldUid: eff4bf4c-f34e-4e11-944c-c132eb404694
             instructions: null
             label: null
             required: false
@@ -44,7 +44,7 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: 99eb80f8-ad39-4772-9111-899d244fa56b # Telefoon nr
+            fieldUid: 99eb80f8-ad39-4772-9111-899d244fa56b
             instructions: null
             label: null
             required: false
@@ -53,7 +53,7 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: cee178be-b24e-4a96-839e-09486956d1d2 # Social Links
+            fieldUid: cee178be-b24e-4a96-839e-09486956d1d2
             instructions: null
             label: null
             required: false

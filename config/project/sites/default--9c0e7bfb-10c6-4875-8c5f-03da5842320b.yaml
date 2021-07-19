@@ -4,5 +4,5 @@ hasUrls: true
 language: nl-BE
 name: 'Craft Template'
 primary: true
-siteGroup: 6873ebf1-5c5f-4b31-9f4a-4c228afd0b3c # Craft Template
+siteGroup: 6873ebf1-5c5f-4b31-9f4a-4c228afd0b3c
 sortOrder: 1

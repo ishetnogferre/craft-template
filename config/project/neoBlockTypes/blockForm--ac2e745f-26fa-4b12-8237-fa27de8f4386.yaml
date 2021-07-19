@@ -1,12 +1,12 @@
 childBlocks: ''
-field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Page builder
+field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21
 fieldLayouts:
   11db6823-93d5-4373-a076-94f705b839a5:
     tabs:
       -
         elements:
           -
-            fieldUid: 4992b4f3-da5d-4115-aa38-a34a7305c9a9 # Form
+            fieldUid: 4992b4f3-da5d-4115-aa38-a34a7305c9a9
             instructions: ''
             label: Formulier
             required: '1'

@@ -4,7 +4,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: ede512b1-e5c7-4d66-aeff-c7c526388e1c # Head Script
+            fieldUid: ede512b1-e5c7-4d66-aeff-c7c526388e1c
             instructions: null
             label: null
             required: false
@@ -13,7 +13,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 16e435de-d04a-4cf9-8c18-28f65479423f # Body Script
+            fieldUid: 16e435de-d04a-4cf9-8c18-28f65479423f
             instructions: null
             label: null
             required: false

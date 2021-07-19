@@ -4,7 +4,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: 4c8d2d62-5025-479a-938e-85b4d983e83e # Redactor
+            fieldUid: 4c8d2d62-5025-479a-938e-85b4d983e83e
             instructions: ''
             label: Quote
             required: '1'
@@ -40,7 +40,7 @@ fieldLayouts:
 handle: quotes
 hasTitleField: true
 name: Quotes
-section: d18d2409-3736-42db-b8d9-70d07bb2f19c # Quotes
+section: d18d2409-3736-42db-b8d9-70d07bb2f19c
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

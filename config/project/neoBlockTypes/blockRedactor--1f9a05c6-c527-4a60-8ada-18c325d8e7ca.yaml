@@ -1,12 +1,12 @@
 childBlocks: ''
-field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Page builder
+field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21
 fieldLayouts:
   21ddc4d5-3001-4019-b2bf-82824d42bacb:
     tabs:
       -
         elements:
           -
-            fieldUid: 4c8d2d62-5025-479a-938e-85b4d983e83e # Redactor
+            fieldUid: 4c8d2d62-5025-479a-938e-85b4d983e83e
             instructions: null
             label: null
             required: false

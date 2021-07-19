@@ -1,11 +1,11 @@
-field: cee178be-b24e-4a96-839e-09486956d1d2 # Social Links
+field: cee178be-b24e-4a96-839e-09486956d1d2
 fieldLayouts:
   a7e9e216-70bc-45e0-a3d0-2d1f338e149b:
     tabs:
       -
         elements:
           -
-            fieldUid: 6416c556-dbaa-4c1b-bc78-4c30a4ebc457 # Link Icon
+            fieldUid: 6416c556-dbaa-4c1b-bc78-4c30a4ebc457
             instructions: null
             label: null
             required: true
@@ -14,7 +14,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 4d7a1ee5-15a1-4dae-8d03-b802e5a80887 # Url
+            fieldUid: 4d7a1ee5-15a1-4dae-8d03-b802e5a80887
             instructions: null
             label: null
             required: true
@@ -25,7 +25,7 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  4d7a1ee5-15a1-4dae-8d03-b802e5a80887: # Url
+  4d7a1ee5-15a1-4dae-8d03-b802e5a80887:
     contentColumnType: text
     fieldGroup: null
     handle: linkUrl
@@ -134,7 +134,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: typedlinkfield\fields\LinkField
-  6416c556-dbaa-4c1b-bc78-4c30a4ebc457: # Link Icon
+  6416c556-dbaa-4c1b-bc78-4c30a4ebc457:
     contentColumnType: string
     fieldGroup: null
     handle: linkIcon

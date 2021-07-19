@@ -1,5 +1,5 @@
 contentColumnType: string
-fieldGroup: ff629bd2-b39a-4ba8-9ad0-dcb6f8f80ed8 # Team
+fieldGroup: ff629bd2-b39a-4ba8-9ad0-dcb6f8f80ed8
 handle: memberPic
 instructions: ''
 name: Foto
@@ -10,7 +10,7 @@ settings:
   allowedKinds:
     - image
     - video
-  defaultUploadLocationSource: 'volume:49ded60a-198f-449b-819e-2533dde2cb20' # Afbeeldingen
+  defaultUploadLocationSource: 'volume:49ded60a-198f-449b-819e-2533dde2cb20'
   defaultUploadLocationSubpath: ''
   limit: '1'
   localizeRelations: false
@@ -20,7 +20,7 @@ settings:
   showSiteMenu: false
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
-  singleUploadLocationSource: 'volume:49ded60a-198f-449b-819e-2533dde2cb20' # Afbeeldingen
+  singleUploadLocationSource: 'volume:49ded60a-198f-449b-819e-2533dde2cb20'
   singleUploadLocationSubpath: ''
   source: null
   sources: '*'

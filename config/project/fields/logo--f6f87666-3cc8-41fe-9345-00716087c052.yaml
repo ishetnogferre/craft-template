@@ -1,5 +1,5 @@
 contentColumnType: string
-fieldGroup: 0dae9c2c-8aab-44a0-8c73-d6f5c596c5dd # Globals
+fieldGroup: 0dae9c2c-8aab-44a0-8c73-d6f5c596c5dd
 handle: logo
 instructions: ''
 name: Logo
@@ -10,7 +10,7 @@ settings:
   allowedKinds:
     - image
     - json
-  defaultUploadLocationSource: 'volume:49ded60a-198f-449b-819e-2533dde2cb20' # Afbeeldingen
+  defaultUploadLocationSource: 'volume:49ded60a-198f-449b-819e-2533dde2cb20'
   defaultUploadLocationSubpath: ''
   limit: '1'
   localizeRelations: false
@@ -20,11 +20,11 @@ settings:
   showSiteMenu: false
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
-  singleUploadLocationSource: 'volume:49ded60a-198f-449b-819e-2533dde2cb20' # Afbeeldingen
+  singleUploadLocationSource: 'volume:49ded60a-198f-449b-819e-2533dde2cb20'
   singleUploadLocationSubpath: ''
   source: null
   sources:
-    - 'volume:49ded60a-198f-449b-819e-2533dde2cb20' # Afbeeldingen
+    - 'volume:49ded60a-198f-449b-819e-2533dde2cb20'
   targetSiteId: null
   useSingleFolder: false
   validateRelatedElements: false

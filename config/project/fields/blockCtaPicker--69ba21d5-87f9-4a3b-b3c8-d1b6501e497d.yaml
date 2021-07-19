@@ -1,5 +1,5 @@
 contentColumnType: string
-fieldGroup: d0393e73-f781-4174-9020-2f7649b53d09 # Blocks
+fieldGroup: d0393e73-f781-4174-9020-2f7649b53d09
 handle: blockCtaPicker
 instructions: ''
 name: 'Call To Action'
@@ -12,7 +12,7 @@ settings:
   showSiteMenu: true
   source: null
   sources:
-    - 'section:d47efc5d-a677-4569-8c82-6c4ea0a04109' # Call to Actions
+    - 'section:d47efc5d-a677-4569-8c82-6c4ea0a04109'
   targetSiteId: null
   validateRelatedElements: false
   viewMode: null

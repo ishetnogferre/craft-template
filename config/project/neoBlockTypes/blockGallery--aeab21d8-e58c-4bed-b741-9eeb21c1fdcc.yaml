@@ -1,12 +1,12 @@
 childBlocks: ''
-field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Page builder
+field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21
 fieldLayouts:
   3b831667-9987-4593-980b-5d953c3ac75d:
     tabs:
       -
         elements:
           -
-            fieldUid: 8c37f80e-7983-4052-838b-8df59e75b108 # Afbeelding
+            fieldUid: 8c37f80e-7983-4052-838b-8df59e75b108
             instructions: ''
             label: Gallerij
             required: '1'
