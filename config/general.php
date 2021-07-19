@@ -8,28 +8,21 @@
  * @see \craft\config\GeneralConfig
  */
 
-use craft\helpers\App;
 
-$isDev = App::env('ENVIRONMENT') === 'dev';
-$isProd = App::env('ENVIRONMENT') === 'production';
-$isStaging = App::env('ENVIRONMENT') === 'staging';
+$isDev = getenv('ENVIRONMENT') === 'dev';
+$isProd = getenv('ENVIRONMENT') === 'production';
+$isStaging = getenv('ENVIRONMENT') === 'staging';
 
 return [
-    // Default Week Start Day (0 = Sunday, 1 = Monday...)
-    'defaultWeekStartDay' => 1,
-    // Whether generated URLs should omit "index.php"
-    'omitScriptNameInUrls' => true,
-    // re-add html/html because Craft 3.6 removes them
-    'extraAllowedFileExtensions' => ['htm', 'html'],
-    // The URI segment that tells Craft to load the control panel
-    'cpTrigger' => App::env('CP_TRIGGER') ?: 'admin',
-    // The secure key Craft will use for hashing and encrypting data
-    'securityKey' => App::env('SECURITY_KEY'),
-    // Remove GraphQL from the Admin
+    'defaultWeekStartDay' => 1, // Default Week Start Day (0 = Sunday, 1 = Monday...)
+    'enableCsrfProtection' => true,
+    'omitScriptNameInUrls' => true, // Whether generated URLs should omit "index.php"
+    'extraAllowedFileExtensions' => ['htm', 'html'], // re-add html/html because Craft 3.6 removes them
+    'cpTrigger' => getenv('CP_TRIGGER') ?: 'admin',
+    'securityKey' => getenv('SECURITY_KEY'),
     'enableGql' => false,
     'preventUserEnumeration' => true,
 
-    // Whether Dev Mode should be enabled (see https://craftcms.com/guides/what-dev-mode-does)
     'allowAdminChanges' => $isDev,
     'allowUpdates' => $isDev,
     'backupOnUpdate' => $isDev,
@@ -42,7 +35,7 @@ return [
     'aliases' => [
         '@webroot' => getenv('BASE_PATH') . 'web',
         '@basePath' => getenv('BASE_PATH'),
-        '@baseUrl' => getenv('PRIMARY_SITE_URL'),
+        '@baseUrl' => getenv('BASE_URL'),
     ],
     'userbackToken' => getenv('USERBACK_TOKEN'),
 ];

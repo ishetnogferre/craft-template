@@ -17,10 +17,8 @@
  * your config/ folder, alongside this one.
  */
 
-use craft\helpers\App;
-
 return [
-    'id' => App::env('APP_ID') ?: 'CraftCMS',
+    'id' => getenv('APP_ID') ?: 'CraftCMS',
     'modules' => [
         'my-module' => \modules\Module::class,
         'hide-alerts' => \modules\hidealerts\HideAlertsModule::class,
