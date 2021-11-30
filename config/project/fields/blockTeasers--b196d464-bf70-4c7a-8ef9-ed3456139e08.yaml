@@ -1,5 +1,5 @@
 contentColumnType: string
-fieldGroup: d0393e73-f781-4174-9020-2f7649b53d09
+fieldGroup: d0393e73-f781-4174-9020-2f7649b53d09 # Blocks
 handle: blockTeasers
 instructions: ''
 name: Teasers
@@ -12,9 +12,9 @@ settings:
   showSiteMenu: false
   source: null
   sources:
-    - 'section:c22317fe-ede2-49d6-9c1c-9dd4ba995764'
-    - 'section:a3bde867-0359-4c2e-9697-972f4b42eb36'
-    - 'section:706804fb-3dd4-459c-bad8-561b62654153'
+    - 'section:c22317fe-ede2-49d6-9c1c-9dd4ba995764' # Pagina's
+    - 'section:a3bde867-0359-4c2e-9697-972f4b42eb36' # Services
+    - 'section:706804fb-3dd4-459c-bad8-561b62654153' # Team
   targetSiteId: null
   validateRelatedElements: false
   viewMode: null

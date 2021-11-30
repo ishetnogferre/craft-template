@@ -1,5 +1,5 @@
 contentColumnType: text
-fieldGroup: 3fb1b8c0-2589-43d4-ae05-ed41c4110fb7
+fieldGroup: 3fb1b8c0-2589-43d4-ae05-ed41c4110fb7 # CTA
 handle: ctaLink
 instructions: ''
 name: Link
@@ -48,9 +48,9 @@ settings:
             -
               - sources
               -
-                - 'single:c678556d-4b65-4ad5-9b3d-5a976756af64'
-                - 'single:4c9b0d1e-c875-47bf-9bc4-4742167919c7'
-                - 'section:c22317fe-ede2-49d6-9c1c-9dd4ba995764'
+                - 'single:c678556d-4b65-4ad5-9b3d-5a976756af64' # Contact
+                - 'single:4c9b0d1e-c875-47bf-9bc4-4742167919c7' # Home
+                - 'section:c22317fe-ede2-49d6-9c1c-9dd4ba995764' # Pagina's
             -
               - allowCustomQuery
               - ''

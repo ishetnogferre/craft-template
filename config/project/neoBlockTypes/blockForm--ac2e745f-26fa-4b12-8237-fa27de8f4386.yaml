@@ -1,12 +1,12 @@
 childBlocks: ''
-field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21
+field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Page builder
 fieldLayouts:
   11db6823-93d5-4373-a076-94f705b839a5:
     tabs:
       -
         elements:
           -
-            fieldUid: 4992b4f3-da5d-4115-aa38-a34a7305c9a9
+            fieldUid: 4992b4f3-da5d-4115-aa38-a34a7305c9a9 # Form
             instructions: ''
             label: Formulier
             required: '1'
@@ -21,5 +21,5 @@ maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
 name: Formulier
-sortOrder: 11
+sortOrder: 12
 topLevel: false

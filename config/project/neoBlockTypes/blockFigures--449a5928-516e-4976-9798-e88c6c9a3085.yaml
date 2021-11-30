@@ -1,12 +1,12 @@
 childBlocks: ''
-field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21
+field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Page builder
 fieldLayouts:
   433092b3-bfb9-483d-876f-da8795771999:
     tabs:
       -
         elements:
           -
-            fieldUid: 9c73910a-04bd-4adc-94f8-1a7869ccbfbd
+            fieldUid: 9c73910a-04bd-4adc-94f8-1a7869ccbfbd # Cijfers
             instructions: ''
             label: ''
             required: '1'
@@ -21,5 +21,5 @@ maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
 name: Cijfers
-sortOrder: 9
+sortOrder: 10
 topLevel: false

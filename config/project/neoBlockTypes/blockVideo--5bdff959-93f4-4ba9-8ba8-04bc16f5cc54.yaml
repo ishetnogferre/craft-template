@@ -1,12 +1,12 @@
 childBlocks: ''
-field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21
+field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Page builder
 fieldLayouts:
   50d6d3dd-4e01-4239-a9ad-6403a2bca87a:
     tabs:
       -
         elements:
           -
-            fieldUid: 1299796b-435a-4986-afe7-352e6f1d2914
+            fieldUid: 1299796b-435a-4986-afe7-352e6f1d2914 # Video
             instructions: null
             label: null
             required: false
@@ -21,5 +21,5 @@ maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
 name: Video
-sortOrder: 17
+sortOrder: 18
 topLevel: false

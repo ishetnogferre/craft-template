@@ -1,4 +1,4 @@
-dateModified: 1626703800
+dateModified: 1636461574
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER
@@ -15,92 +15,95 @@ email:
   transportType: craft\mail\transportadapters\Smtp
 meta:
   __names__:
-    0dae9c2c-8aab-44a0-8c73-d6f5c596c5dd: Globals
-    1f9a05c6-c527-4a60-8ada-18c325d8e7ca: Tekst
-    2d2f032f-8d0d-4d7c-a0b3-8cdfe22aafa1: Quotes
-    2eea067f-5157-4154-a236-3790731e5e62: Voornaam
-    2ef40c1a-fa32-405d-afc8-284aa0281b0a: SEO
-    3e0c95e5-3ae3-4996-890e-195daf2b25ec: 'Call to Actions'
-    3fb1b8c0-2589-43d4-ae05-ed41c4110fb7: CTA
-    4b2324dd-22d5-4ce9-8c64-6a342455e115: Blocks
-    4c8d2d62-5025-479a-938e-85b4d983e83e: Redactor
-    4c9b0d1e-c875-47bf-9bc4-4742167919c7: Home
-    4cbfb587-af7d-43e1-9544-dbddae466915: SEO
-    4d7a1ee5-15a1-4dae-8d03-b802e5a80887: Url
-    5bdff959-93f4-4ba9-8ba8-04bc16f5cc54: Video
-    6a125d5b-d0f4-448b-ad2c-982976a457f7: 'Teaser Afbeelding'
-    6a6385c4-4013-4687-90ad-1feeafd273c5: 'Teaser Titel'
-    06d958cf-f1c2-405f-868b-a1351f85a4a7: 'Icoon + Tekst'
-    6efcc7d1-17e7-4880-9107-104c51a1a031: 'Header Asset'
-    7d5608c5-2a44-42ff-aeb8-dd8f0e737e1e: Bio
-    7e0fa753-b551-46a9-9426-6d7d96ce7968: Titel
-    7ee97b17-343b-4bfc-b89b-6524fc2dd8af: Button
-    8c37f80e-7983-4052-838b-8df59e75b108: Afbeelding
-    8da01410-9153-4469-87a9-13dad2419ebc: '1/3 - 1/3 - 1/3'
-    9c0e7bfb-10c6-4875-8c5f-03da5842320b: 'Craft Template'
-    9c7a4966-42e8-49f7-b64d-2f90f14b5dc5: Teaser
-    9c73910a-04bd-4adc-94f8-1a7869ccbfbd: Cijfers
-    16e435de-d04a-4cf9-8c18-28f65479423f: 'Body Script'
-    17ea5315-118a-4de0-a138-7b9e920d8650: Modules
-    20c0032a-ff8d-4528-abd3-a36e53ef21e1: 'Header Title'
-    26da5d02-a80a-48c4-b718-c80243a4c9ca: Contact
-    46c3503b-1cf0-4325-921d-66c85770430e: 1/1
-    49ded60a-198f-449b-819e-2533dde2cb20: Afbeeldingen
-    54cd2e2b-47b8-4eee-a066-14d594e4466e: Quote
-    56bc0f1a-d6ce-4f87-b8f7-6b43db0e45e2: 'Algemene Info'
-    66eeed75-fb86-43f9-88e1-46a4c3472448: Achtergrondkleur
-    69ba21d5-87f9-4a3b-b3c8-d1b6501e497d: 'Call To Action'
-    70b99a7b-9cdd-431c-b2c5-9c306e5b7446: Overzicht
-    78ad9535-91a3-47ac-b29a-96a1a1453611: Titel
-    78c04609-9462-4e5a-808c-76d5790fcdc2: Overzicht
-    84f75f7a-cd8e-4ebc-b072-f7d5ffcd6a96: Documenten
-    96a96773-cc3c-4741-8037-c01f32ea9060: '1/2 - 1/2'
-    99eb80f8-ad39-4772-9111-899d244fa56b: 'Telefoon nr'
-    449a5928-516e-4976-9798-e88c6c9a3085: Cijfers
-    543e14d9-a2f8-40cf-886f-a5716802b0fc: Spacer
-    729c136f-1a7f-44c5-bca4-7e895abefdb5: Hoofdmenu
-    789e0a59-7426-4a3a-96a3-9b3f34ed958f: 'Teaser Beschriving'
-    870e8579-1237-4e5b-ad88-60468567da83: Adres
-    3685baae-ae72-4397-9a9f-bd18bb1700df: 'Call To Action'
-    4184ccf1-9381-4ce6-8440-47c886779a42: Achternaam
-    4992b4f3-da5d-4115-aa38-a34a7305c9a9: Form
-    5143de0c-6956-48e5-8c7e-c18b0bcf5565: Services
-    5736a749-6c02-41ad-bca0-8e6c69b60e3d: '1/3 - 2/3'
-    6416c556-dbaa-4c1b-bc78-4c30a4ebc457: 'Link Icon'
-    6873ebf1-5c5f-4b31-9f4a-4c228afd0b3c: 'Craft Template'
-    72299a99-247b-4138-876f-f85e0eb95839: Videos
-    706804fb-3dd4-459c-bad8-561b62654153: Team
-    1299796b-435a-4986-afe7-352e6f1d2914: Video
-    5347206b-e873-4c82-aed2-845de710b54b: Beschrijving
-    a3bde867-0359-4c2e-9697-972f4b42eb36: Services
-    a387e404-a1ae-40a2-be5f-917800e7d0f2: Subtitel
-    ab1a454a-6762-4555-bf9b-9d88e9bdf7f4: Foto
-    ac2e745f-26fa-4b12-8237-fa27de8f4386: Formulier
-    aeab21d8-e58c-4bed-b741-9eeb21c1fdcc: Gallerij
-    b196d464-bf70-4c7a-8ef9-ed3456139e08: Teasers
-    b343742a-9dff-49ad-b25e-4a2f1c54069f: Quote
-    bf22d816-18ad-457e-afbb-7a509979cff9: 'Afbeelding grootte'
-    c6d2994d-170a-4259-ba5d-96dc31b313b1: 'Header Description'
-    c22317fe-ede2-49d6-9c1c-9dd4ba995764: 'Pagina''s'
-    c91261ba-ea16-473c-a244-6d355806d026: Home
-    c678556d-4b65-4ad5-9b3d-5a976756af64: Contact
-    ca7dc5f0-a1f4-48e4-870a-a98928a04b02: Afbeelding
-    cee178be-b24e-4a96-839e-09486956d1d2: 'Social Links'
-    d0393e73-f781-4174-9020-2f7649b53d09: Blocks
-    d6e2380e-1c5d-4514-9350-3efef0862b6d: 'Pagina''s'
-    d18d2409-3736-42db-b8d9-70d07bb2f19c: Quotes
-    d47efc5d-a677-4569-8c82-6c4ea0a04109: 'Call to Actions'
-    d980cfd7-2a78-43ff-bde0-d0bb142a36ad: Link
-    dfc41a8f-815a-4ed7-8aea-1f3565a13cac: 'Header Subtitel'
-    e0a6066e-2c3d-4fcd-9bd7-746b433dca4b: Scripts
-    e95044fc-be47-4c7d-9f0e-7351742d0dcc: Team
-    ed2b4993-a1f0-42e0-b7ac-721fb2c84c21: 'Page builder'
-    ede512b1-e5c7-4d66-aeff-c7c526388e1c: 'Head Script'
-    eff4bf4c-f34e-4e11-944c-c132eb404694: Email
-    f6f87666-3cc8-41fe-9345-00716087c052: Logo
-    f54f7984-d028-4c09-b235-1e547cef3e67: Icoon
-    fc99e12c-0ba6-4a24-a5da-d1bbbfe3f063: Header
-    ff629bd2-b39a-4ba8-9ad0-dcb6f8f80ed8: Team
+    0dae9c2c-8aab-44a0-8c73-d6f5c596c5dd: Globals # Globals
+    1f9a05c6-c527-4a60-8ada-18c325d8e7ca: Tekst # Tekst
+    2d2f032f-8d0d-4d7c-a0b3-8cdfe22aafa1: Quotes # Quotes
+    2eea067f-5157-4154-a236-3790731e5e62: Voornaam # Voornaam
+    2ef40c1a-fa32-405d-afc8-284aa0281b0a: SEO # SEO
+    3e0c95e5-3ae3-4996-890e-195daf2b25ec: 'Call to Actions' # Call to Actions
+    3fb1b8c0-2589-43d4-ae05-ed41c4110fb7: CTA # CTA
+    4b2324dd-22d5-4ce9-8c64-6a342455e115: Blocks # Blocks
+    4c8d2d62-5025-479a-938e-85b4d983e83e: Redactor # Redactor
+    4c9b0d1e-c875-47bf-9bc4-4742167919c7: Home # Home
+    4cbfb587-af7d-43e1-9544-dbddae466915: SEO # SEO
+    4d7a1ee5-15a1-4dae-8d03-b802e5a80887: Url # Url
+    5bdff959-93f4-4ba9-8ba8-04bc16f5cc54: Video # Video
+    6a125d5b-d0f4-448b-ad2c-982976a457f7: 'Teaser Afbeelding' # Teaser Afbeelding
+    6a6385c4-4013-4687-90ad-1feeafd273c5: 'Teaser Titel' # Teaser Titel
+    06d958cf-f1c2-405f-868b-a1351f85a4a7: 'Icoon + Tekst' # Icoon + Tekst
+    6efcc7d1-17e7-4880-9107-104c51a1a031: 'Header Asset' # Header Asset
+    7d5608c5-2a44-42ff-aeb8-dd8f0e737e1e: Bio # Bio
+    7e0fa753-b551-46a9-9426-6d7d96ce7968: Titel # Titel
+    7ee97b17-343b-4bfc-b89b-6524fc2dd8af: Button # Button
+    8c37f80e-7983-4052-838b-8df59e75b108: Afbeelding # Afbeelding
+    8da01410-9153-4469-87a9-13dad2419ebc: '1/3 - 1/3 - 1/3' # 1/3 - 1/3 - 1/3
+    9c0e7bfb-10c6-4875-8c5f-03da5842320b: 'Craft Template' # Craft Template
+    9c7a4966-42e8-49f7-b64d-2f90f14b5dc5: Teaser # Teaser
+    9c73910a-04bd-4adc-94f8-1a7869ccbfbd: Cijfers # Cijfers
+    16e435de-d04a-4cf9-8c18-28f65479423f: 'Body Script' # Body Script
+    17ea5315-118a-4de0-a138-7b9e920d8650: Modules # Modules
+    20c0032a-ff8d-4528-abd3-a36e53ef21e1: 'Header Title' # Header Title
+    26da5d02-a80a-48c4-b718-c80243a4c9ca: Contact # Contact
+    46c3503b-1cf0-4325-921d-66c85770430e: 1/1 # 1/1
+    49ded60a-198f-449b-819e-2533dde2cb20: Afbeeldingen # Afbeeldingen
+    54cd2e2b-47b8-4eee-a066-14d594e4466e: Quote # Quote
+    56bc0f1a-d6ce-4f87-b8f7-6b43db0e45e2: 'Algemene Info' # Algemene Info
+    56ddf507-11a4-4028-8c83-c1b0907983c4: Standaard # Standaard
+    66eeed75-fb86-43f9-88e1-46a4c3472448: Achtergrondkleur # Achtergrondkleur
+    69ba21d5-87f9-4a3b-b3c8-d1b6501e497d: 'Call To Action' # Call To Action
+    70b99a7b-9cdd-431c-b2c5-9c306e5b7446: Overzicht # Overzicht
+    78ad9535-91a3-47ac-b29a-96a1a1453611: Titel # Titel
+    78c04609-9462-4e5a-808c-76d5790fcdc2: Overzicht # Overzicht
+    80c43920-a869-4240-9719-103351aca98d: Code # Code
+    84f75f7a-cd8e-4ebc-b072-f7d5ffcd6a96: Documenten # Documenten
+    96a96773-cc3c-4741-8037-c01f32ea9060: '1/2 - 1/2' # 1/2 - 1/2
+    99eb80f8-ad39-4772-9111-899d244fa56b: 'Telefoon nr' # Telefoon nr
+    449a5928-516e-4976-9798-e88c6c9a3085: Cijfers # Cijfers
+    543e14d9-a2f8-40cf-886f-a5716802b0fc: Spacer # Spacer
+    729c136f-1a7f-44c5-bca4-7e895abefdb5: Hoofdmenu # Hoofdmenu
+    789e0a59-7426-4a3a-96a3-9b3f34ed958f: 'Teaser Beschriving' # Teaser Beschriving
+    870e8579-1237-4e5b-ad88-60468567da83: Adres # Adres
+    3685baae-ae72-4397-9a9f-bd18bb1700df: 'Call To Action' # Call To Action
+    4184ccf1-9381-4ce6-8440-47c886779a42: Achternaam # Achternaam
+    4992b4f3-da5d-4115-aa38-a34a7305c9a9: Form # Form
+    5143de0c-6956-48e5-8c7e-c18b0bcf5565: Services # Services
+    5736a749-6c02-41ad-bca0-8e6c69b60e3d: '1/3 - 2/3' # 1/3 - 2/3
+    6416c556-dbaa-4c1b-bc78-4c30a4ebc457: 'Link Icon' # Link Icon
+    6873ebf1-5c5f-4b31-9f4a-4c228afd0b3c: 'Craft Template' # Craft Template
+    72299a99-247b-4138-876f-f85e0eb95839: Videos # Videos
+    706804fb-3dd4-459c-bad8-561b62654153: Team # Team
+    1299796b-435a-4986-afe7-352e6f1d2914: Video # Video
+    5347206b-e873-4c82-aed2-845de710b54b: Beschrijving # Beschrijving
+    a3bde867-0359-4c2e-9697-972f4b42eb36: Services # Services
+    a387e404-a1ae-40a2-be5f-917800e7d0f2: Subtitel # Subtitel
+    ab1a454a-6762-4555-bf9b-9d88e9bdf7f4: Foto # Foto
+    ac2e745f-26fa-4b12-8237-fa27de8f4386: Formulier # Formulier
+    aeab21d8-e58c-4bed-b741-9eeb21c1fdcc: Gallerij # Gallerij
+    b15b8785-77c9-45aa-bd8f-a942e183a363: 'Veelgestelde vragen' # Veelgestelde vragen
+    b196d464-bf70-4c7a-8ef9-ed3456139e08: Teasers # Teasers
+    b343742a-9dff-49ad-b25e-4a2f1c54069f: Quote # Quote
+    bf22d816-18ad-457e-afbb-7a509979cff9: 'Afbeelding grootte' # Afbeelding grootte
+    c6d2994d-170a-4259-ba5d-96dc31b313b1: 'Header Description' # Header Description
+    c22317fe-ede2-49d6-9c1c-9dd4ba995764: 'Pagina''s' # Pagina's
+    c91261ba-ea16-473c-a244-6d355806d026: Home # Home
+    c678556d-4b65-4ad5-9b3d-5a976756af64: Contact # Contact
+    ca7dc5f0-a1f4-48e4-870a-a98928a04b02: Afbeelding # Afbeelding
+    cee178be-b24e-4a96-839e-09486956d1d2: 'Social Links' # Social Links
+    d0393e73-f781-4174-9020-2f7649b53d09: Blocks # Blocks
+    d6e2380e-1c5d-4514-9350-3efef0862b6d: 'Pagina''s' # Pagina's
+    d18d2409-3736-42db-b8d9-70d07bb2f19c: Quotes # Quotes
+    d47efc5d-a677-4569-8c82-6c4ea0a04109: 'Call to Actions' # Call to Actions
+    d980cfd7-2a78-43ff-bde0-d0bb142a36ad: Link # Link
+    dfc41a8f-815a-4ed7-8aea-1f3565a13cac: 'Header Subtitel' # Header Subtitel
+    e0a6066e-2c3d-4fcd-9bd7-746b433dca4b: Scripts # Scripts
+    e95044fc-be47-4c7d-9f0e-7351742d0dcc: Team # Team
+    ed2b4993-a1f0-42e0-b7ac-721fb2c84c21: 'Page builder' # Page builder
+    ede512b1-e5c7-4d66-aeff-c7c526388e1c: 'Head Script' # Head Script
+    eff4bf4c-f34e-4e11-944c-c132eb404694: Email # Email
+    f6f87666-3cc8-41fe-9345-00716087c052: Logo # Logo
+    f54f7984-d028-4c09-b235-1e547cef3e67: Icoon # Icoon
+    fc99e12c-0ba6-4a24-a5da-d1bbbfe3f063: Header # Header
+    ff629bd2-b39a-4ba8-9ad0-dcb6f8f80ed8: Team # Team
 plugins:
   admin-bar:
     edition: standard

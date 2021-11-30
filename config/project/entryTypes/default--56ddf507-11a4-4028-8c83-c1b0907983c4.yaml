@@ -1,17 +1,8 @@
 fieldLayouts:
-  c336cb50-410a-4751-8da9-c44f66ec8d3b:
+  aed413a2-c6a8-445b-ae5a-1bf2d27562ae:
     tabs:
       -
         elements:
-          -
-            fieldUid: 4c8d2d62-5025-479a-938e-85b4d983e83e # Redactor
-            instructions: ''
-            label: Quote
-            required: '1'
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
           -
             autocapitalize: true
             autocomplete: false
@@ -19,8 +10,8 @@ fieldLayouts:
             class: null
             disabled: false
             id: null
-            instructions: ''
-            label: Auteur
+            instructions: null
+            label: null
             max: null
             min: null
             name: null
@@ -35,12 +26,12 @@ fieldLayouts:
             type: craft\fieldlayoutelements\EntryTitleField
             warning: null
             width: 100
-        name: Content
+        name: Inhoud
         sortOrder: 1
-handle: quotes
+handle: default
 hasTitleField: true
-name: Quotes
-section: d18d2409-3736-42db-b8d9-70d07bb2f19c # Quotes
+name: Standaard
+section: b15b8785-77c9-45aa-bd8f-a942e183a363 # Veelgestelde vragen
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

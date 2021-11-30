@@ -1,10 +1,13 @@
 childBlocks:
   - blockImage
+  - blockCta
+  - blockCode
+  - blockForm
   - blockIconText
   - blockQuote
   - blockRedactor
   - blockVideo
-field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21
+field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Page builder
 handle: moduleHalfHalf
 maxBlocks: 0
 maxChildBlocks: 0

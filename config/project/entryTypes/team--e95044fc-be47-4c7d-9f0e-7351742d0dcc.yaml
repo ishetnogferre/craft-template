@@ -4,7 +4,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: 8c37f80e-7983-4052-838b-8df59e75b108
+            fieldUid: 8c37f80e-7983-4052-838b-8df59e75b108 # Afbeelding
             instructions: null
             label: null
             required: false
@@ -36,7 +36,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: a387e404-a1ae-40a2-be5f-917800e7d0f2
+            fieldUid: a387e404-a1ae-40a2-be5f-917800e7d0f2 # Subtitel
             instructions: ''
             label: Functie
             required: ''
@@ -45,7 +45,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 4c8d2d62-5025-479a-938e-85b4d983e83e
+            fieldUid: 4c8d2d62-5025-479a-938e-85b4d983e83e # Redactor
             instructions: ''
             label: Beschrijving
             required: ''
@@ -54,7 +54,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: eff4bf4c-f34e-4e11-944c-c132eb404694
+            fieldUid: eff4bf4c-f34e-4e11-944c-c132eb404694 # Email
             instructions: null
             label: null
             required: false
@@ -63,7 +63,7 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            fieldUid: 99eb80f8-ad39-4772-9111-899d244fa56b
+            fieldUid: 99eb80f8-ad39-4772-9111-899d244fa56b # Telefoon nr
             instructions: null
             label: null
             required: false
@@ -76,7 +76,7 @@ fieldLayouts:
 handle: team
 hasTitleField: true
 name: Team
-section: 706804fb-3dd4-459c-bad8-561b62654153
+section: 706804fb-3dd4-459c-bad8-561b62654153 # Team
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

@@ -27,7 +27,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 6efcc7d1-17e7-4880-9107-104c51a1a031
+            fieldUid: 6efcc7d1-17e7-4880-9107-104c51a1a031 # Header Asset
             instructions: ''
             label: 'Header Achtergrond'
             required: ''
@@ -40,7 +40,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21
+            fieldUid: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Page builder
             instructions: null
             label: null
             required: false
@@ -53,7 +53,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: 2ef40c1a-fa32-405d-afc8-284aa0281b0a
+            fieldUid: 2ef40c1a-fa32-405d-afc8-284aa0281b0a # SEO
             instructions: null
             label: null
             required: false
@@ -66,7 +66,7 @@ fieldLayouts:
 handle: paginas
 hasTitleField: true
 name: 'Pagina''s'
-section: c22317fe-ede2-49d6-9c1c-9dd4ba995764
+section: c22317fe-ede2-49d6-9c1c-9dd4ba995764 # Pagina's
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

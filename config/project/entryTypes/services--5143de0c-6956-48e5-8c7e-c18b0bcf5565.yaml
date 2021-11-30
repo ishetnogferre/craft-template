@@ -27,7 +27,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 6efcc7d1-17e7-4880-9107-104c51a1a031
+            fieldUid: 6efcc7d1-17e7-4880-9107-104c51a1a031 # Header Asset
             instructions: null
             label: null
             required: false
@@ -40,7 +40,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: 4c8d2d62-5025-479a-938e-85b4d983e83e
+            fieldUid: 4c8d2d62-5025-479a-938e-85b4d983e83e # Redactor
             instructions: null
             label: null
             required: false
@@ -53,7 +53,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: 6a125d5b-d0f4-448b-ad2c-982976a457f7
+            fieldUid: 6a125d5b-d0f4-448b-ad2c-982976a457f7 # Teaser Afbeelding
             instructions: null
             label: null
             required: false
@@ -62,7 +62,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 6a6385c4-4013-4687-90ad-1feeafd273c5
+            fieldUid: 6a6385c4-4013-4687-90ad-1feeafd273c5 # Teaser Titel
             instructions: null
             label: null
             required: false
@@ -71,7 +71,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 789e0a59-7426-4a3a-96a3-9b3f34ed958f
+            fieldUid: 789e0a59-7426-4a3a-96a3-9b3f34ed958f # Teaser Beschriving
             instructions: null
             label: null
             required: false
@@ -84,7 +84,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: 2ef40c1a-fa32-405d-afc8-284aa0281b0a
+            fieldUid: 2ef40c1a-fa32-405d-afc8-284aa0281b0a # SEO
             instructions: null
             label: null
             required: false
@@ -97,7 +97,7 @@ fieldLayouts:
 handle: services
 hasTitleField: true
 name: Services
-section: a3bde867-0359-4c2e-9697-972f4b42eb36
+section: a3bde867-0359-4c2e-9697-972f4b42eb36 # Services
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

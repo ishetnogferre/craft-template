@@ -3,7 +3,7 @@ handle: pages
 name: 'Pagina''s'
 propagationMethod: all
 siteSettings:
-  9c0e7bfb-10c6-4875-8c5f-03da5842320b:
+  9c0e7bfb-10c6-4875-8c5f-03da5842320b: # Craft Template
     enabledByDefault: true
     hasUrls: true
     template: _resolvers/page

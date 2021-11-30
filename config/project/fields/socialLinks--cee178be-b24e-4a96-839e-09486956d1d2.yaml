@@ -1,5 +1,5 @@
 contentColumnType: string
-fieldGroup: 0dae9c2c-8aab-44a0-8c73-d6f5c596c5dd
+fieldGroup: 0dae9c2c-8aab-44a0-8c73-d6f5c596c5dd # Globals
 handle: socialLinks
 instructions: ''
 name: 'Social Links'
@@ -8,14 +8,14 @@ settings:
   columns:
     __assoc__:
       -
-        - 6416c556-dbaa-4c1b-bc78-4c30a4ebc457
+        - 6416c556-dbaa-4c1b-bc78-4c30a4ebc457 # Link Icon
         -
           __assoc__:
             -
               - width
               - ''
       -
-        - 4d7a1ee5-15a1-4dae-8d03-b802e5a80887
+        - 4d7a1ee5-15a1-4dae-8d03-b802e5a80887 # Url
         -
           __assoc__:
             -

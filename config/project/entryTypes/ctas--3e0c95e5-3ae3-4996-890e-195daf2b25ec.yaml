@@ -27,7 +27,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 78ad9535-91a3-47ac-b29a-96a1a1453611
+            fieldUid: 78ad9535-91a3-47ac-b29a-96a1a1453611 # Titel
             instructions: ''
             label: ''
             required: '1'
@@ -36,7 +36,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 5347206b-e873-4c82-aed2-845de710b54b
+            fieldUid: 5347206b-e873-4c82-aed2-845de710b54b # Beschrijving
             instructions: null
             label: null
             required: false
@@ -45,7 +45,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: d980cfd7-2a78-43ff-bde0-d0bb142a36ad
+            fieldUid: d980cfd7-2a78-43ff-bde0-d0bb142a36ad # Link
             instructions: ''
             label: ''
             required: '1'
@@ -58,7 +58,7 @@ fieldLayouts:
 handle: ctas
 hasTitleField: true
 name: 'Call to Actions'
-section: d47efc5d-a677-4569-8c82-6c4ea0a04109
+section: d47efc5d-a677-4569-8c82-6c4ea0a04109 # Call to Actions
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null
