@@ -1,4 +1,4 @@
-childBlocks: ''
+childBlocks: null
 field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Page builder
 fieldLayouts:
   e824cb48-d04f-4122-9ac1-cf45007c0535:
@@ -25,6 +25,7 @@ fieldLayouts:
             width: 100
         name: Content
         sortOrder: 1
+group: 4b2324dd-22d5-4ce9-8c64-6a342455e115 # Blocks
 handle: blockImage
 maxBlocks: 0
 maxChildBlocks: 0

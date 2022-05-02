@@ -1,4 +1,4 @@
-childBlocks: ''
+childBlocks: null
 field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Page builder
 fieldLayouts:
   dbf263de-4614-47b2-a62e-325a6db5b277:
@@ -16,10 +16,11 @@ fieldLayouts:
             width: 100
         name: Content
         sortOrder: 1
+group: 4b2324dd-22d5-4ce9-8c64-6a342455e115 # Blocks
 handle: blockOverview
 maxBlocks: 0
 maxChildBlocks: 0
 maxSiblingBlocks: 0
 name: Overzicht
-sortOrder: 14
+sortOrder: 13
 topLevel: false

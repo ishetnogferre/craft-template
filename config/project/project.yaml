@@ -1,4 +1,4 @@
-dateModified: 1636461574
+dateModified: 1651480212
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SENDER
@@ -145,7 +145,7 @@ plugins:
   colour-swatches:
     edition: standard
     enabled: true
-    schemaVersion: 1.4.1.1
+    schemaVersion: 1.4.2
   config-values-field:
     edition: standard
     enabled: true
@@ -182,7 +182,7 @@ plugins:
     edition: lite
     enabled: true
     licenseKey: 5W66A7U3YAL47SJL8ISFW30V
-    schemaVersion: 3.3.2
+    schemaVersion: 3.6.3
     settings:
       ajaxByDefault: true
       alertNotificationRecipients: ''
@@ -266,7 +266,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: RCCEDJPU25LY0D5CB8DKTZQP
-    schemaVersion: 2.9.11
+    schemaVersion: 2.13.0
   position-fieldtype:
     edition: standard
     enabled: true
@@ -320,7 +320,7 @@ system:
   live: true
   name: 'Craft Template'
   retryDuration: null
-  schemaVersion: 3.7.7
+  schemaVersion: 3.7.33
   timeZone: Europe/Brussels
 users:
   allowPublicRegistration: false

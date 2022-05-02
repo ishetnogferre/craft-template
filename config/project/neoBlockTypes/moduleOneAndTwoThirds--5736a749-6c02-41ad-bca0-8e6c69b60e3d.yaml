@@ -5,6 +5,7 @@ childBlocks:
   - blockRedactor
   - blockVideo
 field: ed2b4993-a1f0-42e0-b7ac-721fb2c84c21 # Page builder
+group: 17ea5315-118a-4de0-a138-7b9e920d8650 # Modules
 handle: moduleOneAndTwoThirds
 maxBlocks: 0
 maxChildBlocks: 0

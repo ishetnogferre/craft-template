@@ -185,7 +185,10 @@ const postCssPlugins = [
   // require('postcss-object-fit-images'),
   require('postcss-preset-env')({
       stage: 1,
-      autoprefixer: { grid: false }
+      autoprefixer: { grid: false },
+      features: {
+        'focus-within-pseudo-class': false
+      }
   }),
 ]
 mix.options({ postCss: postCssPlugins })
