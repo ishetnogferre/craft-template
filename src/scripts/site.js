@@ -1,1 +1,1 @@
-require('lazysizes');
+import 'alpinejs'

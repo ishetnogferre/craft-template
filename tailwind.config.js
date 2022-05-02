@@ -1,23 +1,16 @@
 module.exports = {
-  purge: {
-    enabled: false,
-    mode: 'all',
-    content: [
-      './templates/**/**/*.twig',
-      './templates/**/**/*.html',
-      './src/styles/**/*.css',
-      './src/scripts/**/*.js',
-    ],
-    options: {
-      safelist: {
-        standard: [/ls-blur-up-img/],
-        deep: [/body/, /ls-blur-up-img/, /lb-/]
-      },
-      fontFace: true,
-      // rejected: true 
+  content: [
+    './templates/**/**/*.twig',
+    './templates/**/**/*.html',
+    './src/scripts/**/*.js',
+  ],
+  /*safelist: [
+    {
+      pattern: '',
+      variants: '' 
     }
-  },
-  darkMode: false, // or 'media' or 'class'
+  ],
+  */
   theme: {
     aspectRatio: {
       'none': 0,

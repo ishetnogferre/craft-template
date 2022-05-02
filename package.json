@@ -1,59 +1,58 @@
 {
   "scripts": {
-    "watch": "npm run clean && NODE_ENV=development webpack --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "npm run clean && NODE_ENV=development webpack --watch --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
     "dev": "npm run clean && NODE_ENV=development webpack-dev-server --https --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "start": "npm run clean && NODE_ENV=development webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "build": "npm run clean && NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "start": "npm run clean && NODE_ENV=development webpack --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "build": "npm run clean && NODE_ENV=production webpack --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
     "clean": "rimraf web/dist/* web/{,**/}*{html,json}",
     "fix-scripts": "eslint --fix 'src/scripts/**/*.{vue,js,jsx,mjs}'",
     "test": "echo \"No test script specified\""
   },
   "devDependencies": {
-    "@tailwindcss/postcss7-compat": "^2.2.17",
-    "autoprefixer": "^9.8.8",
-    "babel-eslint": "^10.1.0",
-    "copy-webpack-plugin": "^6.3.2",
+    "autoprefixer": "^10.4.4",
+    "copy-webpack-plugin": "^10.2.4",
     "core-js": "^3.21.1",
     "cross-env": "^7.0.2",
-    "eslint": "^7.32.0",
-    "eslint-loader": "^4.0.2",
-    "eslint-plugin-compat": "^3.13.0",
-    "eslint-plugin-vue": "^7.20.0",
+    "eslint": "^8.11.0",
+    "eslint-plugin-vue": "^8.5.0",
+    "eslint-webpack-plugin": "^3.1.1",
     "faker": "^4.1.0",
-    "globby": "^11.1.0",
-    "html-critical-webpack-plugin": "^2.1.0",
+    "globby": "^11.0.1",
     "html-webpack-plugin": "^4.3.0",
-    "imagemin-webpack-plugin": "^2.4.2",
-    "laravel-mix": "^5.0.4",
-    "laravel-mix-critical": "^0.1.2",
-    "laravel-mix-eslint": "^0.1.3",
-    "laravel-mix-imagemin": "1.0.3",
+    "laravel-mix": "^6.0.43",
+    "laravel-mix-eslint": "^0.2.0",
     "laravel-mix-make-file-hash": "^2.1.0",
-    "laravel-mix-polyfill": "^2.0.0",
-    "laravel-mix-purgecss": "^5.0.0",
-    "laravel-mix-svg-sprite": "^1.0.1",
-    "laravel-mix-twig-to-html": "^1.3.0",
-    "node-sass": "^4.14.1",
-    "postcss": "^7.0.39",
-    "postcss-easy-import": "^3.0.0",
-    "postcss-preset-env": "^6.7.1",
+    "laravel-mix-polyfill": "^3.0.1",
+    "laravel-mix-purgecss": "^6.0.0",
+    "postcss": "^8.4.12",
+    "postcss-preset-env": "^7.4.3",
     "prettier": "^2.6.1",
+    "prettier-plugin-tailwindcss": "^0.1.8",
     "raw-loader": "^4.0.1",
     "rimraf": "^3.0.2",
-    "sass-loader": "^8.0.2",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3",
-    "twig-html-loader": "^0.1.9",
-    "vue-template-compiler": "^2.6.14",
-    "webpack": "^4.43.0"
+    "tailwindcss": "^3.0.23",
+    "twig-html-loader": "^0.1.7",
+    "webpack": "^5.1.0"
   },
   "dependencies": {
+    "@babel/eslint-parser": "^7.17.0",
     "alpinejs": "^2.8.2",
-    "font-awesome": "^4.7.0",
-    "lazysizes": "^5.3.2",
+    "dotenv": "^10.0.0",
+    "laravel-mix-criticalcss": "github:ishetnogferre/laravel-mix-criticalcss",
+    "postcss-easy-import": "^4.0.0",
     "tailwindcss-aspect-ratio": "^3.0.0",
-    "tailwindcss-responsive-embed": "^1.0.0",
-    "tailwindcss-scrims": "^1.0.0",
-    "vue-eslint-parser": "^7.11.0"
+    "tailwindcss-scrims": "^1.0.0"
+  },
+  "eslintConfig": {
+    "parser": "vue-eslint-parser",
+    "parserOptions": {
+      "parser": "@babel/eslint-parser",
+      "sourceType": "module",
+      "requireConfigFile": false
+    }
+  },
+  "engines": {
+    "node": ">=16.0.0"
   },
   "browserslist": [
     "> 1%",
@@ -67,22 +66,6 @@
     "not ie_mob 11",
     "not and_uc 11.8"
   ],
-  "eslintConfig": {
-    "parser": "vue-eslint-parser",
-    "parserOptions": {
-      "parser": "babel-eslint",
-      "sourceType": "module"
-    },
-    "plugins": [
-      "compat"
-    ],
-    "rules": {
-      "compat/compat": "warn"
-    }
-  },
-  "engines": {
-    "node": ">=10.18.1"
-  },
   "prettier": {
     "trailingComma": "es5",
     "useTabs": false,
