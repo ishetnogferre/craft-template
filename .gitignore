@@ -27,6 +27,7 @@ config/license.key
 /npm-debug.log
 /templates/_inlinejs/
 /web/cpresources/*
+!/web/cpresources/.gitkeep
 
 # MISC FILES
 .cache
