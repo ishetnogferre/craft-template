@@ -20,7 +20,7 @@
   "require": {
     "carlcs/craft-redactorcustomstyles": "3.0.4",
     "charliedev/section-field": "1.1.0",
-    "craftcms/cms": "3.7.39",
+    "craftcms/cms": "3.7.55.2",
     "craftcms/redactor": "2.10.7",
     "dolphiq/iconpicker": "dev-development",
     "ether/seo": "3.7.4",
