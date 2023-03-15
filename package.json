@@ -32,7 +32,7 @@
     "rimraf": "^3.0.2",
     "tailwindcss": "^3.0.23",
     "twig-html-loader": "^0.1.7",
-    "webpack": "^5.1.0"
+    "webpack": "^5.76.0"
   },
   "dependencies": {
     "@babel/eslint-parser": "^7.17.0",
